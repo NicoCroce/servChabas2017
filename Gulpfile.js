@@ -33,13 +33,14 @@ var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
 	SRC_FONTS_BASE = path.join(FOLDER_ASSETS, 'icons'),
 	SRC_JAVASCRIPT_BASE = path.join(FOLDER_ASSETS, 'js'),
+	SRC_JAVASCRIPT_LIBS = path.join(FOLDER_ASSETS, 'js/'),
 	SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app');
 
 var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	APP_FILES = SRC_APP_BASE + '/**/*',
 	APP_HTML_FILES = SRC_APP_BASE + '/**/*.html',
 	JS_FILES = SRC_JAVASCRIPT_BASE + '/*.js',
-	JS_FILES_BUNDLES = path.join(SRC_JAVASCRIPT_BASE, 'bundles') + '/**/*',
+	JS_FILES_MIN = path.join(SRC_JAVASCRIPT_BASE, 'min') + '/**/*',
 	IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
 	ICON_FILES = SRC_FONTS_BASE + '/**/*';
 
@@ -142,7 +143,7 @@ function cleanIcons(done) {
 };
 
 function cleanJs(done) {
-	return del([FOLDER_DEV + '/js/bundles']);
+	return del([FOLDER_DEV + '/js/min']);
 };
 
 function connectServer(done) {
@@ -170,15 +171,15 @@ function copyBower() {
 	var jeet = gulp.src(BOWER_COMPONENTS + '/jeet/scss/jeet/**/*')
 		.pipe(gulp.dest(SRC_SASS_BASE + '/libs/jeet'));
 	var jqueryFiles = gulp.src(BOWER_COMPONENTS + '/jquery/dist/jquery.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/bundles/min/'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min/'));
 	var normalize = gulp.src(BOWER_COMPONENTS + '/normalize-scss/sass/**/*')
 		.pipe(gulp.dest(SRC_SASS_BASE + '/libs/normalize/'))
 	var angular = gulp.src(BOWER_COMPONENTS + '/angular/angular.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/bundles/min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
 	var uiRouter = gulp.src(BOWER_COMPONENTS + '/angular-ui-router/release/angular-ui-router.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/bundles/min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
 	var angularResource = gulp.src(BOWER_COMPONENTS + '/angular-resource/angular-resource.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/bundles/min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
 		
 	return merge(jeet, normalize, angular, uiRouter, angularResource);
 };
@@ -212,7 +213,7 @@ function copyIconsFunction(done) {
 
 function copyJsFunction() {
 	/*showComment('Copying JS Files');*/
-	return gulp.src(JS_FILES_BUNDLES)
+	return gulp.src(JS_FILES_MIN)
 		.pipe(gulp.dest(ENVIRONMENT + '/js/bundles'));
 }
 
