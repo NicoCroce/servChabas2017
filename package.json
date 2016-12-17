@@ -1,0 +1,43 @@
+{
+  "name": "UI-Premium-Framework",
+  "version": "1.0.0",
+  "description": "New Framework UI",
+  "main": "index.js",
+  "scripts": {
+    "update": "npm install && bower install",
+    "gulp": "npm install gulpjs/gulp-cli -g",
+    "first-run": "npm install bower && npm run gulp && npm run update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NicoCroce/UI-Premium-Framework.git"
+  },
+  "author": "Nico Croce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicoCroce/UI-Premium-Framework/issues"
+  },
+  "homepage": "https://github.com/NicoCroce/UI-Premium-Framework",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-cli": "^1.2.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-wrapper": "^1.0.0",
+    "merge-stream": "^1.0.0"
+  },
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  }
+}
