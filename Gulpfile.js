@@ -33,19 +33,29 @@ var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
 	SRC_FONTS_BASE = path.join(FOLDER_ASSETS, 'icons'),
 	SRC_JAVASCRIPT_BASE = path.join(FOLDER_ASSETS, 'js'),
-	SRC_JAVASCRIPT_LIBS = path.join(FOLDER_ASSETS, 'js/'),
+	SRC_JAVASCRIPT_LIBS = path.join(FOLDER_ASSETS, 'js/min'),
 	SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app');
 
 var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	APP_FILES = SRC_APP_BASE + '/**/*',
 	APP_HTML_FILES = SRC_APP_BASE + '/**/*.html',
+	APP_JS_FILES = SRC_APP_BASE + '/**/*.js',
 	JS_FILES = SRC_JAVASCRIPT_BASE + '/*.js',
-	JS_FILES_MIN = path.join(SRC_JAVASCRIPT_BASE, 'min') + '/**/*',
+	JS_FILES_MIN = path.join(SRC_JAVASCRIPT_BASE, '/min') + '/**/*',
 	IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
 	ICON_FILES = SRC_FONTS_BASE + '/**/*';
 
 // Use this line if you need specified files order to concatenate
-var JS_FILES_ORDER = [SRC_JAVASCRIPT_BASE + '/script.js', SRC_JAVASCRIPT_BASE + '/scroll.js'];
+var JS_FILES_LIBS_ORDER = [
+	SRC_JAVASCRIPT_LIBS + '/angular.min.js',
+	SRC_JAVASCRIPT_LIBS + '/*.js'
+];
+
+var JS_FILES_APP_ORDER = [
+	SRC_APP_BASE + '/app.config.js',
+	SRC_APP_BASE + '/app.modules.js',
+	SRC_APP_BASE + '/**/*.js'
+];
 
 var ENVIRONMENT = FOLDER_DEV,
 	runFirstTime = true;
@@ -90,24 +100,24 @@ gulp.task("copyImg", gulp.series(cleanImg, copyImgFunction));
 
 gulp.task("copyIcons", gulp.series(cleanIcons, copyIconsFunction));
 
-gulp.task("copyJs", gulp.series(cleanJs, copyJsFunction));
+gulp.task('jsConcat', gulp.series(cleanJs, jsConcatFunction));
 
-gulp.task('jsConcat', gulp.series('copyJs', jsConcatFunction));
+gulp.task('jsConcatLibs', gulp.series(cleanJsLibs, jsConcatLibsFunction));
 
 gulp.task('copyBower', gulp.series(copyBower));
 
 gulp.task("watch", function (done) {
 	gulp.watch(SASS_FILES, gulp.series('sass'));
-	gulp.watch(APP_FILES, gulp.series('copyTemplates'));
-	gulp.watch(JS_FILES, gulp.series("jsConcat", "copyJs"));
+	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'));
+	gulp.watch(APP_JS_FILES, gulp.series("jsConcat"));
 	gulp.watch(ICON_FILES, gulp.series('copyIcons'));
 	gulp.watch(IMAGES_FILES, gulp.series("copyImg"));
 	return done();
 });
 
-gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
+gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
 
-gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcat", compressImg, copyIconsFunction)));
+gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", "jsConcat", compressImg, copyIconsFunction)));
 
 
 //*************************************    SECCIÓN  Functions    *************************************
@@ -143,7 +153,11 @@ function cleanIcons(done) {
 };
 
 function cleanJs(done) {
-	return del([FOLDER_DEV + '/js/min']);
+	return del([FOLDER_DEV + '/js/*', '!' + FOLDER_DEV + '/js/libs.js']);
+};
+
+function cleanJsLibs(done) {
+	return del([FOLDER_DEV + '/js/libs.js']);
 };
 
 function connectServer(done) {
@@ -171,23 +185,27 @@ function copyBower() {
 	var jeet = gulp.src(BOWER_COMPONENTS + '/jeet/scss/jeet/**/*')
 		.pipe(gulp.dest(SRC_SASS_BASE + '/libs/jeet'));
 	var jqueryFiles = gulp.src(BOWER_COMPONENTS + '/jquery/dist/jquery.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min/'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/min'));
 	var normalize = gulp.src(BOWER_COMPONENTS + '/normalize-scss/sass/**/*')
-		.pipe(gulp.dest(SRC_SASS_BASE + '/libs/normalize/'))
+		.pipe(gulp.dest(SRC_SASS_BASE + '/libs/normalize/'));
 	var angular = gulp.src(BOWER_COMPONENTS + '/angular/angular.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/min'));
 	var uiRouter = gulp.src(BOWER_COMPONENTS + '/angular-ui-router/release/angular-ui-router.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/min'));
 	var angularResource = gulp.src(BOWER_COMPONENTS + '/angular-resource/angular-resource.min.js')
-		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + 'min'));
+		.pipe(gulp.dest(SRC_JAVASCRIPT_BASE + '/min'));
 		
 	return merge(jeet, normalize, angular, uiRouter, angularResource);
 };
 
 function copyTemplatesFunction() {
 	showComment('Copying HTML Files');
-	return gulp.src(APP_FILES)
+	var copyIndex = gulp.src(SRC_APP_BASE + '/index.html') //Copy only index.html file.
 		.pipe(gulp.dest(ENVIRONMENT)).on('error', gutil.log);
+
+	var copyFiles = gulp.src([APP_HTML_FILES, '!' + SRC_APP_BASE + '/index.html']) //Copy all files except index.html
+		.pipe(gulp.dest(ENVIRONMENT + '/templates/')).on('error', gutil.log);
+	return merge(copyIndex, copyFiles);
 };
 
 function copyImgFunction() {
@@ -211,18 +229,25 @@ function copyIconsFunction(done) {
 	return merge(copyCss, copyFonts);
 };
 
-function copyJsFunction() {
-	/*showComment('Copying JS Files');*/
-	return gulp.src(JS_FILES_MIN)
-		.pipe(gulp.dest(ENVIRONMENT + '/js/bundles'));
-}
+// function copyJsFunction() {
+// 	/*showComment('Copying JS Files');*/
+// 	return gulp.src(JS_FILES_MIN)
+// 		.pipe(gulp.dest(ENVIRONMENT + '/js/bundles'));
+// }
 
 function jsConcatFunction(done) {
-	gulp.src(JS_FILES)
+	gulp.src(JS_FILES_APP_ORDER)
 		.pipe(gulpif(ENVIRONMENT == FOLDER_DEV, sourcemaps.init()))
 		.pipe(concat('script.js')) // concat pulls all our files together before minifying them
 		.pipe(gulpif(ENVIRONMENT == FOLDER_DEV, sourcemaps.write('./maps')))
 		.pipe(gulpif(ENVIRONMENT == FOLDER_BUILD, gpUglify(uglifyOptions)))
+		.pipe(gulp.dest(path.join(ENVIRONMENT, 'js'))).on('error', gutil.log);
+	done();
+}
+
+function jsConcatLibsFunction(done) {
+	gulp.src(JS_FILES_LIBS_ORDER)
+		.pipe(concat('libs.js')) // concat pulls all our files together before minifying them
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'js'))).on('error', gutil.log);
 	done();
 }
