@@ -52,7 +52,7 @@ var JS_FILES_LIBS_ORDER = [
 ];
 
 var JS_FILES_APP_ORDER = [
-	SRC_APP_BASE + '/app.config.js',
+	SRC_APP_BASE + '/app.config.js'
 	SRC_APP_BASE + '/app.modules.js',
 	SRC_APP_BASE + '/**/*.js'
 ];
