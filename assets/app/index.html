@@ -1,15 +1,113 @@
 <!DOCTYPE html>
 <html ng-app="servicios-chabas">
-	<head>
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-	</head>
-	<body>
-		<h1>Abajo se carga la vista</h1>
-		<div ui-view></div>
-		<script type="text/javascript" src="../js/libs.js"></script>
-		<script type="text/javascript" src="../js/script.js"></script>
-	</body>
-	<footer>
-	</footer>
+
+<head>
+	<title>Servicios Chabás</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- mio -->
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./css/iconServicios.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+	<!-- Include of main header -->
+	<header></header>
+	<!-- End of main header -->
+	<!-- Include of main content -->
+	<div class="main-menu">
+		<div class="first-line"></div>
+		<div class="second-line"></div>
+		<div class="third-line"></div>
+	</div>
+	<div id="infoBlock" class="info-block is-link">
+		<span class="icon-cancel-circle is-link"></span>
+		<div class="content-info-block">
+			<div class="children-info-block">
+				<span class="icon-info"></span>
+				<p id="msgBlock"></p>
+			</div>
+		</div>>
+	</div>
+	<!--<section id="cargaImg" class="carga-img">
+			<div class="loader"></div>
+			<h3>Cargando...</h3>
+				<img src="./img/1.jpg" alt="">
+				<img src="./img/2.jpg" alt="">
+				<img src="./img/3.jpg" alt="">
+				<img src="./img/4.jpg" alt="">
+				<img src="./img/5.jpg" alt="">
+				<img src="./img/6.jpg" alt="">
+				<img src="./img/7.jpg" alt="">
+				<img src="./img/8.jpg" alt="">
+				<img src="./img/9.jpg" alt="">
+				<img src="./img/10.jpg" alt="">
+				<img src="./img/logo.jpg" alt="">
+		</section>-->
+	<main class="options">
+		<section>
+			<div>
+				<li>Servicios</li>
+				<div><a href="" id="farmacias" class="animation servicio-select" subtitle="Farmacia de turno"><span class="icon-pil"></span> Farmacias</a></div>
+				<div><a href="" id="colectivos" class="animation servicio-select" subtitle="Horario de colectivos"><span class="icon-bus"></span>Colectivos</a></div>
+				<div><a href="" id="telefonos" class="animation servicio-select" subtitle="Números telefónicos"><span class="icon-phone"></span>Teléfonos</a></div>
+				<div><a href="" id="contacto" class="animation servicio-select" subtitle="Contáctanos"><span class="icon-envelope"></span>Contáctanos</a></div>
+				<li>
+					<a href="https://plus.google.com/u/0/101544137738430014386/posts"><span class="icon-googleplus"></span></a>
+					<a href="https://www.facebook.com/nico.c123"><span class="icon-facebook"></span></a>
+				</li>
+			</div>
+		</section>
+	</main>
+	<main role="main" class="main">
+		<section class="complete-header">
+			<div class="header">
+				<div class="wrapper">
+					<!-- <h1 class="subTitle">Servicios<strong id="nombreLocalidad"></strong></h1> -->
+					<h1 class="subTitle">Servicios<strong>Chabás</strong></h1>
+					<p id="fecha" class="fecha"></p><span id="hora"></span>
+				</div>
+				<!-- <span class="icon-menu2"></span> -->
+			</div>
+			<div class="sub-header">
+				<div class="wrapper">
+					<h3><strong> Farmacia </strong> de <strong> turno</strong></h3>
+					<div class="botones-destinos">
+						<span>Para</span>
+						<div id="destinoRosario" class="button animation destinos destino-activo">Rosario</div>
+						<div id="destinoFirmat" class="button animation destinos">Firmat</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="content">
+			<div class="wrapper">
+				<div ui-view></div>
+				<div class="publi-mayor">
+					<div class="publicidad-1"></div>
+				</div>
+			</div>
+
+			<!-- Include of main footer -->
+			<footer>
+				<div class="imagenFooter img-footer1"></div>
+				<div class="imagenFooter img-footer2"></div>
+				<div class="imagenFooter img-footer3 no-visible"></div>
+				<div class="imagenFooter img-footer4 no-visible"></div>
+				<div class="imagenFooter img-footer5 no-visible"></div>
+				<div class="imagenFooter img-footer6 no-visible"></div>
+			</footer>
+		</section>
+		<!-- End of main footer -->
+		<!-- <div class="publi-mayor">
+					<div class="publicidad-1"></div>
+				<div class="publicidad-2 no-visible"></div>
+		</div> -->
+	</main>
+</body>
+<footer>
+</footer>
+
 </html>

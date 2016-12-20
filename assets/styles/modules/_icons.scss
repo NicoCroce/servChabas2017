@@ -1,9 +1,11 @@
 // *************************************
 //
-//   Footer
+//   Icon Font
+//   -> Thanks to grunt-webfont - https://github.com/sapegin/grunt-webfont
 //
 // *************************************
 
+//@import '../libs/mc-iconfont/icon-font';
 
 // -------------------------------------
 //   Variables
@@ -16,3 +18,8 @@
 //   Base
 // -------------------------------------
 
+[class^="icon-"]:before,
+[class*=" icon-"]:before  {
+	//@extend .ms-icon; 
+	text-decoration: none; font-weight: 400;
+}
