@@ -20,18 +20,24 @@ function switchTabs() {
 	        tabSelected: '=?switchTabSelected'
 	    },
 	    controller: function ($scope) {
-	    	var maxTabs = 5,
-	    		tabsCount = ($scope.tabs < maxTabs) ? 
-	    	
 	    	$scope.tabs = [
 	    		{'url': 'www.google.com', 'text': 'google'},
-	    		{'url': 'www.google.com', 'text': 'ver'}
+	    		{'url': 'www.google.com', 'text': 'ver'},
+	    		{'url': 'www.google.com', 'text': 'nico'}
 	    	];
 
-	    	$scope.returnTabsSize = function () {
-	    		if ( $scope.tabs.length >= maxTabs ) {
-	    			return 'calc(100% / '
-	    		}
+	    	var maxTabs = 5,
+	    		tabsCount = ($scope.tabs.length >= maxTabs) ? maxTabs : $scope.tabs.length;
+
+	    	$scope.tabsSize = function () {
+	    		return {"width" : 100/tabsCount + "%"};
+	    	}
+
+	    	$scope.setSelectedTab = function (index) {
+	    		if ( angular.isUndefinedOrNullOrEmpty($scope.tabSelected) ) {
+					$scope.tabSelected.callback();
+				}
+	    		
 	    	}
 	    }
 	}
