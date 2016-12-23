@@ -14,7 +14,11 @@
                     templateUrl: '../templates/home/home.html',
                     controller: 'HomeController'
                 })
-                
+                .state('farmacias', {
+                    url: '/farmacias',
+                    templateUrl: '../templates/farmacias/farmacias.html',
+                    controller: 'HomeController'
+                })
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit       

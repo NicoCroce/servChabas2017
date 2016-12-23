@@ -32,7 +32,7 @@ function switchTabs() {
 
 			$scope.setSelectedTab = function (index) {
 				$scope.indexTabSelected = index;
-				if (angular.isUndefinedOrNullOrEmpty($scope.tabs.tabSelected)) {
+				if (angular.isDefined($scope.tabs.tabArray[index].callback)) {
 					$scope.tabs.tabSelected.callback();
 				}
 

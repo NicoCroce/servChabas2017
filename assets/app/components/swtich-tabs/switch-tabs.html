@@ -1,5 +1,8 @@
 <ul class="tabs nav-tabs">
 	<li ng-repeat="tab in tabs.tabArray track by $index" ng-style="tabsSize()" ng-class="{'is-selected' : $index == indexTabSelected}"
 		ng-click="setSelectedTab($index)">
-		<a stop href="{{ tab.url }}" ng-bind="tab.text"></a>
+		<a ui-sref="{{ tab.url }}">
+			<span class="{{ tab.icon }}"></span>
+			<span ng-bind="tab.text" class="text-tab"></span>
+		</a>
 </ul>

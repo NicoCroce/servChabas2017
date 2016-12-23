@@ -113,6 +113,8 @@ $mediaquery_phones-small--portrait: 480px;
 @media screen and (max-width: 600px) {
 
     body {
+
+        .tabs.nav-tabs .text-tab  { display: none; }
         
         .main-menu { width: 25px; top: 15px; right: 15px; 
             div {height: 2px; }
