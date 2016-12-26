@@ -1,3 +1,4 @@
+
 .info {
 	width: 74%; float: left; position: relative; height: 100%;
 	.datos { 
@@ -26,7 +27,7 @@
 	}
 	.link {
 		&.call { display: none; }
-		&.map { position: absolute; bottom: 0; left: 0;
+		&.map {
 			.button { float: left; margin-top: 3%; }
 		}
 		.button { display: table }

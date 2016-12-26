@@ -69,9 +69,6 @@ $mediaquery_phones-small--portrait: 480px;
         }
 
         .main  {
-            &.bus-section .sub-header .botones-destinos {
-                margin-left: 15%;
-            }
             .publi-mayor { display: none; }
             footer {
                 height: 320px;
@@ -136,26 +133,15 @@ $mediaquery_phones-small--portrait: 480px;
         
         .main { 
             min-height: 560px;
-            &.bus-section .sub-header {
-                h3 { display: none; }
-                .botones-destinos {
-                        width: auto; margin: 0 auto; display: table;
-                    .destinos { 
-                        padding: 5px 15px; width: auto; margin: 5px;
-                    }
-                }
-
-            }
-
             .content {
-                // height: calc(100% - 123px);
+                margin-top: 5%;
                 .cambio-info {
-                    padding: 15px; margin: 0;
+                    padding: 0; margin: 0;
                     .info {
                         .link {
                             width: 100%;
                             .button { width: 100%; }
-                            &.call { position: absolute; bottom: 20%; left: 0; display: block;
+                            &.call { display: block;
                                 .button { background: #BF360C; }
                             }
                             
