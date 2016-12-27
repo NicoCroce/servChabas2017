@@ -1,0 +1,43 @@
+{
+  "principales": [
+    {
+      "nombre": "Policía",
+      "numero": "0344-480-888",
+      "direccion": "Ruta"
+    },
+    {
+      "nombre": "Hospital",
+      "numero": "0344-480-888",
+      "direccion": "Bv. Roque Saens Peña y Rosario"
+    },
+    {
+      "nombre": "Bomberos",
+      "numero": "0344-480-888",
+      "direccion": "España 1000"
+    },
+    {
+      "nombre": "Biblioteca",
+      "numero": "0344-480-888",
+      "direccion": "San Martin 3000"
+    }
+  ],
+  "remises": [
+    {
+      "nombre": "Pepito",
+      "numero": "0344-480-777",
+      "direccion": "'casa 1478'"
+    }
+  ],
+  "roticerias": [
+    {
+      "nombre": "Castagnani",
+      "numero": "0344-480-280",
+      "direccion": "'Moreno y Mitre'"
+    },
+    {
+      "nombre": "Don Marino",
+      "numero": "0344-480-803",
+      "direccion": "'Rivadavia'"
+    }
+  ]
+}

@@ -1,2 +1,2 @@
 angular
-    .module('servicios-chabas', ['ui.router']);
+    .module('servicios-chabas', ['ui.router', 'ngResource']);

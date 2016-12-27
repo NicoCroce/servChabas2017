@@ -1,0 +1,29 @@
+{
+  "colectivos": [
+    {
+      "horario": "04:58",
+      "empresa": "Ranqueles",
+      "detalle": "'Circula de Lunes a Viernes'"
+    },
+    {
+      "horario": "05:31",
+      "empresa": "La Verde",
+      "detalle": "'Circula Lunes y sábados. Domingos y feriados no circula'"
+    },
+    {
+      "horario": "05:45",
+      "empresa": "La Verde",
+      "detalle": "'Domingos y feriados no circula'"
+    },
+    {
+      "horario": "06:23",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "06:42",
+      "empresa": "Ranqueles",
+      "detalle": "'Entra en Casilda'"
+    }
+  ]
+}
