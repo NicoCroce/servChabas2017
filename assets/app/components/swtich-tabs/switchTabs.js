@@ -19,7 +19,7 @@ function switchTabs() {
 			tabs: '='
 
 		},
-		controller: function ($scope) {			
+		controller: function ($scope) {
 			/*$scope.indexTabSelected = 0;*/
 			$scope.indexTabSelected = $scope.tabs.tabSelected;
 

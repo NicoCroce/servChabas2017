@@ -1,14 +1,13 @@
 <div class="info colectivos header-section">
-	<div class="header-table">
+	<<!--div class="header-table">
 		<div>Horarios</div><div>Empresa</div><div>Detalles</div>
-	</div>
-    <div id="tablaHorarios" class="content-table">
-		<table id="tablaRosario" class="tabla-rosario visible">
-			<!-- Se adjuntarán los horarios. -->
-		</table>
+	</div>-->
+	<div id="tabla-rosario" main-table table-config="tableRosario" class="tabla-rosario visible" ng-if="loadedService"></div >
+    <!--<div id="tablaHorarios" class="content-table">
+		
 		<table id="tablaFirmat" class="tabla-firmat">
 			<!-- Se adjuntarán los horarios. -->
 		</table>
-	</div>
+	</div>-->
 	<div class="sombra-inferior"></div>
 </div>

@@ -22,7 +22,7 @@
                 .state('colectivos', {
                     url: '/colectivos',
                     templateUrl: '../templates/colectivos/colectivos.html',
-                    controller: 'HomeController'
+                    controller: 'BusesController'
                 })
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
