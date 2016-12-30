@@ -168,20 +168,6 @@ body {
 	.cambio-info {
 		padding: 20px; margin: 10px 0; position: absolute; width: 100%;
 		// height: calc(100% - 172px);
-		.info.header-section {
-				>div {
-					&:first-child {
-						border-bottom: 1px solid rgb(61, 61, 61); margin-bottom: 2%; background: $color500; color: white; padding: toem(20px);
-						display: table; width: 100%;
-
-						span { font-size: toem(30px); padding-right: toem(10px); }
-					}
-				}
-
-		 	.nombre-farmacia { font-size: 1.8em; font-weight: 600; display: inline-block;
-				text-shadow: rgba(22, 65, 94, 1) 1px 1px 0;
-			}
-		}
 	}
 	// .content-title { margin-top: 1em ; padding-bottom: 2%; display: inline-block; border-bottom: 1px solid rgb(61, 61, 61); width: 100%; }
 }

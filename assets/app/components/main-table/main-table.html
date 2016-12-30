@@ -1,8 +1,10 @@
-<table>
-    <tr>
+<thead>
+    <tr class="header-table">
         <th ng-repeat="title in tableConfig.titles track by $index" ng-bind="title"></th>
     </tr>
+</thead>
+<tbody>
     <tr ng-repeat="row in tableConfig.data track by $index">
         <td ng-repeat="cell in row track by $index" ng-bind="cell"></td>
     </tr>
-</table>
+</tbody>
