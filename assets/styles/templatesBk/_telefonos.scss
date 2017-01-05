@@ -1,0 +1,41 @@
+.info {
+	&.telefonos {
+		height: 100%;
+		div.header-tabla-telefonos {
+			margin: 0 !important; position: relative; padding: 0 !important;
+			box-shadow: rgba(0, 0, 0, 0.61) 0px 9px 8px -6px;
+			.bt-instituciones {
+				padding: 1.25em 3em; font-size: 0.8em; box-shadow: none; cursor: pointer; display: table-cell;
+				&.active { background: $important_color_hover; }
+				&:hover { background: $important_color_hover; }
+			}
+		}
+		.tabla-telefonos table { display:table; }
+		// .tabla-telefonos {
+		// 	overflow-x: hidden; margin: 0 3px; height: calc(100% - 70px); margin: 0 !important;
+		// 	.header-telefonos { font-size: 1.8em; font-weight: 600; display: inline-block; color: #10CFCF; padding: 0.8em 0; padding-bottom: 0.6em;
+		// 		text-shadow: #16415e 1px 1px 0; text-align: center; width: 100%;
+		// 	}
+		// 	//transition (opacity, 1s, ease);
+		// 	table { 
+		// 		width: 100%;
+		// 		tr {
+		// 			&:nth-child(odd) { background: rgb(204, 204, 204); }
+		// 			&:nth-child(even) { background: rgb(255, 255, 255) }
+		// 			td { 
+		// 				padding: 0.8em 0em 0.8em 1.3em; border-bottom: 1px solid rgb(109, 109, 109); 
+		// 				div { 
+		// 					display: table; width: 100%; 
+		// 					.dato { display: table-cell; vertical-align: middle; width: 100%; }
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+		.sombra-inferior { 
+			height: 20px; background: white; margin-top: 0;
+			box-shadow: rgba(0, 0, 0, 0.61) 0px -9px 8px -6px;
+		}
+	}
+}

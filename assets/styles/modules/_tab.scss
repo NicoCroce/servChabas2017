@@ -15,3 +15,21 @@
 //   Base
 // -------------------------------------
 
+.tabs {
+	background: white;
+	
+	li { display: inline-block; }
+	&.nav-tabs { 
+		li {
+			transition: box-shadow .3s ease; cursor: pointer; font-size: 17px; text-transform: uppercase;
+			a { 
+				padding: 20px; width: 100%; text-align: center;
+				span { color: #2b2b2b; } 
+			}
+			&.is-selected { 
+				box-shadow: 0px -8px 0 0 #20a2ad inset; 
+				span { color: #20a2ad; }
+			}
+		}
+	}
+}

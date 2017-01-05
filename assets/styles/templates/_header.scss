@@ -15,3 +15,15 @@
 //   Nav
 // -------------------------------------
 
+.header {
+	padding: 2em 0 2em 0; margin: 0; background: #333; border-bottom: 1px solid rgb(0, 194, 255);
+	h1 { color: white; font-size: 2.3em;  text-transform: uppercase; line-height: normal; font-weight: 100; }
+	// font-family: 'Fjalla One', sans-serif;
+	.fecha { float: right; color: #aaa; font-weight: 100;}
+
+	// .icon-menu2 { position: absolute; top: 0.6em; right: 0.6em; font-size: 1.7em; color: rgb(206, 206, 206); border: 1px solid rgb(187, 187, 187);
+	// 	border-radius: 5px; padding: 2px 5px 3px 5px; cursor: pointer;
+	// 	transition:  (all, .4s, ease) ;
+	// 	&:hover { color: #333; background: rgb(206, 206, 206); }
+	// }
+}

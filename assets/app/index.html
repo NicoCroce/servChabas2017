@@ -14,7 +14,19 @@
 
 <body ng-controller="IndexController">
 	<!-- Include of main header -->
-	<header></header>
+	<header>
+		<section class="complete-header">
+			<div class="header">
+				<div class="wrapper">
+					<!-- <h1 class="subTitle">Servicios<strong id="nombreLocalidad"></strong></h1> -->
+					<h1 class="subTitle">Servicios<strong>Chabás</strong></h1>
+					<!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
+				</div>
+				<!-- <span class="icon-menu2"></span> -->
+			</div>
+			<nav switch-tabs tabs="tabs"></nav>
+		</section>
+	</header>
 	<!-- End of main header -->
 	<!-- Include of main content -->
 	<!--<div class="main-menu">
@@ -22,7 +34,7 @@
 		<div class="second-line"></div>
 		<div class="third-line"></div>
 	</div>-->
-	<div id="infoBlock" class="info-block is-link">
+	<!--<div id="infoBlock" class="info-block is-link">
 		<span class="icon-cancel-circle is-link"></span>
 		<div class="content-info-block">
 			<div class="children-info-block">
@@ -30,7 +42,7 @@
 				<p id="msgBlock"></p>
 			</div>
 		</div>>
-	</div>
+	</div>-->
 	<!--<section id="cargaImg" class="carga-img">
 			<div class="loader"></div>
 			<h3>Cargando...</h3>
@@ -62,20 +74,9 @@
 		</section>
 	</main>-->
 	<main role="main" class="main">
-		<section class="complete-header">
-			<div class="header">
-				<div class="wrapper">
-					<!-- <h1 class="subTitle">Servicios<strong id="nombreLocalidad"></strong></h1> -->
-					<h1 class="subTitle">Servicios<strong>Chabás</strong></h1>
-					<p id="fecha" class="fecha"></p><span id="hora"></span>
-				</div>
-				<!-- <span class="icon-menu2"></span> -->
-			</div>
-			<nav switch-tabs tabs="tabs"></nav>
-		</section>
 		<section class="content">
 			<div class="wrapper">
-				<div ui-view class="cambio-info"></div>
+				<div ui-view ></div>
 				<div class="publi-mayor">
 					<div class="publicidad-1"></div>
 				</div>
