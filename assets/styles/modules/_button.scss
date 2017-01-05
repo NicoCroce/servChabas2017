@@ -33,7 +33,7 @@ $button_border-color: #B5B5B5;
         background: #00A99A; color: white; 
     }
     span { vertical-align: middle; display: inline-block;}
-    span[class^=icon-] { color: #FFFFFF; font-size: 1.6em; margin-right: 5px; }
+    span[class^=icon-] { color: #FFFFFF; font-size: toem(16px); margin-right: 5px; }
 	&.call {
         margin-bottom: 0; background: $important_color; font-weight: 200; border: none; color: white; width: 100%; font-family: sans-serif;
         padding: 4% 0; margin: 0; margin-top: 2%; position: relative;
@@ -45,6 +45,7 @@ $button_border-color: #B5B5B5;
     //     &:hover { background: #A2A2A2; border: 1px solid #E7E7E7; background: #A8A8A8; }
     //     &:last-child { float: right; }
     // }
+    .icon-location { position: relative; top: -2px; }
 }
 
 .fab{

@@ -20,7 +20,7 @@ $mediaquery_phones-small--portrait: 480px;
 //   Base
 // -------------------------------------
 
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1024px) {
     .wrapper { width: 90% }
     // .info {
     //     &.colectivos .tabla-horarios { height: 220px; }
@@ -180,4 +180,14 @@ $mediaquery_phones-small--portrait: 480px;
             }
         }
     }
+}*/
+
+@media screen and (max-width: $mediaquery_desktop) { 
+    .farmacia {
+        .link.call { display: block; }
+    }
+}
+
+@media screen and (max-width: $mediaquery_phones) {
+
 }

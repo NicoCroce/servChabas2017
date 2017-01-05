@@ -16,7 +16,7 @@
 // -------------------------------------
 
 .tabs {
-	background: white;
+	background: white; box-shadow: inset 0px -16px 16px -18px black;
 	
 	li { display: inline-block; }
 	&.nav-tabs { 
