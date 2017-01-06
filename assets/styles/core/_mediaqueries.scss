@@ -189,5 +189,5 @@ $mediaquery_phones-small--portrait: 480px;
 }
 
 @media screen and (max-width: $mediaquery_phones) {
-
+    .content-info { width:100%; }
 }

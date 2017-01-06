@@ -1,10 +1,11 @@
 <thead>
-    <tr class="header-table">
+    <tr class="header-table" class="">
         <th ng-repeat="title in tableConfig.titles track by $index" ng-bind="title"></th>
     </tr>
 </thead>
 <tbody>
-    <tr ng-repeat="row in tableConfig.data track by $index">
-        <td ng-repeat="cell in row track by $index" ng-bind="cell"></td>
+    <tr ng-repeat="row in tableConfig.data" ng-class="hasDetail(cell, $index)">
+        <td ng-repeat="cell in row track by $index" ng-bind="appendText(cell, $index)" ng-class="hasIcon(cell, $index)">
+        </td>
     </tr>
 </tbody>
