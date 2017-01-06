@@ -5,6 +5,9 @@
 </thead>
 <tbody>
     <tr ng-repeat="row in tableConfig.data" ng-class="hasDetail(cell, $index)">
+        <pre>
+            {{ row }}
+        </pre>
         <td ng-repeat="cell in row track by $index" ng-bind="appendText(cell, $index)" ng-class="hasIcon(cell, $index)">
         </td>
     </tr>
