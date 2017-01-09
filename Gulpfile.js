@@ -50,6 +50,7 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 
 // Use this line if you need specified files order to concatenate
 var JS_FILES_LIBS_ORDER = [
+	SRC_JAVASCRIPT_LIBS +'/jquery.min.js',
 	SRC_JAVASCRIPT_LIBS + '/angular.min.js',
 	SRC_JAVASCRIPT_LIBS + '/*.js'
 ];
