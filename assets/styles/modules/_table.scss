@@ -55,7 +55,7 @@ table {
 			padding: 0.8em 0em 0.8em 1.3em; border-bottom: 1px solid $color100; 
 			&.icon-info { text-align: center; }
 		}
-		&:hover { background: #B2EBF2 }
 		transition: all .3s ease;
+		&[class~="hand-cursor"]:hover { background: #B2EBF2 }
 	}
 }

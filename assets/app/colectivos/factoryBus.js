@@ -9,11 +9,6 @@
             getBuses: getBuses,
             getTable: getTable
         }
-        
-        var dataTableColectivos = {
-            data: {},
-            
-        };
 
         function getBuses() {
             return $resource('../data/colectivos.json').get().$promise;
@@ -21,11 +16,23 @@
 
         function getTable(data) { 
             return {
-                data: data,
+                data: formatTable(data),
                 icon: 'icon-info',
                 titles: ['Horario', 'Empresa', 'Detalle'],
                 stylesColumn: []
             };
+        };
+
+        function formatTable(data) {
+            var buses = [];
+            angular.forEach(data, function(currentBus, index){
+                var row = {};
+                row.info = [currentBus.horario, currentBus.empresa, ''];
+                row.detail = currentBus.detalle;
+                row.hasDetail = currentBus.detalle != '';
+                buses.push(row);
+            });
+            return buses;
         };
     }
 })();

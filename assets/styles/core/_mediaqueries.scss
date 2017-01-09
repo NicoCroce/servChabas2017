@@ -183,11 +183,26 @@ $mediaquery_phones-small--portrait: 480px;
 }*/
 
 @media screen and (max-width: $mediaquery_desktop) { 
-    .farmacia {
-        .link.call { display: block; }
-    }
+    
 }
 
 @media screen and (max-width: $mediaquery_phones) {
+    body { 
+        font-size: 14px;
+        .header { padding: 1em 0; }
+    }
+
+    .wrapper { width: 90%; }
+
+    .farmacia {
+        .link {
+            &.call { display: block; margin-bottom: 20px; }
+            &.map { display: block; }
+            button { width: 100%; }
+        }
+        .datos {
+            .info-tel { display: none; }
+        }
+    }
     .content-info { width:100%; }
 }

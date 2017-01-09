@@ -15,23 +15,12 @@
             },
 
             controller: function ($scope) {
-                $scope.hasIcon = function (text, index) {
-                    if (text != '' && index == 2) {
-                        return $scope.tableConfig.icon;
-                    }
-                    return;
+                $scope.hasIcon = function (row, cell) {
+                    return (row.hasDetail && cell == '') ? 'icon-info' : '';
                 }
 
-                $scope.appendText = function (text, index) {
-                    if (index != 2) { return text; }
-                    return;
-                }
-
-                $scope.hasDetail = function (text, index) {
-                    if (text != '' && index == 2) {
-                        return 'hand-cursor';
-                    }
-                    return;
+                $scope.hasDetail = function (row) {
+                    return (row.hasDetail) ? 'hand-cursor' : '';
                 }
             },
             link: function (scope, element, attr) {

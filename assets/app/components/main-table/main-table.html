@@ -4,11 +4,8 @@
     </tr>
 </thead>
 <tbody>
-    <tr ng-repeat="row in tableConfig.data" ng-class="hasDetail(cell, $index)">
-        <pre>
-            {{ row }}
-        </pre>
-        <td ng-repeat="cell in row track by $index" ng-bind="appendText(cell, $index)" ng-class="hasIcon(cell, $index)">
+    <tr ng-repeat="row in tableConfig.data track by $index" ng-class="hasDetail(row)">
+        <td ng-repeat="cell in row.info track by $index" ng-bind="cell" ng-class="hasIcon(row, cell)">
         </td>
     </tr>
 </tbody>

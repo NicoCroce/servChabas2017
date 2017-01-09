@@ -82,6 +82,8 @@ iframe { width: 100%; height: 100%; position: absolute; z-index: 3000  }
 
 .content-info { width: 50%; float: left; }
 
+.clear-both:after { content: ''; display: block; clear: both !important }
+
 /*.info.header-section {
 				>div {
 					&:first-child {
