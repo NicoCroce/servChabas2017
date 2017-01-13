@@ -31,12 +31,3 @@
         };
     };
 })();
-
-
-/*if ($window.scrollY >= offsetTop) {
-                        console.log('stack');
-                        /* element.addClass(topClass);*/
-                    ///} else {
-                        //console.log('NO stack');
-                        /* element.removeClass(topClass);*/
-                   // }
