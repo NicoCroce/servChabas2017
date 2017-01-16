@@ -4,6 +4,35 @@
     {
       "icon": {
         "paths": [
+          "M366 698l196-196-196-196 60-60 256 256-256 256z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "keyboard_arrow_right"
+        ],
+        "grid": 24
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 1,
+        "id": 0,
+        "prevSize": 24,
+        "code": 59648,
+        "name": "arrow_right"
+      },
+      "setIdx": 0,
+      "setId": 5,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
           "M357.216 369.728c0-84.96 69.312-153.824 154.784-153.824s154.784 68.864 154.784 153.824-69.312 153.792-154.784 153.792-154.784-68.864-154.784-153.792zM248.864 388.928c0 64.352 78.528 200 78.528 200l184.608 307.648 174.016-307.616c0 0 89.12-136.64 89.12-200 0-144.416-117.824-261.472-263.136-261.472s-263.136 117.024-263.136 261.44z"
         ],
         "attrs": [],
@@ -26,7 +55,7 @@
         "name": "location2",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 0
     },
@@ -53,7 +82,7 @@
         "name": "phone",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 1
     },
@@ -81,7 +110,7 @@
         "name": "map",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 2
     },
@@ -107,7 +136,7 @@
         "name": "stack",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 3
     },
@@ -134,7 +163,7 @@
         "name": "patch",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 4
     },
@@ -162,7 +191,7 @@
         "name": "pil",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 5
     },
@@ -189,7 +218,7 @@
         "name": "injection",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 6
     },
@@ -219,7 +248,7 @@
         "name": "envelope",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 7
     },
@@ -245,7 +274,7 @@
         "name": "info",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 8
     },
@@ -273,7 +302,7 @@
         "name": "bus",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 9
     },
@@ -301,7 +330,7 @@
         "name": "paperplane",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 10
     },
@@ -331,7 +360,7 @@
         "name": "heart",
         "ligatures": ""
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 4,
       "iconIdx": 11
     },
@@ -356,7 +385,7 @@
         "code": 58902,
         "name": "email"
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 3,
       "iconIdx": 0
     },
@@ -385,7 +414,7 @@
         "name": "location",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 0
     },
@@ -412,7 +441,7 @@
         "name": "googleplus",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 1
     },
@@ -439,7 +468,7 @@
         "name": "facebook",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 2
     },
@@ -469,7 +498,7 @@
         "name": "equalizer",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 3
     },
@@ -496,7 +525,7 @@
         "name": "menu",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 4
     },
@@ -526,7 +555,7 @@
         "name": "menu2",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 5
     },
@@ -555,7 +584,7 @@
         "name": "cancel-circle",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 6
     },
@@ -583,7 +612,7 @@
         "name": "checkmark-circle",
         "ligatures": ""
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 7
     },
@@ -611,7 +640,7 @@
         "name": "mobile",
         "code": 58900
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 8
     },
@@ -639,7 +668,7 @@
         "name": "skype",
         "code": 58901
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 2,
       "iconIdx": 9
     },
@@ -648,6 +677,9 @@
         "paths": [
           "M384 64h640v128h-640v-128zM384 448h640v128h-640v-128zM384 832h640v128h-640v-128zM0 128c0-70.692 57.308-128 128-128s128 57.308 128 128c0 70.692-57.308 128-128 128s-128-57.308-128-128zM0 512c0-70.692 57.308-128 128-128s128 57.308 128 128c0 70.692-57.308 128-128 128s-128-57.308-128-128zM0 896c0-70.692 57.308-128 128-128s128 57.308 128 128c0 70.692-57.308 128-128 128s-128-57.308-128-128z"
         ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
         "tags": [
           "list",
           "todo",
@@ -656,21 +688,20 @@
           "options"
         ],
         "defaultCode": 59835,
-        "grid": 16,
-        "attrs": []
+        "grid": 16
       },
       "attrs": [],
       "properties": {
         "ligatures": "list2, todo2",
         "name": "list2",
         "order": 2,
-        "id": 188,
+        "id": 10,
         "prevSize": 32,
         "code": 59835
       },
       "setIdx": 3,
-      "setId": 1,
-      "iconIdx": 187
+      "setId": 2,
+      "iconIdx": 10
     }
   ],
   "height": 1024,

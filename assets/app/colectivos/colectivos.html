@@ -1,5 +1,9 @@
 <div class="info colectivos header-section">
-	<table id="tabla-rosario" main-table table-config="tableRosario" class="table-buses visible" ng-if="loadedService"></table >
-	</div>
-	<div class="sombra-inferior"></div>
+	<button accordion-element element-to-shrink="tablaRosario" max-height="600" class="accordion-button button">
+		<span>a Rosario</span>
+		<span class="icon-arrow_right"></span>
+	</button>
+	<table id="tablaRosario" main-table table-config="tableRosario" class="table-buses accordion-element visible" ng-if="loadedService"></table >
+</div>
+<div class="sombra-inferior"></div>
 </div>

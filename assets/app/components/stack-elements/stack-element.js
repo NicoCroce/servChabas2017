@@ -13,7 +13,7 @@
                     stackPosition = null,
                     elementToMove = angular.element(document.getElementById(attrs.elementToMove));                
 
-                $document.bind('scroll', function () {
+                $document.on('scroll', function () {
                     offsetTop = angular.element(element[0]).offset().top;
                     if ($window.scrollY >= offsetTop && stackPosition == null) {
                         console.log("entra");

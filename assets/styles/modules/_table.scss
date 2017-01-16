@@ -48,7 +48,7 @@ table {
 		}
 		&:nth-child(odd) { background: white; }
 		&:nth-child(even) { background: $color50 }
-		th { border-bottom: 1px solid rgb(61, 61, 61); margin-bottom: 2%; background: $color500; text-align: left;
+		th { border-bottom: 1px solid rgb(61, 61, 61); margin-bottom: 2%; background: $color300; text-align: left;
 			color: white; padding: toem(20px);
  		}
 		 td { 
