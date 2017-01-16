@@ -10,21 +10,21 @@
             restrict: 'A',
             link: function (scope, element, attrs) {                
                 var offsetTop, // get element's offset top relative to document
-                    stackPosition = null;
-                    window.elementToMove = angular.element(document.getElementById(attrs.elementToMove));                
+                    stackPosition = null,
+                    elementToMove = angular.element(document.getElementById(attrs.elementToMove));                
 
-                $document.on('scroll', function () {
+                $document.bind('scroll', function () {
                     offsetTop = angular.element(element[0]).offset().top;
                     if ($window.scrollY >= offsetTop && stackPosition == null) {
                         console.log("entra");
                         stackPosition = offsetTop;
                         angular.element(element[0]).addClass('stack-element-top');
-                        window.elementToMove.css({"position": "relative", "top": angular.element(element[0]).outerHeight() + 'px'});
+                        elementToMove.css({"position": "relative", "top": angular.element(element[0]).outerHeight() + 'px'});
                     } else if ($window.scrollY < stackPosition && stackPosition != null) {
                         console.log("sale");
                         stackPosition = null;
                         angular.element(element[0]).removeClass('stack-element-top');
-                        window.elementToMove.css({"position": "relative", "top": "0"});
+                        elementToMove.css({"position": "relative", "top": "0"});
                     }
                 });
             }
