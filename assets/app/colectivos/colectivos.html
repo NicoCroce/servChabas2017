@@ -1,9 +1,20 @@
 <div class="info colectivos header-section">
-	<button accordion-element element-to-shrink="tablaRosario" max-height="600" class="accordion-button button">
+	<h1>Selecciona la dirección que deseas tomar</h1>
+	<button accordion-element element-to-shrink="wrapTableRosario" max-height="2000" class="accordion-button button">
 		<span>a Rosario</span>
 		<span class="icon-arrow_right"></span>
 	</button>
-	<table id="tablaRosario" main-table table-config="tableRosario" class="table-buses accordion-element visible" ng-if="loadedService"></table >
+	<div id="wrapTableRosario" class="accordion-element">
+		<table main-table table-config="tableRosario" class="table-buses visible" ng-if="loadedService"></table >
+	</div>
+
+	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="600" class="accordion-button button mg-top-5">
+		<span>a Firmat</span>
+		<span class="icon-arrow_right"></span>
+	</button>
+	<div id="wrapTableFirmat" class="accordion-element">
+		<table main-table table-config="tableFirmat" class="table-buses visible" ng-if="loadedService"></table >
+	</div>
 </div>
 <div class="sombra-inferior"></div>
 </div>

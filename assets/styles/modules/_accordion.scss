@@ -1,5 +1,5 @@
 .accordion-element {
-    max-height: 0; overflow: hidden; display: block; transition: max-height .5s ease;
+    max-height: 0; overflow: hidden; transition: max-height .5s ease; margin: 0 5px;
 }
 
 button.button.accordion-button {

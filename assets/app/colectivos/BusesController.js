@@ -18,6 +18,7 @@
 
         function busesSuccess(dataResponse) {
             $scope.tableRosario = factoryBus.getTable(dataResponse.rosario);
+            $scope.tableFirmat = factoryBus.getTable(dataResponse.firmat);
             $scope.loadedService = true;
             return;
         };
