@@ -4,7 +4,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr ng-repeat="row in tableConfig.data track by $index" ng-class="hasDetail(row)">
+    <tr ng-repeat="row in tableConfig.data track by $index" ng-class="hasDetail(row)" ng-click="clickRow(row)">
         <td ng-repeat="cell in row.info track by $index" ng-bind="cell" ng-class="hasIcon(row, cell)">
         </td>
     </tr>

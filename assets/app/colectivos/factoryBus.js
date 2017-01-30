@@ -19,7 +19,8 @@
                 data: formatTable(data),
                 icon: 'icon-info',
                 titles: ['Horario', 'Empresa', 'Detalle'],
-                stylesColumn: []
+                stylesColumn: [],
+                selectedRow: null
             };
         };
 

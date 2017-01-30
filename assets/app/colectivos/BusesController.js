@@ -10,6 +10,10 @@
 
         $scope.tableRosario;
         $scope.loadedService = false;
+        $scope.selectedRow;
+        $scope.detail = '';
+        $scope.showModal = false;
+        $scope.clickRow = clickRow;
 
         factoryBus.getBuses()
             .then(busesSuccess)
@@ -30,5 +34,11 @@
         function busesFinally(dataFinally) {
             return;
         };
+
+        function clickRow(row){
+            if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
+            $scope.showModal = true;
+            $scope.detail = row.detail;
+        }
     }
 })();

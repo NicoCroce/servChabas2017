@@ -3,17 +3,17 @@
     {
       "horario": "04:58",
       "empresa": "Ranqueles",
-      "detalle": "'Circula de Lunes a Viernes'"
+      "detalle": "Circula de Lunes a Viernes"
     },
     {
       "horario": "05:30",
       "empresa": "La Verde",
-      "detalle": "'Circula Lunes y sábados. Domingos y feriados no circula'"
+      "detalle": "Circula Lunes y sábados. Domingos y feriados no circula"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -23,22 +23,22 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "04:58",
       "empresa": "Ranqueles",
-      "detalle": "'Circula de Lunes a Viernes'"
+      "detalle": "Circula de Lunes a Viernes"
     },
     {
       "horario": "05:30",
       "empresa": "La Verde",
-      "detalle": "'Circula Lunes y sábados. Domingos y feriados no circula'"
+      "detalle": "Circula Lunes y sábados. Domingos y feriados no circula"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -48,12 +48,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -63,12 +63,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -78,12 +78,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -93,12 +93,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -108,12 +108,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -123,12 +123,12 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -138,7 +138,7 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "06:23",
@@ -148,22 +148,22 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     },
     {
       "horario": "04:58",
       "empresa": "Ranqueles",
-      "detalle": "'Circula de Lunes a Viernes'"
+      "detalle": "Circula de Lunes a Viernes"
     },
     {
       "horario": "05:30",
       "empresa": "La Verde",
-      "detalle": "'Circula Lunes y sábados. Domingos y feriados no circula'"
+      "detalle": "Circula Lunes y sábados. Domingos y feriados no circula"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -173,24 +173,24 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     }
   ],
   "firmat": [
     {
       "horario": "04:58",
       "empresa": "Ranqueles",
-      "detalle": "'Circula de Lunes a Viernes'"
+      "detalle": "Circula de Lunes a Viernes"
     },
     {
       "horario": "05:31",
       "empresa": "La Verde",
-      "detalle": "'Circula Lunes y sábados. Domingos y feriados no circula'"
+      "detalle": "Circula Lunes y sábados. Domingos y feriados no circula"
     },
     {
       "horario": "05:45",
       "empresa": "La Verde",
-      "detalle": "'Domingos y feriados no circula'"
+      "detalle": "Domingos y feriados no circula"
     },
     {
       "horario": "06:23",
@@ -200,7 +200,7 @@
     {
       "horario": "06:42",
       "empresa": "Ranqueles",
-      "detalle": "'Entra en Casilda'"
+      "detalle": "Entra en Casilda"
     }
   ]
 }

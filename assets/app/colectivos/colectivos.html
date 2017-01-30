@@ -1,5 +1,5 @@
 <div class="info colectivos header-section">
-	<h1>Selecciona la dirección que deseas tomar</h1>
+	<h1>Seleccione la dirección que desea tomar</h1>
 	<button accordion-element element-to-shrink="wrapTableRosario" max-height="2000" class="accordion-button button">
 		<span>a Rosario</span>
 		<span class="icon-arrow_right"></span>
@@ -13,7 +13,10 @@
 		<span class="icon-arrow_right"></span>
 	</button>
 	<div id="wrapTableFirmat" class="accordion-element">
-		<table main-table table-config="tableFirmat" class="table-buses visible" ng-if="loadedService"></table >
+		<table main-table table-config="tableFirmat" selected-row="tableFirmat.selectedRow" callback="clickRow" class="table-buses visible" ng-if="loadedService"></table >
+	</div>
+	<div id="modalColectivos" class="modal" ng-class="{'show-modal': showModal}">
+		{{ detail }}
 	</div>
 </div>
 <div class="sombra-inferior"></div>
