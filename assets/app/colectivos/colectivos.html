@@ -1,5 +1,7 @@
 <div class="info colectivos header-section">
 	<h1>Seleccione la dirección que desea tomar</h1>
+	
+	<!--CHABÁS-->
 	<button accordion-element element-to-shrink="wrapTableRosario" max-height="2000" class="accordion-button button">
 		<span>a Rosario</span>
 		<span class="icon-arrow_right"></span>
@@ -7,7 +9,11 @@
 	<div id="wrapTableRosario" class="accordion-element">
 		<table main-table table-config="tableRosario" selected-row="tableRosario.selectedRow" callback="clickRow" class="table-buses visible" ng-if="loadedService"></table >
 	</div>
+	<div class="sombra-inferior"></div>
+	<!--******************-->
 
+
+	<!--ROSARIO-->
 	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="600" class="accordion-button button mg-top-5">
 		<span>a Firmat</span>
 		<span class="icon-arrow_right"></span>
@@ -15,6 +21,10 @@
 	<div id="wrapTableFirmat" class="accordion-element">
 		<table main-table table-config="tableFirmat" selected-row="tableFirmat.selectedRow" callback="clickRow" class="table-buses visible" ng-if="loadedService"></table >
 	</div>
+	<div class="sombra-inferior"></div>
+	<!--******************-->
+	
+
 	<div id="modalColectivos" class="modal" ng-class="{'show-modal': modal.showModal}">
 		<span class="close-modal" ng-click="modal.showModal= false">X</span>
 		<div class="content-modal">
@@ -22,6 +32,4 @@
 			<h1 ng-bind="modal.detail"></h1>
 		</div>
 	</div>
-</div>
-<div class="sombra-inferior"></div>
 </div>

@@ -16,12 +16,10 @@
                 $document.on('scroll', function () {
                     offsetTop = angular.element(element[0]).offset().top;
                     if ($window.scrollY >= offsetTop && stackPosition == null) {
-                        console.log("entra");
                         stackPosition = offsetTop;
                         angular.element(element[0]).addClass('stack-element-top');
                         elementToMove.css({"position": "relative", "top": angular.element(element[0]).outerHeight() + 'px'});
                     } else if ($window.scrollY < stackPosition && stackPosition != null) {
-                        console.log("sale");
                         stackPosition = null;
                         angular.element(element[0]).removeClass('stack-element-top');
                         elementToMove.css({"position": "relative", "top": "0"});
