@@ -9,6 +9,7 @@
     function BusesController($scope, factoryBus) {
 
         $scope.tableRosario;
+        $scope.tableFirmat;
         $scope.loadedService = false;
         $scope.modal = {
             detail: '',

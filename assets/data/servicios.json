@@ -1,5 +1,5 @@
 {
-  "principales": [
+  "instituciones": [
     {
       "nombre": "Policía",
       "numero": "0344-480-888",
@@ -28,7 +28,7 @@
       "direccion": "'casa 1478'"
     }
   ],
-  "roticerias": [
+  "rotiserias": [
     {
       "nombre": "Castagnani",
       "numero": "0344-480-280",

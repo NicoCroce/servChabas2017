@@ -24,6 +24,11 @@
                     templateUrl: '../templates/colectivos/colectivos.html',
                     controller: 'BusesController'
                 })
+                .state('servicios', {
+                    url: '/servicios',
+                    templateUrl: '../templates/servicios/servicios.html',
+                    controller: 'ServicesController'
+                })
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit       
