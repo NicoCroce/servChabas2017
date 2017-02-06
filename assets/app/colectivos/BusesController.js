@@ -10,9 +10,11 @@
 
         $scope.tableRosario;
         $scope.loadedService = false;
-        $scope.selectedRow;
-        $scope.detail = '';
-        $scope.showModal = false;
+        $scope.modal = {
+            detail: '',
+            showModal: false
+        };
+        
         $scope.clickRow = clickRow;
 
         factoryBus.getBuses()
@@ -37,8 +39,8 @@
 
         function clickRow(row){
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.showModal = true;
-            $scope.detail = row.detail;
+            $scope.modal.showModal = true;
+            $scope.modal.detail = row.detail;
         }
     }
 })();

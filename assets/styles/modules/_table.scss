@@ -52,8 +52,9 @@ table {
 			color: white; padding: toem(20px);
  		}
 		 td { 
-			padding: 0.8em 0em 0.8em 1.3em; border-bottom: 1px solid $color100; 
-			&.icon-info { text-align: center; }
+			padding-left: 0.8em; border-bottom: 1px solid $color100; vertical-align: middle;     line-height: 3.5;
+			&.icon-info { text-align: center; color: $grey800; }
+			&:last-of-type { text-align: center; padding: 0; }
 		}
 		transition: all .3s ease;
 		&[class~="hand-cursor"]:hover { background: #B2EBF2 }
