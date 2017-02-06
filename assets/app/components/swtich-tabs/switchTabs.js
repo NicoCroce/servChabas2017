@@ -23,7 +23,7 @@ function switchTabs() {
 			/*$scope.indexTabSelected = 0;*/
 			$scope.indexTabSelected = $scope.tabs.tabSelected;
 
-			var maxTabs = 5,
+			var maxTabs = 4,
 				tabsCount = ($scope.tabs.tabArray.length >= maxTabs) ? maxTabs : $scope.tabs.tabArray.length;
 
 			$scope.tabsSize = function () {
