@@ -2,9 +2,10 @@
     'use strict';
     angular
         .module('servicios-chabas')
-        .factory('factoryIndex', factoryBus);
+        .factory('factoryIndex', factoryIndex);
+    factoryIndex.$inject = ['$resource'];
 
-    function factoryBus($resource) {
+    function factoryIndex($resource) {
         return {
             setTab: setTab
         }

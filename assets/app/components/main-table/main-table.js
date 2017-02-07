@@ -3,7 +3,6 @@
     angular
         .module('servicios-chabas')
         .directive('mainTable', mainTable)
-    mainTable.inject = ['$scope'];
 
     function mainTable() {
         return {
@@ -16,7 +15,7 @@
                 callback: "="
             },
 
-            controller: function ($scope) {
+            controller:['$scope', function ($scope) {
                 $scope.hasIcon = function (row, cell) {
                     return (row.hasDetail && cell == '') ? 'icon-info' : '';
                 }
@@ -29,7 +28,7 @@
                     $scope.selectedRow = row;
                     $scope.callback(row);
                 }
-            },
+            }],
             link: function (scope, element, attr) {
                
             }

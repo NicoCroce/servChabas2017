@@ -19,7 +19,7 @@ function switchTabs() {
 			tabs: '='
 
 		},
-		controller: function ($scope) {
+		controller: ['$scope', function ($scope) {
 			/*$scope.indexTabSelected = 0;*/
 			$scope.indexTabSelected = $scope.tabs.tabSelected;
 
@@ -37,6 +37,6 @@ function switchTabs() {
 				}
 
 			}
-		}
+		}]
 	}
 }

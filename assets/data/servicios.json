@@ -1,43 +1,71 @@
 {
-  "instituciones": [
-    {
-      "nombre": "Policía",
-      "numero": "0344-480-888",
-      "direccion": "Ruta"
-    },
-    {
-      "nombre": "Hospital",
-      "numero": "0344-480-888",
-      "direccion": "Bv. Roque Saens Peña y Rosario"
-    },
-    {
-      "nombre": "Bomberos",
-      "numero": "0344-480-888",
-      "direccion": "España 1000"
-    },
-    {
-      "nombre": "Biblioteca",
-      "numero": "0344-480-888",
-      "direccion": "San Martin 3000"
-    }
-  ],
-  "remises": [
-    {
-      "nombre": "Pepito",
-      "numero": "0344-480-777",
-      "direccion": "'casa 1478'"
-    }
-  ],
-  "rotiserias": [
-    {
-      "nombre": "Castagnani",
-      "numero": "0344-480-280",
-      "direccion": "'Moreno y Mitre'"
-    },
-    {
-      "nombre": "Don Marino",
-      "numero": "0344-480-803",
-      "direccion": "'Rivadavia'"
-    }
-  ]
+	"instituciones": [
+		{
+			"nombre": "Policía",
+			"numero": "0344-480-888",
+			"detalle": {
+				"direccion": "alguna dirección",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		},
+		{
+			"nombre": "Hospital",
+			"numero": "0344-480-888",
+			"detalle": {
+				"direccion": "Bv. Roque Saens Peña y Rosario",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		},
+		{
+			"nombre": "Bomberos",
+			"numero": "0344-480-888",
+			"detalle": {
+				"direccion": "España 1000",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		},
+		{
+			"nombre": "Biblioteca",
+			"numero": "0344-480-888",
+			"detalle": {
+				"direccion": "San Martín 2000",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		}
+	],
+	"remises": [
+		{
+			"nombre": "Pepito",
+			"numero": "0344-480-777",
+			"detalle": {
+				"direccion": "Casa 1478",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		}
+	],
+	"rotiserias": [
+		{
+			"nombre": "Castagnani",
+			"numero": "0344-480-280",
+			"detalle": {
+				"direccion": "Moreno y Mitre",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		},
+		{
+			"nombre": "Don Marino",
+			"numero": "0344-480-803",
+			"detalle": {
+				"direccion": "Rivadavia",
+				"horario": "de 9hs a 14hs",
+				"mapa": ""
+			}
+		}
+	]
 }

@@ -3,6 +3,7 @@
     angular
         .module('servicios-chabas')
         .factory('factoryBus', factoryBus);
+        factoryBus.$inject = ['$resource'];
 
     function factoryBus($resource) {
         return {

@@ -3,7 +3,7 @@
     angular
         .module('servicios-chabas')
         .directive('stackElement', stackElement)
-    stackElement.inject = ['$window', '$document'];
+    stackElement.$inject = ['$window', '$document'];
 
     function stackElement($window, $document) {
         return {

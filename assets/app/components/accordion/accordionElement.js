@@ -3,7 +3,7 @@
     angular
         .module('servicios-chabas')
         .directive('accordionElement', accordionElement)
-    accordionElement.inject = [];
+    accordionElement.$inject = [];
 
     function accordionElement() {
         return {

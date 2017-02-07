@@ -2,8 +2,7 @@
     'use strict'
     angular
         .module('servicios-chabas')
-        .directive('modal', modal)
-    modal.inject = ['$scope'];
+        .directive('modal', modal);
 
     function modal() {
         return {
@@ -14,11 +13,11 @@
                 modalTemplate: "=",
             },
 
-            controller: function ($scope) {
+            controller:['$scope', function ($scope) {
                 $scope.getTemplateUrl = function() {
                     return $scope.modalTemplate;
                 }
-            },
+            }],
             link: function (scope, element, attr) {
 
             }

@@ -3,6 +3,7 @@
     angular
         .module('servicios-chabas')
         .factory('factoryServices', factoryServices);
+        factoryServices.$inject = ['$resource'];
 
     function factoryServices($resource) {
         return {
@@ -17,8 +18,8 @@
         function getTable(data) {
             return {
                 data: formatTable(data),
-                icon: '',
-                titles: ['Nombre', 'Número', 'Dirección'],
+                icon: 'icon-info',
+                titles: ['Nombre', 'Número', 'Detalle'],
                 stylesColumn: [],
                 selectedRow: null
             };
@@ -28,7 +29,9 @@
             var services = [];
             angular.forEach(data, function (currentService, index) {
                 var row = {};
-                row.info = [currentService.nombre, currentService.numero, currentService.dirección];
+                row.info = [currentService.nombre, currentService.numero, ''];
+                row.detail = currentService.detalle;
+                row.hasDetail = currentService.detalle != '';
                 services.push(row);
             });
             return services;

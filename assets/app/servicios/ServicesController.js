@@ -13,7 +13,9 @@
         $scope.fastFood;
         $scope.loadedService = false;
         $scope.modal = {
-            detail: '',
+            direccion: '',
+            horario: '',
+            mapa: '',
             showModal: false
         };
 
@@ -43,7 +45,10 @@
         function clickRow(row) {
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
             $scope.modal.showModal = true;
-            $scope.modal.detail = row.detail;
+            $scope.modal.direccion = row.detail.direccion;
+            $scope.modal.horario = row.detail.horario;
+            $scope.modal.mapa = row.detail.mapa;
+            $scope.modal.telefono = row.info[1];
         }
     }
 })();
