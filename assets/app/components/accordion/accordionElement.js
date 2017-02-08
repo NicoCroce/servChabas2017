@@ -13,11 +13,28 @@
                 maxHeight: "@"
             },
             link: function (scope, element, attrs) {
-                var isClosed = true;
                 element.on('click', function () {
+                    var isClosed = !angular.element(element).hasClass('accordion-is-open');
+                   /* var allButtons = document.querySelectorAll('.accordion-button');
+                    allButtons.forEach(function(button) {
+                        angular.element(button).removeClass('accordion-is-open');
+                    });*/
+
+                    $(".accordion-button").each(function (index, obj) {
+                        angular.element(obj).removeClass("accordion-is-open");
+                    });
+
+                    $(".accordion-element").each(function (index, obj) {
+                        angular.element(obj).css({ "max-height": '0' });
+                    });
+
                     var elementToShirk = angular.element(document.querySelector('#' + scope.elementToShrink));
-                    (isClosed) ? elementToShirk.css({ "max-height": scope.maxHeight + 'px' }) : elementToShirk.css({ "max-height": '0' });
-                    element.toggleClass('accordion-is-open');
+                    if(isClosed) {
+                        elementToShirk.css({ "max-height": scope.maxHeight + 'px' });
+                        element.addClass('accordion-is-open');
+                    } else {
+                        elementToShirk.css({ "max-height": '0' });
+                    }
                     isClosed = !isClosed;
                 });
             }
