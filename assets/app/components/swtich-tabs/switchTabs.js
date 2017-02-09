@@ -17,7 +17,6 @@ function switchTabs() {
 		replace: false,
 		scope: {
 			tabs: '='
-
 		},
 		controller: ['$scope', function ($scope) {
 			/*$scope.indexTabSelected = 0;*/
@@ -32,11 +31,31 @@ function switchTabs() {
 
 			$scope.setSelectedTab = function (index) {
 				$scope.indexTabSelected = index;
-				if (angular.isDefined($scope.tabs.tabArray[index].callback)) {
-					$scope.tabs.tabSelected.callback();
+				if (angular.isDefined($scope.tabs.callback)) {
+					$scope.tabs.callback();
 				}
 
 			}
+
+			// Si cambia la URL
+			$scope.$on('$stateChangeStart',
+				function (event, toState, toParams, fromState, fromParams) {
+					var index = getIndex(toState.name);
+					if ($scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario sera false
+
+					$scope.setSelectedTab(index);
+				});
+
+			function getIndex(stateName) {
+				var index;
+				$scope.tabs.tabArray.forEach(function (tab, indexTab) {
+					if (tab.url == stateName) index = indexTab;
+				});
+
+				return index;
+			}
+
+			//***************** */
 		}]
 	}
 }
