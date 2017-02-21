@@ -41,7 +41,7 @@ function switchTabs() {
 			$scope.$on('$stateChangeStart',
 				function (event, toState, toParams, fromState, fromParams) {
 					var index = getIndex(toState.name);
-					if ($scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario sera false
+					if ($scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario será false
 
 					$scope.setSelectedTab(index);
 				});

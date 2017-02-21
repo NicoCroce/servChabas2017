@@ -15,5 +15,6 @@
             ],
             tabSelected: factoryIndex.setTab()
         };
+
     };
 })();
