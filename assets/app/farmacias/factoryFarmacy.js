@@ -6,35 +6,50 @@
     factoryFarmacy.$inject = ['$resource'];
 
     function factoryFarmacy($resource) {
-        return {
+
+        var returnObject = {
             getPharmacies: getPharmacies,
-            formatInfo: formatInfo
-        }
-
-        function getPharmacies(month) {
-            return $resource('../data/calendar/' + month + '.json').get().$promise;
+            getPharmacyData: getPharmacyData,
+            getData: getData
         };
 
-        function formatInfo(data) {
-            /*return {
-                data: formatTable(data),
-                icon: 'icon-info',
-                titles: ['Horario', 'Empresa', 'Detalle'],
-                stylesColumn: [],
-                selectedRow: null
-            };*/
+        var pharmaciesNames = [
+            { "Bianchini": 0 },
+            { "Torres": 1 },
+            { "Busilacchi": 2 },
+            { "Pacini": 3 },
+            { "Gismondi": 4 },
+            { "Pace": 5 },
+            { "La Plaza": 6 },
+            { "Del Grecco": 7 }];
+
+        return returnObject;
+
+        function getPharmacies() {
+            var date = getDate(),
+                month = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+            return $resource('../data/calendar/' + month[date.month] + '.json').get().$promise;
         };
 
-        /*function formatTable(data) {
-            var buses = [];
-            angular.forEach(data, function (currentBus, index) {
-                var row = {};
-                row.info = [currentBus.horario, currentBus.empresa, ''];
-                row.detail = currentBus.detalle;
-                row.hasDetail = currentBus.detalle != '';
-                buses.push(row);
+        function getDate() {
+            var newDate = new Date();
+            var date = {
+                complete: newDate,
+                day: newDate.getDate(),
+                month: newDate.getMonth() + 1,
+                year: newDate.getFullYear()
+            }
+            return date;
+        };
+
+        function getData(name) {
+            pharmaciesNames.map(function (obj) {
+                return obj;
             });
-            return buses;
-        };*/
+        };
+
+        function getPharmacyData(id) {
+            return $resource('../data/farmacias.json').get().$promise;
+        }
     }
 })();

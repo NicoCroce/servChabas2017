@@ -17,7 +17,7 @@
                 .state('farmacias', {
                     url: '/farmacias',
                     templateUrl: '../templates/farmacias/farmacias.html',
-                    controller: 'HomeController'
+                    controller: 'PharmacyController'
                 })
                 .state('colectivos', {
                     url: '/colectivos',
