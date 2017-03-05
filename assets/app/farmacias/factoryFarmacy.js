@@ -3,35 +3,42 @@
     angular
         .module('servicios-chabas')
         .factory('factoryFarmacy', factoryFarmacy);
-    factoryFarmacy.$inject = ['$resource'];
+    factoryFarmacy.$inject = ['$resource', '$q'];
 
-    function factoryFarmacy($resource) {
+    function factoryFarmacy($resource, $q) {
 
         var returnObject = {
-            getPharmacies: getPharmacies,
-            getPharmacyData: getPharmacyData,
             getData: getData
         };
 
-        var pharmaciesNames = [
-            { "Bianchini": 0 },
-            { "Torres": 1 },
-            { "Busilacchi": 2 },
-            { "Pacini": 3 },
-            { "Gismondi": 4 },
-            { "Pace": 5 },
-            { "La Plaza": 6 },
-            { "Del Grecco": 7 }];
+        var date = getDate();
 
         return returnObject;
 
-        function getPharmacies() {
-            var date = getDate(),
-                month = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-            return $resource('../data/calendar/' + month[date.month] + '.json').get().$promise;
+        function getData() {
+            var deferred = $q.defer();
+            $q.all([
+                getCalendar(),
+                getPharmacies()
+            ]).then(function (responses) {
+                var pharmacyName = responses[0].calendar[date.day].farmacia,
+                    serviceResponse = responses[1].farmacias[pharmacyName];
+                deferred.resolve(serviceResponse);
+            });
+
+            return deferred.promise;
         };
 
+        function getCalendar() {
+            return $resource('../data/calendar/' + date.monthText + '.json').get().$promise;
+        };
+
+        function getPharmacies() {
+            return $resource('../data/farmacias.json').get().$promise;
+        }
+
         function getDate() {
+            var month = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
             var newDate = new Date();
             var date = {
                 complete: newDate,
@@ -39,17 +46,9 @@
                 month: newDate.getMonth() + 1,
                 year: newDate.getFullYear()
             }
+            date.monthText = month[date.month];
+
             return date;
         };
-
-        function getData(name) {
-            pharmaciesNames.map(function (obj) {
-                return obj;
-            });
-        };
-
-        function getPharmacyData(id) {
-            return $resource('../data/farmacias.json').get().$promise;
-        }
     }
 })();

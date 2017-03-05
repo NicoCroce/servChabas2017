@@ -1,11 +1,60 @@
 {
-    "farmacias": [
-        {
+    "farmacias": {
+        "Bianchini": {
             "nombre": "Bianchini",
             "imagen": "",
             "direccion": "",
             "telefono": "",
             "mapa": ""
+        },
+        "Torres": {
+            "nombre": "Torres",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "Busilacchi": {
+            "nombre": "Busilacchi",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "Pacini": {
+            "nombre": "Pacini",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "Gismondi": {
+            "nombre": "Gismondi",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "Pace": {
+            "nombre": "Pace",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "La Plaza": {
+            "nombre": "La Plaza",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
+        },
+        "Del Grecco": {
+            "nombre": "Del Grecco",
+            "imagen": "",
+            "direccion": "",
+            "telefono": "",
+            "mapa": ""
         }
-    ]
+    }
 }

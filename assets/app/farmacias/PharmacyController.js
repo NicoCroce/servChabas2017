@@ -4,27 +4,26 @@
         .module('servicios-chabas')
         .controller('PharmacyController', PharmacyController);
 
-    PharmacyController.$inject = ['$scope', 'factoryFarmacy'];
+    PharmacyController.$inject = ['$scope', 'factoryFarmacy', '$q'];
 
     function PharmacyController($scope, factoryFarmacy) {
 
-        factoryFarmacy.getPharmacies()
+        $scope.dataPharmacy;
+
+        factoryFarmacy.getData()
             .then(calendarSuccess)
             .catch(calendarError)
             .finally(calendarFinally);
 
         function calendarSuccess(dataResponse) {
-            console.log(dataResponse);
-            factoryFarmacy.getPharmacyData()
-                .then(pharmacySuccess)
-                .catch(pharmacyError)
-                .finally(pharmacyFinally)
-            return;
+            $scope.dataPharmacy = {
+                name: dataResponse.nombre,
+                img: dataResponse.imagen,
+                address: dataResponse.direccion,
+                phone: dataResponse.telefono,
+                map: dataResponse.mapa
+            };
         };
-
-        function pharmacySuccess(dataResponse) {
-            factoryFarmacy.getData();
-        }
 
         function calendarError(dataError) {
             return;
@@ -34,7 +33,7 @@
             return;
         };
 
-        function clickRow(row){
+        function clickRow(row) {
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
             $scope.modal.showModal = true;
             $scope.modal.detail = row.detail;

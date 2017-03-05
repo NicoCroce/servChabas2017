@@ -1,45 +1,5 @@
-/*
-.info {
-	width: 74%; float: left; position: relative; height: 100%;
-	.datos { 
-		width: 25%; display: inline-block;
-		p { margin-top: 7%; }
-		div { 
-			display: table; width: 100%; margin-top: 3%;
-			span {  display: table-cell; vertical-align: middle; }
-			.dato { 
-				font-weight: 600; color: rgb(155, 155, 155); width: 110px;
-				.text { text-shadow: none; font-size: 1.3em; color: black; font-weight: 900; font-family: sans-serif; margin-left: 2%; }
-				//text-shadow: rgba(black, 1) 1px 0 0;
-			}
-			&:last-child {margin-top: 7%};
-		}
-		&.img { background-image: url(../img/logo.jpg); background-size: contain; background-repeat: no-repeat; background-position-x: 10px; 
-			float: left; height: 102px; width: 20%; }
-		&.farmacia { 
-			width: 76%; margin: 0; float: right; font-size: 1.3em;
-			.icon-phil { vertical-align: top; display: inline-block; margin-top: 10px; }
-		}
-
-		span[class^=icon-] { color: rgb(155, 155, 155); font-size: 1.2em; margin-right: 5px; width: 35px;
-			// text-shadow: rgba(black, .6) 1px 1px 2px; 
-		} 
-	}
-	.link {
-		&.call { display: none; }
-		&.map {
-			margin-top: 5%; clear: both; float: left;
-			.button { float: left; margin-top: 3%; }
-		}
-		.button { display: table }
-	}
-	
-
-	.icon-location:before { margin-right: 4%; }
-}*/
-
 .farmacia {
-	.nombre-farmacia { font-size: toem(40px); font-weight: 600; display: inline-block; color: $color500;
+	.nombre-farmacia { font-size: toem(40px); font-weight: 600; display: inline-block; color: $color500; margin-bottom: 0;
 		text-shadow: rgba(22, 65, 94, 1) 1px 1px 0;
 	}
 	.datos {
