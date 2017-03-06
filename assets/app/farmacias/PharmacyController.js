@@ -34,12 +34,6 @@
             return;
         };
 
-        function clickRow(row) {
-            if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal.showModal = true;
-            $scope.modal.detail = row.detail;
-        }
-
         function initMap() {
             var myLatLng = $scope.dataPharmacy.map;
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -47,8 +41,7 @@
                 center: myLatLng,
                 minZoom: 8,
                 draggable: true,
-                disableDefaultUI: true,
-                MarkerLabel: 'NICO'
+                disableDefaultUI: true
             });
 
             new google.maps.Marker({
