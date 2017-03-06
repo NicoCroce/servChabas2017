@@ -2,59 +2,68 @@
     "farmacias": {
         "Bianchini": {
             "nombre": "Bianchini",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "Lavalle 1457",
+            "telefono": "481 578",
+            "mapa": {
+                "lat": -33.2472475,
+                "lng": -61.3574469
+            }
         },
         "Torres": {
             "nombre": "Torres",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "No disponible",
+            "telefono": "No disponible",
+            "mapa": "No disponible"
         },
         "Busilacchi": {
             "nombre": "Busilacchi",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "Moreno 1639",
+            "telefono": "480325",
+            "mapa": {
+                "lat": -33.243437,
+                "lng": -61.361117
+            }
         },
         "Pacini": {
             "nombre": "Pacini",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "No disponible",
+            "telefono": "No disponible",
+            "mapa": "No disponible"
         },
         "Gismondi": {
             "nombre": "Gismondi",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "No disponible",
+            "telefono": "No disponible",
+            "mapa": "No disponible"
         },
         "Pace": {
             "nombre": "Pace",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "No disponible",
+            "telefono": "No disponible",
+            "mapa": "No disponible"
         },
         "La Plaza": {
             "nombre": "La Plaza",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "No disponible",
+            "telefono": "No disponible",
+            "mapa": "No disponible"
         },
         "Del Grecco": {
             "nombre": "Del Grecco",
-            "imagen": "",
-            "direccion": "",
-            "telefono": "",
-            "mapa": ""
+            "imagen": "No disponible",
+            "direccion": "Mitre 1583",
+            "telefono": "480 969",
+            "mapa": {
+                "lat": -33.2465482,
+                "lng": -61.3568075
+            }
         }
     }
 }

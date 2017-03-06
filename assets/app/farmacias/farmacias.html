@@ -1,14 +1,20 @@
 <div class="farmacia">
     <h3 class="content-title">Farmacia de Turno</h3>
     <h1 class="nombre-farmacia" ng-bind="dataPharmacy.name"></h1>
-     <div class="img-logo"> 
-        <img src="{{dataPharmacy.img}}" alt=""> 
-     </div>
     <div class="datos">
         <div><span class="icon-map"></span><span class="dato">Dirección:  </span><span class="text" ng-bind="dataPharmacy.address"></span></div>
-        <div class="info-tel"><span class="icon-phone"></span><span class="dato">Teléfono:  </span><span class="text" ng-bind="dataPharmacy.phone"></span></div>
     </div>
-    <a class="link call" href="tel:03464{{dataPharmacy.phone}}"><button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span class="icon-phone"></span> <span ng-bind="dataPharmacy.phone"></span></button>
-</a>
-<a class="link map" href="https://www.google.com/maps/place/Farmacia+Busilacchi/@-33.2433868,-61.3636997,17z/data=!3m1!4b1!4m5!3m4!1s0x95c8285de9eb0607:0x45475cb1c34be214!8m2!3d-33.2433868!4d-61.361511?hl=es" target="_blank"><button class="button ripple"><span class="icon-location"></span><span> Mapa</span></button></a>
+    <div id="map" style=" height: 200px;"></div>
+    <div class="datos desktop">
+        <div class="info-tel"><span class="icon-phone"></span><span class="dato">Teléfono:  (03464)  </span>
+            <span class="text" ng-bind="dataPharmacy.phone"></span></div>
+    </div>
+
+
+    <a class="link call" href="tel:03464{{dataPharmacy.phone}}">
+        <button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;">
+        <span><span class="icon-phone"></span><span ng-bind="dataPharmacy.phone"></span></span>
+        </button>
+    </a>
+    <!--<a class="link map" href="https://www.google.com/maps/place/Farmacia+Busilacchi/@-33.2433868,-61.3636997,17z/data=!3m1!4b1!4m5!3m4!1s0x95c8285de9eb0607:0x45475cb1c34be214!8m2!3d-33.2433868!4d-61.361511?hl=es" target="_blank"><button class="button ripple"><span class="icon-location"></span><span> Mapa</span></button></a>-->
 </div>

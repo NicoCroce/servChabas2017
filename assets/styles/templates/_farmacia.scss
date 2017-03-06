@@ -1,6 +1,6 @@
 .farmacia {
-	.nombre-farmacia { font-size: toem(40px); font-weight: 600; display: inline-block; color: $color500; margin-bottom: 0;
-		text-shadow: rgba(22, 65, 94, 1) 1px 1px 0;
+	.nombre-farmacia { font-size: toem(40px); font-weight: 600; display: inline-block; color: $grey800; margin-bottom: toem(10px); margin-top: 5px;
+		border-bottom: 1px solid $grey800; display: block;
 	}
 	.datos {
 		margin: 20px 0; font-size: 16px;
@@ -9,6 +9,7 @@
 
 		.text { font-weight: 800; }
 	}
+	.button span[class^=icon-].icon-phone { font-size: 18px; position: relative; top: -1px; }
 	.img-logo { width: 150px; margin-top: 20px; }
 	.link.call { display: none; }
 }

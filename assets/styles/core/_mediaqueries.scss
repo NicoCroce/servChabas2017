@@ -196,13 +196,12 @@ $mediaquery_phones-small--portrait: 480px;
 
     .farmacia {
         .link {
-            &.call { display: block; margin-bottom: 20px; }
+            &.call { display: block; margin-top: 20px; }
             &.map { display: block; }
             button { width: 100%; }
         }
-        .datos {
-            .info-tel { display: none; }
-        }
+        .datos.desktop { display: none; }
+
     }
     .content-info { width:100%; }
 }

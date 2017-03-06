@@ -27,7 +27,7 @@ $button_border-color: #B5B5B5;
     border: none; outline:none; cursor: pointer;
     border-radius: 2px;
     transition: all .3s ease;
-    box-shadow: rgb(167, 167, 167) 0px 0px 10px 0;
+    box-shadow: #a7a7a7 5px 5px 10px 0;
 	&:hover { 
         box-shadow: rgb(167, 167, 167) 5px 5px 10px 0;
         background: #00A99A; color: white; 
