@@ -132,7 +132,7 @@ function cleanIcons(done) {
 };
 
 function cleanJs(done) {
-	return del([FOLDER_DEV + '/js/*', '!' + FOLDER_DEV + '/js/min']);
+	return del([ENVIRONMENT + '/js/*', '!' + ENVIRONMENT + '/js/min']);
 };
 
 function cleanJsLibs(done) {
