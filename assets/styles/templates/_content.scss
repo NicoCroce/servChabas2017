@@ -5,3 +5,11 @@
 // *************************************
 
 .main { margin-top: 20px; margin-bottom: 30px; position: relative; }
+
+.map-element { height: 200px; border: 1px solid #9e9e9e; }
+
+h1.modal-text {
+    text-align: left; display: table; table-layout: fixed; width: 100%;
+    label { font-size: toem(14px); display: table-cell; width: 25%; }
+    span { color: #00d0bc; display: table-cell; width: 75%; }
+} 

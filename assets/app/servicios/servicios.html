@@ -1,5 +1,5 @@
 <div class="info services header-section">
-    <h1>Seleccione el servicio que desea consultar</h1>
+    <h3 class="mgb-5">Seleccione el servicio que desea consultar</h3>
 
     <!--INSTITUCIONES-->
     <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="2000" class="accordion-button button">
@@ -43,9 +43,10 @@
         <span class="close-modal" ng-click="modal.showModal= false">X</span>
         <div class="content-modal">
             <span class="icon-info"></span>
-            <h1 ng-bind="modal.direccion"></h1>
-            <h1 ng-bind="modal.horario"></h1>
-            <a class="link call" href="tel:03464480325"><button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span class="icon-phone"></span> <span ng-bind="modal.telefono"></span></button>
+            <h1 class="modal-text"><label>Dirección: </label><span ng-bind="modal.direccion"></span></h1>
+            <h1 class="modal-text"><label>Disponible: </label><span ng-bind="modal.horario"></span></h1>
+            <h1 class="modal-text mgb-5"><label>Teléfono: </label><span ng-bind="modal.telefono"></span></h1>
+            <a class="link call mobile" href="tel:{{modal.telefono}}"><button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span>llamar</span></button>
             <a class="link map" href="{{ modal.mapa }}"
     target="_blank"><button class="button ripple"><span class="icon-location"></span><span> Mapa</span></button></a>
         </div>

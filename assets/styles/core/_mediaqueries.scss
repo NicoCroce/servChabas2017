@@ -186,7 +186,12 @@ $mediaquery_phones-small--portrait: 480px;
     
 }
 
+@media screen and (min-width: $mediaquery_phones) {
+    .mobile { display: none !important; }
+}
+
 @media screen and (max-width: $mediaquery_phones) {
+
     body { 
         font-size: 14px;
         .header { padding: 1em 0; }
@@ -204,4 +209,6 @@ $mediaquery_phones-small--portrait: 480px;
 
     }
     .content-info { width:100%; }
+
+    .modal div.content-modal { padding: 0 5%; }
 }

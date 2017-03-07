@@ -2,34 +2,34 @@
 	"instituciones": [
 		{
 			"nombre": "Policía",
-			"numero": "0344-480-888",
+			"numero": "480-888",
 			"detalle": {
 				"direccion": "alguna dirección",
-				"horario": "de 9hs a 14hs",
+				"horario": "24hs",
 				"mapa": ""
 			}
 		},
 		{
 			"nombre": "Hospital",
-			"numero": "0344-480-888",
+			"numero": "480-888",
 			"detalle": {
 				"direccion": "Bv. Roque Saens Peña y Rosario",
-				"horario": "de 9hs a 14hs",
+				"horario": "24hs",
 				"mapa": ""
 			}
 		},
 		{
 			"nombre": "Bomberos",
-			"numero": "0344-480-888",
+			"numero": "480-888",
 			"detalle": {
 				"direccion": "España 1000",
-				"horario": "de 9hs a 14hs",
+				"horario": "24hs",
 				"mapa": ""
 			}
 		},
 		{
 			"nombre": "Biblioteca",
-			"numero": "0344-480-888",
+			"numero": "480-888",
 			"detalle": {
 				"direccion": "San Martín 2000",
 				"horario": "de 9hs a 14hs",
@@ -40,7 +40,7 @@
 	"remises": [
 		{
 			"nombre": "Pepito",
-			"numero": "0344-480-777",
+			"numero": "480-777",
 			"detalle": {
 				"direccion": "Casa 1478",
 				"horario": "de 9hs a 14hs",
@@ -51,7 +51,7 @@
 	"rotiserias": [
 		{
 			"nombre": "Castagnani",
-			"numero": "0344-480-280",
+			"numero": "480-280",
 			"detalle": {
 				"direccion": "Moreno y Mitre",
 				"horario": "de 9hs a 14hs",
@@ -60,7 +60,7 @@
 		},
 		{
 			"nombre": "Don Marino",
-			"numero": "0344-480-803",
+			"numero": "480-803",
 			"detalle": {
 				"direccion": "Rivadavia",
 				"horario": "de 9hs a 14hs",

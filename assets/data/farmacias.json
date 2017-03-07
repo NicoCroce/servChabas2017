@@ -4,7 +4,7 @@
             "nombre": "Bianchini",
             "imagen": "No disponible",
             "direccion": "Lavalle 1457",
-            "telefono": "481 578",
+            "telefono": "481-578",
             "mapa": {
                 "lat": -33.2472475,
                 "lng": -61.3574469
@@ -21,7 +21,7 @@
             "nombre": "Busilacchi",
             "imagen": "No disponible",
             "direccion": "Moreno 1639",
-            "telefono": "480325",
+            "telefono": "480-325",
             "mapa": {
                 "lat": -33.243437,
                 "lng": -61.361117
@@ -59,7 +59,7 @@
             "nombre": "Del Grecco",
             "imagen": "No disponible",
             "direccion": "Mitre 1583",
-            "telefono": "480 969",
+            "telefono": "480-969",
             "mapa": {
                 "lat": -33.2465482,
                 "lng": -61.3568075

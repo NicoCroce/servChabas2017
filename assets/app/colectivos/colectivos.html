@@ -1,5 +1,5 @@
 <div class="info colectivos header-section">
-	<h1>Seleccione la dirección que desea tomar</h1>
+	<h3 class="mgb-5">Seleccione la dirección que desea tomar</h3>
 	
 	<!--ROSARIO-->
 	<button accordion-element element-to-shrink="wrapTableRosario" max-height="2000" class="accordion-button button">
@@ -14,7 +14,7 @@
 
 
 	<!--FIRMAT-->
-	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="600" class="accordion-button button mg-top-5">
+	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="600" class="accordion-button button">
 		<span>a Firmat</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -24,6 +24,7 @@
 	<div class="sombra-inferior"></div>
 	<!--******************-->
 	
+	<div id="mapBus" class="map-element"></div>
 
 	<div id="modalColectivos" class="modal" ng-class="{'show-modal': modal.showModal}">
 		<span class="close-modal" ng-click="modal.showModal= false">X</span>
