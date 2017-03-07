@@ -9,7 +9,8 @@
     function PharmacyController($scope, factoryFarmacy, $rootScope) {
 
         $scope.dataPharmacy;
-
+        $rootScope.loadingService = true;
+        
         factoryFarmacy.getData()
             .then(calendarSuccess)
             .catch(calendarError)
@@ -31,6 +32,7 @@
         };
 
         function calendarFinally(dataFinally) {
+            $rootScope.loadingService = false;
             return;
         };
 

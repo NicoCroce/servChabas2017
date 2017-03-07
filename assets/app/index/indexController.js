@@ -3,9 +3,8 @@
     angular
         .module('servicios-chabas')
         .controller('IndexController', IndexController);
-    IndexController.$inject = ['$scope', 'factoryIndex'];
 
-    function IndexController($scope, factoryIndex) {
+    function IndexController($scope, factoryIndex, $rootScope) {
 
         $scope.tabs = {
             tabArray: [

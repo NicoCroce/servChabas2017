@@ -4,9 +4,7 @@
         .module('servicios-chabas')
         .controller('BusesController', BusesController);
 
-    BusesController.$inject = ['$scope', 'factoryBus'];
-
-    function BusesController($scope, factoryBus) {
+    function BusesController($scope, factoryBus, $rootScope) {
 
         $scope.tableRosario;
         $scope.tableFirmat;
@@ -17,6 +15,7 @@
         };
         
         $scope.clickRow = clickRow;
+        $rootScope.loadingService = true;
 
         factoryBus.getBuses()
             .then(busesSuccess)
@@ -36,6 +35,7 @@
         };
 
         function busesFinally(dataFinally) {
+            $rootScope.loadingService = false;
             return;
         };
 

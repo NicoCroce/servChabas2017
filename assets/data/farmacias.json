@@ -13,9 +13,12 @@
         "Torres": {
             "nombre": "Torres",
             "imagen": "No disponible",
-            "direccion": "No disponible",
-            "telefono": "No disponible",
-            "mapa": "No disponible"
+            "direccion": "Rosario 1698",
+            "telefono": "481-222",
+            "mapa": {
+                "lat": -33.2495685,
+                "lng": -61.358065
+            }
         },
         "Busilacchi": {
             "nombre": "Busilacchi",

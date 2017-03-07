@@ -12,4 +12,33 @@ h1.modal-text {
     text-align: left; display: table; table-layout: fixed; width: 100%;
     label { font-size: toem(14px); display: table-cell; width: 25%; }
     span { color: #00d0bc; display: table-cell; width: 75%; }
-} 
+}
+
+.bg-spinner {
+    position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 100; opacity: 0.9;
+    transition: all .4s ease;
+    .spinner {
+        margin: 0 auto; width: 70px; text-align: center;
+        @include vertical-align;
+        >div {
+            width: 18px; height: 18px; background-color: #fff;  border-radius: 100%; display: inline-block; 
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+        .bounce1 { animation-delay: -0.32s; }
+        .bounce2 { animation-delay: -0.16s; }
+    }
+    &.hidden-modal { opacity: 0; z-index: -1; }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { transform: scale3d(0, 0, 0); }
+  40% { transform: scale3d(1, 1, 1); }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale3d(0, 0, 0);
+  } 40% { 
+    transform: scale3d(1, 1, 1);
+  }
+}

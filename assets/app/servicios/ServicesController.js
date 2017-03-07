@@ -4,9 +4,7 @@
         .module('servicios-chabas')
         .controller('ServicesController', ServicesController);
 
-    ServicesController.$inject = ['$scope', 'factoryServices'];
-
-    function ServicesController($scope, factoryServices) {
+    function ServicesController($scope, factoryServices, $rootScope) {
 
         $scope.tableInstitutions;
         $scope.tableTaxi;
@@ -20,6 +18,7 @@
         };
 
         $scope.clickRow = clickRow;
+        $rootScope.loadingService = true;
 
         factoryServices.getServices()
             .then(servicesSuccess)
@@ -39,6 +38,7 @@
         };
 
         function servicesFinally(dataFinally) {
+            $rootScope.loadingService = false;
             return;
         };
 
