@@ -40,12 +40,9 @@ $button_border-color: #B5B5B5;
         box-shadow: rgb(46, 100, 94) -3px -3px 5px inset;
 		@include text-align-center ();
     }
-    // &.destinos { 
-    //     margin: 0; padding: 2% 63px; border-radius: 11px; width: 105px; line-height: 1.6;
-    //     &:hover { background: #A2A2A2; border: 1px solid #E7E7E7; background: #A8A8A8; }
-    //     &:last-child { float: right; }
-    // }
+
     .icon-location { position: relative; top: -2px; }
+    &.home { width: 100%; margin-top: 10vh; }
 }
 
 .fab{

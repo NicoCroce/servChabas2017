@@ -5,7 +5,7 @@
         .controller('IndexController', IndexController);
 
     function IndexController($scope, factoryIndex, $rootScope) {
-
+        $rootScope.loadingService = false;
         $scope.tabs = {
             tabArray: [
                 { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacia' },

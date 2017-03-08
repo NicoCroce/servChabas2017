@@ -5,6 +5,10 @@
         .module('servicios-chabas')
         .run(['$rootScope', function ($rootScope) {
             $rootScope.loadingService = true;
+            $rootScope.noHmoeSection = !window.location.hash.includes('home');
+            window.addEventListener("hashchange", function (event) {
+                $rootScope.noHmoeSection = !window.location.hash.includes('home');
+            });
         }])
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
             $qProvider.errorOnUnhandledRejections(false);

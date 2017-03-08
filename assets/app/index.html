@@ -24,7 +24,7 @@
 					<!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
 				</div>
 			</div>
-			<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs"></nav>
+			<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': noHmoeSection }"></nav>
 		</section>
 	</header>
 	<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}">
@@ -81,7 +81,7 @@
 		</section>
 	</main>-->
 	<main id="mainSection" role="main" class="main">
-		<section class="content">
+		<section transition class="content">
 			<div class="wrapper clear-both">
 				<div ui-view class="content-info"></div>
 				<div class="publi-mayor">
