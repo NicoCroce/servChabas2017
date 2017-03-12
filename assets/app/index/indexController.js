@@ -9,11 +9,14 @@
         $scope.tabs = {
             tabArray: [
                 { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacia' },
-                { 'url': 'colectivos', 'icon': 'icon-bus', 'text': 'colectivos' }, //Si quiero una URL externa utilizo // antes //www.google.com
-                { 'url': 'servicios', 'icon': 'icon-list2', 'text': 'servicos' }
+                { 'url': 'colectivos', 'icon': 'icon-bus', 'text': 'colectivos' },
+                { 'url': 'servicios', 'icon': 'icon-list2', 'text': 'servicos' },
+                { 'url': 'options', 'icon': 'icon-options-v', 'text': '' }
             ],
             tabSelected: factoryIndex.setTab()
         };
+
+        $rootScope.loadingService = false;
 
     };
 })();

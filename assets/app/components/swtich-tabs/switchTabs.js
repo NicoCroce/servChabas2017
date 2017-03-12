@@ -12,45 +12,54 @@
 			scope: {
 				tabs: '='
 			},
-			controller: ['$scope', function ($scope) {
-				/*$scope.indexTabSelected = 0;*/
-				$scope.indexTabSelected = $scope.tabs.tabSelected;
+			link: function (scope, element, attrs) {
+				/*scope.indexTabSelected = 0;*/
+				scope.indexTabSelected = scope.tabs.tabSelected;
 
-				var maxTabs = 4,
-					tabsCount = ($scope.tabs.tabArray.length >= maxTabs) ? maxTabs : $scope.tabs.tabArray.length;
+				var maxTabs, tabsCount;
 
-				$scope.tabsSize = function () {
-					return { "width": 100 / tabsCount + "%" };
-				}
+				maxTabs = 4;
+				tabsCount = (scope.tabs.tabArray.length >= maxTabs) ? maxTabs : scope.tabs.tabArray.length;
 
-				$scope.setSelectedTab = function (index) {
-					$scope.indexTabSelected = index;
-					if (angular.isDefined($scope.tabs.callback)) {
-						$scope.tabs.callback();
+				scope.tabsSize = function (index) {
+					var width = {};
+					if (index == tabsCount - 1) {
+						width = { "width": 10 + "%" };
+					} else {
+						width = { "width": 90 / (tabsCount - 1) + "%" };
+					}
+
+					return width;
+				};
+
+				scope.setSelectedTab = function (index) {
+					scope.indexTabSelected = index;
+					if (angular.isDefined(scope.tabs.callback)) {
+						scope.tabs.callback();
 					}
 
 				}
 
 				// Si cambia la URL
-				$scope.$on('$stateChangeStart',
+				scope.$on('$stateChangeStart',
 					function (event, toState, toParams, fromState, fromParams) {
 						var index = getIndex(toState.name);
-						if ($scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario será false
+						if (scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario será false
 
-						$scope.setSelectedTab(index);
+						scope.setSelectedTab(index);
 					});
 
 				function getIndex(stateName) {
 					var index;
-					$scope.tabs.tabArray.forEach(function (tab, indexTab) {
+					scope.tabs.tabArray.forEach(function (tab, indexTab) {
 						if (tab.url == stateName) index = indexTab;
 					});
 
 					return index;
 				}
-
 				//***************** */
-			}]
+
+			}
 		}
 	}
 })();

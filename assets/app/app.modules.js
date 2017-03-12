@@ -36,6 +36,11 @@
                     templateUrl: '../templates/servicios/servicios.html',
                     controller: 'ServicesController'
                 })
+                .state('options', {
+                    url: '/menu',
+                    templateUrl: '../templates/options/options.html',
+                    controller: 'OptionsController'
+                })
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 .state('about', {
                     // we'll get to this in a bit       

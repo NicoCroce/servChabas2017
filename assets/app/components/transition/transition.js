@@ -1,24 +1,29 @@
-(function(){
+(function () {
     'use strict'
     angular
         .module('servicios-chabas')
         .directive('transition', transition);
 
-    function transition (){
+    function transition($rootScope) {
         return {
             restrict: 'A',
             replace: false,
             link: function (scope, element, attrs) {
-                window.addEventListener("hashchange", function (event) {
-                    debugger;
-                    console.log('ver');
-                    var section = angular.element(element);
+
+                var section = angular.element(element);
+
+                $rootScope.$on('$stateChangeStart',
+                    function (event, toState, toParams, fromState, fromParams) {
+                        sectionTransition();
+                    });
+
+                function sectionTransition() {
                     section.removeClass('anim-in-section');
-                    setTimeout(function(){
+                    setTimeout(function () {
                         section.addClass('anim-in-section');
-                    }, 1000);
-                });
+                    }, 100);
+                }
             }
         }
-};
+    };
 })();
