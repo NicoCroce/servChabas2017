@@ -11,6 +11,7 @@
             link: function (scope, element, attrs) {
 
                 var section = angular.element(element);
+                section.addClass("content-transition");
 
                 $rootScope.$on('$stateChangeStart',
                     function (event, toState, toParams, fromState, fromParams) {

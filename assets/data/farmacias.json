@@ -33,30 +33,42 @@
         "Pacini": {
             "nombre": "Pacini",
             "imagen": "No disponible",
-            "direccion": "No disponible",
-            "telefono": "No disponible",
-            "mapa": "No disponible"
+            "direccion": "Balcarce 1744",
+            "telefono": "481-464",
+            "mapa": {
+                "lat": -33.241817,
+                "lng": -61.3623003
+            }
         },
         "Gismondi": {
             "nombre": "Gismondi",
             "imagen": "No disponible",
-            "direccion": "No disponible",
-            "telefono": "No disponible",
-            "mapa": "No disponible"
+            "direccion": "España 1717",
+            "telefono": "480-085",
+            "mapa": {
+                "lat": -33.243951,
+                "lng": -61.3572182
+            }
         },
         "Pace": {
             "nombre": "Pace",
             "imagen": "No disponible",
-            "direccion": "No disponible",
-            "telefono": "No disponible",
-            "mapa": "No disponible"
+            "direccion": "Pellegrini 1636",
+            "telefono": "480-336",
+            "mapa": {
+                "lat": -33.245721,
+                "lng": -61.3561312
+            }
         },
         "La Plaza": {
             "nombre": "La Plaza",
             "imagen": "No disponible",
-            "direccion": "No disponible",
-            "telefono": "No disponible",
-            "mapa": "No disponible"
+            "direccion": "B. Mitre 1679",
+            "telefono": "480-452",
+            "mapa": {
+                "lat": -33.2459437,
+                "lng": -61.3591102
+            }
         },
         "Del Grecco": {
             "nombre": "Del Grecco",

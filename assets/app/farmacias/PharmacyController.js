@@ -24,7 +24,7 @@
                 phone: dataResponse.telefono,
                 map: dataResponse.mapa,
             };
-            initMap();
+            /*initMap();*/
         };
 
         function calendarError(dataError) {
@@ -51,7 +51,6 @@
                 map: map,
                 title: '',
                 animation: google.maps.Animation.DROP,
-                labelContent: "ABCD",
                 labelAnchor: new google.maps.Point(15, 65),
                 labelClass: "labels", // the CSS class for the label
                 labelInBackground: false,
