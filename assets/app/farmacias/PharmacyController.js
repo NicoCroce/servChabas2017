@@ -24,7 +24,7 @@
                 phone: dataResponse.telefono,
                 map: dataResponse.mapa,
             };
-            /*initMap();*/
+            initMap();
         };
 
         function calendarError(dataError) {

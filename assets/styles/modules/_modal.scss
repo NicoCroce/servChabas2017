@@ -16,12 +16,13 @@
 // -------------------------------------
 
 .modal {
-    position: fixed; transform: translate3d(0, -20px, 0); left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); color: white; visibility: hidden; z-index: 10; opacity: 0;
-    transition: all .3s ease-in-out; display: table; width: 100%; height: 100%;
+    position: fixed; transform: translate3d(0, -20px, 0); left: 0; right: 0; bottom: 0; top: 0; background: rgba(0, 0, 0, 0.95); color: white; visibility: hidden; z-index: 10; opacity: 0;
+    transition: all .3s ease-in-out;
     &.show-modal { opacity: 1; z-index: 10; transform: 0; visibility: visible; transform: translate3d(0, 0, 0); }
+    >div { display: table; height: 100%; width: 100%; }
     div.content-modal { 
         display: table-cell; vertical-align: middle; padding: 0 20%; text-align: center;
-        span[class*="icon-info"] { font-size: 4em; }
+        span[class*="icon-info"] { font-size: 4em; opacity: .7; margin: 0; }
         h1 { color: white; margin-top: 20px; line-height: 2; }
         }
         .link { 
@@ -29,8 +30,7 @@
             &.map { margin-top: 15px; }
         }
     .close-modal { 
-	    position: absolute; right: 10px; top: 10px; background: #909090; padding: 10px; line-height: 0.7; 
-	    border-radius: 50%; font-weight: 800; transition: all .3s ease; 
-	    &:hover { cursor: pointer; background: #d8d8d8; color: #333; }
+	    position: absolute; right: 10px; top: 10px; color: #909090; transition: all .3s ease; font-size: toem(22px);
+	    &:hover { cursor: pointer; baccolorkground: #d8d8d8; color: #333; }
 	}
 }

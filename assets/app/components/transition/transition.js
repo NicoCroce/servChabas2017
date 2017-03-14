@@ -15,15 +15,15 @@
 
                 $rootScope.$on('$stateChangeStart',
                     function (event, toState, toParams, fromState, fromParams) {
-                        sectionTransition();
+                        section.removeClass('anim-in-section');
                     });
 
-                function sectionTransition() {
-                    section.removeClass('anim-in-section');
-                    setTimeout(function () {
-                        section.addClass('anim-in-section');
-                    }, 100);
-                }
+                $rootScope.$on('$stateChangeSuccess',
+                    function (event, toState, toParams, fromState, fromParams) { 
+                        setTimeout(function () {
+                            section.addClass('anim-in-section'); 
+                        }, 100);                        
+                    });
             }
         }
     };
