@@ -11,10 +11,10 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 0,
         "tags": [
           "options-v"
-        ]
+        ],
+        "grid": 0
       },
       "attrs": [
         {}
@@ -27,7 +27,7 @@
         "code": 59649
       },
       "setIdx": 0,
-      "setId": 6,
+      "setId": 11,
       "iconIdx": 0
     },
     {
@@ -56,7 +56,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 0
     },
     {
@@ -83,7 +83,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 1
     },
     {
@@ -111,7 +111,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 2
     },
     {
@@ -137,7 +137,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 3
     },
     {
@@ -164,7 +164,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 4
     },
     {
@@ -192,7 +192,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 5
     },
     {
@@ -219,7 +219,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 6
     },
     {
@@ -249,7 +249,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 7
     },
     {
@@ -275,7 +275,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 8
     },
     {
@@ -303,7 +303,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 9
     },
     {
@@ -331,7 +331,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 10
     },
     {
@@ -361,7 +361,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 5,
+      "setId": 10,
       "iconIdx": 11
     },
     {
@@ -390,7 +390,7 @@
         "name": "arrow_right"
       },
       "setIdx": 2,
-      "setId": 4,
+      "setId": 9,
       "iconIdx": 0
     },
     {
@@ -415,7 +415,7 @@
         "name": "email"
       },
       "setIdx": 3,
-      "setId": 3,
+      "setId": 8,
       "iconIdx": 0
     },
     {
@@ -444,7 +444,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 0
     },
     {
@@ -471,7 +471,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 1
     },
     {
@@ -498,7 +498,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 2
     },
     {
@@ -528,7 +528,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 3
     },
     {
@@ -555,7 +555,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 4
     },
     {
@@ -585,7 +585,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 5
     },
     {
@@ -614,7 +614,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 6
     },
     {
@@ -642,7 +642,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 7
     },
     {
@@ -670,7 +670,7 @@
         "code": 58900
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 8
     },
     {
@@ -698,7 +698,7 @@
         "code": 58901
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 9
     },
     {
@@ -729,7 +729,7 @@
         "code": 59835
       },
       "setIdx": 4,
-      "setId": 2,
+      "setId": 7,
       "iconIdx": 10
     },
     {
@@ -737,26 +737,55 @@
         "paths": [
           "M1024 320l-512-256-512 256 512 256 512-256zM512 148.97l342.058 171.030-342.058 171.030-342.058-171.030 342.058-171.030zM921.444 460.722l102.556 51.278-512 256-512-256 102.556-51.278 409.444 204.722zM921.444 652.722l102.556 51.278-512 256-512-256 102.556-51.278 409.444 204.722z"
         ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
         "tags": [
           "stack",
           "layers"
         ],
         "defaultCode": 59694,
-        "grid": 16,
-        "attrs": []
+        "grid": 16
       },
       "attrs": [],
       "properties": {
         "ligatures": "stack, layers",
         "name": "stack",
         "order": 2,
-        "id": 47,
+        "id": 11,
         "prevSize": 32,
         "code": 59694
       },
-      "setIdx": 5,
+      "setIdx": 4,
+      "setId": 7,
+      "iconIdx": 11
+    },
+    {
+      "icon": {
+        "paths": [
+          "M873 148.8c-95.8-96-223.2-148.8-359-148.8-279.6 0-507.2 227.6-507.2 507.4 0 89.4 23.4 176.8 67.8 253.6l-72 263 269-70.6c74.2 40.4 157.6 61.8 242.4 61.8h0.2c0 0 0 0 0 0 279.6 0 507.4-227.6 507.4-507.4 0-135.6-52.8-263-148.6-359zM514.2 929.6v0c-75.8 0-150-20.4-214.8-58.8l-15.4-9.2-159.6 41.8 42.6-155.6-10-16c-42.4-67-64.6-144.6-64.6-224.4 0-232.6 189.2-421.8 422-421.8 112.6 0 218.6 44 298.2 123.6 79.6 79.8 123.4 185.6 123.4 298.4-0.2 232.8-189.4 422-421.8 422zM745.4 613.6c-12.6-6.4-75-37-86.6-41.2s-20-6.4-28.6 6.4c-8.4 12.6-32.8 41.2-40.2 49.8-7.4 8.4-14.8 9.6-27.4 3.2s-53.6-19.8-102-63c-37.6-33.6-63.2-75.2-70.6-87.8s-0.8-19.6 5.6-25.8c5.8-5.6 12.6-14.8 19-22.2s8.4-12.6 12.6-21.2c4.2-8.4 2.2-15.8-1-22.2s-28.6-68.8-39-94.2c-10.2-24.8-20.8-21.4-28.6-21.8-7.4-0.4-15.8-0.4-24.2-0.4s-22.2 3.2-33.8 15.8c-11.6 12.6-44.4 43.4-44.4 105.8s45.4 122.6 51.8 131.2c6.4 8.4 89.4 136.6 216.6 191.4 30.2 13 53.8 20.8 72.2 26.8 30.4 9.6 58 8.2 79.8 5 24.4-3.6 75-30.6 85.6-60.2s10.6-55 7.4-60.2c-3-5.6-11.4-8.8-24.2-15.2z"
+        ],
+        "tags": [
+          "whatsapp",
+          "brand",
+          "social"
+        ],
+        "defaultCode": 60051,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "name": "whatsapp",
+        "ligatures": "whatsapp, brand13",
+        "order": 17,
+        "id": 404,
+        "prevSize": 32,
+        "code": 60051
+      },
+      "setIdx": 10,
       "setId": 1,
-      "iconIdx": 46
+      "iconIdx": 403
     }
   ],
   "height": 1024,
@@ -780,7 +809,11 @@
       },
       "embed": false,
       "noie8": true,
-      "ie7": false
+      "ie7": false,
+      "showSelector": false,
+      "showMetadata": false,
+      "showMetrics": false,
+      "showVersion": false
     },
     "imagePref": {},
     "historySize": 100,

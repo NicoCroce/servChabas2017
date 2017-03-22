@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .directive('transition', transition);
 
-    function transition($rootScope) {
+    function transition($rootScope, $timeout) {
         return {
             restrict: 'A',
             replace: false,
@@ -18,12 +18,9 @@
                         section.removeClass('anim-in-section');
                     });
 
-                $rootScope.$on('$stateChangeSuccess',
-                    function (event, toState, toParams, fromState, fromParams) { 
-                        setTimeout(function () {
-                            section.addClass('anim-in-section'); 
-                        }, 100);                        
-                    });
+                $timeout(function () {
+                    section.addClass('anim-in-section');
+                }, 100);
             }
         }
     };

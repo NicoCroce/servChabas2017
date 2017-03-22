@@ -23,7 +23,7 @@ $button_border-color: #B5B5B5;
 // }
 .button { 
 	font-size: 1.3em; font-weight: 900; background: $color500; text-align: center; list-style: none; color: white; font-size: 1em;
-    display: inline-block; padding: toem(15px) toem(40px); text-transform: uppercase; font-size: toem(16px); font-family:'Roboto'; position: relative;
+    display: inline-block; padding: toem(15px) toem(15px); text-transform: uppercase; font-size: toem(16px); font-family:'Roboto'; position: relative;
     border: none; outline:none; cursor: pointer;
     border-radius: 2px;
     transition: all .3s ease;

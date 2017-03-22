@@ -1,29 +1,30 @@
-<div class="info colectivos header-section">
-	<h3 class="mgb-5">Seleccione la dirección que desea tomar</h3>
-
+<div transition class="info colectivos header-section">
+	<div class="info-msg">
+		<p>Servicios momentáneos. Recuerde informar los cambios en la sección de contacto.</p>
+	</div>
 	<!--ROSARIO-->
-	<button accordion-element element-to-shrink="wrapTableRosario" max-height="2000" class="accordion-button button">
-		<span>a Rosario</span>
+	<button accordion-element element-to-shrink="wrapTableRosario" max-height="1100" shadow="shadowRosario" class="accordion-button button">
+		<span>para Rosario</span>
 		<span class="icon-arrow_right"></span>
 	</button>
 	<div id="wrapTableRosario" class="accordion-element">
 		<table main-table table-config="tableRosario" selected-row="tableRosario.selectedRow" callback="clickRow" class="table-buses visible"
 		 ng-if="loadedService"></table>
 	</div>
-	<div class="sombra-inferior"></div>
+	<div id="shadowRosario" class="sombra-inferior"></div>
 	<!--******************-->
 
 
 	<!--FIRMAT-->
-	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="600" class="accordion-button button">
-		<span>a Firmat</span>
+	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat" class="accordion-button button">
+		<span>para Firmat</span>
 		<span class="icon-arrow_right"></span>
 	</button>
 	<div id="wrapTableFirmat" class="accordion-element">
 		<table main-table table-config="tableFirmat" selected-row="tableFirmat.selectedRow" callback="clickRow" class="table-buses visible"
 		 ng-if="loadedService"></table>
 	</div>
-	<div class="sombra-inferior"></div>
+	<div id="shadowFirmat" class="sombra-inferior"></div>
 	<!--******************-->
 
 	<div id="mapBus" class="map-element"></div>

@@ -30,6 +30,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.1.1",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
@@ -37,10 +38,13 @@
     "gulp-util": "^3.0.7",
     "jeet": "^7.1.0",
     "merge-stream": "^1.0.0",
-    "gulp-ng-annotate": "^2.0.0",
     "node-sass": "^4.4.0"
   },
   "dependencies": {
+    "@types/angular": "^1.6.9",
+    "@types/angular-resource": "^1.5.8",
+    "@types/angular-ui-router": "^1.1.36",
+    "@types/jquery": "^2.0.41",
     "gulp-install": "^0.6.0"
   }
 }

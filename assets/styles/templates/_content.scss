@@ -30,6 +30,21 @@ h1.modal-text {
     &.hidden-modal { opacity: 0; z-index: -1; }
 }
 
+.info-msg { 
+    padding: 10px; margin-bottom: 20px; border-radius: 5px; color: #329ae6;
+    border: 1px solid rgba(50, 154, 230, 0.55); font-size: toem(14px);
+  p { line-height: 12px; }
+}
+
+.content-contact {
+  margin-top: 10px;
+  .contact-ico { 
+    @include column(1/2, $cycle: 2); text-align: center; padding: 20px; 
+    &:nth-child(odd) {border-right: 1px solid;}
+    a { font-size: toem(40px); }
+  }
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%, 80%, 100% { transform: scale3d(0, 0, 0); }
   40% { transform: scale3d(1, 1, 1); }

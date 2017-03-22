@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconServicios';
   src:
-    url('../fonts/iconServicios.ttf?thf3an') format('truetype'),
-    url('../fonts/iconServicios.woff?thf3an') format('woff'),
-    url('../fonts/iconServicios.svg?thf3an#iconServicios') format('svg');
+    url('../fonts/iconServicios.ttf?k4qnfj') format('truetype'),
+    url('../fonts/iconServicios.woff?k4qnfj') format('woff'),
+    url('../fonts/iconServicios.svg?k4qnfj#iconServicios') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -103,5 +103,8 @@
 }
 .icon-stack:before {
   content: "\e92e";
+}
+.icon-whatsapp:before {
+  content: "\ea93";
 }
 
