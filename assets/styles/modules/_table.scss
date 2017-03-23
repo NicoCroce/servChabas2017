@@ -37,7 +37,7 @@
 .sombra-inferior { 
 	height: 20px; background: white; z-index: 3; position: inherit; visibility: hidden;
 	box-shadow: #909090 0px -9px 8px -6px;
-	&.oppened { visibility: visible; transition: visibility .4s ease .4s }
+	&.oppened { visibility: visible; transition: all 0s ease .1s }
 }
 
 table {

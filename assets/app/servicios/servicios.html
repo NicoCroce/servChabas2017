@@ -2,7 +2,7 @@
     <h3 class="mgb-5">Seleccione el servicio que desea consultar</h3>
 
     <!--INSTITUCIONES-->
-    <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="2000" class="accordion-button button">
+    <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="500" shadow="shadowInst" class="accordion-button button">
 		<span>INSTITUCIONES</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -10,12 +10,12 @@
         <table main-table table-config="tableInstitutions" selected-row="tableInstitutions.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div class="sombra-inferior"></div>
+    <div id="shadowInst" class="sombra-inferior"></div>
     <!--******************-->
 
 
     <!--REMISES-->
-    <button accordion-element element-to-shrink="wrapTableTaxis" max-height="600" class="accordion-button button mg-top-5">
+    <button accordion-element element-to-shrink="wrapTableTaxis" max-height="600" shadow="shadowRemises" class="accordion-button button mg-top-5">
 		<span>REMISES</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -23,11 +23,11 @@
         <table main-table table-config="tableTaxi" selected-row="tableTaxi.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div class="sombra-inferior"></div>
+    <div id="shadowRemises" class="sombra-inferior"></div>
     <!--******************-->
 
     <!--ROTISERÍAS-->
-    <button accordion-element element-to-shrink="wrapTableFastFood" max-height="600" class="accordion-button button mg-top-5">
+    <button accordion-element element-to-shrink="wrapTableFastFood" max-height="600" shadow="shadowRoticerias" class="accordion-button button mg-top-5">
 		<span>ROTISERÍAS</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -35,7 +35,7 @@
         <table main-table table-config="fastFood" selected-row="fastFood.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div class="sombra-inferior"></div>
+    <div id="shadowRoticerias" class="sombra-inferior"></div>
     <!--******************-->
 
 
