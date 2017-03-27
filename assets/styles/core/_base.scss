@@ -91,7 +91,10 @@ iframe { width: 100%; height: 100%; position: absolute; z-index: 3000  }
 	position: fixed !important; z-index: 1; width: 100%; top: 0;
 }
 
-
+.credits { 
+	position: fixed; bottom: 15px; right: 15px; display: inline-block; color: #929292;
+	span { font-weight: 700; }
+}
 
 
 /*.info.header-section {
