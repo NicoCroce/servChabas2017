@@ -4,9 +4,7 @@
         .module('servicios-chabas')
         .controller('PharmacyController', PharmacyController);
 
-    PharmacyController.$inject = ['$scope', 'factoryFarmacy', '$rootScope'];
-
-    function PharmacyController($scope, factoryFarmacy, $rootScope) {
+    function PharmacyController($scope, factoryFarmacy, $rootScope, analytics) {
 
         $scope.dataPharmacy;
         $rootScope.loadingService = true;
@@ -30,6 +28,10 @@
         function calendarError(dataError) {
             return;
         };
+
+        $scope.sendCall = function(){
+            analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
+        }
 
         function calendarFinally(dataFinally) {
             $rootScope.loadingService = false;
