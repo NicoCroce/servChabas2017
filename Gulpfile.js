@@ -3,6 +3,7 @@
 var  serverPort 	= 2173;
 
 var vendorLibraries = require('./config/vendor-libraries'),
+	genVersion		= require('./config/genVersion.js'),
 	gulp 			= require("gulp"),//http://gulpjs.com/
 	gutil 			= require("gulp-util"),//https://github.com/gulpjs/gulp-util
 	sass 			= require("gulp-sass"),//https://www.npmjs.org/package/gulp-sass
@@ -83,6 +84,8 @@ gulp.task('copyBower', gulp.series(copyBower));
 
 gulp.task('copyData', gulp.series(cleanData, copyData));
 
+gulp.task('dist-version', gulp.series(distVersion));
+
 gulp.task("watch", function (done) {
 	gulp.watch(SASS_FILES, gulp.series('sass'));
 	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'));
@@ -142,6 +145,11 @@ function cleanJsLibs(done) {
 
 function cleanData(){
 	return del([FOLDER_DEV + '/data']);
+}
+
+function distVersion(done) {
+	genVersion.version();
+	return done();
 }
 
 function reload(done) {
