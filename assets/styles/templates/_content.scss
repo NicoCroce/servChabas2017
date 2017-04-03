@@ -33,7 +33,10 @@ h1.modal-text {
 .info-msg { 
     padding: 10px; margin-bottom: 20px; border-radius: 5px; color: #329ae6;
     border: 1px solid rgba(50, 154, 230, 0.55); font-size: toem(14px);
-  p { line-height: 12px; }
+  p { 
+    line-height: 12px;
+    a { text-decoration: underline; color: #329ae6;; font-weight: 800; cursor: pointer; }
+  }
 }
 
 .content-contact {
@@ -43,6 +46,11 @@ h1.modal-text {
     &:nth-child(odd) {border-right: 1px solid;}
     a { font-size: toem(40px); }
   }
+}
+
+.data-required {
+    width: 190px; margin: 0 auto; text-align: left; margin-bottom: 15px;
+    li {     list-style: circle; }
 }
 
 @-webkit-keyframes sk-bouncedelay {

@@ -1,7 +1,11 @@
 <section transition>
     <h1 class="title-line">Contacto</h1>
 
-    <h3>Puede realizar una sugerencia o contactarnos por publicidad.</h3>
+    <div class="info-msg">
+        <p class="link-contact">
+            Puede agregar un nuevo servicio ingresando <a href="" ng-click="modal.showModalAdd = true"> aquí</a>
+        </p>
+    </div>
     <div class="content-contact">
         <div class="contact-ico">
             <a href="tel:+5493464510474" class="icon-mobile"></a>
@@ -20,7 +24,8 @@
         </div>
         <div class="contact-ico">
             <a href="plus.google.com/101544137738430014386" class="icon-googleplus" target="_blank"></a>
-        </div>        
+        </div>
     </div>
     <p class="credits">Diseñado y desarrollado por <span>Nicolás Croce</span></p>
+    <div ng-include="'../templates/servicios/addService.html'"></div>
 </section>

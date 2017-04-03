@@ -1,5 +1,8 @@
 <div transition class="info services header-section">
     <h3 class="mgb-5">Seleccione el servicio que desea consultar</h3>
+    <div class="info-msg">
+        <p>No existen preferencias sobre ningún dato expuesto. <br> Puede informar un nuevo servicio <a ng-click="modal.showModalAdd = true">aquí</a> .</p>
+    </div>
 
     <!--INSTITUCIONES-->
     <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="500" shadow="shadowInst" class="accordion-button button">
@@ -53,4 +56,5 @@
             </div>
         </div>
     </div>
+    <div ng-include="'../templates/servicios/addService.html'"></div>
 </div>

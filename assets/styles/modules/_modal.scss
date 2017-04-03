@@ -23,14 +23,20 @@
     div.content-modal { 
         display: table-cell; vertical-align: middle; padding: 0 20%; text-align: center;
         span[class*="icon-info"] { font-size: 4em; opacity: .7; margin: 0; }
-        h1 { color: white; margin-top: 20px; line-height: 2; }
+        h1 { 
+            color: white; margin-top: 20px; line-height: 2;
+            &.contact { 
+                line-height: 25px; margin-bottom: 10px;
+                a { color: #329ae6; }
+             } 
+        }
         }
         .link { 
             width: 100%;
             &.map { margin-top: 15px; }
         }
     .close-modal { 
-	    position: absolute; right: 10px; top: 10px; color: #909090; transition: all .3s ease; font-size: toem(22px);
-	    &:hover { cursor: pointer; baccolorkground: #d8d8d8; color: #333; }
+	    position: absolute; right: 10px; top: 10px; color: #909090; transition: all .3s ease; font-size: toem(25px);
+	    &:hover { cursor: pointer; color: #b5b5b5; }
 	}
 }

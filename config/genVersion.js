@@ -19,7 +19,7 @@ function genVersion() {
 
 } 
 
-function writeFile() {
+function writeFile(done) {
 	String.prototype.replaceAll = function (target, replacement) {
   		return this.split(target).join(replacement);
 	};
@@ -37,12 +37,12 @@ function writeFile() {
 		  stream.end();
 		});
 	
-		fs.readFile('./sales/inicio.html', 'utf8', function (err, data) {
+		fs.readFile('./assets/app/index.html', 'utf8', function (err, data) {
 			if (err) {
 				return console.log(err);
 			}
 			var oldVersion = getValue(data);
-			var stream1 = fs.createWriteStream("./sales/inicio.html");
+			var stream1 = fs.createWriteStream("./assets/app/index.html");
 			stream1.once('open', function (fd) {
 				stream1.write( (data + '').replaceAll(oldVersion, version) );
 				stream1.end();
@@ -57,7 +57,7 @@ function writeFile() {
 			return tsString.substring(0, tsString.indexOf('"')).replace('ts=', '');
 		}
 
-	return version;
+	return done();
 
 }
 

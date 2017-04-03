@@ -79,8 +79,8 @@ iframe { width: 100%; height: 100%; position: absolute; z-index: 3000  }
 .hand-cursor { cursor: pointer; }
 
 .content-transition {
-	position: relative; left: -120%;
-	&.anim-in-section { left: 0; transition: all .5s ease; }
+	position: relative; left: -80%; opacity: 0;
+	&.anim-in-section { left: 0; transition: all .5s ease; opacity: 1; }
 }
 
 .content-info { width: 50%; float: left; }

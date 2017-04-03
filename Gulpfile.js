@@ -148,8 +148,7 @@ function cleanData(){
 }
 
 function distVersion(done) {
-	genVersion.version();
-	return done();
+	genVersion.version(done);
 }
 
 function reload(done) {
@@ -293,18 +292,18 @@ function finishMsg (msg) {
 
 //*************************************    SECCIÓN  runner    *************************************
 
-gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
+gulp.task('default', gulp.series(setEnvironmentEnv, clean, distVersion, 'connect', 'watch', function runDev() {
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
 
-gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', function runDeploy(done) {
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasks', function runDeploy(done) {
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');	
 	done();
 }));
 
-gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean, 'deployTasksRun', function runDeploy() {
+gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasksRun', function runDeploy() {
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
 }));

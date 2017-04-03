@@ -4,5 +4,9 @@
         .module('servicios-chabas')
         .controller('OptionsController', OptionsController);
 
-    function OptionsController (){};
+    function OptionsController ($scope){
+        $scope.modal = {
+            showModalAdd: false
+        };
+    };
 })();
