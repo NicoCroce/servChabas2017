@@ -1,24 +1,24 @@
 <div id="modalAdd" class="modal" ng-class="{'show-modal': modal.showModalAdd}">
-    <span class="close-modal icon-cancel-circle" ng-click="modal.showModalAdd = false"></span>
+    <span class="close-modal icon-cancel-circle" ng-click="closeModal()"></span>
     <div>
         <div class="content-modal" ng-if="!showMsg">
             <h1 class="contact">Ingrese la informacion requerida</h1>
             <form name="form.data">
                 <ul class="data-required">
                     <li>
-                        <input id="idName" type="text" name="name" ng-model="data.name" value="" ng-class="setError(data.name)" ng-required="true">
+                        <input id="idName" type="text" name="name" ng-model="data.name" value="" ng-class="setError(data.name)" ng-required="true" autocomplete="off">
                         <label for="idName" ng-class="{'has-text': data.name != ''}">Nombre del servicio</label>
                     </li>
                     <li>
-                        <input id="idAddress" type="text" name="address" ng-model="data.address" value="" ng-class="setError(data.address)" ng-required="true">
+                        <input id="idAddress" type="text" name="address" ng-model="data.address" value="" ng-class="setError(data.address)" ng-required="true" autocomplete="off">
                         <label for="idAddress" ng-class="{'has-text': data.address != ''}">Dirección</label>
                     </li>
                     <li>
-                        <input id="idDays" type="text" name="days" ng-model="data.days" value="" ng-class="setError(data.days)" ng-required="true">
+                        <input id="idDays" type="text" name="days" ng-model="data.days" value="" ng-class="setError(data.days)" ng-required="true" autocomplete="off">
                         <label for="idDays" ng-class="{'has-text': data.days != ''}">Días y horarios disponibles</label>
                     </li>
                     <li>
-                        <input id="idTel" type="text" name="tel" ng-model="data.tel" value="" ng-class="setError(data.tel)" ng-required="true">
+                        <input id="idTel" type="text" name="tel" ng-model="data.tel" value="" ng-class="setError(data.tel)" ng-required="true" autocomplete="off">
                         <label for="idTel" ng-class="{'has-text': data.tel != ''}">Número de teléfono</label>
                     </li>
                 </ul>

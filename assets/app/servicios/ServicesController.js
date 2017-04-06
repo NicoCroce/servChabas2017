@@ -26,7 +26,7 @@
         $scope.showMsg = false;
 
         $scope.setError = function (data) {
-            if (!$scope.submitted || data != '') { return; };
+            if (!$scope.submitted || !angular.isUndefinedOrNullOrEmpty(data)) { return; };
             return { 'has-error': true };
         }
 
@@ -80,7 +80,12 @@
             $scope.modal.telefono = '(03464) ' + row.info[1];
         }
 
+        $scope.closeModal = function() {
+            setData();
+        }
+
         function setData(){
+            $scope.modal.showModalAdd = false;
             setTimeout(function() {
                 $scope.showMsg = false;
                 $scope.$apply();
