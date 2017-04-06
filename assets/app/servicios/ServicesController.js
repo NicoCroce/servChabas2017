@@ -12,29 +12,38 @@
         $scope.submitted = false;
         $scope.loadedService = false;
         $scope.modal = {
+            showModalAdd: false
+        };
+
+        $scope.modal = {
             direccion: '',
             horario: '',
             mapa: '',
             showModal: false
         };
 
-        $scope.data = {
-            name: '',
-            address: '',
-            days: '',
-            tel: ''
+        $scope.form = {};
+        $scope.showMsg = false;
 
-        };
-
-        $scope.setError = function(data){
-            if (!$scope.submitted || data != '') { return; }
-            console.log(data);
-            console.log($scope.submitted);
+        $scope.setError = function (data) {
+            if (!$scope.submitted || data != '') { return; };
             return { 'has-error': true };
         }
 
-        $scope.submit = function() {
-            return $scope.submitted = true;
+        $scope.submit = function () {
+            $scope.submitted = true;
+            if ($scope.form.data.$invalid) { return; }
+
+            var messageListRef = firebase.database().ref('rotiserias');
+            var newMessageRef = messageListRef.push();
+            newMessageRef.set($scope.data);
+            $scope.showMsg = true;
+            console.log("Alta");
+             setTimeout(function() {
+                 $scope.modal.showModalAdd = false;
+                 setData();
+                 $scope.$apply();
+             }, 2000);
         }
 
         $scope.clickRow = clickRow;
@@ -70,5 +79,22 @@
             $scope.modal.mapa = row.detail.mapa;
             $scope.modal.telefono = '(03464) ' + row.info[1];
         }
+
+        function setData(){
+            setTimeout(function() {
+                $scope.showMsg = false;
+                $scope.$apply();
+            }, 1000)
+            
+            $scope.submitted = false;
+            $scope.data = {
+                name: '',
+                address: '',
+                days: '',
+                tel: ''
+            };
+        };
+
+        setData();
     }
 })();
