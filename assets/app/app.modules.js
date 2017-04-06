@@ -3,13 +3,14 @@
 
     angular
         .module('servicios-chabas')
-        .run(['$rootScope', function ($rootScope) {
+        .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
             $rootScope.noHmoeSection = !window.location.hash.includes('home');
+            analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
                 $rootScope.noHmoeSection = !window.location.hash.includes('home');
             });
-        }])
+        })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
             $qProvider.errorOnUnhandledRejections(false);
             $urlRouterProvider.otherwise('/home');

@@ -6,12 +6,16 @@
 
     function analytics (){
         return {
-            pageview: pageview,
-            sendClick: sendClick
+            pageview: pageview
         }
 
-        function pageview (label, category) {
-            if (!category) { category = 'Button' }
+        function pageview(currentPath) {
+            ga(function (tracker) {
+                // Sets the page field to "/about.html".
+                tracker.set('page', currentPath);
+                tracker.send('pageview');
+            });
+            /*if (!category) { category = 'Button' }
             ga('send', {
                 hitType: 'pageview',
                 eventCategory: category,
@@ -19,10 +23,12 @@
                 eventLabel: label,
                 page: location.hash.replace('#!', ''),
                 location: location.href
-            });
+            });*/
+
+            
         }
 
-        function sendClick(label, category) {
+       /* function sendClick(label, category) {
             if (!category) { category = 'Button' }
             ga('send', {
                 hitType: 'event',
@@ -32,8 +38,7 @@
                 page: location.hash.replace('#!', ''),
                 location: location.href
             });
-        };
+        };*/
 };
 })();
-
 

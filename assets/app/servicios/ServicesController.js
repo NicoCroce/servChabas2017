@@ -9,6 +9,7 @@
         $scope.tableInstitutions;
         $scope.tableTaxi;
         $scope.fastFood;
+        $scope.submitted = false;
         $scope.loadedService = false;
         $scope.modal = {
             direccion: '',
@@ -16,6 +17,25 @@
             mapa: '',
             showModal: false
         };
+
+        $scope.data = {
+            name: '',
+            address: '',
+            days: '',
+            tel: ''
+
+        };
+
+        $scope.setError = function(data){
+            if (!$scope.submitted || data != '') { return; }
+            console.log(data);
+            console.log($scope.submitted);
+            return { 'has-error': true };
+        }
+
+        $scope.submit = function() {
+            return $scope.submitted = true;
+        }
 
         $scope.clickRow = clickRow;
         $rootScope.loadingService = true;
