@@ -60,7 +60,7 @@ h1.modal-text {
         &:focus + label { @extend .has-text; }
         &.has-error { 
           +label { @extend .has-text; color: #FF5722; }
-          border-color: #FF5722;
+          border-color: #FF5722; color: #FF5722;
         }
       }
       label { 

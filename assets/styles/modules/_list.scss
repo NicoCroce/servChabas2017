@@ -15,3 +15,21 @@
 //   Base
 // -------------------------------------
 
+
+.select-option {
+    .button-select { color: #3e3e3e; text-align: left; background: white; }
+    .options-list {
+        background: white; color: #1f1f1f; transition: all .3s ease; position: absolute; width: 100%; z-index: 12; top: 47px; overflow: hidden; opacity: 0; max-height: 0; 
+        li { 
+            margin: 0; padding: 15px; border-bottom: 1px solid #a7a7a7; transition: all .3s ease; cursor: pointer;
+            &:hover, &:focus { background: rgba(3, 169, 244, 0.4); }
+        }
+    }
+    .bg-list { position: fixed; top: 0; z-index: 10; left: 0; right: 0; bottom: 0; opacity: .7; background: black; }
+    .icon-arrow_right { position: absolute; top: 7px; color: #464646; right: 0; font-size: 30px; transform: rotate3D(0, 0, 1, 90deg); transition: all .3s ease; }
+
+    &.show-list {
+        .options-list { max-height: 200px; opacity: 1; max-height: 200px; overflow: auto; }
+        .icon-arrow_right { transform: rotate3d(0, 0, 1, -90deg); }
+    }
+}
