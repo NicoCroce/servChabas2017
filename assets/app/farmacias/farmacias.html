@@ -4,7 +4,9 @@
     <div class="datos">
         <div><span class="icon-map"></span><span class="dato">Dirección:  </span><span class="text" ng-bind="dataPharmacy.address"></span></div>
     </div>
-    <div id="map" class="map-element"></div>
+    <div id="map" class="map-element">
+        <span ng-click="initMap()">Mostrar ubicación</span>
+    </div>
     <div class="datos">
         <div class="info-tel"><span class="icon-phone"></span><span class="dato">Teléfono:  (03464)  </span>
             <span class="text" ng-bind="dataPharmacy.phone"></span></div>

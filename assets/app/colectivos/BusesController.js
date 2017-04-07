@@ -26,7 +26,6 @@
             $scope.tableRosario = factoryBus.getTable(dataResponse.rosario);
             $scope.tableFirmat = factoryBus.getTable(dataResponse.firmat);
             $scope.loadedService = true;
-            initMap();
             return;
         };
 
@@ -45,7 +44,7 @@
             $scope.modal.detail = row.detail;
         }
 
-        function initMap() {
+        $scope.initMap = function() {
             var myLatLng = {
                 lat: -33.245058,
                 lng: -61.359142

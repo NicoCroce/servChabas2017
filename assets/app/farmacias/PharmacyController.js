@@ -22,7 +22,6 @@
                 phone: dataResponse.telefono,
                 map: dataResponse.mapa,
             };
-            initMap();
         };
 
         function calendarError(dataError) {
@@ -38,7 +37,7 @@
             return;
         };
 
-        function initMap() {
+        $scope.initMap = function() {
             var myLatLng = $scope.dataPharmacy.map;
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
