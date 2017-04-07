@@ -4,22 +4,18 @@
         .module('servicios-chabas')
         .controller('ServicesController', ServicesController);
 
-    function ServicesController($scope, factoryServices, $rootScope) {
+    function ServicesController($scope, factoryServices, $rootScope, modal) {
 
         $scope.tableInstitutions;
         $scope.tableTaxi;
         $scope.fastFood;
         
         $scope.loadedService = false;
-        $scope.modal = {
-            showModalAdd: false
-        };
 
         $scope.modal = {
             direccion: '',
             horario: '',
-            mapa: '',
-            showModal: false
+            mapa: ''
         };
 
         $scope.clickRow = clickRow;
@@ -49,11 +45,16 @@
 
         function clickRow(row) {
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal.showModal = true;
             $scope.modal.direccion = row.detail.direccion;
             $scope.modal.horario = row.detail.horario;
             $scope.modal.mapa = row.detail.mapa;
             $scope.modal.telefono = '(03464) ' + row.info[1];
+            modal.setData($scope.modal);
+            modal.showModal('../templates/servicios/modalService.html');
+        }
+
+        $scope.showModal = function() {
+            modal.showModal('../templates/servicios/addService.html');
         }
     }
 })();

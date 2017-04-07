@@ -1,11 +1,11 @@
 <div transition class="info services header-section">
     <h3 class="mgb-5">Seleccione el servicio que desea consultar</h3>
     <div class="info-msg">
-        <p>Colabore informando un nuevo servicio <a ng-click="modal.showModalAdd = true">aquí</a></p>
+        <p>Colabore informando un nuevo servicio <a ng-click="showModal()">aquí</a></p>
     </div>
 
     <!--INSTITUCIONES-->
-    <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="500" shadow="shadowInst" class="accordion-button button">
+    <button accordion-element element-to-shrink="wrapTableInstitutions" max-height="500"class="accordion-button button">
 		<span>INSTITUCIONES</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -13,12 +13,12 @@
         <table main-table table-config="tableInstitutions" selected-row="tableInstitutions.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div id="shadowInst" class="sombra-inferior"></div>
+    <!--<div id="shadowInst" class="sombra-inferior"></div>-->
     <!--******************-->
 
 
     <!--REMISES-->
-    <button accordion-element element-to-shrink="wrapTableTaxis" max-height="600" shadow="shadowRemises" class="accordion-button button mg-top-5">
+    <button accordion-element element-to-shrink="wrapTableTaxis" max-height="600" class="accordion-button button mg-top-5">
 		<span>REMISES</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -26,11 +26,11 @@
         <table main-table table-config="tableTaxi" selected-row="tableTaxi.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div id="shadowRemises" class="sombra-inferior"></div>
+    <!--<div id="shadowRemises" class="sombra-inferior"></div>-->
     <!--******************-->
 
     <!--ROTISERÍAS-->
-    <button accordion-element element-to-shrink="wrapTableFastFood" max-height="600" shadow="shadowRoticerias" class="accordion-button button mg-top-5">
+    <button accordion-element element-to-shrink="wrapTableFastFood" max-height="600" class="accordion-button button mg-top-5">
 		<span>ROTISERÍAS</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -38,23 +38,6 @@
         <table main-table table-config="fastFood" selected-row="fastFood.selectedRow" callback="clickRow" class="table-services visible"
             ng-if="loadedService"></table>
     </div>
-    <div id="shadowRoticerias" class="sombra-inferior"></div>
+    <!--<div id="shadowRoticerias" class="sombra-inferior"></div>-->
     <!--******************-->
-
-
-    <div id="modalServicios" class="modal" ng-class="{'show-modal': modal.showModal}">
-        <span class="close-modal icon-cancel-circle" ng-click="modal.showModal= false"></span>
-        <div>
-            <div class="content-modal">
-                <!--<span class="icon-info"></span>-->
-                <h1 class="modal-text"><label>Dirección: </label><span ng-bind="modal.direccion"></span></h1>
-                <h1 class="modal-text"><label>Disponible: </label><span ng-bind="modal.horario"></span></h1>
-                <h1 class="modal-text mgb-5"><label>Teléfono: </label><span ng-bind="modal.telefono"></span></h1>
-                <a class="link call mobile" href="tel:{{modal.telefono}}"><button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span>llamar</span></button>
-            <a class="link map" href="{{ modal.mapa }}"
-    target="_blank"><button class="button ripple"><span class="icon-location"></span><span> Mapa</span></button></a>
-            </div>
-        </div>
-    </div>
-    <div ng-include="'../templates/servicios/addService.html'"></div>
 </div>

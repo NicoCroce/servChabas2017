@@ -16,7 +16,7 @@
 
 
 	<!--FIRMAT-->
-	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat" class="accordion-button button">
+	<button accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat" class="accordion-button button mg-0">
 		<span>para Firmat</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -27,16 +27,5 @@
 	<div id="shadowFirmat" class="sombra-inferior"></div>
 	<!--******************-->
 
-	<div id="mapBus" class="map-element"><span ng-click="initMap()">Mostrar ubicación</span>
-</div>
-
-	<div id="modalColectivos" class="modal" ng-class="{'show-modal': modal.showModal}">
-		<span class="close-modal icon-cancel-circle" ng-click="modal.showModal= false"></span>
-		<div>
-			<div class="content-modal">
-				<span class="icon-info"></span>
-				<h1 ng-bind="modal.detail"></h1>
-			</div>
-		</div>
-	</div>
+	<div id="mapBus" class="map-element"><span ng-click="initMap()">Mostrar ubicación</span></div>
 </div>

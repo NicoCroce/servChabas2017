@@ -9,8 +9,9 @@ input { width: 100%; }
 
 .map-element { 
   height: 200px; border: 1px solid #9e9e9e; background: url('../img/map.jpg'); background-size: 180%; background-position: -105px -123px;
+  background-color: rgba(0, 0, 0, 0.76); background-blend-mode: overlay; display: table; width: 100%; text-align: center;
   >span { 
-    display: block; height: 100%; text-align: center; padding-top: 27%; background: rgba(0, 0, 0, 0.8);
+    display: table-cell; vertical-align: middle; 
     animation: fade-in-out 3s linear infinite;
   }
 }
@@ -58,7 +59,7 @@ h1.modal-text {
 .has-text { transform: translate3d(-10px, -28px, 0); font-size: 12px; font-weight: 100; color: #03A9F4 ; }
 
 .data-required {
-    margin: 0 auto; text-align: left; margin-bottom: 15px;
+    margin: 0 auto; text-align: left; margin-bottom: 15px; position: relative;
     li {
       position: relative; margin: 15px 0; margin-bottom: 30px;
       input { 

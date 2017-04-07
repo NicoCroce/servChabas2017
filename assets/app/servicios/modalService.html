@@ -1,0 +1,14 @@
+<div id="modalServicios" class="modal" ng-controller="modalServicesController">
+    <span class="close-modal icon-cancel-circle" ng-click="closeModal()"></span>
+    <div>
+        <div class="content-modal">
+            <!--<span class="icon-info"></span>-->
+            <h1 class="modal-text"><label>Dirección: </label><span ng-bind="modal.direccion"></span></h1>
+            <h1 class="modal-text"><label>Disponible: </label><span ng-bind="modal.horario"></span></h1>
+            <h1 class="modal-text mgb-5"><label>Teléfono: </label><span ng-bind="modal.telefono"></span></h1>
+            <a class="link call mobile" href="tel:{{modal.telefono}}"><button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span>llamar</span></button>
+            <a class="link map" href="{{ modal.mapa }}"
+    target="_blank"><button class="button ripple"><span class="icon-location"></span><span> Mapa</span></button></a>
+        </div>
+    </div>
+</div>

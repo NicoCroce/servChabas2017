@@ -26,7 +26,7 @@
         }
     }
     .bg-list { position: fixed; top: 0; z-index: 10; left: 0; right: 0; bottom: 0; opacity: .7; background: black; }
-    .icon-arrow_right { position: absolute; top: 7px; color: #464646; right: 0; font-size: 30px; transform: rotate3D(0, 0, 1, 90deg); transition: all .3s ease; }
+    .icon-arrow_right { position: absolute; top: 7px; color: #464646; right: 0; font-size: 30px; transform: rotate3D(0, 0, 1, 90deg); transition: all .3s ease; pointer-events: none; }
 
     &.show-list {
         .options-list { max-height: 200px; opacity: 1; max-height: 200px; overflow: auto; }

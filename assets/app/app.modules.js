@@ -6,6 +6,7 @@
         .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
             $rootScope.noHmoeSection = !window.location.hash.includes('home');
+            $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
                 $rootScope.noHmoeSection = !window.location.hash.includes('home');

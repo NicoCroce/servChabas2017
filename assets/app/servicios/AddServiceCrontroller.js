@@ -4,11 +4,12 @@
         .module('servicios-chabas')
         .controller('AddServiceController', AddServiceController);
 
-    function AddServiceController($scope, factoryServices, $rootScope) {
+    function AddServiceController($scope, factoryServices, $rootScope, modal) {
         $scope.submitted = false;
 
         $scope.form = {};
         $scope.showMsg = false;
+        $scope.selectInput = false;
 
         $scope.setError = function (data) {
             if (!$scope.submitted || !angular.isUndefinedOrNullOrEmpty(data)) { return; };
@@ -31,7 +32,7 @@
             $scope.showMsg = true;
             console.log("Alta");
              setTimeout(function() {
-                 $scope.modal.showModalAdd = false;
+                 $scope.closeModal();
                  setData();
                  $scope.$apply();
              }, 2000);
@@ -43,21 +44,16 @@
             open: false 
         }
 
-        $scope.setSelection = function(selected) {
-            $scope.listOpstions.selected = selected;
-            return $scope.listOpstions.open = false;
-        }
-
         $scope.openList = function() {
             return $scope.listOpstions.open = !$scope.listOpstions.open;
         }
 
         $scope.closeModal = function() {
+            modal.closeModal();
             setData();
         }
 
         function setData(){
-            $scope.modal.showModalAdd = false;
             setTimeout(function() {
                 $scope.showMsg = false;
                 $scope.$apply();
@@ -76,5 +72,15 @@
         };
 
         setData();
+
+        $scope.selectInputElement = function() {
+            $scope.selectInput = true;
+        };
+
+        $scope.setSelection = function (selected) {
+            $scope.listOpstions.selected = selected;
+            $scope.selectInput = false;
+            return $scope.listOpstions.open = false;
+        };
     }
 })();

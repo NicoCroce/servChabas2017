@@ -2,25 +2,33 @@
     'use strict'
     angular
         .module('servicios-chabas')
-        .directive('modal', modal);
+        .factory('modal', modal);
 
-    function modal() {
+    function modal($rootScope) {
+
+        var modalData= {};
+
         return {
-            restrict: 'A',
-            template: '<ng-include src="getTemplateUrl()"/>',
-            replace: false,
-            scope: {
-                modalTemplate: "=",
-            },
-
-            controller:['$scope', function ($scope) {
-                $scope.getTemplateUrl = function() {
-                    return $scope.modalTemplate;
-                }
-            }],
-            link: function (scope, element, attr) {
-
-            }
+            showModal: showModal,
+            closeModal: closeModal,
+            setData: setData,
+            getData: getData
         }
+
+        function showModal(path){
+            $rootScope.$broadcast('openModal', { path: path });
+        }
+
+        function closeModal(){
+            $rootScope.$broadcast('closeModal');
+        }
+
+        function setData(data) {
+            modalData = data;
+        };
+        function getData() {
+            return modalData;
+        };
+
     };
 })();

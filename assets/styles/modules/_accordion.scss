@@ -3,6 +3,8 @@
 }
 
 button.button.accordion-button {
+    margin-top: 30px;
+    &:first-of-type { margin: 0; };
     .icon-arrow_right { font-size: 1.4em; line-height: 0.88; float: right; transition: .3s ease; margin: 0; }
     &.accordion-is-open {
         .icon-arrow_right { transform: rotate3d(0,0,1, 90deg); }
