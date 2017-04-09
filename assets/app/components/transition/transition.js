@@ -20,7 +20,8 @@
 
                 $timeout(function () {
                     section.addClass('anim-in-section');
-                }, 100);
+                    scope.$apply();
+                }, 300);
             }
         }
     };

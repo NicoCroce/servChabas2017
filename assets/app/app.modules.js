@@ -5,11 +5,11 @@
         .module('servicios-chabas')
         .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
-            $rootScope.noHmoeSection = !window.location.hash.includes('home');
+            $rootScope.noHmoeSection = !window.location.hash.indexOf("home") >= 0;
             $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
-                $rootScope.noHmoeSection = !window.location.hash.includes('home');
+                $rootScope.noHmoeSection = !window.location.hash.indexOf("home") >= 0;
             });
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){

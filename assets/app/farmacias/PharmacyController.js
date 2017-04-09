@@ -33,8 +33,10 @@
         }
 
         function calendarFinally(dataFinally) {
-            $rootScope.loadingService = false;
-            return;
+            setTimeout(function () {
+                $rootScope.loadingService = false;
+                $scope.$apply();
+            }, 500);
         };
 
         $scope.initMap = function() {

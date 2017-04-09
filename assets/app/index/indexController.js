@@ -21,17 +21,27 @@
 
         $rootScope.$on('openModal', function (event, path) {
             $scope.htmlToAdd = path.path;
-            $scope.showModalBool = true;
-            $rootScope.modalIsOpen = true;
+
+            setTimeout(function(){
+                $scope.showModalBool = true;
+                $rootScope.modalIsOpen = true;
+                $scope.$apply();
+            }, 100)
         });
 
         $rootScope.$on('closeModal', function(){
-            $scope.htmlToAdd = '';
             $scope.showModalBool = false;
             $rootScope.modalIsOpen = false;
+            setTimeout(function () {
+                $scope.htmlToAdd = '';
+                $scope.$apply();
+            }, 100)
         })
 
-        $rootScope.loadingService = false;
+        setTimeout(function () {
+            $rootScope.loadingService = false;
+            $scope.$apply();
+        }, 500);
 
     };
 })();

@@ -4,7 +4,7 @@
 //
 // *************************************
 
-.main { margin-top: 20px; margin-bottom: 30px; position: relative; }
+.main { margin-top: 20px; margin-bottom: 30px; position: relative; display: block; }
 input { width: 100%; }
 
 .map-element { 
@@ -23,7 +23,7 @@ h1.modal-text {
 }
 
 .bg-spinner {
-    position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 100; opacity: 0.9;
+    position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 1000000; opacity: 0.9;
     transition: all .4s ease;
     .spinner {
         margin: 0 auto; width: 70px; text-align: center;

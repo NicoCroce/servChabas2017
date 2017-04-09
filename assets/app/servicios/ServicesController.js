@@ -39,8 +39,10 @@
         };
 
         function servicesFinally(dataFinally) {
-            $rootScope.loadingService = false;
-            return;
+            setTimeout(function () {
+                $rootScope.loadingService = false;
+                $scope.$apply();
+            }, 500);
         };
 
         function clickRow(row) {
