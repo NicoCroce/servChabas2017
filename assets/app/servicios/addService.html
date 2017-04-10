@@ -1,5 +1,5 @@
-<div id="modalAdd" class="modal" ng-controller="AddServiceController">
-    <span class="close-modal icon-cancel-circle" ng-click="closeModal()"></span>
+<div id="modalAdd" class="modal modal-element" ng-class="{'show-modal-element': modalAdd.showModal}"> <!--ng-controller="AddServiceController"-->
+    <span class="close-modal icon-cancel-circle" ng-click="closeModalAdd()"></span>
     <div>
         <div class="content-modal" ng-if="!showMsg">
             <h1 class="contact">Ingrese la informacion requerida</h1>
