@@ -98,7 +98,7 @@
             $scope.showMsg = true;
             console.log("Alta");
             setTimeout(function () {
-                $scope.closeModal();
+                $scope.closeModalAdd();
                 setData();
                 $scope.$apply();
             }, 2000);
