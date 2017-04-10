@@ -19,7 +19,7 @@
         $scope.submit = function() {
             $scope.submitted = true;
             if (angular.isUndefinedOrNullOrEmpty($scope.data.comment)) { return; };
-            var messageListRef = firebase.database().ref('comentario');
+            var messageListRef = firebase.database().ref('comentarios');
             var newMessageRef = messageListRef.push();
             newMessageRef.set($scope.data);
 
