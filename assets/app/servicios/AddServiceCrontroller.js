@@ -26,7 +26,7 @@
             if ($scope.form.data.$invalid) { return; }
             $scope.data.type = $scope.listOpstions.selected;
 
-            var messageListRef = firebase.database().ref('rotiserias');
+            var messageListRef = firebase.database().ref('servicios');
             var newMessageRef = messageListRef.push();
             newMessageRef.set($scope.data);
             $scope.showMsg = true;

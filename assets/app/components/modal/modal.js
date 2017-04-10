@@ -11,12 +11,22 @@
         return {
             showModal: showModal,
             closeModal: closeModal,
+            setModal: setModal,
             setData: setData,
             getData: getData
         }
 
-        function showModal(path){
-            $rootScope.$broadcast('openModal', { path: path });
+        function setModal(path, id) {
+            var modal = {
+                path: path,
+                id: id
+            };
+
+            $rootScope.$broadcast('setModal', modal);
+        }
+
+        function showModal(id){
+            $rootScope.$broadcast('openModal', { id: id });
         }
 
         function closeModal(){

@@ -5,8 +5,26 @@
         .controller('OptionsController', OptionsController);
 
     function OptionsController ($scope, modal){
-        $scope.showModal = function () {
-            modal.showModal('../templates/servicios/addService.html');
+        $scope.data = {
+            comment: ''
+        };
+
+        $scope.submitted = false;
+
+        $scope.setError = function (data) {
+            if (!$scope.submitted || !angular.isUndefinedOrNullOrEmpty(data)) { return; };
+            return { 'has-error': true };
+        };
+
+        $scope.submit = function() {
+            $scope.submitted = true;
+            if (angular.isUndefinedOrNullOrEmpty($scope.data.comment)) { return; };
+            var messageListRef = firebase.database().ref('comentario');
+            var newMessageRef = messageListRef.push();
+            newMessageRef.set($scope.data);
+
+            $scope.data.comment = '';
+            $scope.submitted = false;
         }
     };
 })();

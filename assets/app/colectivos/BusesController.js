@@ -4,7 +4,9 @@
         .module('servicios-chabas')
         .controller('BusesController', BusesController);
 
-    function BusesController($scope, factoryBus, $rootScope, modal) {
+    function BusesController($scope, factoryBus, $rootScope) {
+
+       /* modal.setModal('../templates/colectivos/modalBus.html', 'modalColectivos');*/
 
         $scope.tableRosario;
         $scope.tableFirmat;
@@ -42,9 +44,14 @@
 
         function clickRow(row){
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            modal.setData(row);
+            $scope.modal = row;
             $scope.modal.showModal = true;
-            modal.showModal('../templates/colectivos/modalBus.html');
+            $rootScope.modalIsOpen = true;
+        };
+
+        $scope.closeModal = function() {
+            $scope.modal.showModal = false;
+            $rootScope.modalIsOpen = false;
         }
 
         $scope.initMap = function() {

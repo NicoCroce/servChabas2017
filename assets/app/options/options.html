@@ -1,11 +1,19 @@
 <section transition>
     <h1 class="title-line">Contacto</h1>
 
-    <div class="info-msg">
-        <p class="link-contact">
-            Puede agregar un nuevo servicio ingresando <a href="" ng-click="showModal()"> aquí</a>
-        </p>
-    </div>
+    <form name="form.data" class="bg-white display-table">
+        <ul class="data-required">
+            <li>
+                <input id="idComment" type="text" name="comment" ng-model="data.comment" value="" ng-class="setError(data.comment)"
+                    autocomplete="off">
+                <label for="idComment" ng-class="{'has-text': data.comment != ''}">Si lo desea puede dejarnos un comentario.</label>
+            </li>
+        </ul>
+        <div>
+            <input type="button" ng-click="submit()" class="ripple button animation">
+            <span class="icon-paperplane"></span>
+        </div>
+    </form>
     <div class="content-contact">
         <div class="contact-ico">
             <a href="tel:+5493464510474" class="icon-mobile"></a>
