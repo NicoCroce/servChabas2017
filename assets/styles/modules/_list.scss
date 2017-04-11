@@ -21,8 +21,8 @@
     .options-list {
         background: white; color: #1f1f1f; transition: all .3s ease; position: absolute; width: 100%; z-index: 12; top: 47px; overflow: hidden; opacity: 0; max-height: 0; 
         li { 
-            margin: 0; padding: 15px; border-bottom: 1px solid #a7a7a7; transition: all .3s ease; cursor: pointer;
-            &:hover, &:focus { background: rgba(3, 169, 244, 0.4); }
+            margin: 0; padding: 15px; border-bottom: 1px solid #a7a7a7; transition: all .3s ease; cursor: pointer; font-size: toem(13px);
+            &:hover, &:focus { background: rgba(3, 169, 244, 0.4); } 
         }
     }
     .bg-list { position: fixed; top: 0; z-index: 10; left: 0; right: 0; bottom: 0; opacity: .7; background: black; }
