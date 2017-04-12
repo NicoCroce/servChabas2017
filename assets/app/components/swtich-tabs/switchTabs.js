@@ -32,6 +32,10 @@
 					return width;
 				};
 
+				scope.getLiClass = function(eIndex, eLast) {
+					return { 'is-selected': eIndex == scope.indexTabSelected, 'icon-options-container': eLast }
+				}
+
 				scope.setSelectedTab = function (index) {
 					scope.indexTabSelected = index;
 					if (angular.isDefined(scope.tabs.callback)) {

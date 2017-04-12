@@ -14,7 +14,7 @@
                 { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacia' },
                 { 'url': 'colectivos', 'icon': 'icon-bus', 'text': 'colectivos' },
                 { 'url': 'servicios', 'icon': 'icon-list2', 'text': 'servicos' },
-                { 'url': 'options', 'icon': 'icon-options-v', 'text': '' }
+                { 'url': 'menu', 'icon': 'icon-options-v', 'text': '' }
             ],
             tabSelected: factoryIndex.setTab()
         };

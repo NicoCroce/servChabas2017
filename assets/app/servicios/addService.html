@@ -1,5 +1,5 @@
 <div id="modalAdd" class="modal modal-element" ng-class="{'show-modal-element': modalAdd.showModal}"> <!--ng-controller="AddServiceController"-->
-    <span class="close-modal icon-cancel-circle" ng-click="closeModalAdd()"></span>
+    <span class="close-modal icon-arrow_right" ng-click="closeModalAdd()"></span>
     <div>
         <div class="content-modal" ng-if="!showMsg">
             <h1 class="contact">Ingrese la informacion requerida</h1>
@@ -35,7 +35,7 @@
                         <label for="idTel" ng-class="{'has-text': data.tel != ''}">Número de teléfono</label>
                     </li>
                 </ul>
-                <input type="button" ng-click="submit()" class="ripple button animation" value="Enviar">
+                <input type="button" ng-click="submit()" class="ripple button animation mgb-20px" value="Enviar">
             </form>
         </div>
         <div class="content-modal" ng-if="showMsg">

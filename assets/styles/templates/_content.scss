@@ -4,12 +4,13 @@
 //
 // *************************************
 
-.main { margin-top: 20px; margin-bottom: 30px; position: relative; display: block; }
+.main { margin: 0; position: relative; display: block; }
 input { width: 100%; }
+header { margin-bottom: 20px; }
 
 .map-element { 
-  height: 200px; border: 1px solid #9e9e9e; background: url('../img/map.jpg'); background-size: 180%; background-position: -105px -123px;
-  background-color: rgba(0, 0, 0, 0.76); background-blend-mode: overlay; display: table; width: 100%; text-align: center;
+  height: 200px; border: 1px solid #9e9e9e; background: url('../img/map-chabas.jpg');
+  display: table; width: 100%; text-align: center; cursor: pointer;
   >span { 
     display: table-cell; vertical-align: middle; 
     animation: fade-in-out 3s linear infinite;

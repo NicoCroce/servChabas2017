@@ -23,6 +23,9 @@
                 case 'servicios':
                     index = 2;
                     break;
+                case 'menu':
+                    index = 3;
+                    break;
                 default:
                     break;
             }

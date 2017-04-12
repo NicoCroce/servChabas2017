@@ -5,11 +5,11 @@
         .module('servicios-chabas')
         .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
-            $rootScope.noHmoeSection = !window.location.hash.indexOf("home") >= 0;
+            $rootScope.noHomeSection = window.location.hash.indexOf("home") >= 0;
             $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
-                $rootScope.noHmoeSection = !window.location.hash.indexOf("home") >= 0;
+                $rootScope.noHomeSection = window.location.hash.indexOf("home") >= 0;
             });
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
@@ -38,7 +38,7 @@
                     templateUrl: '../templates/servicios/servicios.html',
                     controller: 'ServicesController'
                 })
-                .state('options', {
+                .state('menu', {
                     url: '/menu',
                     templateUrl: '../templates/options/options.html',
                     controller: 'OptionsController'
