@@ -18,11 +18,15 @@
                     if ($window.scrollY >= offsetTop && stackPosition == null) {
                         stackPosition = offsetTop;
                         angular.element(element[0]).addClass('stack-element-top');
-                        elementToMove.css({"position": "relative", "top": angular.element(element[0]).outerHeight() + 'px'});
+                        elementToMove.addClass('element-stacked');
+                        /*elementToMove.css({"position": "relative", "top": angular.element(element[0]).outerHeight() + 'px'});*/
+                        scope.$apply();
                     } else if ($window.scrollY < stackPosition && stackPosition != null) {
                         stackPosition = null;
                         angular.element(element[0]).removeClass('stack-element-top');
-                        elementToMove.css({"position": "relative", "top": "0"});
+                        elementToMove.removeClass('element-stacked');
+                        /*elementToMove.css({"position": "relative", "top": "0"});*/
+                        scope.$apply();
                     }
                 });
             }
