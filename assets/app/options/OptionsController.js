@@ -9,6 +9,10 @@
             comment: ''
         };
 
+        $scope.modalThy = {
+            showModal: false
+        };
+
         $scope.submitted = false;
 
         $scope.setError = function (data) {
@@ -22,9 +26,13 @@
             var messageListRef = firebase.database().ref('comentarios');
             var newMessageRef = messageListRef.push();
             newMessageRef.set($scope.data);
-
+            $scope.modalThy.showModal = true;
             $scope.data.comment = '';
             $scope.submitted = false;
+            setTimeout(function () {
+                $scope.modalThy.showModal = false;
+                $scope.$apply();
+            }, 2000);
         }
     };
 })();

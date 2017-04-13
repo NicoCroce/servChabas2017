@@ -4,8 +4,7 @@
     <form name="form.data" class="bg-white display-table">
         <ul class="data-required">
             <li>
-                <input id="idComment" type="text" name="comment" ng-model="data.comment" value="" ng-class="setError(data.comment)"
-                    autocomplete="off">
+                <input id="idComment" type="text" name="comment" ng-model="data.comment" value="" ng-class="setError(data.comment)" autocomplete="off">
                 <label for="idComment" ng-class="{'has-text': data.comment != ''}">Si lo desea puede dejarnos un comentario.</label>
             </li>
         </ul>
@@ -35,3 +34,12 @@
         </div>
     </div>
 </section>
+<div id="modalThy" class="modal modal-element display-table" ng-class="{'show-modal-element': modalThy.showModal}">
+    <div class="content-modal">
+        <div>
+            <div class="info-msg mg-0">
+                <p>Gracias por colaborar con el pueblo de Chabás.</p>
+            </div>
+        </div>
+    </div>
+</div>

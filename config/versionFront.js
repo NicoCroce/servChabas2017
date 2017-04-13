@@ -1,1 +1,1 @@
-var versionFront = '20170413.1701-25'; 
+var versionFront = '20170413.1741-10'; 
