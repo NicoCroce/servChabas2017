@@ -54,7 +54,7 @@ html {
 
 body {font: $base_font; background-color: $base_background; color: #000; }
 
-footer { background: #d8d8d8; padding: 20px; } 
+footer { background: #d8d8d8; padding: toem(20px); font-size: toem(11px); padding-right: 15px; } 
 
 main { margin-top: 20px; position: relative; display: block; padding-bottom: 60px;}
 

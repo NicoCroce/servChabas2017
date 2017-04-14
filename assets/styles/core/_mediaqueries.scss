@@ -14,174 +14,6 @@ $mediaquery_tablets--portrait: 768px;
 $mediaquery_phones: 600px;
 $mediaquery_phones-small--portrait: 480px;
 
-
-
-// -------------------------------------
-//   Base
-// -------------------------------------
-
-/*@media screen and (max-width: 1024px) {
-    .wrapper { width: 90% }
-    // .info {
-    //     &.colectivos .tabla-horarios { height: 220px; }
-    // }
-    // .main  {
-    //     &.bus-section .sub-header .botones-destinos {
-    //         right: 25%;
-    //     }
-    //}
-}
-
-@media screen and (max-width: 800px) {
-    body {
-    	.aside-publi { display: none; }
-        // main { min-height: 860px; }
-        
-        
-            &.options-open .main { 
-                transform: translate3d(-40%, 0, 0);
-            }
-            &.options-close .main {
-                transform: translate3d(0, 0, 0);;
-                // @include opacity(1);
-            }
-
-        .options { width: 40%; }
-
-        .content .cambio-info {
-            .info { 
-            	width: 100%;            
-                .datos {
-                	.img { margin-top: 5%; }
-                	.farmacia { 
-                		margin-top: 5%; 
-            			div:last-child { display: none; }
-            			.icon-pil { float: left; margin-top: 1%; }
-            			.nombre-farmacia { width: 85%; }
-                	}
-                	div .dato strong { width: 100%; display: table-row; line-height: 2; }
-                }
-
-                .button.map { width: 100%; padding: 3% 0; margin: 0; position: relative; font-size: 1.3em; display: inline-block;}
-
-                &.colectivos .sombra-inferior { margin-top: 2px; }
-        	}
-        }
-
-        .main  {
-            .publi-mayor { display: none; }
-            footer {
-                height: 320px;
-                div[class*="img-footer"] {
-                    height: 50%;
-                    @include span (1/3);
-                }
-            }
-        }
-        .publi-mayor-mobile { 
-            transition: opacity 1s ease;
-            display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0; height: 100%; width: 100%; z-index: 200; 
-            .publicidad-1 { height: 100% }
-        }
-    }
-}  
-
-@media screen and (max-width: 800px) and (orientation: landscape) {
-    body { font-size: 12px; 
-        .header .fecha { margin-right: 5%; }
-        .main-menu { width: 25px; top: 15px; right: 15px; 
-            div {height: 2px; }
-        }
-
-        .content .cambio-info {
-            height: calc(100% - 90px);
-        }
-
-        .main footer {
-                height: 108px;
-                div[class*="img-footer"] {
-                    height: 100%;
-                    @include span (1/6);
-                }
-            }
-    }
-}
-
-@media screen and (max-width: 600px) {
-
-    body {
-
-        .tabs.nav-tabs .text-tab  { display: none; }
-        
-        .main-menu { width: 25px; top: 15px; right: 15px; 
-            div {height: 2px; }
-        }
-        .main, .options { min-height: 400px; font-size: 0.75em;}
-        
-        .options { width: 84%; font-size: 1em;
-            section div li:first-child { padding: 3.25em 0; border: 0; }
-            section div li:last-child a { height: 30px; }
-        }
-        
-        &.options-open .main { 
-            transform: translate3d(-84%, 0, 0);
-        }
-        &.options-close .main {
-            transform: translate3d(0, 0, 0);
-            opacity: 1;
-        }
-        
-        .main { 
-            min-height: 560px;
-            .content {
-                margin-top: 5%;
-                .cambio-info {
-                    padding: 0; margin: 0;
-                    .info {
-                        .link {
-                            width: 100%;
-                            .button { width: 100%; }
-                            &.call { display: block;
-                                .button { background: #BF360C; }
-                            }
-                            
-                        }
-
-                        .datos {
-                            &.img { height: 60px; background-position-x: 5px; }
-                            &.farmacia {
-                                font-size: 1.5em; margin: 1em 0;
-                                .icon-pil { vertical-align: top; display: inline-table; width: 0; margin-top: 5px; }
-
-                                div {
-                                    span{ display: inline-block;
-                                        .text { display: block; }
-                                    }
-                                    &:last-child { display: none; }
-                                }
-                            }
-                        }
-
-                        // &.colectivos .tabla-horarios { height: calc(100% - 27px); }
-
-                        &.telefonos div.header-tabla-telefonos .bt-instituciones { padding: 10px; margin-right: -3px; }
-                    }
-                }
-                .publi-mayor { display: none; }
-            }
-            
-            footer {
-                height: 100px;
-                div[class*="img-footer"] {
-                    height: 100%;
-                    @include span (1/2);
-                    &.no-visible { display: none; }
-                }
-            }
-        }
-    }
-}*/
-
 @media screen and (max-width: $mediaquery_desktop) { 
     
 }
@@ -195,21 +27,23 @@ $mediaquery_phones-small--portrait: 480px;
     body { 
         font-size: 14px;
         .header { padding: 1em 0; }
-    }
+        main { padding-bottom: 10px; }
+        footer { padding: 5px; } 
 
-    .wrapper { width: 90%; }
+        .wrapper { width: 90%; }
 
-    .farmacia {
-        .link {
-            &.call { display: block; margin-top: 20px; }
-            &.map { display: block; }
-            button { width: 100%; }
+        .farmacia {
+            .link {
+                &.call { display: block; margin-top: 20px; }
+                &.map { display: block; }
+                button { width: 100%; }
+            }
+            .datos.desktop { display: none; }
+
         }
-        .datos.desktop { display: none; }
+        .content-info { width:100%; }
 
+        .modal div.content-modal { padding: 0 5%; }
+        form.bg-white > div input { padding: 10px 12px 12px 12px; }
     }
-    .content-info { width:100%; }
-
-    .modal div.content-modal { padding: 0 5%; }
-    form.bg-white > div input { padding: 10px 12px 12px 12px; }
 }

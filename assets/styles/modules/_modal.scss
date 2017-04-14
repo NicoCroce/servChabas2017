@@ -43,8 +43,8 @@
             &.map { margin-top: 15px; }
         }
     .close-modal { 
-	    position: absolute; top: 3%; left: 2%; color: #dadada; -webkit-transition: all .3s ease; transition: all .3s ease; 
-        font-size: 1.5625em; font-size: 41px; border-bottom: 2px solid #dadada; padding-bottom: 3px;
+	    position: absolute; width: 100%; color: #dadada; -webkit-transition: all .3s ease; transition: all .3s ease; 
+        font-size: 1.5625em; font-size: 41px; border-bottom: 1px solid rgba(218, 218, 218, 0.53); padding-bottom: 3px;
 	    &:hover { cursor: pointer; color: #b5b5b5; }
         &:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }
 	}

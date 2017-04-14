@@ -37,14 +37,16 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "jeet": "^7.1.0",
-    "merge-stream": "^1.0.0",
-    "node-sass": "^4.4.0"
+    "merge-stream": "^1.0.0"
   },
   "dependencies": {
     "@types/angular": "^1.6.9",
     "@types/angular-resource": "^1.5.8",
     "@types/angular-ui-router": "^1.1.36",
     "@types/jquery": "^2.0.41",
-    "gulp-install": "^0.6.0"
+    "gulp-install": "^0.6.0",
+    "gulp-wait": "0.0.2",
+    "node-sass": "^4.5.2",
+    "vinyl-ftp": "^0.6.0"
   }
 }
