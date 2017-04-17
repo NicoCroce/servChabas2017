@@ -10,11 +10,17 @@
         }
 
         function pageview(currentPath) {
-            ga(function (tracker) {
+            dataLayer.push({
+                'categoria': 'Google Analytics',
+                'titulo': 'Introducción al dataLayer de Google Tag Manager',
+                'event': 'nico',
+                'path': currentPath
+            });
+           /* ga(function (tracker) {
                 // Sets the page field to "/about.html".
                 tracker.set('page', currentPath);
                 tracker.send('pageview');
-            });
+            });*/
             /*if (!category) { category = 'Button' }
             ga('send', {
                 hitType: 'pageview',

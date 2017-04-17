@@ -101,7 +101,7 @@ gulp.task("watch", function (done) {
 
 gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
 
-gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), runFTP));
+gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction)/*, runFTP*/));
 
 gulp.task('deployTasksRun', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), connectServer));
 
@@ -259,9 +259,9 @@ function jsConcatLibsFunction(done) {
 
 function runFTP(done) {
 	var conn = ftp.create({
-		host: 'servicioschabas.comuv.com',
-		user: 'a1450234',
-		password: 'nico474',
+		host: 'files.000webhost.com',
+		user: 'chabashoy',
+		password: '34023935n',
 		parallel: 3,
 		log: gutil.log
 	});
