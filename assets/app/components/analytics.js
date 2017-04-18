@@ -10,12 +10,14 @@
         }
 
         function pageview(currentPath) {
-            dataLayer.push({
-                'categoria': 'Google Analytics',
-                'titulo': 'Introducción al dataLayer de Google Tag Manager',
-                'event': 'nico',
-                'path': currentPath
+            return dataLayer.push({
+                'event': 'virtualPageView',
+                'dataView': {
+                    'IDanalytics': 'UA-96039991-1',
+                    'path': currentPath
+                }
             });
+
            /* ga(function (tracker) {
                 // Sets the page field to "/about.html".
                 tracker.set('page', currentPath);
