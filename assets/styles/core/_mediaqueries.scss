@@ -11,11 +11,18 @@
 $mediaquery_desktop: 1280px;
 $mediaquery_tablets: 1024px;
 $mediaquery_tablets--portrait: 768px;
-$mediaquery_phones: 600px;
+$mediaquery_phones: 950px;
 $mediaquery_phones-small--portrait: 480px;
 
 @media screen and (max-width: $mediaquery_desktop) { 
     
+}
+
+@media screen and (max-width: $mediaquery_tablets){
+    div.wrapper {
+        width: 90%;
+        .content-info.fb { text-align: right; }
+    }    
 }
 
 @media screen and (min-width: $mediaquery_phones) {
@@ -44,6 +51,8 @@ $mediaquery_phones-small--portrait: 480px;
         .content-info { width:100%; }
 
         .modal div.content-modal { padding: 0 5%; }
-        form.bg-white > div input { padding: 10px 12px 12px 12px; }
+        form.bg-white > div input { height: 42px; }
+
+        div.wrapper .content-info.fb { display: none; }
     }
 }
