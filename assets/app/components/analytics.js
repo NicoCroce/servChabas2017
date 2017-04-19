@@ -13,7 +13,7 @@
         }
 
         function pageview(currentPath) {
-            /*if (path != currentPath) {
+            if (path != currentPath) {
                 path = currentPath;
                 return dataLayer.push({
                     'IDanalytics': 'UA-96039991-1',
@@ -22,7 +22,7 @@
                         'path': currentPath
                     }
                 });
-            }*/
+            }
 
             /* ga(function (tracker) {
                  // Sets the page field to "/about.html".
