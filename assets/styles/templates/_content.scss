@@ -10,9 +10,9 @@ main.element-stacked { margin-top: 80px; }
 
 .map-element { 
   height: 200px; border: 1px solid #9e9e9e; background: url('../img/map-chabas.jpg');
-  display: table; width: 100%; text-align: center; cursor: pointer;
+  width: 100%; text-align: center; cursor: pointer; 
   >span { 
-    display: table-cell; vertical-align: middle; 
+    @include vertical-align(); pointer-events: none; 
     animation: fade-in-out 3s linear infinite;
   }
 }

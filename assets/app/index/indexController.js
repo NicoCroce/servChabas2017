@@ -11,7 +11,7 @@
 
         $scope.tabs = {
             tabArray: [
-                { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacia' },
+                { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacias' },
                 { 'url': 'colectivos', 'icon': 'icon-bus', 'text': 'colectivos' },
                 { 'url': 'servicios', 'icon': 'icon-list2', 'text': 'servicos' },
                 { 'url': 'menu', 'icon': 'icon-options-v', 'text': '' }

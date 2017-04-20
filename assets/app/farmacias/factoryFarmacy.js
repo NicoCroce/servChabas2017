@@ -40,12 +40,16 @@
         function getDate() {
             var month = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
             var newDate = new Date();
+            if (newDate.getHours() < 8) {
+                newDate.setDate(newDate.getDate() - 1);
+            }
             var date = {
                 complete: newDate,
                 day: newDate.getDate(),
                 month: newDate.getMonth() + 1,
                 year: newDate.getFullYear()
             }
+
             date.monthText = month[date.month];
 
             return date;
