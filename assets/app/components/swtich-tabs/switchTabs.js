@@ -53,6 +53,13 @@
 						scope.setSelectedTab(index);
 					});
 
+				/*scope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+					console.log(window.location);
+					if (from.name != 'menu' && window.location.hash != "#!/menu") {
+						window.location.reload(true);
+					}
+				});*/
+
 				function getIndex(stateName) {
 					var index;
 					scope.tabs.tabArray.forEach(function (tab, indexTab) {

@@ -1,10 +1,10 @@
-(function(){
+(function () {
     'use strict'
     angular
         .module('servicios-chabas')
         .controller('OptionsController', OptionsController);
 
-    function OptionsController ($scope, modal){
+    function OptionsController($scope, modal, $state) {
         $scope.data = {
             comment: ''
         };
@@ -20,7 +20,7 @@
             return { 'has-error': true };
         };
 
-        $scope.submit = function() {
+        $scope.submit = function () {
             $scope.submitted = true;
             if (angular.isUndefinedOrNullOrEmpty($scope.data.comment)) { return; };
             var messageListRef = firebase.database().ref('comentarios');

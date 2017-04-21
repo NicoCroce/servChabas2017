@@ -9,10 +9,11 @@ input { width: 100%; }
 main.element-stacked { margin-top: 80px; }
 
 .map-element { 
-  height: 200px; border: 1px solid #9e9e9e; background: url('../img/map-chabas.jpg');
-  width: 100%; text-align: center; cursor: pointer; 
+  height: 200px; border: 1px solid #9e9e9e; background: url('../img/map-chabas.png');
+  width: 100%; text-align: center; cursor: pointer; background-position: 50%;
   >span { 
-    @include vertical-align(); pointer-events: none; 
+    @include vertical-align(); pointer-events: none; background: rgba(29, 33, 41, 0.4);
+    display: block; padding: 10px; font-size: 13px;
     animation: fade-in-out 3s linear infinite;
   }
 }
