@@ -1,0 +1,13 @@
+<div id="modalColectivos" class="modal modal-element" ng-class="{'show-modal-element': modal.showModal}" > <!--ng-controller="modalBusCrontroller"-->
+    <span class="close-modal icon-arrow_right" ng-click="closeModal()"></span>
+    <div>
+        <div class="content-modal">
+            <!--<span class="icon-info"></span>-->
+            <div class="original-data">
+                <h3 ng-bind="modal.info[1]"></h3>
+                <h3 ng-bind="modal.info[0]"></h3>
+            </div>
+            <h1 ng-bind="modal.detail"></h1>
+        </div>
+    </div>
+</div>

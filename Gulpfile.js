@@ -37,7 +37,8 @@ var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_FONTS_BASE = path.join(FOLDER_ASSETS, 'icons'),
 	SRC_JAVASCRIPT_BASE = path.join(FOLDER_ASSETS, 'js'),
 	SRC_DATA_BASE = path.join(FOLDER_ASSETS, 'data'),
-	SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app');
+	SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app'),
+	SRC_FAVICONS_BASE = path.join(FOLDER_ASSETS, 'favicon');
 
 var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	APP_FILES = SRC_APP_BASE + '/**/*',
@@ -47,7 +48,7 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
 	ICON_FILES = SRC_FONTS_BASE + '/**/*',
 	DATA_FILES = SRC_DATA_BASE + '/**/*.json',
-	FILES_DATA = path.join(FOLDER_ASSETS, 'data') + '/**/*';
+	FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*';
 
 var DEV_HTML_JS_FILES = [FOLDER_DEV + 'index.html', FOLDER_DEV + '/templates/**/*.html', FOLDER_DEV + '/js/*.js'],
 	JS_WATCH = FOLDER_DEV + '/js/**/*.js';
@@ -176,12 +177,14 @@ function connectServer(done) {
 		return done();*/
 };
 
-function copyData(done) {
-	var destFolder = ENVIRONMENT + '/data';
-	showComment('Copying DATA Files');
-	gulp.src(DATA_FILES)
-		.pipe(gulp.dest(destFolder)).on('error', gutil.log);
-	return done();
+function copyData() {
+	showComment('Copying DATA Files and favIcons');
+	var data = gulp.src(DATA_FILES)
+		.pipe(gulp.dest(ENVIRONMENT + '/data')).on('error', gutil.log);
+
+	var favIcon = gulp.src(FAVICONS_FILES)
+		.pipe(gulp.dest(ENVIRONMENT + '/favicon')).on('error', gutil.log);
+	return merge(data, favIcon);
 };
 
 function sassFunction() {

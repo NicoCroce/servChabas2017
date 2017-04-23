@@ -6,14 +6,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+	<meta name="theme-color" content="#ffffff">
+
 	<!-- mio -->
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:500,700,300italic,400' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="./css/iconServicios.css?ts=20170420.2121-44">
-	<link rel="stylesheet" type="text/css" href="../css/style.css?ts=20170420.2121-44">
-	<link rel="icon" type="image/png" href="img/icono.png" sizes="180x180">
+	<link rel="stylesheet" type="text/css" href="./css/iconServicios.css?ts=20170422.1519-11">
+	<link rel="stylesheet" type="text/css" href="../css/style.css?ts=20170422.1519-11">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<!-- Google Tag Manager -->
 	<script>
 		(function (w, d, s, l, i) {
@@ -31,6 +39,15 @@
 </head>
 
 <body ng-controller="IndexController" ng-class="{'modal-is-open': modalIsOpen}">
+	<div id="fb-root"></div>
+	<script>
+		(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=289764814382364";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript>
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6GKZ83" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -55,11 +72,18 @@
 			<section class="content">
 				<div class="wrapper">
 					<div class="content-info clear-both">
+						<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}"> <!--{'hidden-modal': !loadingService}-->
+							<div class="spinner">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>
+							</div>
+						</section>
 						<div ui-view ng-cloak></div>
 					</div>
 					<div class="content-info fb clear-both">
-						<div class="fb-page" data-href="https://www.facebook.com/chabashoy/" data-tabs="timeline" data-width="400px"
-						 data-height="600px" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+						<div class="fb-page" data-href="https://www.facebook.com/chabashoy/" data-tabs="timeline" data-width="400px" data-height="600px"
+						 data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
 							<blockquote cite="https://www.facebook.com/chabashoy/" class="fb-xfbml-parse-ignore">
 								<a href="https://www.facebook.com/chabashoy/"></a>
 							</blockquote>
@@ -73,36 +97,13 @@
 			<p class="credits">Diseñado y desarrollado por <span>Nicolás Croce</span></p>
 		</footer>
 	</div>
-	<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}">
-		<div class="spinner">
-			<div class="bounce1"></div>
-			<div class="bounce2"></div>
-			<div class="bounce3"></div>
-		</div>
-	</section>
 
-	<!--<section add-modal id="idChangeModal" class=""> -->
-	<!--ng-class="{'show-modal-element': showModalBool}" -->
-
-	<!--</section>-->
-	<div id="fb-root"></div>
-	<script>
-		(function (d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			/*if (d.getElementById(id)) return;*/
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=289764814382364";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-
-	</script>
+	<div ng-include="'../templates/home/modaAddHome.html'"></div>
 
 
 
-
-
-	<script type="text/javascript" src="../js/min/libs.js?ts=20170420.2121-44"></script>
-	<script type="text/javascript" src="../js/script.js?ts=20170420.2121-44"></script>
+	<script type="text/javascript" src="../js/min/libs.js?ts=20170422.1519-11"></script>
+	<script type="text/javascript" src="../js/script.js?ts=20170422.1519-11"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRrnGYhZW667iSgkZLCQ4tp6yS5iEi8tw"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
 	<script>
