@@ -9,11 +9,11 @@ input { width: 100%; }
 main.element-stacked { margin-top: 80px; }
 
 .map-element { 
-  height: 1px; min-height: 0;width: 100%; transition: all .3s ease;
+  width: 100%; height: 200px; position: absolute;
 }
 
 .show-map {
-  .map-element { min-height: 200px; border: 1px solid #9e9e9e; margin: 20px auto;  }
+  .map-element { border: 1px solid #9e9e9e; margin: 20px auto; position: relative; }
   .button-transparent { display: none; }
 }
 

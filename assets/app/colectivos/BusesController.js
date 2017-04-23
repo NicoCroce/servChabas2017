@@ -57,7 +57,7 @@
             $rootScope.modalIsOpen = false;
         }
 
-        $scope.initMap = function() {
+        $scope.initMapBus = function() {
             $scope.map.show = true;
             var myLatLng = {
                 lat: -33.245058,

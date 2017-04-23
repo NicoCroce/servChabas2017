@@ -17,7 +17,8 @@
         <button type="button" class="button-transparent" ng-click="initMap()">Mostrar ubicación</button>
         <div id="map" class="map-element"></div>
     </div>
-    <div class="list-component" ng-click="listOpened = !listOpened" ng-class="{'is-open': listOpened}">
+    <div class="list-component" ng-class="{'is-open': listOpened}">
+        <span id="eventListMask" ng-click="listOpened = !listOpened"></span>
         <h2>Todas las farmacias de la localidad</h2>
         <span class="icon-arrow_right"></span>
         <div class="list-pharmacies">
