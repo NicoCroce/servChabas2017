@@ -11,6 +11,10 @@
             window.addEventListener("hashchange", function (event) {
                 $rootScope.noHomeSection = window.location.hash.indexOf("home") >= 0;
             });
+
+            if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
+                localStorage.setItem("showAddHomeModal", true);
+            }
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
             $qProvider.errorOnUnhandledRejections(false);

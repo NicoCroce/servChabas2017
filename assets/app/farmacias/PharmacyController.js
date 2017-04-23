@@ -36,6 +36,7 @@
         };
 
         $scope.sendCall = function(){
+            window.location.href = "tel://03464" + $scope.dataPharmacy.phone;
             analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
         }
 
