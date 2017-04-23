@@ -7,6 +7,12 @@
     function PharmacyController($scope, factoryFarmacy, $rootScope, analytics) {
 
         $scope.dataPharmacy;
+        $scope.map = {
+            show: false
+        };
+
+        $scope.allPharmacies;
+
         $rootScope.loadingService = true;
         
         factoryFarmacy.getData()
@@ -15,12 +21,13 @@
             .finally(calendarFinally);
 
         function calendarSuccess(dataResponse) {
+            $scope.allPharmacies = dataResponse.allPharmacies.farmacias;
             $scope.dataPharmacy = {
-                name: dataResponse.nombre,
-                img: dataResponse.imagen,
-                address: dataResponse.direccion,
-                phone: dataResponse.telefono,
-                map: dataResponse.mapa,
+                name: dataResponse.pharmacyData.nombre,
+                img: dataResponse.pharmacyData.imagen,
+                address: dataResponse.pharmacyData.direccion,
+                phone: dataResponse.pharmacyData.telefono,
+                map: dataResponse.pharmacyData.mapa,
             };
         };
 
@@ -40,6 +47,7 @@
         };
 
         $scope.initMap = function() {
+            $scope.map.show = true;
             var myLatLng = $scope.dataPharmacy.map;
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
@@ -58,6 +66,6 @@
                 labelClass: "labels", // the CSS class for the label
                 labelInBackground: false,
             });
-        }
+        };
     }
 })();

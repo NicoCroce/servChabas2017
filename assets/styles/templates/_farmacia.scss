@@ -5,8 +5,35 @@
 				float: left; height: 102px; width: 20%; }
 
 		.text { font-weight: 800; }
+		.dato { min-width: 90px; display: inline-block; }
 	}
+	.info-tel { margin-top: 3%; }
 	.button span[class^=icon-].icon-phone { font-size: 18px; position: relative; top: -1px; }
 	.img-logo { width: 150px; margin-top: 20px; }
 	.link.call { display: none; }
+
+	.list-component {
+		padding: 10px; max-height: 70px; overflow: hidden; border-radius: 3px; cursor: pointer; transition: all .3s ease;
+		h2 { font-weight: 800; text-align: center; padding-top: 10px; color: $grey700; pointer-events: none; }
+		.icon-arrow_right { text-align: center; width: 100%; display: inline-block; font-size: 26px; font-weight: 800; 
+			transform: rotate3d(0, 0, 1, 90deg); pointer-events: none; transition: transform .3s ease; color: $grey700;
+		}
+		.all-pharmacies {
+			margin-top: 10px;
+			h4 { font-weight: 800; }
+			.display-table {
+				margin-top: 2px;
+				>span { display: table-cell; }
+			}
+			&:first-of-type { margin: 0; }
+		}
+
+		.list-pharmacies { opacity: 0; transition: opacity .3s ease; }
+
+		&.is-open { 
+			max-height: 600px;
+			.list-pharmacies { opacity: 1; }
+			.icon-arrow_right { transform: rotate3d(0, 0, 1, -90deg); }
+		}
+	}
 }

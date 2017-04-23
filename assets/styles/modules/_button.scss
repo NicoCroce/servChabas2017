@@ -44,6 +44,8 @@ $button_border-color: #B5B5B5;
     &.home { width: 100%; margin-top: 10%; }
 }
 
+.button-transparent { margin: 20px auto; padding: 15px; background: transparent; border: 1px solid #009688; border-radius: 3px; color: #009688; cursor: pointer; }
+
 .fab{
   border-radius: 50%;
   margin:0;

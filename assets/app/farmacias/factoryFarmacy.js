@@ -8,7 +8,12 @@
     function factoryFarmacy($resource, $q) {
 
         var returnObject = {
-            getData: getData
+            getData: getData,
+            getPharmacies: getPharmacies
+        };
+
+        var persist = {
+            pharmacies: null
         };
 
         var date = getDate();
@@ -22,7 +27,10 @@
                 getPharmacies()
             ]).then(function (responses) {
                 var pharmacyName = responses[0].calendar[date.day].farmacia,
-                    serviceResponse = responses[1].farmacias[pharmacyName];
+                    serviceResponse = {
+                        allPharmacies: responses[1],
+                        pharmacyData: responses[1].farmacias[pharmacyName]
+                    };
                 deferred.resolve(serviceResponse);
             });
 
@@ -30,11 +38,13 @@
         };
 
         function getCalendar() {
-            return $resource('../data/calendar/' + date.monthText + '.json').get().$promise;
+            return  $resource('../data/calendar/' + date.monthText + '.json').get().$promise;
         };
 
         function getPharmacies() {
-            return $resource('../data/farmacias.json').get().$promise;
+            if (!angular.isUndefinedOrNullOrEmpty(persist.pharmacies)) { return persist.pharmacies; }
+            persist.pharmacies = $resource('../data/farmacias.json').get().$promise;
+            return persist.pharmacies;
         }
 
         function getDate() {

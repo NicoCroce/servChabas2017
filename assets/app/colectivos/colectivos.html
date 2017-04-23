@@ -3,7 +3,8 @@
 		<p>Servicios momentáneos. Recuerde informar los cambios en la sección de contacto.</p>
 	</div>
 	<!--ROSARIO-->
-	<button id="btColectivos-Rosario" accordion-element element-to-shrink="wrapTableRosario" max-height="1100" shadow="shadowRosario" class="accordion-button button">
+	<button id="btColectivos-Rosario" accordion-element element-to-shrink="wrapTableRosario" max-height="1100" shadow="shadowRosario"
+	 class="accordion-button button">
 		<span>para Rosario</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -16,7 +17,8 @@
 
 
 	<!--FIRMAT-->
-	<button id="btbtColectivos-Firmat" accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat" class="accordion-button button mg-0">
+	<button id="btbtColectivos-Firmat" accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat"
+	 class="accordion-button button mg-0">
 		<span>para Firmat</span>
 		<span class="icon-arrow_right"></span>
 	</button>
@@ -27,7 +29,10 @@
 	<div id="shadowFirmat" class="sombra-inferior"></div>
 	<!--******************-->
 
-	<div id="mapBus" class="map-element" ng-click="initMap()"><span>Mostrar ubicación</span></div>
+	<div ng-class="{'show-map': map.show}">
+		<button type="button" class="button-transparent" ng-click="initMap()">Mostrar ubicación</button>
+		<div id="mapBus" class="map-element"></div>
+	</div>
 </div>
 
 <div ng-include="'../templates/colectivos/modalBus.html'"></div>

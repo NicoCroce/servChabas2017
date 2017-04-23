@@ -3,19 +3,30 @@
     <h1 class="title-line" ng-bind="dataPharmacy.name"></h1>
     <div class="datos">
         <div><span class="icon-map"></span><span class="dato">Dirección:  </span><span class="text" ng-bind="dataPharmacy.address"></span></div>
+        <div class="info-tel"><span class="icon-phone"></span><span class="dato">Teléfono:</span><span>(03464) </span><span class="text" ng-bind="dataPharmacy.phone"></span></div>
     </div>
-    <div id="map" class="map-element" ng-click="initMap()">
+    <!--<div id="map" class="map-element" ng-click="initMap()">
         <span>Mostrar ubicación</span>
-    </div>
-    <div class="datos">
-        <div class="info-tel"><span class="icon-phone"></span><span class="dato">Teléfono:  (03464)  </span>
-            <span class="text" ng-bind="dataPharmacy.phone"></span></div>
-    </div>
-
-
+    </div>-->
     <a class="link call" href="tel:03464{{dataPharmacy.phone}}" ng-click="sendCall()">
         <button class="ripple button animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;">
         <span>llamar</span>
         </button>
     </a>
+    <div ng-class="{'show-map': map.show}">
+        <button type="button" class="button-transparent" ng-click="initMap()">Mostrar ubicación</button>
+        <div id="map" class="map-element"></div>
+    </div>
+    <div class="list-component" ng-click="listOpened = !listOpened" ng-class="{'is-open': listOpened}">
+        <h2>Todas las farmacias de la localidad</h2>
+        <span class="icon-arrow_right"></span>
+        <div class="list-pharmacies">
+            <div class="all-pharmacies" ng-repeat="pharmacy in allPharmacies track by $index">
+                <h4 ng-bind="pharmacy.nombre"></h4>
+                <div class="display-table">
+                    <span ng-bind="pharmacy.direccion"></span> <span>(03464) <span ng-bind="pharmacy.telefono"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

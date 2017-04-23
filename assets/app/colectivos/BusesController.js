@@ -11,6 +11,9 @@
         $scope.tableRosario;
         $scope.tableFirmat;
         $scope.loadedService = false;
+        $scope.map = {
+            show: false
+        };
         $scope.modal = {
             detail: '',
             showModal: false
@@ -55,6 +58,7 @@
         }
 
         $scope.initMap = function() {
+            $scope.map.show = true;
             var myLatLng = {
                 lat: -33.245058,
                 lng: -61.359142
@@ -73,7 +77,7 @@
                 map: map,
                 title: '',
                 animation: google.maps.Animation.DROP,
-                labelContent: "ABCD",
+                labelContent: "",
                 labelAnchor: new google.maps.Point(15, 65),
                 labelClass: "labels", // the CSS class for the label
                 labelInBackground: false,
