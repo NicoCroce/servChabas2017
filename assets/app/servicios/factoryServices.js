@@ -30,7 +30,7 @@
             angular.forEach(data, function (currentService, index) {
                 var row = {};
                 row.info = [currentService.nombre, currentService.numero, ''];
-                row.detail = currentService.detalle;
+                row.completeData = currentService;
                 row.hasDetail = currentService.detalle != '';
                 services.push(row);
             });

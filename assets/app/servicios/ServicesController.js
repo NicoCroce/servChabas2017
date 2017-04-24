@@ -48,9 +48,8 @@
 
         function clickRow(row) {
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal.direccion = row.detail.direccion;
-            $scope.modal.horario = row.detail.horario;
-            $scope.modal.mapa = row.detail.mapa;
+            $scope.modal.data = row.completeData;
+            debugger;
             $scope.modal.telefono = '(03464) ' + row.info[1];
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;
@@ -148,6 +147,10 @@
             $scope.listOpstions.selected = selected;
             $scope.selectInput = false;
             return $scope.listOpstions.open = false;
+        };
+
+        $scope.getLabel = function(detail, index) {
+            return Object.keys(detail)[index];
         };
     }
 })();
