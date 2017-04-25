@@ -29,7 +29,7 @@
             var services = [];
             angular.forEach(data, function (currentService, index) {
                 var row = {};
-                row.info = [currentService.nombre, currentService.numero, ''];
+                row.info = [currentService.nombre, currentService.detalle.teléfono, ''];
                 row.completeData = currentService;
                 row.hasDetail = currentService.detalle != '';
                 services.push(row);

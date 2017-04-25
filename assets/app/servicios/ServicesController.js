@@ -13,14 +13,27 @@
         $scope.loadedService = false;
 
         $scope.modal = {
-            direccion: '',
-            horario: '',
-            mapa: '',
-            showModal: false
+            name: '',
+            map: '',
+            data: '',
+            showModal: false,
+            showModalUpdate: false
         };
 
         $scope.clickRow = clickRow;
         $rootScope.loadingService = true;
+
+        function init(){
+            setTimeout(function(){
+                if (typeof (Storage) !== "undefined") {
+                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate") == "true";
+                } else {
+                    $scope.modal.showModalUpdate = true;
+                }
+            }, 1000);
+        };
+
+        init();
 
         factoryServices.getServices()
             .then(servicesSuccess)
@@ -48,15 +61,23 @@
 
         function clickRow(row) {
             if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal.data = row.completeData;
-            debugger;
-            $scope.modal.telefono = '(03464) ' + row.info[1];
+            $scope.modal.name = row.completeData.nombre;
+            $scope.modal.data = row.completeData.detalle;
+            $scope.modal.data.teléfono = '(03464) ' + row.completeData.detalle.teléfono;
+            $scope.modal.phone = '03464' + row.completeData.detalle.teléfono.replace('(03464)', '').replace('-', '').replace(/ /g, '');
+            $scope.modal.map = row.completeData.mapa;
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModal = function (type) {
             $scope.modal.showModal = false;
+            $scope.modal.showModalUpdate = false;
+            if(type && type == 'update'){ 
+                if (typeof (Storage) !== "undefined") {
+                    localStorage.setItem("showModalUpdate", false);
+                }
+            }
             $rootScope.modalIsOpen = false;
         }
 

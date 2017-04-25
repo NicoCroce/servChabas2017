@@ -17,12 +17,6 @@ main.element-stacked { margin-top: 80px; }
   .button-transparent { display: none; }
 }
 
-h1.modal-text {
-    text-align: left; display: table; table-layout: fixed; width: 100%;
-    label { font-size: toem(14px); display: table-cell; width: 25%; }
-    span { color: #00d0bc; display: table-cell; width: 75%; }
-}
-
 .bg-spinner {
     position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 1000000; opacity: 0.9;
     transition: all .4s ease;
@@ -40,8 +34,8 @@ h1.modal-text {
 }
 
 .info-msg { 
-    padding: 10px; margin-bottom: 20px; border-radius: 5px; color: #329ae6;
-    border: 1px solid rgba(50, 154, 230, 0.55); font-size: toem(14px);
+    /*padding: 10px;*/ margin-bottom: 20px; border-radius: 5px; color: #329ae6;
+    /*border: 1px solid rgba(50, 154, 230, 0.55);*/ font-size: toem(14px);
   p { 
     line-height: 12px;
     a { text-decoration: underline; color: #329ae6;; font-weight: 800; cursor: pointer; }
@@ -71,6 +65,11 @@ h1.modal-text {
 .improvements { 
   padding-left: 15px;
   li { list-style-type: disc; margin-bottom: 5px; }
+}
+
+span.icon-checkmark-circle {
+  color: #5f5f5f;
+  &.done{ color: #008c00; }
 }
 
 @-webkit-keyframes sk-bouncedelay {

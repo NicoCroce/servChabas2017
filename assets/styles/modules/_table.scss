@@ -55,7 +55,7 @@ table {
 		 td { 
 			padding-left: 1.25em; border-bottom: 1px solid $color100; vertical-align: middle; line-height: 3.5;
 			&.icon-info { text-align: center; font-size: 1.7em; }
-			&:last-of-type { text-align: center; padding: 0; }
+			&:last-of-type { text-align: center; padding: 0; color: #757575; }
 		}
 		transition: all .3s ease;
 		&[class~="hand-cursor"]:hover { background: #B2EBF2 }

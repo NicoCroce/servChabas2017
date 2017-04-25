@@ -14,6 +14,7 @@
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
+                localStorage.setItem("showModalUpdate", true);
             }
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){

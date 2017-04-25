@@ -20,11 +20,17 @@
     /*transition: all .3s ease-in-out;*/
     height: 100%; color: white;
     >div { display: table; height: 100%; width: 100%; }
+    h1 { color: white; }
     div.content-modal { 
         display: table-cell; vertical-align: middle; padding: 0 30%; text-align: center;
         span[class*="icon-info"] { font-size: 4em; opacity: .7; margin: 0; }
-        h1 { 
-            color: white; margin-top: 20px; line-height: 2;
+        .name-modal { text-transform: uppercase; font-size: 20px; margin: 0; margin-bottom: 20px; line-height: 25px; color: $color50; }
+        .modal-text { 
+            color: white; margin: 10px auto; line-height: 2; text-align: left; display: table; table-layout: fixed; width: 100%; font-size: 16px;
+
+            label { font-size: toem(14px); display: table-cell; width: 25%; text-transform: capitalize; }
+            span { color: $color200; display: table-cell; width: 75%; text-transform: capitalize; }
+
             &.contact { 
                 line-height: 25px; margin-bottom: 30px;
                 a { color: #329ae6; }
