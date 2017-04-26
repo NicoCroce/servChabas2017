@@ -30,6 +30,8 @@
                     break;
             }
 
+            (section.indexOf('servicios') >= 0) ? index = 2 : index = 0;
+
             return index;
         };
     }

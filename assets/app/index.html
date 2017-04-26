@@ -65,10 +65,10 @@
 						<!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
 					</div>
 				</div>
-				<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': !noHomeSection }"></nav>
+				<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': showNavBar }"></nav>
 			</section>
 		</header>
-		<main id="mainSection" role="main" class="main" ng-class="{'no-home-section': !noHomeSection}">
+		<main id="mainSection" role="main" class="main">
 			<section class="content">
 				<div class="wrapper">
 					<div class="content-info clear-both">
@@ -79,7 +79,7 @@
 								<div class="bounce3"></div>
 							</div>
 						</section>
-						<div ui-view ng-cloak></div>
+						<div ui-view ng-cloak class="view"></div>
 					</div>
 					<div class="content-info fb clear-both">
 						<div class="fb-page" data-href="https://www.facebook.com/chabashoy/" data-tabs="timeline" data-width="400px" data-height="600px"
