@@ -7,11 +7,9 @@
             $rootScope.loadingService = true;
             $rootScope.showNavBar = window.location.hash.indexOf("home") < 0;
             $rootScope.modalIsOpen = false;
-            $rootScope.backSectionVisible = false;
-            /*$rootScope.backSectionVisible = false;*/
             analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
-                $rootScope.showNavBar = window.location.hash.indexOf("home") < 0 || $rootScope.backSectionVisible;
+                $rootScope.showNavBar = angular.showNavBar();
             });
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
