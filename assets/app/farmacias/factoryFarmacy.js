@@ -3,7 +3,6 @@
     angular
         .module('servicios-chabas')
         .factory('factoryFarmacy', factoryFarmacy);
-    factoryFarmacy.$inject = ['$resource', '$q'];
 
     function factoryFarmacy($resource, $q) {
 

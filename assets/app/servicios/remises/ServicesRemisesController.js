@@ -2,14 +2,14 @@
     'use strict'
     angular
         .module('servicios-chabas')
-        .controller('ServicesTelefonosController', ServicesTelefonosController);
+        .controller('ServicesRemisesController', ServicesRemisesController);
 
-    function ServicesTelefonosController($scope, modal, $state, $rootScope, factoryServices) {
+    function ServicesRemisesController($scope, modal, $state, $rootScope, factoryServices) {
 
-        $scope.allPhones = [];
+        $scope.allTaxis = [];
 
-        $scope.$watch('allServices', function(value){
-            $scope.allPhones = value.utiles;
+        $scope.$watch('allServices', function (value) {
+            $scope.allTaxis = value.remises;
         });
 
         $scope.getName = function(currentPhone) {

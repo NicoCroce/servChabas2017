@@ -5,7 +5,6 @@
         .controller('IndexController', IndexController);
 
     function IndexController($scope, factoryIndex, $rootScope) {
-        $rootScope.loadingService = false;
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 

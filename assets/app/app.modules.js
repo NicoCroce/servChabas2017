@@ -43,17 +43,22 @@
                 .state('servicios', {
                     abstract: true,
                     url: '/servicios',
-                    template: '<ui-view/>'
+                    template: '<ui-view/>',
+                    controller: 'ServicesController'
                 })
                 .state('servicios.list', {
                     url: '/list',
-                    templateUrl: 'templates/servicios/servicios.html',
-                    controller: 'ServicesController'
+                    templateUrl: 'templates/servicios/servicios.html'
                 })
                 .state('servicios.telefonos', {
                     url: '/telefonos',
                     templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
                     controller: 'ServicesTelefonosController'
+                })
+                .state('servicios.remises', {
+                    url: '/remises',
+                    templateUrl: 'templates/servicios/remises/serviciosRemises.html',
+                    controller: 'ServicesRemisesController'
                 })
                 .state('menu', {
                     url: '/menu',

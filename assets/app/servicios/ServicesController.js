@@ -10,6 +10,8 @@
         $scope.tableTaxi;
         $scope.fastFood;
 
+        $scope.allServices = {};
+
         $scope.loadedService = false;
 
         $scope.modal = {
@@ -35,12 +37,13 @@
 
         init();
 
-        factoryServices.getServices()
+        factoryServices.getDataServices()
             .then(servicesSuccess)
             .catch(servicesError)
             .finally(servicesFinally);
 
         function servicesSuccess(dataResponse) {
+            $scope.allServices = dataResponse;
             $scope.tableInstitutions = factoryServices.getTable(dataResponse.instituciones);
             $scope.tableTaxi = factoryServices.getTable(dataResponse.remises);
             $scope.fastFood = factoryServices.getTable(dataResponse.rotiserias);
@@ -54,7 +57,7 @@
 
         function servicesFinally(dataFinally) {
             setTimeout(function () {
-                $rootScope.loadingService = false;
+                /*$rootScope.loadingService = false;*/
                 $scope.$apply();
             }, 500);
         };

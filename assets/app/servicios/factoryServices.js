@@ -3,12 +3,14 @@
     angular
         .module('servicios-chabas')
         .factory('factoryServices', factoryServices);
-        factoryServices.$inject = ['$resource'];
 
-    function factoryServices($resource) {
+    function factoryServices($resource, $q) {
+
+        var saveAllServices = {};
+
         return {
-            getServices: getServices,
-            getPhones: getPhones,
+            getDataServices: getDataServices,
+            setData: setData,
             getTable: getTable
         }
 
@@ -18,6 +20,27 @@
 
         function getPhones() {
             return $resource('data/telefonos.json').get().$promise;
+        }
+
+        function getDataServices() {
+            if (!angular.isUndefinedOrNullOrEmpty(saveAllServices)) { return saveAllServices; }
+            var deferred = $q.defer();
+            $q.all([
+                getServices(),
+                getPhones()
+            ]).then(function (responses) {
+                var allServices = {};
+                allServices.instituciones = responses[0].instituciones;
+                allServices.remises = responses[0].remises;
+                allServices.rotiserias = responses[0].rotiserias;
+                allServices.utiles = responses[1].utiles;
+                deferred.resolve(allServices);
+            });
+            return deferred.promise;
+        };
+
+        function setData(data) {
+            saveAllServices = data;
         }
 
         function getTable(data) {

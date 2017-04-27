@@ -20,7 +20,7 @@ main.element-stacked { margin-top: 80px; }
 .view .content-transition { margin-top: 15px; }
 
 .back-section { 
-  position: relative; color: $grey700; background: $grey200; transition: all .3s ease; 
+  position: relative; color: $grey700; background: $grey200; transition: all .3s ease; z-index: 0;
     border-bottom: 1px solid rgba(218, 218, 218, 0.53);
     &:hover { cursor: pointer; color: $grey700; }
       &:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }

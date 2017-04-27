@@ -1,12 +1,12 @@
 <div transition class="content-transition">
-    <h1 class="title-line">Teléfonos útiles</h1>
-    <div class="service-block" ng-repeat="phone in allPhones track by $index" >
+    <h1 class="title-line">Remises</h1>
+    <div class="service-block" ng-repeat="phone in allTaxis track by $index" >
         <div class="content-info-phones">
             <h2 ng-bind="getName(phone)"></h2>
             <span ng-bind="getValue(phone)"></span>
         </div>
         <div class="phone-icon">
-            <span ng-click="call(phone)" class="icon-phone"></span> 
+            <span ng-click="call(phone)" class="icon-info"></span> 
         </div>
     </div>
 </div>
