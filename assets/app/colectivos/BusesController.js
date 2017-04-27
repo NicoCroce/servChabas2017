@@ -6,7 +6,7 @@
 
     function BusesController($scope, factoryBus, $rootScope) {
 
-       /* modal.setModal('../templates/colectivos/modalBus.html', 'modalColectivos');*/
+       /* modal.setModal('templates/colectivos/modalBus.html', 'modalColectivos');*/
 
         $scope.tableRosario;
         $scope.tableFirmat;

@@ -1,12 +1,13 @@
-<div class="back-section" ng-if="backSectionVisible" ui-sref="servicios.list">
-    <span class="icon-arrow_right rotate-arrow"></span><span class="text-back">Regresar a servicios</span>
-</div>
 <div class="content-transition anim-in-section">
     <h1 class="title-line">Teléfonos útiles</h1>
-    <div>
-        <h2>Nombre servicio</h2>
-        <div>
-            <span>480-409</span>
+    <div class="service-block" ng-repeat="phone in allPhones track by $index" >
+        <div class="content-info-phones">
+            <h2 ng-bind="getName(phone)"></h2>
+            <span ng-bind="getValue(phone)"></span>
+        </div>
+        <div class="phone-icon">
+            <span ng-click="call(phone)" class="icon-phone"></span> 
         </div>
     </div>
 </div>
+

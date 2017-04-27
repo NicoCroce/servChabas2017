@@ -20,14 +20,13 @@ main.element-stacked { margin-top: 80px; }
 .view .content-transition { margin-top: 15px; }
 
 .back-section { 
-	  position: relative; color: black; 
-    border-bottom: 1px solid black; transition: all .3s ease; 
-      font-size: toem(40px); border-bottom: 1px solid rgba(218, 218, 218, 0.53);
-	    &:hover { cursor: pointer; color: black; }
-        &:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }
-        span.icon-arrow_right { margin-left: -12px; }
-        span.text-back { font-size: toem(14px); }
-	}
+  position: relative; color: $grey700; background: $grey200; transition: all .3s ease; 
+    border-bottom: 1px solid rgba(218, 218, 218, 0.53);
+    &:hover { cursor: pointer; color: $grey700; }
+      &:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }
+      span.icon-arrow_right { margin-left: 15px; font-size: toem(40px); }
+      span.text-back { font-size: toem(14px); vertical-align: super; position: relative; top: -4px; }
+}
 
 .bg-spinner {
     position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 1000000; opacity: 0.9;

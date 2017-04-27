@@ -144,7 +144,7 @@ img { width: 100%; }
 
 .bg-list { position: fixed; top: 0; z-index: 10; left: 0; right: 0; bottom: 0; opacity: .7; background: black; }
 .input-selected { position: absolute !important; top: 0; z-index: 20; width: 100%; margin: 0 !important; }
-.has-text { transform: translate3d(-10px, -28px, 0); font-size: 12px; font-weight: 100; color: #03A9F4 ; }
+.has-text { transform: translate3d(-10px, -28px, 0); font-size: toem(12px); font-weight: 100; color: #03A9F4 ; }
 
 form {
 	.data-required {
@@ -171,7 +171,7 @@ form {
 		>div { 
 			width: 10%; position: relative; vertical-align: top; float: left;
 			input { height: 45px; border-radius: 0 3px 3px 0; }
-			span { position: absolute; top: 10px; color: white; font-size: 25px; left: 0; right: 0; margin: 0 auto; text-align: center; pointer-events: none; }
+			span { position: absolute; top: 10px; color: white; font-size: toem(25px); left: 0; right: 0; margin: 0 auto; text-align: center; pointer-events: none; }
 		}
 		li, ul { margin: 0 !important;}
 		li {
@@ -182,7 +182,7 @@ form {
 					color: #3e3e3e;
 				}
 			}
-			label { font-size: 12px; top: 15px; }
+			label { font-size: toem(12px); top: 15px; }
 		} 
 	}
 }

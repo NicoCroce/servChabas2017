@@ -25,3 +25,15 @@ angular.showNavBar = function() {
 
         return true;
 };
+
+angular.showBackSection = function () {
+    var isServiceList = window.location.hash.indexOf("servicios/list") > 0,
+        isServiceType = window.location.hash.indexOf("servicios/") > 0;
+
+    if (isServiceType) {
+        if(isServiceList) { return false; }
+        return true;
+    }
+
+    return false;
+};

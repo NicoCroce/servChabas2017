@@ -5,11 +5,13 @@
         .module('servicios-chabas')
         .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
-            $rootScope.showNavBar = window.location.hash.indexOf("home") < 0;
+            $rootScope.showNavBar = angular.showNavBar();
+            $rootScope.backSectionVisible = angular.showBackSection();
             $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
             window.addEventListener("hashchange", function (event) {
                 $rootScope.showNavBar = angular.showNavBar();
+                $rootScope.backSectionVisible = angular.showBackSection();
             });
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
@@ -25,17 +27,17 @@
                 // HOME STATES AND NESTED VIEWS ========================================
                 .state('home', {
                     url: '/home',
-                    templateUrl: '../templates/home/home.html',
+                    templateUrl: 'templates/home/home.html',
                     controller: 'HomeController'
                 })
                 .state('farmacias', {
                     url: '/farmacias',
-                    templateUrl: '../templates/farmacias/farmacias.html',
+                    templateUrl: 'templates/farmacias/farmacias.html',
                     controller: 'PharmacyController'
                 })
                 .state('colectivos', {
                     url: '/colectivos',
-                    templateUrl: '../templates/colectivos/colectivos.html',
+                    templateUrl: 'templates/colectivos/colectivos.html',
                     controller: 'BusesController'
                 })
                 .state('servicios', {
@@ -45,17 +47,17 @@
                 })
                 .state('servicios.list', {
                     url: '/list',
-                    templateUrl: '../templates/servicios/servicios.html',
+                    templateUrl: 'templates/servicios/servicios.html',
                     controller: 'ServicesController'
                 })
                 .state('servicios.telefonos', {
                     url: '/telefonos',
-                    templateUrl: '../templates/servicios/telefonos/serviciosTelefonos.html',
+                    templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
                     controller: 'ServicesTelefonosController'
                 })
                 .state('menu', {
                     url: '/menu',
-                    templateUrl: '../templates/options/options.html',
+                    templateUrl: 'templates/options/options.html',
                     controller: 'OptionsController'
                 })
                 // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================

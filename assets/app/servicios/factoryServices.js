@@ -8,12 +8,17 @@
     function factoryServices($resource) {
         return {
             getServices: getServices,
+            getPhones: getPhones,
             getTable: getTable
         }
 
         function getServices() {
-            return $resource('../data/servicios.json').get().$promise;
+            return $resource('data/servicios.json').get().$promise;
         };
+
+        function getPhones() {
+            return $resource('data/telefonos.json').get().$promise;
+        }
 
         function getTable(data) {
             return {

@@ -38,12 +38,12 @@
         };
 
         function getCalendar() {
-            return  $resource('../data/calendar/' + date.monthText + '.json').get().$promise;
+            return  $resource('data/calendar/' + date.monthText + '.json').get().$promise;
         };
 
         function getPharmacies() {
             if (!angular.isUndefinedOrNullOrEmpty(persist.pharmacies)) { return persist.pharmacies; }
-            persist.pharmacies = $resource('../data/farmacias.json').get().$promise;
+            persist.pharmacies = $resource('data/farmacias.json').get().$promise;
             return persist.pharmacies;
         }
 

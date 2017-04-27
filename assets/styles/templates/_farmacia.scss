@@ -1,6 +1,6 @@
 .farmacia {
 	.datos {
-		margin: 20px 0; font-size: 16px;
+		margin: 20px 0; font-size: toem(16px);
 		.img { background-image: url(../img/logo.jpg); background-size: contain; background-repeat: no-repeat; background-position-x: 10px; 
 				float: left; height: 102px; width: 20%; }
 
@@ -8,7 +8,7 @@
 		.dato { min-width: 90px; display: inline-block; }
 	}
 	.info-tel { margin-top: 3%; }
-	.button span[class^=icon-].icon-phone { font-size: 18px; position: relative; top: -1px; }
+	.button span[class^=icon-].icon-phone { font-size: toem(18px); position: relative; top: -1px; }
 	.img-logo { width: 150px; margin-top: 20px; }
 	.link.call { display: none; }
 
@@ -18,7 +18,7 @@
 		#eventListMask { cursor: pointer; position: absolute; width: 100%; height: 50px; }
 
 		h2 { font-weight: 800; text-align: center; padding-top: 10px; color: $grey700; pointer-events: none; }
-		.icon-arrow_right { text-align: center; width: 100%; display: inline-block; font-size: 26px; font-weight: 800; 
+		.icon-arrow_right { text-align: center; width: 100%; display: inline-block; font-size: toem(26px); font-weight: 800; 
 			transform: rotate3d(0, 0, 1, 90deg); pointer-events: none; transition: transform .3s ease; color: $grey700;
 		}
 		.all-pharmacies {
@@ -26,12 +26,15 @@
 			h4 { font-weight: 800; }
 			.display-table {
 				margin-top: 2px;
-				>span { display: table-cell; }
+				>span { 
+					display: table-cell;
+					&:last-of-type { text-align: right; }
+				}
 			}
 			&:first-of-type { margin: 0; }
 		}
 
-		.list-pharmacies { opacity: 0; transition: opacity .3s ease; }
+		.list-pharmacies { opacity: 0; transition: opacity .3s ease; max-width: 260px; margin: 0 auto; }
 
 		&.is-open { 
 			max-height: 600px;
@@ -39,4 +42,5 @@
 			.icon-arrow_right { transform: rotate3d(0, 0, 1, -90deg); }
 		}
 	}
+	.title-line { margin-top: toem(5px); }
 }

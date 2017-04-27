@@ -12,7 +12,7 @@
         }
 
         function getBuses() {
-            return $resource('../data/colectivos.json').get().$promise;
+            return $resource('data/colectivos.json').get().$promise;
         };
 
         function getTable(data) { 

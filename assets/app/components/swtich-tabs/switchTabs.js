@@ -7,7 +7,7 @@
 	function switchTabs(analytics) {
 		return {
 			restrict: 'A',
-			templateUrl: '../templates/components/swtich-tabs/switch-tabs.html',
+			templateUrl: 'templates/components/swtich-tabs/switch-tabs.html',
 			replace: false,
 			scope: {
 				tabs: '='

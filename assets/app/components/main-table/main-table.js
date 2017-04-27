@@ -7,7 +7,7 @@
     function mainTable() {
         return {
             restrict: 'A',
-            templateUrl: '../templates/components/main-table/main-table.html',
+            templateUrl: 'templates/components/main-table/main-table.html',
             replace: false,
             scope: {
                 tableConfig: "=",

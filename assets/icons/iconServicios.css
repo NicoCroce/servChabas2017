@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconServicios';
   src:
-    url('../fonts/iconServicios.ttf?k4qnfj') format('truetype'),
-    url('../fonts/iconServicios.woff?k4qnfj') format('woff'),
-    url('../fonts/iconServicios.svg?k4qnfj#iconServicios') format('svg');
+    url('../fonts/iconServicios.ttf?4byyg3') format('truetype'),
+    url('../fonts/iconServicios.woff?4byyg3') format('woff'),
+    url('../fonts/iconServicios.svg?4byyg3#iconServicios') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,14 +23,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info:before {
+  content: "\e903";
+}
+.icon-phone:before {
+  content: "\e902";
+}
+.icon-arrow_right:before {
+  content: "\e900";
+}
 .icon-options-v:before {
   content: "\e901";
 }
 .icon-location2:before {
   content: "\e603";
-}
-.icon-phone:before {
-  content: "\e604";
 }
 .icon-map:before {
   content: "\e605";
@@ -50,9 +56,6 @@
 .icon-envelope:before {
   content: "\e60a";
 }
-.icon-info:before {
-  content: "\e60b";
-}
 .icon-bus:before {
   content: "\e60c";
 }
@@ -61,9 +64,6 @@
 }
 .icon-heart:before {
   content: "\e60e";
-}
-.icon-arrow_right:before {
-  content: "\e900";
 }
 .icon-email:before {
   content: "\e616";
