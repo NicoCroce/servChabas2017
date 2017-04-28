@@ -4,14 +4,29 @@
         .module('servicios-chabas')
         .factory('factoryServices', factoryServices);
 
-    function factoryServices($resource, $q) {
+    function factoryServices($resource, $q, $state) {
 
         var saveAllServices = {};
+
+        var servicesTypes = {
+            'instituciones': {
+                'title': 'Instituciones',
+                'jsonElement': 'instituciones'
+            },
+            'remises': {
+                'title': 'Remises',
+                'jsonElement': 'remises'
+            },
+            'rotiserias': {
+                'title': 'Rotiserías',
+                'jsonElement': 'rotiserias'
+            }
+        }
 
         return {
             getDataServices: getDataServices,
             setData: setData,
-            getTable: getTable
+            getType: getType
         }
 
         function getServices() {
@@ -41,28 +56,10 @@
 
         function setData(data) {
             saveAllServices = data;
-        }
-
-        function getTable(data) {
-            return {
-                data: formatTable(data),
-                icon: 'icon-info',
-                titles: ['Nombre', 'Número', 'Detalle'],
-                stylesColumn: [],
-                selectedRow: null
-            };
         };
 
-        function formatTable(data) {
-            var services = [];
-            angular.forEach(data, function (currentService, index) {
-                var row = {};
-                row.info = [currentService.nombre, currentService.detalle.teléfono, ''];
-                row.completeData = currentService;
-                row.hasDetail = currentService.detalle != '';
-                services.push(row);
-            });
-            return services;
+        function getType(){
+            return servicesTypes[$state.current.url.replace('/', '')];
         };
     }
 })();

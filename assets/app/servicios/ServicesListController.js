@@ -2,22 +2,23 @@
     'use strict'
     angular
         .module('servicios-chabas')
-        .controller('ServicesRemisesController', ServicesRemisesController);
+        .controller('ServicesListController', ServicesListController);
 
-    function ServicesRemisesController($scope, modal, $state, $rootScope, factoryServices) {
+    function ServicesListController($scope, factoryServices) {
 
-        $scope.allTaxis = [];
+        $scope.servicesList = [];
+        $scope.title = "Servicio";
+
+        var typeService;
 
         $scope.$watch('allServices', function (value) {
-            $scope.allTaxis = value.remises;
+            typeService = factoryServices.getType();
+            $scope.title = typeService.title;
+            $scope.servicesList = value[typeService.jsonElement];
         });
 
-        $scope.getName = function(currentPhone) {
-            return Object.keys(currentPhone)[0];
-        }
-
-        $scope.getValue = function (currentPhone) {
-            return Object.values(currentPhone)[0];
+        $scope.getValue = function (currentService) {
+            return currentService.tel;
         }
 
         $scope.call = function (currentPhone) {

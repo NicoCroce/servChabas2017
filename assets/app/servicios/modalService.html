@@ -6,8 +6,6 @@
             <div class="mgb-30px">
                 <div class="modal-text" ng-repeat="detail in modal.data track by $index"><label ng-bind="getLabel(modal.data, $index)"></label><span ng-bind="detail"></span></div>
             </div>
-           <!-- <h1 class="modal-text"><label>Disponible: </label><span ng-bind="modal.horario"></span></h1>
-            <h1 class="modal-text mgb-5"><label>Teléfono: </label><span ng-bind="modal.telefono"></span></h1>-->
             <a class="link call mobile" href="tel:{{modal.phone}}"><button class="ripple button is-in-modal animation" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span>llamar</span></button></a>
             <a class="link map" href="{{ modal.map }}" ng-if="modal.map"
     target="_blank"><button class="button is-in-modal ripple"><span>Mostrar mapa</span></button></a>

@@ -4,46 +4,21 @@
     </div>
 
     <!--INSTITUCIONES-->
-    <button id="btServicios-Instituciones" accordion-element element-to-shrink="wrapTableInstitutions" max-height="500" class="accordion-button button">
+    <button id="btServicios-Instituciones" class="accordion-button button" ui-sref="servicios.instituciones">
 		<span>INSTITUCIONES</span>
 		<span class="icon-arrow_right"></span>
 	</button>
-    <div id="wrapTableInstitutions" class="accordion-element">
-        <table main-table table-config="tableInstitutions" selected-row="tableInstitutions.selectedRow" callback="clickRow" class="table-services visible"
-            ng-if="loadedService"></table>
-    </div>
-    <!--<div id="shadowInst" class="sombra-inferior"></div>-->
-    <!--******************-->
-
-
     <!--REMISES-->
-    <!--<button id="btServicios-Remises" accordion-element element-to-shrink="wrapTableTaxis" max-height="600" class="accordion-button button mg-top-5">
-		<span>REMISES</span>
-		<span class="icon-arrow_right"></span>
-	</button>
-    <div id="wrapTableTaxis" class="accordion-element">
-        <table main-table table-config="tableTaxi" selected-row="tableTaxi.selectedRow" callback="clickRow" class="table-services visible"
-            ng-if="loadedService"></table>
-    </div>-->
-
-        <button id="btServicios-telefonos" class="button accordion-button mg-top-5" ui-sref="servicios.remises">
+    <button id="btServicios-remises" class="button accordion-button mg-top-5" ui-sref="servicios.remises">
     		<span>REMISES</span>
     		<span class="icon-arrow_right"></span>
     	</button>
-    <!--<div id="shadowRemises" class="sombra-inferior"></div>-->
-    <!--******************-->
-
     <!--ROTISERÍAS-->
-    <button id="btServicios-Rotiserias" accordion-element element-to-shrink="wrapTableFastFood" max-height="600" class="accordion-button button mg-top-5">
+    <button id="btServicios-Rotiserias" class="accordion-button button mg-top-5" ui-sref="servicios.rotiserias">
 		<span>ROTISERÍAS</span>
 		<span class="icon-arrow_right"></span>
 	</button>
-    <div id="wrapTableFastFood" class="accordion-element">
-        <table main-table table-config="fastFood" selected-row="fastFood.selectedRow" callback="clickRow" class="table-services visible"
-            ng-if="loadedService"></table>
-    </div>
-    <!--<div id="shadowRoticerias" class="sombra-inferior"></div>-->
-    <!--******************-->
+    <!--TELÉFONOS-->
     <button id="btServicios-telefonos" class="button accordion-button mg-top-5" ui-sref="servicios.telefonos">
     		<span>TELÉFONOS ÚTILES</span>
     		<span class="icon-arrow_right"></span>
@@ -51,5 +26,4 @@
 </div>
 
 <div ng-include="'templates/servicios/addService.html'"></div>
-<div ng-include="'templates/servicios/modalService.html'"></div>
 <div ng-include="'templates/servicios/modalServiceUpdate.html'"></div>

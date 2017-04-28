@@ -5,11 +5,6 @@
         .controller('ServicesController', ServicesController);
 
     function ServicesController($scope, factoryServices, $rootScope) {
-
-        $scope.tableInstitutions;
-        $scope.tableTaxi;
-        $scope.fastFood;
-
         $scope.allServices = {};
 
         $scope.loadedService = false;
@@ -22,7 +17,7 @@
             showModalUpdate: false
         };
 
-        $scope.clickRow = clickRow;
+        $scope.openModal = openModal;
         $rootScope.loadingService = true;
 
         function init(){
@@ -44,9 +39,6 @@
 
         function servicesSuccess(dataResponse) {
             $scope.allServices = dataResponse;
-            $scope.tableInstitutions = factoryServices.getTable(dataResponse.instituciones);
-            $scope.tableTaxi = factoryServices.getTable(dataResponse.remises);
-            $scope.fastFood = factoryServices.getTable(dataResponse.rotiserias);
             $scope.loadedService = true;
             return;
         };
@@ -57,18 +49,18 @@
 
         function servicesFinally(dataFinally) {
             setTimeout(function () {
-                /*$rootScope.loadingService = false;*/
+                $rootScope.loadingService = false;
                 $scope.$apply();
             }, 500);
         };
 
-        function clickRow(row) {
-            if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal.name = row.completeData.nombre;
-            $scope.modal.data = row.completeData.detalle;
-            $scope.modal.data.teléfono = '(03464) ' + row.completeData.detalle.teléfono;
-            $scope.modal.phone = '03464' + row.completeData.detalle.teléfono.replace('(03464)', '').replace('-', '').replace(/ /g, '');
-            $scope.modal.map = row.completeData.mapa;
+        function openModal(row) {
+            if (angular.isUndefinedOrNullOrEmpty(row)) return;
+            $scope.modal.name = row.nombre;
+            $scope.modal.data = row.detalle;
+            $scope.modal.data.teléfono = '(03464) ' + row.tel;
+            $scope.modal.phone = '03464' + row.tel.replace('(03464)', '').replace('-', '').replace(/ /g, '');
+            $scope.modal.map = row.mapa;
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;
         }
