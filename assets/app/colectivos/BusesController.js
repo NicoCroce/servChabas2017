@@ -5,58 +5,6 @@
         .controller('BusesController', BusesController);
 
     function BusesController($scope, factoryBus, $rootScope) {
-
-       /* modal.setModal('templates/colectivos/modalBus.html', 'modalColectivos');*/
-
-        $scope.tableRosario;
-        $scope.tableFirmat;
-        $scope.loadedService = false;
-        $scope.map = {
-            show: false
-        };
-        $scope.modal = {
-            detail: '',
-            showModal: false
-        };
-        
-        $scope.clickRow = clickRow;
-        $rootScope.loadingService = true;
-
-        factoryBus.getBuses()
-            .then(busesSuccess)
-            .catch(busesError)
-            .finally(busesFinally);
-
-        function busesSuccess(dataResponse) {
-            $scope.tableRosario = factoryBus.getTable(dataResponse.rosario);
-            $scope.tableFirmat = factoryBus.getTable(dataResponse.firmat);
-            $scope.loadedService = true;
-            return;
-        };
-
-        function busesError(dataError) {
-            return;
-        };
-
-        function busesFinally(dataFinally) {
-            setTimeout(function(){
-                $rootScope.loadingService = false;
-                $scope.$apply();
-            }, 500);
-        };
-
-        function clickRow(row){
-            if (angular.isUndefinedOrNullOrEmpty(row) || !row.hasDetail) return;
-            $scope.modal = row;
-            $scope.modal.showModal = true;
-            $rootScope.modalIsOpen = true;
-        };
-
-        $scope.closeModal = function() {
-            $scope.modal.showModal = false;
-            $rootScope.modalIsOpen = false;
-        }
-
         $scope.initMapBus = function() {
             $scope.map.show = true;
             var myLatLng = {

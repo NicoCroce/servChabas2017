@@ -1,11 +1,11 @@
 <div transition class="content-transition">
     <h1 class="title-line">Teléfonos útiles</h1>
     <div class="service-block" ng-repeat="phone in allPhones track by $index" >
-        <div class="content-info-phones">
+        <div class="content-info-first">
             <h2 ng-bind="getName(phone)"></h2>
             <span ng-bind="getValue(phone)"></span>
         </div>
-        <div class="phone-icon">
+        <div class="element-icon">
             <span ng-click="call(phone)" class="icon-phone"></span> 
         </div>
     </div>

@@ -3,17 +3,34 @@
     angular
         .module('servicios-chabas')
         .factory('factoryBus', factoryBus);
-        factoryBus.$inject = ['$resource'];
 
-    function factoryBus($resource) {
+    function factoryBus($resource, $state) {
+
+        var dataSaved = {};
+
+        var busesTypes = {
+            'chabas-rosario': {
+                'title': 'Chabás - Rosario',
+                'jsonElement': 'chabasRosario'
+            },
+            'chabas-firmat': {
+                'title': 'Chabás - Firmat',
+                'jsonElement': 'chabasFirmat'
+            }
+        }
+
         return {
-            getBuses: getBuses,
+            getDataBuses: getDataBuses,
+            getType: getType,
             getTable: getTable
         }
 
-        function getBuses() {
-            return $resource('data/colectivos.json').get().$promise;
-        };
+        function getDataBuses() {
+            if (!angular.isUndefinedOrNullOrEmpty(dataSaved)) { return dataSaved; }
+            dataSaved = $resource('data/colectivos.json').get().$promise;
+            return dataSaved;
+
+        }
 
         function getTable(data) { 
             return {
@@ -35,6 +52,10 @@
                 buses.push(row);
             });
             return buses;
+        };
+
+        function getType() {
+            return busesTypes[$state.current.url.replace('/colectivos.', '')];
         };
     }
 })();

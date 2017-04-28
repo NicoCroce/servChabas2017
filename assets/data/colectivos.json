@@ -1,5 +1,5 @@
 {
-  "rosario": [
+  "chabasRosario": [
     {
       "horario": "04:58",
       "empresa": "Ranqueles",
@@ -96,7 +96,7 @@
       "detalle": ""
     }
   ],
-  "firmat": [
+  "chabasFirmat": [
     {
       "horario": "06:55",
       "empresa": "Arito",

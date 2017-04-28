@@ -3,36 +3,19 @@
 		<p>Servicios momentáneos. Recuerde informar los cambios en la sección de contacto.</p>
 	</div>
 	<!--ROSARIO-->
-	<button id="btColectivos-Rosario" accordion-element element-to-shrink="wrapTableRosario" max-height="1100" shadow="shadowRosario"
-	 class="accordion-button button">
-		<span>para Rosario</span>
+	<button id="btColectivos-Rosario" class="accordion-button button" ui-sref="colectivos.chabas-rosario">
+		<span>CHABÁS - ROSARIO</span>
 		<span class="icon-arrow_right"></span>
 	</button>
-	<div id="wrapTableRosario" class="accordion-element">
-		<table main-table table-config="tableRosario" selected-row="tableRosario.selectedRow" callback="clickRow" class="table-buses visible"
-		 ng-if="loadedService"></table>
-	</div>
-	<div id="shadowRosario" class="sombra-inferior"></div>
-	<!--******************-->
-
 
 	<!--FIRMAT-->
-	<button id="btbtColectivos-Firmat" accordion-element element-to-shrink="wrapTableFirmat" max-height="1100" shadow="shadowFirmat"
-	 class="accordion-button button mg-0">
-		<span>para Firmat</span>
+	<button id="btbtColectivos-Firmat" class="accordion-button button" ui-sref="colectivos.chabas-firmat">
+		<span>CHABÁS - FIRMAT</span>
 		<span class="icon-arrow_right"></span>
 	</button>
-	<div id="wrapTableFirmat" class="accordion-element">
-		<table main-table table-config="tableFirmat" selected-row="tableFirmat.selectedRow" callback="clickRow" class="table-buses visible"
-		 ng-if="loadedService"></table>
-	</div>
-	<div id="shadowFirmat" class="sombra-inferior"></div>
-	<!--******************-->
 
 	<div ng-class="{'show-map': map.show}">
 		<button type="button" class="button-transparent" ng-click="initMapBus()">Mostrar ubicación terminal</button>
 		<div id="mapBus" class="map-element"></div>
 	</div>
 </div>
-
-<div ng-include="'templates/colectivos/modalBus.html'"></div>

@@ -35,11 +35,31 @@
                     templateUrl: 'templates/farmacias/farmacias.html',
                     controller: 'PharmacyController'
                 })
+
+
                 .state('colectivos', {
+                    abstract: true,
                     url: '/colectivos',
+                    templateUrl: 'templates/colectivos/colectivosPrincipal.html',
+                    controller: 'BusesMainController'
+                })
+                .state('colectivos.list', {
+                    url: '/colectivos.list',
                     templateUrl: 'templates/colectivos/colectivos.html',
                     controller: 'BusesController'
                 })
+                .state('colectivos.chabas-rosario', {
+                    url: '/colectivos.chabas-rosario',
+                    templateUrl: 'templates/colectivos/colectivosHorarios.html',
+                    controller: 'BusesScheduleController'
+                })
+                .state('colectivos.chabas-firmat', {
+                    url: '/colectivos.chabas-firmat',
+                    templateUrl: 'templates/colectivos/colectivosHorarios.html',
+                    controller: 'BusesScheduleController'
+                })
+
+
                 .state('servicios', {
                     abstract: true,
                     url: '/servicios',
@@ -49,7 +69,6 @@
                 .state('servicios.list', {
                     url: '/list',
                     templateUrl: 'templates/servicios/servicios.html'
-                    
                 })
                 .state('servicios.instituciones', {
                     url: '/instituciones',
@@ -71,6 +90,8 @@
                     templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
                     controller: 'ServicesTelefonosController'
                 })
+
+
                 .state('menu', {
                     url: '/menu',
                     templateUrl: 'templates/options/options.html',

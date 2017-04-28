@@ -25,7 +25,6 @@
 
         return {
             getDataServices: getDataServices,
-            setData: setData,
             getType: getType
         }
 
@@ -50,12 +49,9 @@
                 allServices.rotiserias = responses[0].rotiserias;
                 allServices.utiles = responses[1].utiles;
                 deferred.resolve(allServices);
+                saveAllServices = deferred.promise;
             });
             return deferred.promise;
-        };
-
-        function setData(data) {
-            saveAllServices = data;
         };
 
         function getType(){
