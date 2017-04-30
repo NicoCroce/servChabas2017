@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .controller('IndexController', IndexController);
 
-    function IndexController($scope, factoryIndex, $rootScope) {
+    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state) {
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 
@@ -15,10 +15,14 @@
         $scope.closeModal = function () {
             $scope.modal.showModal = false;
             $rootScope.modalIsOpen = false;
-            if (typeof (Storage) !== "undefined") {
-                localStorage.setItem("showAddHomeModal", false);
-            }
         };
+
+        $scope.showNav = function() {
+            if (window.location.hash.toString().replace('#!/', '').indexOf('home') >= 0) {
+                return false;
+            }
+            return !$rootScope.backSectionVisible;
+        }
 
         $scope.tabs = {
             tabArray: [
@@ -40,6 +44,7 @@
 
             if (typeof (Storage) !== "undefined") {
                 getShowModal = localStorage.getItem("showAddHomeModal");
+                localStorage.setItem("showAddHomeModal", false);
             } else {
                 $rootScope.modalIsOpen = true;
                 getShowModal = true;
@@ -50,5 +55,22 @@
             }
             $scope.$apply();
         }, 1000);
+
+        $scope.$on('$stateChangeSuccess',
+            function (event, toState, toParams, fromState, fromParams) {
+                $rootScope.backSectionVisible = utilsComponents.showBack();
+            });
+
+        $scope.backSection = function () {
+            if (window.location.hash.indexOf('servicios') >= 0) {
+                return $state.go('servicios.list');
+            } else if (window.location.hash.indexOf('colectivos') >= 0) {
+                return $state.go('colectivos.list');
+            } else {
+                $state.go('home');
+            }
+
+
+        }
     };
 })();

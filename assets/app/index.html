@@ -66,12 +66,12 @@
 						<!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
 					</div>
 				</div>
-				<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': showNavBar }"></nav>
+				<nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': showNav() }"></nav>
 			</section>
 		</header>
 		<main id="mainSection" role="main" class="main">
-			<div class="back-section" ng-if="backSectionVisible" ui-sref="servicios.list">
-				<span class="icon-arrow_right rotate-arrow"></span><span class="text-back">Regresar a servicios</span>
+			<div class="back-section" ng-if="backSectionVisible" ng-click="backSection()">
+				<span class="icon-arrow_right rotate-arrow"></span><span class="text-back">Regresar</span>
 			</div>
 			<section class="content">
 				<div class="wrapper">

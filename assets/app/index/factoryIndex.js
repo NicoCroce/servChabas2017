@@ -13,24 +13,22 @@
         function setTab() {
             var section = window.location.hash.toString().replace('#!/', ''),
                 index = 0;
-            switch (section) {
-                case 'farmacias':
-                    index = 0;
-                    break;
-                case 'colectivos':
-                    index = 1;
-                    break;
-                case 'servicios':
-                    index = 2;
-                    break;
-                case 'menu':
-                    index = 3;
-                    break;
-                default:
-                    break;
-            }
+                
+            if (section.indexOf('farmacias') >= 0) {
+                return index = 0;
+            };
+                
+            if (section.indexOf('colectivos') >= 0) {
+                return index = 1;
+            };
+            
+            if (section.indexOf('servicios') >= 0) {
+                return index = 2;
+            };
 
-            (section.indexOf('servicios') >= 0) ? index = 2 : index = 0;
+            if (section.indexOf('menu') >= 0) {
+                return index = 3;
+            };
 
             return index;
         };

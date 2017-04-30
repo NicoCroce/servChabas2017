@@ -5,14 +5,8 @@
         .module('servicios-chabas')
         .run(function ($rootScope, analytics) {
             $rootScope.loadingService = true;
-            $rootScope.showNavBar = angular.showNavBar();
-            $rootScope.backSectionVisible = angular.showBackSection();
             $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
-            window.addEventListener("hashchange", function (event) {
-                $rootScope.showNavBar = angular.showNavBar();
-                $rootScope.backSectionVisible = angular.showBackSection();
-            });
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
@@ -44,17 +38,17 @@
                     controller: 'BusesMainController'
                 })
                 .state('colectivos.list', {
-                    url: '/colectivos.list',
+                    url: '/list',
                     templateUrl: 'templates/colectivos/colectivos.html',
                     controller: 'BusesController'
                 })
                 .state('colectivos.chabas-rosario', {
-                    url: '/colectivos.chabas-rosario',
+                    url: '/chabas-rosario/:back',
                     templateUrl: 'templates/colectivos/colectivosHorarios.html',
                     controller: 'BusesScheduleController'
                 })
                 .state('colectivos.chabas-firmat', {
-                    url: '/colectivos.chabas-firmat',
+                    url: '/chabas-firmat/:back',
                     templateUrl: 'templates/colectivos/colectivosHorarios.html',
                     controller: 'BusesScheduleController'
                 })
@@ -71,22 +65,22 @@
                     templateUrl: 'templates/servicios/servicios.html'
                 })
                 .state('servicios.instituciones', {
-                    url: '/instituciones',
+                    url: '/instituciones/:back',
                     templateUrl: 'templates/servicios/serviciosList.html',
                     controller: 'ServicesListController'
                 })
                 .state('servicios.remises', {
-                    url: '/remises',
+                    url: '/remises/:back',
                     templateUrl: 'templates/servicios/serviciosList.html',
                     controller: 'ServicesListController'
                 })
                 .state('servicios.rotiserias', {
-                    url: '/rotiserias',
+                    url: '/rotiserias/:back',
                     templateUrl: 'templates/servicios/serviciosList.html',
                     controller: 'ServicesListController'
                 })
                 .state('servicios.telefonos', {
-                    url: '/telefonos',
+                    url: '/telefonos/:back',
                     templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
                     controller: 'ServicesTelefonosController'
                 })

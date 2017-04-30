@@ -16,7 +16,6 @@
             typeService = factoryBus.getType();
             $scope.title = typeService.title;
             $scope.busesList = value[typeService.jsonElement];
-            console.log($scope.busesList);
         });
 
         $scope.getValue = function (currentService) {

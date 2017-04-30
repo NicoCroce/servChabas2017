@@ -3,6 +3,5 @@
     angular
         .module('servicios-chabas')
         .controller('HomeController', ['$scope', function($scope) {
-            
         }]);
 })();

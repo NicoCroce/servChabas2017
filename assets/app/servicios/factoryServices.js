@@ -55,7 +55,8 @@
         };
 
         function getType(){
-            return servicesTypes[$state.current.url.replace('/', '')];
+            var index = $state.current.url.lastIndexOf('/');
+            return servicesTypes[$state.current.url.substring(0, index).replace('/', '')];
         };
     }
 })();

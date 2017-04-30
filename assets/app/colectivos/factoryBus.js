@@ -55,7 +55,8 @@
         };
 
         function getType() {
-            return busesTypes[$state.current.url.replace('/colectivos.', '')];
+            var index = $state.current.url.lastIndexOf('/');
+            return busesTypes[$state.current.url.substring(0, index).replace('/', '')];
         };
     }
 })();

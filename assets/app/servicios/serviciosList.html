@@ -1,12 +1,12 @@
 <div transition class="content-transition">
     <h1 class="title-line" ng-bind="title"></h1>
-    <div class="service-block" ng-repeat="service in servicesList track by $index" >
+    <div class="detail-block" ng-repeat="service in servicesList track by $index" >
         <div class="content-info-first">
             <h2 ng-bind="service.nombre"></h2>
             <span ng-bind="getValue(service)"></span>
         </div>
-        <div class="element-icon">
-            <span ng-click="openModal(service)" class="icon-info"></span> 
+        <div class="element-icon" ng-click="openModal(service)">
+            <span class="icon-info"></span> 
         </div>
     </div>
 </div>

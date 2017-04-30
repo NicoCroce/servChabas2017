@@ -126,7 +126,7 @@ img { width: 100%; }
 .content-info { 
 	width: 50%; float: left;
 	&.fb {
-		text-align: center; overflow: hidden; z-index: 0; position: relative; height: 100%;
+		text-align: center; overflow: hidden; z-index: 0; position: relative; height: 100%; padding-top: 15px;
 	}
 }
 
