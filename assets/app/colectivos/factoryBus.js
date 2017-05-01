@@ -16,8 +16,12 @@
             'chabas-firmat': {
                 'title': 'Chabás - Firmat',
                 'jsonElement': 'chabasFirmat'
+            },
+            'rosario-chabas': {
+                'title': 'Rosario - Chabás',
+                'jsonElement': 'rosarioChabas'
             }
-        }
+        };
 
         return {
             getDataBuses: getDataBuses,

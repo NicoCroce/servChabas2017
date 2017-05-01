@@ -23,7 +23,7 @@
         function init(){
             setTimeout(function(){
                 if (typeof (Storage) !== "undefined") {
-                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate") == "true";
+                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate.1") == "true";
                 } else {
                     $scope.modal.showModalUpdate = true;
                 }
@@ -70,7 +70,7 @@
             $scope.modal.showModalUpdate = false;
             if(type && type == 'update'){ 
                 if (typeof (Storage) !== "undefined") {
-                    localStorage.setItem("showModalUpdate", false);
+                    localStorage.setItem("showModalUpdate.1", false);
                 }
             }
             $rootScope.modalIsOpen = false;

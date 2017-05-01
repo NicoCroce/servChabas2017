@@ -10,7 +10,7 @@
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
-                localStorage.setItem("showModalUpdate", true);
+                localStorage.setItem("showModalUpdate.1", true);
             }
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
@@ -49,6 +49,11 @@
                 })
                 .state('colectivos.chabas-firmat', {
                     url: '/chabas-firmat/:back',
+                    templateUrl: 'templates/colectivos/colectivosHorarios.html',
+                    controller: 'BusesScheduleController'
+                })
+                .state('colectivos.rosario-chabas', {
+                    url: '/rosario-chabas/:back',
                     templateUrl: 'templates/colectivos/colectivosHorarios.html',
                     controller: 'BusesScheduleController'
                 })

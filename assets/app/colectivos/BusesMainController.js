@@ -48,7 +48,7 @@
         };
 
         $scope.openModal = function(bus){
-            if (angular.isUndefinedOrNullOrEmpty(bus)) return;
+            if (angular.isUndefinedOrNullOrEmpty(bus) || angular.isUndefinedOrNullOrEmpty(bus.detalle)) return;
             $scope.modal.data = bus;
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;

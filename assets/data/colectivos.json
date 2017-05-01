@@ -192,5 +192,147 @@
       "empresa": "Arito",
       "detalle": ""
     }
+  ],
+  "rosarioChabas": [
+    {
+      "horario": "06:30",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula lunes. Feriados no circula."
+    },
+    {
+      "horario": "06:30",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula Martes, Miércoles, jueves y viernes. Feriados no circula."
+    },
+    {
+      "horario": "07:00",
+      "empresa": "33/9 Azul América",
+      "detalle": ""
+    },
+    {
+      "horario": "08:00",
+      "empresa": "La Verde",
+      "detalle": "Domingos y Feriados no circula"
+    },
+    {
+      "horario": "08:01",
+      "empresa": "La Verde",
+      "detalle": "Circula Lunes y Sábados. Feriados no circula."
+    },
+    {
+      "horario": "08:30",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "09:00",
+      "empresa": "Los Ranqueles",
+      "detalle": ""
+    },
+    {
+      "horario": "10:15",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "11:15",
+      "empresa": "33/9 Azul América",
+      "detalle": ""
+    },
+    {
+      "horario": "12:00",
+      "empresa": "La Verde",
+      "detalle": "Domingos y Feriados no circula."
+    },
+    {
+      "horario": "13:00",
+      "empresa": "33/9 Azul América",
+      "detalle": ""
+    },
+    {
+      "horario": "13:45",
+      "empresa": "Los Ranqueles",
+      "detalle": ""
+    },
+    {
+      "horario": "14:15",
+      "empresa": "La Verde",
+      "detalle": ""
+    },
+    {
+      "horario": "15:00",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "16:30",
+      "empresa": "Los Ranqueles",
+      "detalle": ""
+    },
+    {
+      "horario": "17:15",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "18:00",
+      "empresa": "Los Ranqueles",
+      "detalle": ""
+    },
+    {
+      "horario": "18:30",
+      "empresa": "La Verde",
+      "detalle": ""
+    },
+    {
+      "horario": "19:00",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula solo los viernes. Feriados no circula."
+    },
+    {
+      "horario": "19:00",
+      "empresa": "Los Ranqueles",
+      "detalle": ""
+    },
+    {
+      "horario": "19:15",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula solo los viernes. Feriados no circula."
+    },
+    {
+      "horario": "20:30",
+      "empresa": "Arito",
+      "detalle": ""
+    },
+    {
+      "horario": "21:00",
+      "empresa": "Arito",
+      "detalle": "Circula solo los viernes. Feriados no circula."
+    },
+    {
+      "horario": "22:00",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula solo los Domingos. Feriados no circula."
+    },
+    {
+      "horario": "22:00",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula solo los viernes. Feriados no circula."
+    },
+    {
+      "horario": "22:00",
+      "empresa": "Los Ranqueles",
+      "detalle": "Circula solo los Domingos. Feriados no circula."
+    },
+    {
+      "horario": "23:00",
+      "empresa": "Arito",
+      "detalle": "Circula Viernes, Domingos y Feriados."
+    },
+    {
+      "horario": "23:30",
+      "empresa": "Arito",
+      "detalle": ""
+    }
   ]
 }

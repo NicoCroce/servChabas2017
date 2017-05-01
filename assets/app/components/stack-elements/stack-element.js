@@ -3,9 +3,8 @@
     angular
         .module('servicios-chabas')
         .directive('stackElement', stackElement)
-    stackElement.$inject = ['$window', '$document'];
 
-    function stackElement($window, $document) {
+    function stackElement($window, $document, $state, $rootScope) {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {                
@@ -15,7 +14,7 @@
 
                 $document.on('scroll', function () {
                     offsetTop = angular.element(element[0]).offset().top;
-                    if ($window.scrollY >= offsetTop && stackPosition == null) {
+                    if ($window.scrollY >= offsetTop && stackPosition == null && $state.current.name != 'home' && !$rootScope.backSectionVisible) {
                         stackPosition = offsetTop;
                         angular.element(element[0]).addClass('stack-element-top');
                         elementToMove.addClass('element-stacked');
