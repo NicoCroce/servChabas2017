@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -13,10 +13,10 @@
                 localStorage.setItem("showModalUpdate.1", true);
             }
         })
-        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
+        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider) {
             $qProvider.errorOnUnhandledRejections(false);
             $urlRouterProvider.otherwise('/home');
-            
+
             $stateProvider
                 // HOME STATES AND NESTED VIEWS ========================================
                 .state('home', {

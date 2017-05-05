@@ -1,5 +1,7 @@
 {
     "name": "ChabásHoy",
+    "short_name": "ChabásHoy",
+    "start_url": "./?utm_source=web_app_manifest",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",

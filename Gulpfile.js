@@ -4,6 +4,7 @@ var serverPort = 2173;
 
 var vendorLibraries = require('./config/vendor-libraries'),
 	genVersion = require('./config/genVersion.js'),
+	rootFiles = require('./config/utils.js'),
 	gulp = require("gulp"),//http://gulpjs.com/
 	gutil = require("gulp-util"),//https://github.com/gulpjs/gulp-util
 	sass = require("gulp-sass"),//https://www.npmjs.org/package/gulp-sass
@@ -48,6 +49,7 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
 	ICON_FILES = SRC_FONTS_BASE + '/**/*',
 	DATA_FILES = SRC_DATA_BASE + '/**/*.json',
+	ROOT_FILES = rootFiles.getRootFiles(SRC_APP_BASE),
 	FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*';
 
 var DEV_HTML_JS_FILES = [FOLDER_DEV + 'index.html', FOLDER_DEV + '/templates/**/*.html', FOLDER_DEV + '/js/*.js'],
@@ -96,15 +98,16 @@ gulp.task("watch", function (done) {
 	gulp.watch(ICON_FILES, gulp.series('copyIcons'));
 	gulp.watch(IMAGES_FILES, gulp.series("copyImg"));
 	gulp.watch(DATA_FILES, gulp.series('copyData'));
+	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles));
 	gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
 	return done();
 });
 
-gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
+gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
 
-gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), runFTP));
+gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction)/*, runFTP*/));
 
-gulp.task('deployTasksRun', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), connectServer));
+gulp.task('deployTasksRun', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), connectServer));
 
 //*************************************    SECCIÓN  Functions    *************************************
 
@@ -225,6 +228,12 @@ function copyImgFunction() {
 	showComment('Copying Images Files');
 	return gulp.src(IMAGES_FILES)
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'img'))).on('error', gutil.log);
+};
+
+function copyRootFiles() {
+	showComment('Copying RootFiles');
+	return gulp.src(ROOT_FILES)
+		.pipe(gulp.dest(path.join(ENVIRONMENT))).on('error', gutil.log);
 };
 
 function compressImg() {

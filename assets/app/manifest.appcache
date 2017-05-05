@@ -1,0 +1,10 @@
+CACHE MANIFEST
+#DATE 3-5-2017
+
+CACHE:
+css/style.css
+css/iconServicios.css
+js/min/libs.js
+js/script.js
+NETWORK:
+FALLBACK:

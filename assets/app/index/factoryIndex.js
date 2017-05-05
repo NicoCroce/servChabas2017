@@ -31,22 +31,5 @@
 
             return index;
         };
-
-        function getAllData() {
-            var deferred = $q.defer();
-            $q.all([
-                getCalendar(),
-                getPharmacies()
-            ]).then(function (responses) {
-                var pharmacyName = responses[0].calendar[date.day].farmacia,
-                    serviceResponse = {
-                        allPharmacies: responses[1],
-                        pharmacyData: responses[1].farmacias[pharmacyName]
-                    };
-                deferred.resolve(serviceResponse);
-            });
-
-            return deferred.promise;
-        }
     }
 })();

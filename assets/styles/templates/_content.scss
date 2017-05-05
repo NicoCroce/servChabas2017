@@ -29,18 +29,18 @@ main.element-stacked { margin-top: 57px; }
 }
 
 .bg-spinner {
-    position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: black; z-index: 1000000; opacity: 0.9;
-    transition: all .4s ease;
+    position: fixed; top: 11%; right: 0; left: 0; bottom: 2%; background: white; z-index: 1000000; opacity: 1;
+    transition: all .4s ease; 
     .spinner {
-        margin: 0 auto; width: 70px; text-align: center;
-        @include vertical-align;
+        margin: 20% auto; width: 70px; text-align: center; margin-bottom: 4%;
         >div {
-            width: 18px; height: 18px; background-color: #fff;  border-radius: 100%; display: inline-block; 
+            width: 18px; height: 18px; background-color: $grey700;  border-radius: 100%; display: inline-block; 
             animation: sk-bouncedelay 1.4s infinite ease-in-out both;
         }
         .bounce1 { animation-delay: -0.32s; }
         .bounce2 { animation-delay: -0.16s; }
     }
+    h4 { text-align: center; color: $grey600; }
     &.hidden-modal { opacity: 0; z-index: -1; }
 }
 
