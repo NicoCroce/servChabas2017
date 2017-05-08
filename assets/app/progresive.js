@@ -7,25 +7,27 @@ var cacheName = 'nico'
 console.log(cacheName);
 
 var filesToCache = [
-    '/index.html'
-/*    'js/script.js',
-    'css/style.css',
-    'js/min/libs.js'*/
+    '/',
+    '/index.html',
+        '/js/script.js',
+        '/css/style.css',
+        '/js/min/libs.js',
+        '**/*'
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', function (e) {
     console.info('Event: Install');
 
-    event.waitUntil(
+    e.waitUntil(
         caches.open(cacheName)
-            .then((cache) => {
+            .then(function (cache) {
                 //[] of files to cache & if any of the file not present `addAll` will fail
                 return cache.addAll(filesToCache)
-                    .then(() => {
+                    .then(function () {
                         console.info('All files are cached');
                         return self.skipWaiting(); //To forces the waiting service worker to become the active service worker
                     })
-                    .catch((error) => {
+                    .catch(function (error) {
                         console.error('Failed to cache', error);
                     })
             })
@@ -33,45 +35,25 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', function (e) {
-
     /*console.log('[ServiceWorker] Activate')*/
-
     e.waitUntil(
-
         caches.keys().then(function (keyList) {
-
             return Promise.all(keyList.map(function (key) {
-
                 if (key !== cacheName && key !== dataCacheName) {
-
                     console.log('[ServiceWorker] Removing old cache', key)
-
                     return caches.delete(key)
 
                 }
-
             }))
-
         })
-
     )
-
     return self.clients.claim()
+});
 
-})
-
-self.addEventListener('fetch', function (e) {
-
-   /* console.log('[ServiceWorker] Fetch', e.request.url)*/
-
-    e.respondWith(
-
-        caches.match(e.request).then(function (response) {
-
-            return response || fetch(e.request)
-
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request).then(function (cachedResponse) {
+            return cachedResponse || fetch(event.request);
         })
-
-    )
-
-})
+    );
+});
