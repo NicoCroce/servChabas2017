@@ -4,8 +4,6 @@ var cacheName = 'nico'
 
 // Application shell files to be cached
 
-console.log(cacheName);
-
 var filesToCache = [
     '/',
     '/index.html',

@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .controller('IndexController', IndexController);
 
-    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state) {
+    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state, services) {
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 
@@ -69,8 +69,8 @@
             } else {
                 $state.go('home');
             }
-
-
         }
+        
+        services.init();
     };
 })();

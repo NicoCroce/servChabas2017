@@ -3,8 +3,9 @@
 
     angular
         .module('servicios-chabas')
-        .run(function ($rootScope, analytics) {
+        .run(function ($rootScope, analytics, services) {
             $rootScope.loadingService = true;
+
             $rootScope.modalIsOpen = false;
             analytics.pageview('/home');
 
