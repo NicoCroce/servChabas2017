@@ -11,8 +11,7 @@ var filesToCache = [
     '/index.html',
         '/js/script.js',
         '/css/style.css',
-        '/js/min/libs.js',
-        '**/*'
+        '/js/min/libs.js'
 ];
 
 self.addEventListener('install', function (e) {
