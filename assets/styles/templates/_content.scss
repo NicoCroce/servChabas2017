@@ -86,6 +86,12 @@ span.icon-checkmark-circle {
 
 .rotate-arrow:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }
 
+.fespal {
+  h1 { margin-bottom: toem(10px); color: $color600; }
+  h2 { font-weight: 800; margin: 10px 0; color: $grey800; }
+  ul li { margin: 0 10px; }
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%, 80%, 100% { transform: scale3d(0, 0, 0); }
   40% { transform: scale3d(1, 1, 1); }
