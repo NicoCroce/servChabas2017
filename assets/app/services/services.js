@@ -5,6 +5,9 @@
         .factory('services', services);
 
     function services($rootScope, factoryFarmacy, factoryBus, factoryServices) {
+
+        var contServ = 3;
+
         var dataPersist = {
             allPharmacies: null,
             dataPharmacy: null,
@@ -43,8 +46,11 @@
                         phone: dataResponse.pharmacyData.telefono,
                         map: dataResponse.pharmacyData.mapa,
                     };
-                    if (cbSetData) cbSetData(dataPersist);
-                    return;
+                    if (cbSetData) {
+                        cbSetData(dataPersist); 
+                        return $rootScope.loadingService = false; 
+                    }
+                    return descServ();
                 };
 
                 function calendarError(dataError) {
@@ -76,8 +82,11 @@
 
                 function servicesSuccess(dataResponse) {
                     dataPersist.services = dataResponse;
-                    if (cbSetData) cbSetData(dataPersist);
-                    return;
+                    if (cbSetData) {
+                        cbSetData(dataPersist);
+                        return $rootScope.loadingService = false;
+                    }
+                    return descServ();
                 };
 
                 function servicesError(dataError) {
@@ -110,7 +119,11 @@
                 function busesSuccess(dataResponse) {
                     dataPersist.allBuses = dataResponse;
                     $rootScope.loadedService = true;
-                    if (cbSetData) cbSetData(dataPersist);
+                    if (cbSetData) {
+                        cbSetData(dataPersist);
+                        return $rootScope.loadingService = false;
+                    }
+                    return descServ();
                 };
 
                 function busesError(dataError) {
@@ -134,6 +147,11 @@
             getPaharmacy();
             getBuses();
             getServices();
+        }
+
+        function descServ() {
+            contServ --;
+            if (contServ == 0) { $rootScope.loadingService = false; }
         }
     };
 })();

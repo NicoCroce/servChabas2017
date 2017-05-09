@@ -120,7 +120,7 @@ img { width: 100%; }
 
 .content-transition {
 	position: relative; left: -40%; opacity: 0; 
-	&.anim-in-section { left: 0; transition: all .5s ease; opacity: 1; }
+	&.anim-in-section { left: 0; transition: all .3s ease; opacity: 1; }
 }
 
 .content-info { 

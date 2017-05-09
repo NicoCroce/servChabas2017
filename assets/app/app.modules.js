@@ -91,6 +91,12 @@
                     controller: 'ServicesTelefonosController'
                 })
 
+                .state('fespal', {
+                    url: '/fespal',
+                    templateUrl: 'templates/fespal/fespal.html',
+                    controller: 'FespalController'
+                })
+
 
                 .state('menu', {
                     url: '/menu',

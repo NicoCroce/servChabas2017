@@ -6,7 +6,7 @@
 
 input { width: 100%; }
 
-main.element-stacked { margin-top: 57px; }
+main.element-stacked { margin-top: 45px; }
 
 .map-element { 
   width: 100%; height: 200px; position: absolute; top: 0; visibility: hidden;
@@ -20,8 +20,9 @@ main.element-stacked { margin-top: 57px; }
 .view .content-transition { margin-top: 15px; }
 
 .back-section { 
-  position: relative; color: $grey700; background: $grey200; transition: all .3s ease; z-index: 0;
+  position: relative; color: $grey700; background: $grey200; transition: all .3s ease; z-index: 0; display: none;
     border-bottom: 1px solid rgba(218, 218, 218, 0.53);
+    &.back-section-visible { display: block; }
     &:hover { cursor: pointer; color: $grey700; }
       &:before { transform: rotate3d(0, 0, 1, 180deg); display: inline-block; }
       span.icon-arrow_right { margin-left: 15px; font-size: toem(40px); }

@@ -1,7 +1,7 @@
-<ul class="tabs nav-tabs">
+<ul class="tabs nav-tabs clear-content">
 	<li ng-repeat="tab in tabs.tabArray track by $index" ng-style="tabsSize($index)" ng-class="getLiClass($index, $last)"
 		ng-click="setSelectedTab($index)">
-		<a ui-sref="{{ tab.url }}">
+		<a ui-sref="{{ tab.url }}" ng-class="getFontSize($index)">
 			<span class="{{ tab.icon }}"></span>
 			<span ng-bind="tab.text" class="text-tab"></span>
 		</a>

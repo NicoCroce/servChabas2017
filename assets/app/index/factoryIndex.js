@@ -25,8 +25,12 @@
                 return index = 2;
             };
 
-            if (section.indexOf('menu') >= 0) {
+            if (section.indexOf('fespal') >= 0) {
                 return index = 3;
+            };
+
+            if (section.indexOf('menu') >= 0) {
+                return index = 4;
             };
 
             return index;

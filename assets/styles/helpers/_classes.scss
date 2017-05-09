@@ -15,6 +15,12 @@
 .display-none { display: none !important; }
 .display-table { display: table !important; table-layout: fixed; width: 100%; }
 
+.clear-content {
+  &:after { content: ''; display: block; clear: both; }
+}
+
+.clear-fix { float: none; clear: both; }
+
 .max-width-450 { max-width: 450px; margin: 0 auto; }
 
 .mg-0 { margin: 0 !important }
@@ -26,3 +32,7 @@
 .mgb-30px { margin-bottom: 30px;  }
 
 .mgt-10 { margin-top: 10% !important; }
+
+.fs-18 { font-size: toem(18px); }
+.fs-20 { font-size: toem(20px); }
+.fs-23 { font-size: toem(23px); }

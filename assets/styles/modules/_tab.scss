@@ -16,28 +16,21 @@
 // -------------------------------------
 
 .tabs {
-	background: white; /*box-shadow: inset 0px -16px 16px -18px black;*/
+	background: white; box-shadow: inset 0px -16px 16px -18px black;
 	
 	li { display: inline-block; }
 	&.nav-tabs {
 		position: relative;
 		li {
-			transition: border .3s linear; cursor: pointer; text-transform: uppercase; border-bottom: 2px solid rgba(0, 0, 0, 0.17);
+			transition: border .3s linear; cursor: pointer; text-transform: uppercase;
+			border-bottom: 2px solid transparent; height: 45px; float: left; display: table;
 			a { 
-				padding: 1.2em; width: 100%; text-align: center;
+				width: 100%; text-align: center; display: table-cell; vertical-align: middle;
 				span { color: #2b2b2b; } 
 			}
 			&.is-selected { 
-				    border-bottom: 4px solid #20a2ad; max-height: 55px;
+				    border-bottom: 2px solid #20a2ad; max-height: 55px;
 				span { color: #20a2ad; }
-			}
-			&.icon-options-container {
-				width: 10%; position: absolute; top: 0; bottom: 0;
-				>a {
-					display: table; height: 100%;
-					span[class^= "icon-"] { display: table-cell; vertical-align: middle; }
-					span.text-tab { display: none; }
-				} 
 			}
 		}
 	}
@@ -46,9 +39,8 @@
 @media (max-width: 600px) {
 	.tabs.nav-tabs li a {
 		span {
-			display: block; margin: 0; margin-bottom: 6px;
+			display: block; margin: 0;
 			&:last-of-type { margin: 0; }
 		}
-		padding: 9px 0;
 	}
 }
