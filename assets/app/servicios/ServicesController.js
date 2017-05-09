@@ -4,10 +4,13 @@
         .module('servicios-chabas')
         .controller('ServicesController', ServicesController);
 
-    function ServicesController($scope, factoryServices, $rootScope) {
+    function ServicesController($scope, factoryServices, $rootScope, services) {
         $scope.allServices = {};
+        services.getServices(setDataService);
 
-        $scope.loadedService = false;
+        function setDataService(data) {
+            $scope.allServices = data.services;
+        };
 
         $scope.modal = {
             name: '',
@@ -18,9 +21,8 @@
         };
 
         $scope.openModal = openModal;
-        $rootScope.loadingService = true;
 
-        function init(){
+        (function init(){
             setTimeout(function(){
                 if (typeof (Storage) !== "undefined") {
                     $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate.1") == "true";
@@ -28,31 +30,7 @@
                     $scope.modal.showModalUpdate = true;
                 }
             }, 1000);
-        };
-
-        init();
-
-        factoryServices.getDataServices()
-            .then(servicesSuccess)
-            .catch(servicesError)
-            .finally(servicesFinally);
-
-        function servicesSuccess(dataResponse) {
-            $scope.allServices = dataResponse;
-            $scope.loadedService = true;
-            return;
-        };
-
-        function servicesError(dataError) {
-            return;
-        };
-
-        function servicesFinally(dataFinally) {
-            setTimeout(function () {
-                $rootScope.loadingService = false;
-                $scope.$apply();
-            }, 500);
-        };
+        })();
 
         function openModal(row) {
             if (angular.isUndefinedOrNullOrEmpty(row)) return;

@@ -4,18 +4,18 @@
         .module('servicios-chabas')
         .factory('services', services);
 
-    function services($rootScope, factoryFarmacy, factoryBus) {
+    function services($rootScope, factoryFarmacy, factoryBus, factoryServices) {
         var dataPersist = {
             allPharmacies: null,
             dataPharmacy: null,
             allBuses: null,
-            services: null,
-            phones: null
+            services: null
         }
 
         return {
             getPaharmacy: getPaharmacy,
             getBuses: getBuses,
+            getServices: getServices,
             init: init
         }
 
@@ -64,6 +64,39 @@
             }
         }
 
+        function getServices(cbSetData){
+            if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
+
+                (function callService() {
+                    factoryServices.getDataServices()
+                        .then(servicesSuccess)
+                        .catch(servicesError)
+                        .finally(servicesFinally);
+                })();
+
+                function servicesSuccess(dataResponse) {
+                    dataPersist.services = dataResponse;
+                    if (cbSetData) cbSetData(dataPersist);
+                    return;
+                };
+
+                function servicesError(dataError) {
+                    return;
+                };
+
+                function servicesFinally(dataFinally) {
+                    setTimeout(function () {
+                        $rootScope.loadingService = false;
+                    }, 500);
+                };
+            }
+            else {
+                $rootScope.loadingService = false;
+                if (cbSetData) cbSetData(dataPersist);
+                return;
+            }
+        }
+
         function getBuses(cbSetData) {
             if (angular.isUndefinedOrNullOrEmpty(dataPersist.allBuses)) {
 
@@ -100,6 +133,7 @@
         function init() {
             getPaharmacy();
             getBuses();
+            getServices();
         }
     };
 })();
