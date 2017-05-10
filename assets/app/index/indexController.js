@@ -29,7 +29,7 @@
                 { 'url': 'farmacias', 'icon': 'icon-pil', 'text': '', 'fontSize': 'fs-23' },
                 { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': '', 'fontSize': 'fs-20' },
                 { 'url': 'servicios.list', 'icon': 'icon-list2', 'text': '', 'fontSize': '' },
-                { 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': '' },
+                { 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': 'bold' },
                 { 'url': 'menu', 'icon': 'icon-options-v', 'text': '', 'fontSize': '' }
             ],
             tabSelected: factoryIndex.setTab()

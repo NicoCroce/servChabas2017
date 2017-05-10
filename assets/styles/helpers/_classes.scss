@@ -14,6 +14,7 @@
 .opacity-img { opacity: 0; }
 .display-none { display: none !important; }
 .display-table { display: table !important; table-layout: fixed; width: 100%; }
+.bold { font-weight: 800; }
 
 .clear-content {
   &:after { content: ''; display: block; clear: both; }
