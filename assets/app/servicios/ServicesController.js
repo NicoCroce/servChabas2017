@@ -35,7 +35,8 @@
         function openModal(row) {
             if (angular.isUndefinedOrNullOrEmpty(row)) return;
             $scope.modal.name = row.nombre;
-            $scope.modal.data = row.detalle;
+            (row.detalle) ? $scope.modal.data = row.detalle : $scope.modal.data = {};
+            
             $scope.modal.data.teléfono = '(03464) ' + row.tel;
             $scope.modal.phone = '03464' + row.tel.replace('(03464)', '').replace('-', '').replace(/ /g, '');
             $scope.modal.map = row.mapa;

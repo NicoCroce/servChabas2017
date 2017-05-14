@@ -22,7 +22,9 @@ var vendorLibraries = require('./config/vendor-libraries'),
 	browserSync = require('browser-sync').create(),
 	ngAnnotate = require('gulp-ng-annotate'),
 	ftp = require('vinyl-ftp'),
+	swPrecache = require('sw-precache'),
 	wait = require('gulp-wait'),
+
 	log = gutil.log;
 
 
@@ -89,7 +91,9 @@ gulp.task('copyBower', gulp.series(copyBower));
 
 gulp.task('copyData', gulp.series(cleanData, copyData));
 
-gulp.task('dist-version', gulp.series(distVersion));
+/*gulp.task('dist-version', gulp.series(distVersion));*/
+
+gulp.task('generateServiceWorker', gulp.series(generateServiceWorker));
 
 gulp.task("watch", function (done) {
 	gulp.watch(SASS_FILES, gulp.series('sass'));
@@ -161,6 +165,13 @@ function reload(done) {
 	browserSync.reload();
 	return done();
 }
+
+function generateServiceWorker(callback) {
+	swPrecache.write(path.join(ENVIRONMENT, 'service-worker.js'), {
+		staticFileGlobs: [ENVIRONMENT + '/**/*.{js,html,css,json,png,jpg,gif,svg,eot,ttf,woff}'],
+		stripPrefix: ENVIRONMENT
+	}, callback);
+};
 
 function connectServer(done) {
 	browserSync.init({
@@ -252,6 +263,7 @@ function copyIconsFunction(done) {
 };
 
 function jsConcatFunction(done) {
+	console.log('ENV: ' + ENVIRONMENT);
 	gulp.src(JS_FILES_APP_ORDER)
 		.pipe(gulpif(ENVIRONMENT == FOLDER_DEV, sourcemaps.init()))
 		.pipe(concat('script.js')) // concat pulls all our files together before minifying them
@@ -330,18 +342,18 @@ function finishMsg(msg) {
 
 //*************************************    SECCIÓN  runner    *************************************
 
-gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
+gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch'/*, generateServiceWorker*/, function runDev() {
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
 
-gulp.task('deploy', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasks', function runDeploy(done) {
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean/*, distVersion*/, 'deployTasks', generateServiceWorker, function runDeploy(done) {
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
 	done();
 }));
 
-gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasksRun', function runDeploy() {
+gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean/*, distVersion*/, 'deployTasksRun', function runDeploy() {
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
 }));

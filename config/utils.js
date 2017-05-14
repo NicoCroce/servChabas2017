@@ -5,6 +5,6 @@ var path = require('path');
 exports.getRootFiles = function (APP_PATH) {
     return [
         path.join(APP_PATH, 'manifest.json'),
-        path.join(APP_PATH, 'progresive.js')
+        path.join(APP_PATH, 'service-worker-registration.js')
     ];
 };

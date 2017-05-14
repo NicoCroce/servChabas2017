@@ -22,7 +22,8 @@ $mediaquery_phones-small--portrait: 480px;
     div.wrapper {
         width: 90%;
         .content-info.fb { text-align: right; }
-    }    
+    }
+    .modal-home { display: block !important; }   
 }
 
 @media screen and (min-width: $mediaquery_phones) {
