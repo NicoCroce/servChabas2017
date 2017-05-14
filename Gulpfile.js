@@ -263,7 +263,6 @@ function copyIconsFunction(done) {
 };
 
 function jsConcatFunction(done) {
-	console.log('ENV: ' + ENVIRONMENT);
 	gulp.src(JS_FILES_APP_ORDER)
 		.pipe(gulpif(ENVIRONMENT == FOLDER_DEV, sourcemaps.init()))
 		.pipe(concat('script.js')) // concat pulls all our files together before minifying them
@@ -342,7 +341,7 @@ function finishMsg(msg) {
 
 //*************************************    SECCIÓN  runner    *************************************
 
-gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch'/*, generateServiceWorker*/, function runDev() {
+gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', generateServiceWorker, function runDev() {
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));

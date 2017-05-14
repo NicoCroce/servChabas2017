@@ -23,6 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-bus:before {
+  content: "\e904";
+}
 .icon-info:before {
   content: "\e903";
 }
@@ -55,9 +58,6 @@
 }
 .icon-envelope:before {
   content: "\e60a";
-}
-.icon-bus:before {
-  content: "\e60c";
 }
 .icon-paperplane:before {
   content: "\e60d";
@@ -106,5 +106,8 @@
 }
 .icon-whatsapp:before {
   content: "\ea93";
+}
+.icon-office:before {
+  content: "\e905";
 }
 
