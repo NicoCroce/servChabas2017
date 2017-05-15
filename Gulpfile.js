@@ -167,6 +167,7 @@ function reload(done) {
 }
 
 function generateServiceWorker(callback) {
+	console.log(ENVIRONMENT);
 	swPrecache.write(path.join(ENVIRONMENT, 'service-worker.js'), {
 		staticFileGlobs: [ENVIRONMENT + '/**/*.{js,html,css,json,png,jpg,gif,svg,eot,ttf,woff}'],
 		stripPrefix: ENVIRONMENT
@@ -297,7 +298,7 @@ function runFTP(done) {
 	// using base = '.' will transfer everything to /public_html correctly 
 	// turn off buffering in gulp.src for best performance 
 
-	return gulp.src(globs, { base: './build', buffer: false })
+	gulp.src(globs, { base: './build', buffer: false })
 		.pipe(conn.newer('/public_html')) // only upload newer files 
 		.pipe(conn.dest('/public_html'));
 	done();
