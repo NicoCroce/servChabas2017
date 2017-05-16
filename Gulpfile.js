@@ -33,7 +33,8 @@ var FOLDER_ASSETS = 'assets',
 	FOLDER_DEV = 'dev',
 	FOLDER_BUILD = 'build',
 	FOLDER_DIST = 'dist',
-	BOWER_COMPONENTS = 'bower_components';
+	BOWER_COMPONENTS = 'bower_components',
+	NPM_COMPONENTS = 'node_modules';
 
 var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
@@ -58,7 +59,7 @@ var DEV_HTML_JS_FILES = [FOLDER_DEV + 'index.html', FOLDER_DEV + '/templates/**/
 	JS_WATCH = FOLDER_DEV + '/js/**/*.js';
 
 
-var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS);
+var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS, NPM_COMPONENTS);
 
 var JS_FILES_APP_ORDER = vendorLibraries.getAppFiles(SRC_APP_BASE, JS_EXTERNAL_FILES);
 
@@ -168,9 +169,22 @@ function reload(done) {
 
 function generateServiceWorker(callback) {
 	console.log(ENVIRONMENT);
-	swPrecache.write(path.join(ENVIRONMENT, 'service-worker.js'), {
+	swPrecache.write(path.join(ENVIRONMENT, 'cache-service-worker.js'), {
 		staticFileGlobs: [ENVIRONMENT + '/**/*.{js,html,css,json,png,jpg,gif,svg,eot,ttf,woff}'],
-		stripPrefix: ENVIRONMENT
+		runtimeCaching: [{
+			// See https://github.com/GoogleChrome/sw-toolbox#methods
+			urlPattern: /runtime-caching/,
+			handler: 'cacheFirst',
+			// See https://github.com/GoogleChrome/sw-toolbox#options
+			options: {
+				cache: {
+					maxEntries: 1,
+					name: 'runtime-cache'
+				}
+			}
+		}],
+		stripPrefix: ENVIRONMENT,
+		verbose: true
 	}, callback);
 };
 
@@ -275,10 +289,12 @@ function jsConcatFunction(done) {
 }
 
 function jsConcatLibsFunction(done) {
-	gulp.src(JS_FILES_EXTERNAL_ORDER)
+	var concatLibs = gulp.src(JS_FILES_EXTERNAL_ORDER)
 		.pipe(concat('libs.js')) // concat pulls all our files together before minifying them
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'js/min/'))).on('error', gutil.log);
-	done();
+	var copyToolBox = gulp.src(path.join(NPM_COMPONENTS, 'sw-toolbox/sw-toolbox.js'))
+		.pipe(gulp.dest(ENVIRONMENT)).on('error', gutil.log);
+	return merge(concatLibs, copyToolBox);
 }
 
 function runFTP(done) {
