@@ -42,10 +42,13 @@ if ('serviceWorker' in navigator) {
                                 // It's the perfect time to display a "New content is available; please refresh."
                                 // message in the page's interface.
                                 console.log('New or updated content is available.');
-                                $('#updateData').addClass('visible-update');
+                                $('#updateData').addClass('hide-update');
+                                console.log('recargando');
+                                /*location.reload();*/
                             } else {
                                 // At this point, everything has been precached.
                                 // It's the perfect time to display a "Content is cached for offline use." message.
+                                $('#updateData').addClass('hide-update');
                                 console.log('Content is now available offline!');
                             }
                             break;
@@ -54,6 +57,7 @@ if ('serviceWorker' in navigator) {
                             console.error('The installing service worker became redundant.');
                             break;
                     }
+                    $('#updateData').addClass('hide-update');
                 };
             };
         }).catch(function (e) {

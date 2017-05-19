@@ -213,6 +213,7 @@ function generateServiceWorker(callback) {
 			ENVIRONMENT + '/templates/**/*.html',
 			ENVIRONMENT + '/index.html',
 			ENVIRONMENT + '/sw.js',
+			ENVIRONMENT + '/service-worker.js',
 			ENVIRONMENT + '/manifest.json'
 		],
 		stripPrefix: ENVIRONMENT,
