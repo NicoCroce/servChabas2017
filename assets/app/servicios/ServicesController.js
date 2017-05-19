@@ -16,21 +16,10 @@
             name: '',
             map: '',
             data: '',
-            showModal: false,
-            showModalUpdate: false
+            showModal: false
         };
 
         $scope.openModal = openModal;
-
-        (function init(){
-            setTimeout(function(){
-                if (typeof (Storage) !== "undefined") {
-                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate.1") == "true";
-                } else {
-                    $scope.modal.showModalUpdate = true;
-                }
-            }, 1000);
-        })();
 
         function openModal(row) {
             if (angular.isUndefinedOrNullOrEmpty(row)) return;
@@ -42,17 +31,6 @@
             $scope.modal.map = row.mapa;
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;
-        }
-
-        $scope.closeModal = function (type) {
-            $scope.modal.showModal = false;
-            $scope.modal.showModalUpdate = false;
-            if(type && type == 'update'){ 
-                if (typeof (Storage) !== "undefined") {
-                    localStorage.setItem("showModalUpdate.1", false);
-                }
-            }
-            $rootScope.modalIsOpen = false;
         }
 
         /*ADD SERVICE **************************************************/
@@ -69,6 +47,11 @@
         $scope.showModal = function () {
             $scope.modalAdd.showModal = true;
             $rootScope.modalIsOpen = true;
+        };
+
+        $scope.closeModal = function () {
+            $scope.modal.showModal = false;
+            $rootScope.modalIsOpen = false;
         };
 
         $scope.setError = function (data) {

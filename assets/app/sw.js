@@ -15,7 +15,8 @@
  */
 
 /* eslint-env browser */
-/*'use strict';
+'use strict';
+
 if ('serviceWorker' in navigator) {
     // Delay registration until after the page has loaded, to ensure that our
     // precaching requests don't degrade the first visit experience.
@@ -41,6 +42,7 @@ if ('serviceWorker' in navigator) {
                                 // It's the perfect time to display a "New content is available; please refresh."
                                 // message in the page's interface.
                                 console.log('New or updated content is available.');
+                                $('#updateData').addClass('visible-update');
                             } else {
                                 // At this point, everything has been precached.
                                 // It's the perfect time to display a "Content is cached for offline use." message.
@@ -58,21 +60,4 @@ if ('serviceWorker' in navigator) {
             console.error('Error during service worker registration:', e);
         });
     });
-}*/
-
-/*self.toolbox.router.get('/(.*)', function (req, vals, opts) {
-    return toolbox.networkFirst(req, vals, opts)
-        .catch(function (error) {
-            if (req.method === 'GET' && req.headers.get('accept').includes('text/html')) {
-                return toolbox.cacheOnly(new Request('/offline'), vals, opts);
-            }
-            throw error;
-        });
-});*/
-debugger;
-self.toolbox.router.get('/assets/(.*)', self.toolbox.cacheFirst, {
-    cache: {
-        name: staticAssetsCacheName,
-        maxEntries: 10
-    }
-});
+}

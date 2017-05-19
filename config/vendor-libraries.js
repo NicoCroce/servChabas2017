@@ -17,7 +17,7 @@ exports.getAppFiles = function (SRC_APP_BASE, JS_EXTERNAL_FILES) {
         path.join(SRC_APP_BASE, 'app.config.js'),
         path.join(SRC_APP_BASE, 'app.modules.js'),
         path.join(SRC_APP_BASE, '**/*.js'),
-        path.join('!' + SRC_APP_BASE, 'service-worker.js'),
+        '!' + path.join(SRC_APP_BASE, 'sw.js'),
         path.join(JS_EXTERNAL_FILES)
     ];
 };

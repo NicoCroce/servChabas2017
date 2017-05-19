@@ -9,8 +9,29 @@
         $scope.htmlToAdd = '';
 
         $scope.modal = {
-            showModal: false
+            showModal: false,
+            showModalUpdate: false
         };
+
+        (function init() {
+            setTimeout(function () {
+                if (typeof (Storage) !== "undefined") {
+                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate1") == "true";
+                } else {
+                    $scope.modal.showModalUpdate = true;
+                }
+            }, 1000);
+        })();
+
+        $scope.closeModalUpdate = function (type) {
+            $scope.modal.showModalUpdate = false;
+            if (type && type == 'update') {
+                if (typeof (Storage) !== "undefined") {
+                    localStorage.setItem("showModalUpdate1", false);
+                }
+            }
+            $rootScope.modalIsOpen = false;
+        }
 
         $scope.closeModal = function () {
             $scope.modal.showModal = false;
@@ -29,7 +50,7 @@
                 { 'url': 'farmacias', 'icon': 'icon-heart', 'text': '', 'fontSize': 'fs-23' },
                 { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': '', 'fontSize': 'fs-20' },
                 { 'url': 'servicios.list', 'icon': 'icon-office', 'text': '', 'fontSize': '' },
-                { 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': 'bold' },
+                /*{ 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': 'bold' },*/
                 { 'url': 'menu', 'icon': 'icon-options-v', 'text': '', 'fontSize': '' }
             ],
             tabSelected: factoryIndex.setTab()

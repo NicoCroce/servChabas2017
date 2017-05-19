@@ -97,13 +97,13 @@ gulp.task('copyData', gulp.series(cleanData, copyData));
 gulp.task('generateServiceWorker', gulp.series(generateServiceWorker));
 
 gulp.task("watch", function (done) {
-	gulp.watch(SASS_FILES, gulp.series('sass'));
-	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'));
-	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat"));
-	gulp.watch(ICON_FILES, gulp.series('copyIcons'));
-	gulp.watch(IMAGES_FILES, gulp.series("copyImg"));
-	gulp.watch(DATA_FILES, gulp.series('copyData'));
-	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles));
+	gulp.watch(SASS_FILES, gulp.series('sass', generateServiceWorker));
+	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates', generateServiceWorker));
+	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat", generateServiceWorker));
+	gulp.watch(ICON_FILES, gulp.series('copyIcons', generateServiceWorker));
+	gulp.watch(IMAGES_FILES, gulp.series("copyImg", generateServiceWorker));
+	gulp.watch(DATA_FILES, gulp.series('copyData', generateServiceWorker));
+	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles, generateServiceWorker));
 	gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
 	return done();
 });
@@ -167,10 +167,28 @@ function reload(done) {
 	return done();
 }
 
+
+
 function generateServiceWorker(callback) {
-	console.log(ENVIRONMENT);
-	swPrecache.write(path.join(ENVIRONMENT, 'cache-service-worker.js'), {
-		staticFileGlobs: [ENVIRONMENT + '/**/*.{js,html,css,json,png,jpg,gif,svg,eot,ttf,woff}'],
+	var configSw = {
+		cacheId: 'allFiles',
+		/*
+		dynamicUrlToDependencies: {
+		  'dynamic/page1': [
+			path.join(rootDir, 'views', 'layout.jade'),
+			path.join(rootDir, 'views', 'page1.jade')
+		  ],
+		  'dynamic/page2': [
+			path.join(rootDir, 'views', 'layout.jade'),
+			path.join(rootDir, 'views', 'page2.jade')
+		  ]
+		},
+		*/
+		// If handleFetch is false (i.e. because this is called from generate-service-worker-dev), then
+		// the service worker will precache resources but won't actually serve them.
+		// This allows you to test precaching behavior without worry about the cache preventing your
+		// local changes from being picked up during the development cycle.
+		handleFetch: true,
 		runtimeCaching: [{
 			// See https://github.com/GoogleChrome/sw-toolbox#methods
 			urlPattern: /runtime-caching/,
@@ -179,17 +197,53 @@ function generateServiceWorker(callback) {
 			options: {
 				cache: {
 					maxEntries: 1,
-					name: 'runtime-cache'
+					name: 'runtime-cache',
+					networkTimeoutSeconds: 1
 				}
 			}
 		}],
+		staticFileGlobs: [
+			ENVIRONMENT + '/',
+			ENVIRONMENT + '/css/*.css',
+			ENVIRONMENT + '/data/**/*.json',
+			ENVIRONMENT + '/favicon/*.{png,ico,xml,svg}',
+			ENVIRONMENT + '/fonts/*.{svg,ttf,woff}',
+			ENVIRONMENT + '/img/*.{jpg,png}',
+			ENVIRONMENT + '/js/**/*.js',
+			ENVIRONMENT + '/templates/**/*.html',
+			ENVIRONMENT + '/index.html',
+			ENVIRONMENT + '/sw.js',
+			ENVIRONMENT + '/manifest.json'
+		],
 		stripPrefix: ENVIRONMENT,
+		// verbose defaults to false, but for the purposes of this demo, log more.
 		verbose: true
-	}, callback);
-};
+	};
+
+	swPrecache.write(path.join(ENVIRONMENT, 'service-worker.js'), configSw, callback);
+}
+
+
+
+
+/*runtimeCaching: [{*/
+// See https://github.com/GoogleChrome/sw-toolbox#methods
+//	urlPattern: '/**/*.js',
+/*	handler: 'networkFirst',
+	// See https://github.com/GoogleChrome/sw-toolbox#options
+	options: {
+		cache: {
+			name: 'jsScript',
+			maxEntries: 12,
+			maxAgeSeconds: 86400
+		},
+	}
+}],*/
+
 
 function connectServer(done) {
 	browserSync.init({
+		open: false,
 		port: serverPort,
 		server: {
 			baseDir: ENVIRONMENT
@@ -292,9 +346,7 @@ function jsConcatLibsFunction(done) {
 	var concatLibs = gulp.src(JS_FILES_EXTERNAL_ORDER)
 		.pipe(concat('libs.js')) // concat pulls all our files together before minifying them
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'js/min/'))).on('error', gutil.log);
-	var copyToolBox = gulp.src(path.join(NPM_COMPONENTS, 'sw-toolbox/sw-toolbox.js'))
-		.pipe(gulp.dest(ENVIRONMENT)).on('error', gutil.log);
-	return merge(concatLibs, copyToolBox);
+	return merge(concatLibs);
 }
 
 function runFTP(done) {
@@ -358,7 +410,8 @@ function finishMsg(msg) {
 
 //*************************************    SECCIÓN  runner    *************************************
 
-gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', generateServiceWorker, function runDev() {
+gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));

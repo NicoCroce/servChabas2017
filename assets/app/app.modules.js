@@ -7,12 +7,23 @@
             $rootScope.backSectionVisible = false;
             $rootScope.loadingService = true;
             $rootScope.modalIsOpen = false;
+            $rootScope.offline = false;
             analytics.pageview('/home');
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
-                localStorage.setItem("showModalUpdate.1", true);
+                localStorage.setItem("showModalUpdate1", true);
             }
+
+            function updateIndicator() {
+                $rootScope.offline = !navigator.onLine;
+                $rootScope.$apply();
+            }
+
+            // Update the online status icon based on connectivity
+            window.addEventListener('online', updateIndicator);
+            window.addEventListener('offline', updateIndicator);
+            updateIndicator();
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider) {
             $qProvider.errorOnUnhandledRejections(false);
@@ -91,11 +102,11 @@
                     controller: 'ServicesTelefonosController'
                 })
 
-                .state('fespal', {
+                /*.state('fespal', {
                     url: '/fespal',
                     templateUrl: 'templates/fespal/fespal.html',
                     controller: 'FespalController'
-                })
+                })*/
 
 
                 .state('menu', {
