@@ -5,4 +5,5 @@ dist/
 build/
 assets/styles/libs/jeet/
 assets/styles/libs/normalize/
+firebase/test/*
 debug.log

@@ -59,12 +59,16 @@
 		<div class="connection" ng-class="{'visible-con': offline}">
 			<p> Sin conexión </p>
 		</div>
-
-		<header>
+		<header>	
 			<section class="complete-header">
 				<div class="header">
 					<div class="wrapper mgb-0">
-						<h1 class="subTitle"><strong>Chabás</strong><span>hoy!</span></h1>
+						<h1 class="subTitle">
+							<strong>Chabás</strong><span class="hoy">hoy!</span>
+							<div id="updateData" class="update-toaster">
+								<span class="icon-sync"></span>
+							</div>
+						</h1>
 						<!--<img src="/img/Banner.png" alt="">-->
 						<!--<div alt=""></div>-->
 						<!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
@@ -80,16 +84,15 @@
 			<section class="content">
 				<div class="wrapper">
 					<div class="content-info clear-both">
-						<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}">
-							<!--!loadingService-->
-							<!--{'hidden-modal': !loadingService}-->
+
+						<!--<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}">
 							<div class="spinner">
 								<div class="bounce1"></div>
 								<div class="bounce2"></div>
 								<div class="bounce3"></div>
 							</div>
 							<h4>actualizando datos...</h4>
-						</section>
+						</section>-->
 						<div ui-view ng-cloak class="view"></div>
 					</div>
 					<div class="content-info fb clear-both" >
@@ -103,15 +106,11 @@
 				</div>
 			</section>
 		</main>
-		
-		
-		<div id="updateData" class="update-toaster">
-			<p>...</p>
-		</div>
 		<footer>
-			<p class="credits">Diseñado y desarrollado por <span>Nicolás Croce</span></p>
+			<p class="credits">Diseñado y Desarrollado por <span>Nicolás Croe 8.9.1 4</span></p>
 		</footer>
 	</div>
+
 	<div ng-include="'templates/servicios/modalServiceUpdate.html'"></div>
 	
 	<div ng-include="'templates/index/modalAddHome.html'" class="modal-home"></div>

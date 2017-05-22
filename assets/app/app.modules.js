@@ -17,6 +17,7 @@
 
             function updateIndicator() {
                 $rootScope.offline = !navigator.onLine;
+                $rootScope.loadingService = false;
                 $rootScope.$apply();
             }
 

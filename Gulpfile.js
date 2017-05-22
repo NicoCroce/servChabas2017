@@ -23,8 +23,8 @@ var vendorLibraries = require('./config/vendor-libraries'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	ftp = require('vinyl-ftp'),
 	swPrecache = require('sw-precache'),
+	exec = require('child_process').exec,
 	wait = require('gulp-wait'),
-
 	log = gutil.log;
 
 
@@ -34,7 +34,8 @@ var FOLDER_ASSETS = 'assets',
 	FOLDER_BUILD = 'build',
 	FOLDER_DIST = 'dist',
 	BOWER_COMPONENTS = 'bower_components',
-	NPM_COMPONENTS = 'node_modules';
+	NPM_COMPONENTS = 'node_modules',
+	FIREBASE = 'firebase';
 
 var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
@@ -136,6 +137,10 @@ function cleanTemplates(done) {
 	return done();
 };
 
+function cleanFirebase() {
+	return del([FIREBASE + '/test/public/**/*']);
+}
+
 function cleanImg() {
 	return del([FOLDER_DEV + '/img']);
 };
@@ -171,7 +176,7 @@ function reload(done) {
 
 function generateServiceWorker(callback) {
 	var configSw = {
-		cacheId: 'allFiles',
+		cacheId: 'allFiles-1',
 		/*
 		dynamicUrlToDependencies: {
 		  'dynamic/page1': [
@@ -189,19 +194,6 @@ function generateServiceWorker(callback) {
 		// This allows you to test precaching behavior without worry about the cache preventing your
 		// local changes from being picked up during the development cycle.
 		handleFetch: true,
-		runtimeCaching: [{
-			// See https://github.com/GoogleChrome/sw-toolbox#methods
-			urlPattern: /runtime-caching/,
-			handler: 'cacheFirst',
-			// See https://github.com/GoogleChrome/sw-toolbox#options
-			options: {
-				cache: {
-					maxEntries: 1,
-					name: 'runtime-cache',
-					networkTimeoutSeconds: 1
-				}
-			}
-		}],
 		staticFileGlobs: [
 			ENVIRONMENT + '/',
 			ENVIRONMENT + '/css/*.css',
@@ -213,7 +205,7 @@ function generateServiceWorker(callback) {
 			ENVIRONMENT + '/templates/**/*.html',
 			ENVIRONMENT + '/index.html',
 			ENVIRONMENT + '/sw.js',
-			ENVIRONMENT + '/service-worker.js',
+			ENVIRONMENT + '/service-worker-1.js',
 			ENVIRONMENT + '/manifest.json'
 		],
 		stripPrefix: ENVIRONMENT,
@@ -221,7 +213,7 @@ function generateServiceWorker(callback) {
 		verbose: true
 	};
 
-	swPrecache.write(path.join(ENVIRONMENT, 'service-worker.js'), configSw, callback);
+	swPrecache.write(path.join(ENVIRONMENT, 'service-worker-1.js'), configSw, callback);
 }
 
 
@@ -270,6 +262,13 @@ function copyData() {
 		.pipe(gulp.dest(ENVIRONMENT + '/favicon')).on('error', gutil.log);
 	return merge(data, favIcon);
 };
+
+function copyBuildToFirebase(done) {
+	console.log('Copiando archivos a FIREBASE');
+	gulp.src(FOLDER_BUILD + '/**/*')
+		.pipe(gulp.dest(FIREBASE + '/test/public')).on('error', gutil.log);
+		return done();
+}
 
 function sassFunction() {
 	showComment('Changed SASS File');
@@ -373,6 +372,15 @@ function runFTP(done) {
 	done();
 }
 
+function deployFirebase(done) {
+	exec('firebase deploy', {
+		cwd: 'D:/Nico/Trabajos/2017/serviciosChabas2017/firebase/test/'
+	}, function (error, stdout, stderr) {
+		console.log(stdout);
+	});
+	done();
+}
+
 //************************************************************************************************
 
 
@@ -417,16 +425,28 @@ gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', f
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
 
-gulp.task('deploy', gulp.series(setEnvironmentProd, clean/*, distVersion*/, 'deployTasks', generateServiceWorker, function runDeploy(done) {
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', function runDeploy(done) {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
 	done();
 }));
 
-gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean/*, distVersion*/, 'deployTasksRun', function runDeploy() {
+
+gulp.task('fd', gulp.series(deployFirebase));
+
+gulp.task('dt', gulp.series(setEnvironmentProd, clean, 'deployTasks', generateServiceWorker, cleanFirebase, copyBuildToFirebase, function runDeploy(done) {
+	runFirstTime = false;
+	finishMsg('DEPLOYING IN FIREBASE...');
+	deployFirebase(done);
+	return done();
+}));
+
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', function runDeploy(done) {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
+	done();
 }));
 
 //************************************************************************************
-

@@ -59,9 +59,7 @@
                 };
 
                 function calendarFinally(dataFinally) {
-                    setTimeout(function () {
-                        $rootScope.loadingService = false;
-                    }, 500);
+                    $rootScope.loadingService = false;
                 };
             } else {
                 $rootScope.loadingService = false;
@@ -94,9 +92,8 @@
                 };
 
                 function servicesFinally(dataFinally) {
-                    setTimeout(function () {
-                        $rootScope.loadingService = false;
-                    }, 500);
+                    $rootScope.loadingService = false;
+
                 };
             }
             else {
@@ -131,9 +128,7 @@
                 };
 
                 function busesFinally(dataFinally) {
-                    setTimeout(function () {
-                        $rootScope.loadingService = false;
-                    }, 500);
+                    $rootScope.loadingService = false;
                 };
             }
             else {

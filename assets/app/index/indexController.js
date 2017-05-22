@@ -8,6 +8,8 @@
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 
+        $rootScope.loadingService = false;
+
         $scope.modal = {
             showModal: false,
             showModalUpdate: false
@@ -55,11 +57,6 @@
             ],
             tabSelected: factoryIndex.setTab()
         };
-
-        setTimeout(function () {
-            $rootScope.loadingService = false;
-            $scope.$apply();
-        }, 500);
 
         setTimeout(function () {
             var getShowModal;

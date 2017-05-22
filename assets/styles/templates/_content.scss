@@ -124,9 +124,19 @@ span.icon-checkmark-circle {
     &.visible-con { opacity: 1; margin: 0; }
 }
 
-.update-toaster {
-  background: rgb(162, 162, 162); padding: 20px; text-align: center; position: fixed; z-index: 1; color: #ffffff; 
-  transition: all .3s ease; opacity: 1; top: 10px; right: 10px;
 
-  &.hide-update { opacity: 0; }
+@keyframes rotate360 {
+  0% { transform: rotate3d(0, 0, 1, 0deg) }
+  100% { transform: rotate3d(0, 0, 1, -360deg)  }
+}
+
+
+.update-toaster {
+    background: rgba(0, 117, 136, 0.69); padding: 5px; text-align: center; width: 36px; float: right;
+    color: #ffffff; transition: all .3s ease; opacity: 0; border-radius: 3px; height: 36px; position: relative;
+    span { 
+      margin: 0; font-size: 20px; position: relative; top: -10px; display: inline-block; animation: rotate360 1s linear infinite; line-height: 0;
+      padding-bottom: 3px;
+    }
+    &.show-update { opacity: 1; }
 }

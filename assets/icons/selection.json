@@ -27,7 +27,7 @@
         "code": 59649
       },
       "setIdx": 0,
-      "setId": 13,
+      "setId": 12,
       "iconIdx": 0
     },
     {
@@ -56,7 +56,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 0
     },
     {
@@ -84,7 +84,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 1
     },
     {
@@ -110,7 +110,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 2
     },
     {
@@ -137,7 +137,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 3
     },
     {
@@ -165,7 +165,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 4
     },
     {
@@ -192,7 +192,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 5
     },
     {
@@ -222,7 +222,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 6
     },
     {
@@ -250,7 +250,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 7
     },
     {
@@ -280,7 +280,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 12,
+      "setId": 11,
       "iconIdx": 8
     },
     {
@@ -309,7 +309,7 @@
         "name": "bus"
       },
       "setIdx": 2,
-      "setId": 11,
+      "setId": 10,
       "iconIdx": 0
     },
     {
@@ -338,7 +338,7 @@
         "name": "info"
       },
       "setIdx": 2,
-      "setId": 11,
+      "setId": 10,
       "iconIdx": 1
     },
     {
@@ -367,7 +367,7 @@
         "name": "phone"
       },
       "setIdx": 2,
-      "setId": 11,
+      "setId": 10,
       "iconIdx": 2
     },
     {
@@ -396,7 +396,7 @@
         "name": "arrow_right"
       },
       "setIdx": 2,
-      "setId": 11,
+      "setId": 10,
       "iconIdx": 3
     },
     {
@@ -416,15 +416,73 @@
       "attrs": [],
       "properties": {
         "ligatures": "signal_wifi_off",
-        "id": 694,
+        "id": 4,
         "order": 19,
         "prevSize": 24,
         "code": 57818,
         "name": "signal_wifi_off"
       },
+      "setIdx": 2,
+      "setId": 10,
+      "iconIdx": 4
+    },
+    {
+      "icon": {
+        "paths": [
+          "M682 554l-170 172-170-172h128v-212h84v212h128zM726 810v-596h-428v596h428zM726 44c46 0 84 38 84 84v768c0 46-38 86-84 86h-428c-46 0-84-40-84-86v-768c0-46 38-86 84-86z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "system_update"
+        ],
+        "grid": 24
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 20,
+        "id": 3,
+        "prevSize": 24,
+        "code": 59654,
+        "name": "system_update"
+      },
       "setIdx": 5,
-      "setId": 8,
-      "iconIdx": 694
+      "setId": 7,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M512 768v-128l170 170-170 172v-128c-188 0-342-154-342-342 0-66 20-130 54-182l62 62c-20 36-30 76-30 120 0 142 114 256 256 256zM512 170c188 0 342 154 342 342 0 66-20 130-54 182l-62-62c20-36 30-76 30-120 0-142-114-256-256-256v128l-170-170 170-172v128z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "sync"
+        ],
+        "grid": 24
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 21,
+        "id": 2,
+        "prevSize": 24,
+        "code": 59655,
+        "name": "sync"
+      },
+      "setIdx": 5,
+      "setId": 7,
+      "iconIdx": 1
     },
     {
       "icon": {
@@ -448,7 +506,7 @@
         "name": "email"
       },
       "setIdx": 3,
-      "setId": 10,
+      "setId": 9,
       "iconIdx": 0
     },
     {
@@ -477,7 +535,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 0
     },
     {
@@ -504,7 +562,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 1
     },
     {
@@ -531,7 +589,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 2
     },
     {
@@ -561,7 +619,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 3
     },
     {
@@ -588,7 +646,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 4
     },
     {
@@ -618,7 +676,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 5
     },
     {
@@ -647,7 +705,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 6
     },
     {
@@ -675,7 +733,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 7
     },
     {
@@ -703,7 +761,7 @@
         "code": 58900
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 8
     },
     {
@@ -731,7 +789,7 @@
         "code": 58901
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 9
     },
     {
@@ -762,7 +820,7 @@
         "code": 59835
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 10
     },
     {
@@ -790,7 +848,7 @@
         "code": 59694
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 11
     },
     {
@@ -819,7 +877,7 @@
         "code": 60051
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 12
     },
     {
@@ -848,7 +906,7 @@
         "code": 59653
       },
       "setIdx": 4,
-      "setId": 9,
+      "setId": 8,
       "iconIdx": 13
     }
   ],

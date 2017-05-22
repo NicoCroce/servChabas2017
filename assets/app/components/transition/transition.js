@@ -21,7 +21,7 @@
                 $timeout(function () {
                     section.addClass('anim-in-section');
                     scope.$apply();
-                }, 100);
+                }, 50);
             }
         }
     };

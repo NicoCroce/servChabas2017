@@ -68,6 +68,12 @@
 .icon-signal_wifi_off:before {
   content: "\e1da";
 }
+.icon-system_update:before {
+  content: "\e906";
+}
+.icon-sync:before {
+  content: "\e907";
+}
 .icon-email:before {
   content: "\e616";
 }
