@@ -4,76 +4,33 @@
         .module('servicios-chabas')
         .controller('ServicesController', ServicesController);
 
-    function ServicesController($scope, factoryServices, $rootScope) {
+    function ServicesController($scope, factoryServices, $rootScope, services) {
         $scope.allServices = {};
+        services.getServices(setDataService);
 
-        $scope.loadedService = false;
+        function setDataService(data) {
+            $scope.allServices = data.services;
+        };
 
         $scope.modal = {
             name: '',
             map: '',
             data: '',
-            showModal: false,
-            showModalUpdate: false
+            showModal: false
         };
 
         $scope.openModal = openModal;
-        $rootScope.loadingService = true;
-
-        function init(){
-            setTimeout(function(){
-                if (typeof (Storage) !== "undefined") {
-                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate.1") == "true";
-                } else {
-                    $scope.modal.showModalUpdate = true;
-                }
-            }, 1000);
-        };
-
-        init();
-
-        factoryServices.getDataServices()
-            .then(servicesSuccess)
-            .catch(servicesError)
-            .finally(servicesFinally);
-
-        function servicesSuccess(dataResponse) {
-            $scope.allServices = dataResponse;
-            $scope.loadedService = true;
-            return;
-        };
-
-        function servicesError(dataError) {
-            return;
-        };
-
-        function servicesFinally(dataFinally) {
-            setTimeout(function () {
-                $rootScope.loadingService = false;
-                $scope.$apply();
-            }, 500);
-        };
 
         function openModal(row) {
             if (angular.isUndefinedOrNullOrEmpty(row)) return;
             $scope.modal.name = row.nombre;
-            $scope.modal.data = row.detalle;
+            (row.detalle) ? $scope.modal.data = row.detalle : $scope.modal.data = {};
+            
             $scope.modal.data.teléfono = '(03464) ' + row.tel;
             $scope.modal.phone = '03464' + row.tel.replace('(03464)', '').replace('-', '').replace(/ /g, '');
             $scope.modal.map = row.mapa;
             $scope.modal.showModal = true;
             $rootScope.modalIsOpen = true;
-        }
-
-        $scope.closeModal = function (type) {
-            $scope.modal.showModal = false;
-            $scope.modal.showModalUpdate = false;
-            if(type && type == 'update'){ 
-                if (typeof (Storage) !== "undefined") {
-                    localStorage.setItem("showModalUpdate.1", false);
-                }
-            }
-            $rootScope.modalIsOpen = false;
         }
 
         /*ADD SERVICE **************************************************/
@@ -90,6 +47,11 @@
         $scope.showModal = function () {
             $scope.modalAdd.showModal = true;
             $rootScope.modalIsOpen = true;
+        };
+
+        $scope.closeModal = function () {
+            $scope.modal.showModal = false;
+            $rootScope.modalIsOpen = false;
         };
 
         $scope.setError = function (data) {

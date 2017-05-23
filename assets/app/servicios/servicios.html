@@ -1,6 +1,6 @@
 <div transition class="info services header-section">
     <div class="info-msg">
-        <p>Colabore informando un nuevo servicio <a id="openModalAddService" class="send-link" ng-click="showModal()">aquí</a></p>
+        <p>Colabore informando un nuevo servicio <a id="openModalAddService" class="send-link" ng-click="showModal()" ng-if="!offline">aquí</a></p>
     </div>
 
     <!--INSTITUCIONES-->
@@ -26,4 +26,3 @@
 </div>
 
 <div ng-include="'templates/servicios/addService.html'"></div>
-<div ng-include="'templates/servicios/modalServiceUpdate.html'"></div>

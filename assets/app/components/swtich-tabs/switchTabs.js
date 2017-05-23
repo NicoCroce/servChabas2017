@@ -18,9 +18,8 @@
 
 				var maxTabs, tabsCount;
 
-				maxTabs = 4;
+				maxTabs = 5;
 				tabsCount = (scope.tabs.tabArray.length >= maxTabs) ? maxTabs : scope.tabs.tabArray.length;
-
 				scope.tabsSize = function (index) {
 					var width = {};
 					if (index == tabsCount - 1) {
@@ -28,9 +27,12 @@
 					} else {
 						width = { "width": 90 / (tabsCount - 1) + "%" };
 					}
-
 					return width;
 				};
+
+				scope.getFontSize = function(index) {
+					return scope.tabs.tabArray[index].fontSize;
+				}
 
 				scope.getLiClass = function(eIndex, eLast) {
 					return { 'is-selected': eIndex == scope.indexTabSelected, 'icon-options-container': eLast }

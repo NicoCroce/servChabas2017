@@ -4,6 +4,7 @@ var serverPort = 2173;
 
 var vendorLibraries = require('./config/vendor-libraries'),
 	genVersion = require('./config/genVersion.js'),
+	rootFiles = require('./config/utils.js'),
 	gulp = require("gulp"),//http://gulpjs.com/
 	gutil = require("gulp-util"),//https://github.com/gulpjs/gulp-util
 	sass = require("gulp-sass"),//https://www.npmjs.org/package/gulp-sass
@@ -21,6 +22,8 @@ var vendorLibraries = require('./config/vendor-libraries'),
 	browserSync = require('browser-sync').create(),
 	ngAnnotate = require('gulp-ng-annotate'),
 	ftp = require('vinyl-ftp'),
+	swPrecache = require('sw-precache'),
+	exec = require('child_process').exec,
 	wait = require('gulp-wait'),
 	log = gutil.log;
 
@@ -30,7 +33,9 @@ var FOLDER_ASSETS = 'assets',
 	FOLDER_DEV = 'dev',
 	FOLDER_BUILD = 'build',
 	FOLDER_DIST = 'dist',
-	BOWER_COMPONENTS = 'bower_components';
+	BOWER_COMPONENTS = 'bower_components',
+	NPM_COMPONENTS = 'node_modules',
+	FIREBASE = 'firebase';
 
 var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
 	SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
@@ -48,13 +53,14 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
 	IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
 	ICON_FILES = SRC_FONTS_BASE + '/**/*',
 	DATA_FILES = SRC_DATA_BASE + '/**/*.json',
+	ROOT_FILES = rootFiles.getRootFiles(SRC_APP_BASE),
 	FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*';
 
 var DEV_HTML_JS_FILES = [FOLDER_DEV + 'index.html', FOLDER_DEV + '/templates/**/*.html', FOLDER_DEV + '/js/*.js'],
 	JS_WATCH = FOLDER_DEV + '/js/**/*.js';
 
 
-var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS);
+var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS, NPM_COMPONENTS);
 
 var JS_FILES_APP_ORDER = vendorLibraries.getAppFiles(SRC_APP_BASE, JS_EXTERNAL_FILES);
 
@@ -87,24 +93,27 @@ gulp.task('copyBower', gulp.series(copyBower));
 
 gulp.task('copyData', gulp.series(cleanData, copyData));
 
-gulp.task('dist-version', gulp.series(distVersion));
+/*gulp.task('dist-version', gulp.series(distVersion));*/
+
+gulp.task('generateServiceWorker', gulp.series(generateServiceWorker));
 
 gulp.task("watch", function (done) {
-	gulp.watch(SASS_FILES, gulp.series('sass'));
-	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'));
-	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat"));
-	gulp.watch(ICON_FILES, gulp.series('copyIcons'));
-	gulp.watch(IMAGES_FILES, gulp.series("copyImg"));
-	gulp.watch(DATA_FILES, gulp.series('copyData'));
+	gulp.watch(SASS_FILES, gulp.series('sass', generateServiceWorker));
+	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates', generateServiceWorker));
+	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat", generateServiceWorker));
+	gulp.watch(ICON_FILES, gulp.series('copyIcons', generateServiceWorker));
+	gulp.watch(IMAGES_FILES, gulp.series("copyImg", generateServiceWorker));
+	gulp.watch(DATA_FILES, gulp.series('copyData', generateServiceWorker));
+	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles, generateServiceWorker));
 	gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
 	return done();
 });
 
-gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
+gulp.task('connect', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", copyImgFunction, copyIconsFunction), connectServer));
 
-gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), runFTP));
+gulp.task('deployTasks', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction)/*, runFTP*/));
 
-gulp.task('deployTasksRun', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), connectServer));
+gulp.task('deployTasksRun', gulp.series(copyBower, gulp.parallel(copyTemplatesFunction, copyRootFiles, sassFunction, "jsConcatLibs", 'copyData', "jsConcat", compressImg, copyIconsFunction), connectServer));
 
 //*************************************    SECCIÓN  Functions    *************************************
 
@@ -127,6 +136,10 @@ function cleanTemplates(done) {
 	del([FOLDER_DEV + '/index.html']);
 	return done();
 };
+
+function cleanFirebase() {
+	return del([FIREBASE + '/test/public/**/*']);
+}
 
 function cleanImg() {
 	return del([FOLDER_DEV + '/img']);
@@ -159,8 +172,71 @@ function reload(done) {
 	return done();
 }
 
+
+
+function generateServiceWorker(callback) {
+	var configSw = {
+		cacheId: 'allFiles-1',
+		/*
+		dynamicUrlToDependencies: {
+		  'dynamic/page1': [
+			path.join(rootDir, 'views', 'layout.jade'),
+			path.join(rootDir, 'views', 'page1.jade')
+		  ],
+		  'dynamic/page2': [
+			path.join(rootDir, 'views', 'layout.jade'),
+			path.join(rootDir, 'views', 'page2.jade')
+		  ]
+		},
+		*/
+		// If handleFetch is false (i.e. because this is called from generate-service-worker-dev), then
+		// the service worker will precache resources but won't actually serve them.
+		// This allows you to test precaching behavior without worry about the cache preventing your
+		// local changes from being picked up during the development cycle.
+		handleFetch: true,
+		staticFileGlobs: [
+			ENVIRONMENT + '/',
+			ENVIRONMENT + '/css/*.css',
+			ENVIRONMENT + '/data/**/*.json',
+			ENVIRONMENT + '/favicon/*.{png,ico,xml,svg}',
+			ENVIRONMENT + '/fonts/*.{svg,ttf,woff}',
+			ENVIRONMENT + '/img/*.{jpg,png}',
+			ENVIRONMENT + '/js/**/*.js',
+			ENVIRONMENT + '/templates/**/*.html',
+			ENVIRONMENT + '/index.html',
+			ENVIRONMENT + '/sw.js',
+			ENVIRONMENT + '/service-worker-1.js',
+			ENVIRONMENT + '/manifest.json'
+		],
+		stripPrefix: ENVIRONMENT,
+		// verbose defaults to false, but for the purposes of this demo, log more.
+		verbose: true
+	};
+
+	swPrecache.write(path.join(ENVIRONMENT, 'service-worker-1.js'), configSw, callback);
+}
+
+
+
+
+/*runtimeCaching: [{*/
+// See https://github.com/GoogleChrome/sw-toolbox#methods
+//	urlPattern: '/**/*.js',
+/*	handler: 'networkFirst',
+	// See https://github.com/GoogleChrome/sw-toolbox#options
+	options: {
+		cache: {
+			name: 'jsScript',
+			maxEntries: 12,
+			maxAgeSeconds: 86400
+		},
+	}
+}],*/
+
+
 function connectServer(done) {
 	browserSync.init({
+		open: false,
 		port: serverPort,
 		server: {
 			baseDir: ENVIRONMENT
@@ -186,6 +262,13 @@ function copyData() {
 		.pipe(gulp.dest(ENVIRONMENT + '/favicon')).on('error', gutil.log);
 	return merge(data, favIcon);
 };
+
+function copyBuildToFirebase(done) {
+	console.log('Copiando archivos a FIREBASE');
+	gulp.src(FOLDER_BUILD + '/**/*')
+		.pipe(gulp.dest(FIREBASE + '/test/public')).on('error', gutil.log);
+		return done();
+}
 
 function sassFunction() {
 	showComment('Changed SASS File');
@@ -227,6 +310,12 @@ function copyImgFunction() {
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'img'))).on('error', gutil.log);
 };
 
+function copyRootFiles() {
+	showComment('Copying RootFiles');
+	return gulp.src(ROOT_FILES)
+		.pipe(gulp.dest(path.join(ENVIRONMENT))).on('error', gutil.log);
+};
+
 function compressImg() {
 	return gulp.src(SRC_IMAGES_BASE + '/*')
 		.pipe(imagemin())
@@ -254,10 +343,10 @@ function jsConcatFunction(done) {
 }
 
 function jsConcatLibsFunction(done) {
-	gulp.src(JS_FILES_EXTERNAL_ORDER)
+	var concatLibs = gulp.src(JS_FILES_EXTERNAL_ORDER)
 		.pipe(concat('libs.js')) // concat pulls all our files together before minifying them
 		.pipe(gulp.dest(path.join(ENVIRONMENT, 'js/min/'))).on('error', gutil.log);
-	done();
+	return merge(concatLibs);
 }
 
 function runFTP(done) {
@@ -277,9 +366,18 @@ function runFTP(done) {
 	// using base = '.' will transfer everything to /public_html correctly 
 	// turn off buffering in gulp.src for best performance 
 
-	return gulp.src(globs, { base: './build', buffer: false })
+	gulp.src(globs, { base: './build', buffer: false })
 		.pipe(conn.newer('/public_html')) // only upload newer files 
 		.pipe(conn.dest('/public_html'));
+	done();
+}
+
+function deployFirebase(done) {
+	exec('firebase deploy', {
+		cwd: 'D:/Nico/Trabajos/2017/serviciosChabas2017/firebase/test/'
+	}, function (error, stdout, stderr) {
+		console.log(stdout);
+	});
 	done();
 }
 
@@ -322,20 +420,33 @@ function finishMsg(msg) {
 //*************************************    SECCIÓN  runner    *************************************
 
 gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
 
-gulp.task('deploy', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasks', function runDeploy(done) {
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', function runDeploy(done) {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
 	done();
 }));
 
-gulp.task('deploy-run', gulp.series(setEnvironmentProd, clean, distVersion, 'deployTasksRun', function runDeploy() {
+
+gulp.task('fd', gulp.series(deployFirebase));
+
+gulp.task('dt', gulp.series(setEnvironmentProd, clean, 'deployTasks', generateServiceWorker, cleanFirebase, copyBuildToFirebase, function runDeploy(done) {
+	runFirstTime = false;
+	finishMsg('DEPLOYING IN FIREBASE...');
+	deployFirebase(done);
+	return done();
+}));
+
+gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', function runDeploy(done) {
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('IS DEPLOYED in "' + FOLDER_BUILD + '" folder');
+	done();
 }));
 
 //************************************************************************************
-

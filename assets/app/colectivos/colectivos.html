@@ -20,7 +20,7 @@
 	</button>
 
 	<div ng-class="{'show-map': map.show}">
-		<button type="button" class="button-transparent" ng-click="initMapBus()">Mostrar ubicación terminal</button>
+		<button type="button" class="button-transparent" ng-click="initMapBus()" ng-class="{'is-offline': offline}">Mostrar ubicación terminal</button>
 		<div id="mapBus" class="map-element"></div>
 	</div>
 </div>

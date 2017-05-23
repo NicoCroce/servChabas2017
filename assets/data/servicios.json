@@ -23,6 +23,41 @@
 				"direccion": "Bv. R. S. Peña 1842"
 			},
 			"mapa": "https://www.google.com.ar/maps/place/Comisaria+de+Chab%C3%A1s,+Chabas,+Santa+Fe/@-33.2429297,-61.3594848,17z/data=!3m1!4b1!4m5!3m4!1s0x95c82844130a74f9:0xbc34c5b7f6198dec!8m2!3d-33.2429293!4d-61.3572724"
+		},
+		{
+			"nombre": "Escuela M. de Belén N°1176",
+			"tel": "480-162",
+			"mapa": ""
+		},
+		{
+			"nombre": "Escuela N°208 Bernardo de Monteagudo",
+			"tel": "480-398",
+			"mapa": ""
+		},
+		{
+			"nombre": "Escuela de Enseñanza Media N° 222",
+			"tel": "480-431",
+			"mapa": ""
+		},
+		{
+			"nombre": "Escuela De Educación Técnica N° 8163",
+			"tel": "480-317",
+			"mapa": ""
+		},
+		{
+			"nombre": "Escuela N° 142 Gral San Martín",
+			"tel": "482-012",
+			"mapa": ""
+		},
+		{
+			"nombre": "Escuela Especial N° 2071",
+			"tel": "482-011",
+			"mapa": ""
+		},
+		{
+			"nombre": "Jardín de Infantes N° 115",
+			"tel": "482-013",
+			"mapa": ""
 		}
 	],
 	"remises": [

@@ -45,7 +45,10 @@ $button_border-color: #B5B5B5;
     &.is-in-modal { background: $color500-5; }
 }
 
-.button-transparent { margin: 20px auto; padding: 15px; background: transparent; border: 1px solid #009688; border-radius: 3px; color: #009688; cursor: pointer; }
+.button-transparent { 
+  margin: 20px auto; padding: 15px; background: transparent; border: 1px solid #009688; border-radius: 3px; color: #009688; cursor: pointer;
+    &.is-offline { border-color: #c3c3c3; color: #c3c3c3; pointer-events: none; }
+  }
 
 .fab{
   border-radius: 50%;

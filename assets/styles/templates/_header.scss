@@ -16,7 +16,7 @@
 // -------------------------------------
 
 #mainTab {     
-	max-height: 0; overflow: hidden; transition: all .5s ease-in-out; 
+	max-height: 0; overflow: hidden; /*transition: all .5s ease-in-out;*/ 
 	&.nav-show { max-height: 58px; /*border-bottom: 2px solid rgba(0, 0, 0, 0.35);*/  }
 }
 
@@ -24,7 +24,7 @@
 	padding: 2em 0 2em 0; margin: 0; background: #333; border-bottom: 1px solid rgb(0, 194, 255);
 	h1 { 
 		color: white; font-size: 2.3em;  text-transform: uppercase; line-height: normal; font-weight: 100; margin: 0;
-		&.subTitle span { font-size: 25px; margin-left: 5px; font-family: Dancing Script; opacity: .8; text-transform: lowercase; color: #009688; }
+		&.subTitle span.hoy { font-size: 25px; margin-left: 5px; font-family: Dancing Script; opacity: .8; text-transform: lowercase; color: #009688; }
 	}
 	// font-family: 'Fjalla One', sans-serif;
 	.fecha { float: right; color: #aaa; font-weight: 100;}

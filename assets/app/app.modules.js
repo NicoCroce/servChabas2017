@@ -1,22 +1,35 @@
-(function(){
+(function () {
     'use strict';
 
     angular
         .module('servicios-chabas')
-        .run(function ($rootScope, analytics) {
+        .run(function ($rootScope, analytics, services) {
+            $rootScope.backSectionVisible = false;
             $rootScope.loadingService = true;
             $rootScope.modalIsOpen = false;
+            $rootScope.offline = false;
             analytics.pageview('/home');
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
-                localStorage.setItem("showModalUpdate.1", true);
+                localStorage.setItem("showModalUpdate1", true);
             }
+
+            function updateIndicator() {
+                $rootScope.offline = !navigator.onLine;
+                $rootScope.loadingService = false;
+                $rootScope.$apply();
+            }
+
+            // Update the online status icon based on connectivity
+            window.addEventListener('online', updateIndicator);
+            window.addEventListener('offline', updateIndicator);
+            updateIndicator();
         })
-        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider){
+        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider) {
             $qProvider.errorOnUnhandledRejections(false);
             $urlRouterProvider.otherwise('/home');
-            
+
             $stateProvider
                 // HOME STATES AND NESTED VIEWS ========================================
                 .state('home', {
@@ -89,6 +102,12 @@
                     templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
                     controller: 'ServicesTelefonosController'
                 })
+
+                /*.state('fespal', {
+                    url: '/fespal',
+                    templateUrl: 'templates/fespal/fespal.html',
+                    controller: 'FespalController'
+                })*/
 
 
                 .state('menu', {

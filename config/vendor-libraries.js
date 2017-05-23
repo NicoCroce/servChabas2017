@@ -2,21 +2,22 @@
 
 var path = require('path');
 
-exports.getFiles = function (BOWER_COMPONENTS) {
+exports.getFiles = function (BOWER_COMPONENTS, NPM_COMPONENTS) {
     return [
-        path.join(BOWER_COMPONENTS + '/jquery/dist/jquery.min.js'),
-        path.join(BOWER_COMPONENTS + '/angular/angular.min.js'),
-        path.join(BOWER_COMPONENTS + '/angular-resource/angular-resource.min.js'),
-        path.join(BOWER_COMPONENTS + '/angular-ui-router/release/angular-ui-router.min.js')
+        path.join(BOWER_COMPONENTS, 'jquery/dist/jquery.min.js'),
+        path.join(BOWER_COMPONENTS, 'angular/angular.min.js'),
+        path.join(BOWER_COMPONENTS, 'angular-resource/angular-resource.min.js'),
+        path.join(BOWER_COMPONENTS, 'angular-ui-router/release/angular-ui-router.min.js')
     ];
 };
 
 
 exports.getAppFiles = function (SRC_APP_BASE, JS_EXTERNAL_FILES) {
     return [
-        path.join(SRC_APP_BASE + '/app.config.js'),
-        path.join(SRC_APP_BASE + '/app.modules.js'),
-        path.join(SRC_APP_BASE + '/**/*.js'),
+        path.join(SRC_APP_BASE, 'app.config.js'),
+        path.join(SRC_APP_BASE, 'app.modules.js'),
+        path.join(SRC_APP_BASE, '**/*.js'),
+        '!' + path.join(SRC_APP_BASE, 'sw.js'),
         path.join(JS_EXTERNAL_FILES)
     ];
 };

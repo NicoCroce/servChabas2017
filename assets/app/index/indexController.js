@@ -4,13 +4,36 @@
         .module('servicios-chabas')
         .controller('IndexController', IndexController);
 
-    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state) {
+    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state, services) {
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 
+        $rootScope.loadingService = false;
+
         $scope.modal = {
-            showModal: false
+            showModal: false,
+            showModalUpdate: false
         };
+
+        (function init() {
+            setTimeout(function () {
+                if (typeof (Storage) !== "undefined") {
+                    $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate1") == "true";
+                } else {
+                    $scope.modal.showModalUpdate = true;
+                }
+            }, 1000);
+        })();
+
+        $scope.closeModalUpdate = function (type) {
+            $scope.modal.showModalUpdate = false;
+            if (type && type == 'update') {
+                if (typeof (Storage) !== "undefined") {
+                    localStorage.setItem("showModalUpdate1", false);
+                }
+            }
+            $rootScope.modalIsOpen = false;
+        }
 
         $scope.closeModal = function () {
             $scope.modal.showModal = false;
@@ -26,18 +49,14 @@
 
         $scope.tabs = {
             tabArray: [
-                { 'url': 'farmacias', 'icon': 'icon-pil', 'text': 'farmacias' },
-                { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': 'colectivos' },
-                { 'url': 'servicios.list', 'icon': 'icon-list2', 'text': 'servicos' },
-                { 'url': 'menu', 'icon': 'icon-options-v', 'text': '' }
+                { 'url': 'farmacias', 'icon': 'icon-heart', 'text': '', 'fontSize': 'fs-23' },
+                { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': '', 'fontSize': 'fs-20' },
+                { 'url': 'servicios.list', 'icon': 'icon-office', 'text': '', 'fontSize': '' },
+                /*{ 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': 'bold' },*/
+                { 'url': 'menu', 'icon': 'icon-options-v', 'text': '', 'fontSize': '' }
             ],
             tabSelected: factoryIndex.setTab()
         };
-
-        setTimeout(function () {
-            $rootScope.loadingService = false;
-            $scope.$apply();
-        }, 500);
 
         setTimeout(function () {
             var getShowModal;
@@ -69,8 +88,8 @@
             } else {
                 $state.go('home');
             }
-
-
         }
+        
+        services.init();
     };
 })();
