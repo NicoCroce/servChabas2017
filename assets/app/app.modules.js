@@ -103,12 +103,22 @@
                     controller: 'ServicesTelefonosController'
                 })
 
-                /*.state('fespal', {
-                    url: '/fespal',
-                    templateUrl: 'templates/fespal/fespal.html',
-                    controller: 'FespalController'
-                })*/
 
+                .state('stack', {
+                    abstract: true,
+                    url: '/stack',
+                    template: '<ui-view/>',
+                    controller: 'ServicesController'
+                })
+                .state('stack.list', {
+                    url: '/list',
+                    templateUrl: 'templates/stack/stack.html'
+                })
+                .state('stack.radios', {
+                    url: '/radios/:back',
+                    templateUrl: 'templates/stack/radios/stackRadios.html',
+                    controller: 'StackRadioController'
+                })
 
                 .state('menu', {
                     url: '/menu',

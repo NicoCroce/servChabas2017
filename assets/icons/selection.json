@@ -27,7 +27,7 @@
         "code": 59649
       },
       "setIdx": 0,
-      "setId": 12,
+      "setId": 18,
       "iconIdx": 0
     },
     {
@@ -56,7 +56,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 0
     },
     {
@@ -84,7 +84,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 1
     },
     {
@@ -110,7 +110,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 2
     },
     {
@@ -137,7 +137,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 3
     },
     {
@@ -165,7 +165,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 4
     },
     {
@@ -192,7 +192,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 5
     },
     {
@@ -222,7 +222,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 6
     },
     {
@@ -250,7 +250,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 7
     },
     {
@@ -280,7 +280,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 11,
+      "setId": 17,
       "iconIdx": 8
     },
     {
@@ -309,7 +309,7 @@
         "name": "bus"
       },
       "setIdx": 2,
-      "setId": 10,
+      "setId": 16,
       "iconIdx": 0
     },
     {
@@ -338,7 +338,7 @@
         "name": "info"
       },
       "setIdx": 2,
-      "setId": 10,
+      "setId": 16,
       "iconIdx": 1
     },
     {
@@ -367,7 +367,7 @@
         "name": "phone"
       },
       "setIdx": 2,
-      "setId": 10,
+      "setId": 16,
       "iconIdx": 2
     },
     {
@@ -396,7 +396,7 @@
         "name": "arrow_right"
       },
       "setIdx": 2,
-      "setId": 10,
+      "setId": 16,
       "iconIdx": 3
     },
     {
@@ -423,7 +423,7 @@
         "name": "signal_wifi_off"
       },
       "setIdx": 2,
-      "setId": 10,
+      "setId": 16,
       "iconIdx": 4
     },
     {
@@ -446,14 +446,14 @@
       ],
       "properties": {
         "order": 20,
-        "id": 3,
+        "id": 5,
         "prevSize": 24,
         "code": 59654,
         "name": "system_update"
       },
-      "setIdx": 5,
-      "setId": 7,
-      "iconIdx": 0
+      "setIdx": 2,
+      "setId": 16,
+      "iconIdx": 5
     },
     {
       "icon": {
@@ -475,14 +475,95 @@
       ],
       "properties": {
         "order": 21,
-        "id": 2,
+        "id": 6,
         "prevSize": 24,
         "code": 59655,
         "name": "sync"
       },
+      "setIdx": 2,
+      "setId": 16,
+      "iconIdx": 6
+    },
+    {
+      "icon": {
+        "paths": [
+          "M298 86h428l-172 340h172l-300 512v-384h-128v-468z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "flash_on"
+        ],
+        "defaultCode": 58343,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "flash_on",
+        "id": 309,
+        "order": 22,
+        "prevSize": 24,
+        "code": 58343,
+        "name": "flash_on"
+      },
       "setIdx": 5,
-      "setId": 7,
-      "iconIdx": 1
+      "setId": 13,
+      "iconIdx": 309
+    },
+    {
+      "icon": {
+        "paths": [
+          "M598 214h170v596h-170v-596zM256 810v-596h170v596h-170z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "pause"
+        ],
+        "defaultCode": 57396,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "pause",
+        "id": 545,
+        "order": 24,
+        "prevSize": 24,
+        "code": 57396,
+        "name": "pause"
+      },
+      "setIdx": 5,
+      "setId": 13,
+      "iconIdx": 545
+    },
+    {
+      "icon": {
+        "paths": [
+          "M342 214l468 298-468 298v-596z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "play_arrow"
+        ],
+        "defaultCode": 57399,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "play_arrow",
+        "id": 587,
+        "order": 23,
+        "prevSize": 24,
+        "code": 57399,
+        "name": "play_arrow"
+      },
+      "setIdx": 5,
+      "setId": 13,
+      "iconIdx": 587
     },
     {
       "icon": {
@@ -506,7 +587,7 @@
         "name": "email"
       },
       "setIdx": 3,
-      "setId": 9,
+      "setId": 15,
       "iconIdx": 0
     },
     {
@@ -535,7 +616,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 0
     },
     {
@@ -562,7 +643,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 1
     },
     {
@@ -589,7 +670,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 2
     },
     {
@@ -619,7 +700,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 3
     },
     {
@@ -646,7 +727,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 4
     },
     {
@@ -676,7 +757,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 5
     },
     {
@@ -705,7 +786,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 6
     },
     {
@@ -733,7 +814,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 7
     },
     {
@@ -761,7 +842,7 @@
         "code": 58900
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 8
     },
     {
@@ -789,7 +870,7 @@
         "code": 58901
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 9
     },
     {
@@ -820,7 +901,7 @@
         "code": 59835
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 10
     },
     {
@@ -848,7 +929,7 @@
         "code": 59694
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 11
     },
     {
@@ -877,7 +958,7 @@
         "code": 60051
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 12
     },
     {
@@ -906,8 +987,68 @@
         "code": 59653
       },
       "setIdx": 4,
-      "setId": 8,
+      "setId": 14,
       "iconIdx": 13
+    },
+    {
+      "icon": {
+        "width": 1088,
+        "paths": [
+          "M890.040 922.040c-12.286 0-24.566-4.686-33.942-14.056-18.744-18.746-18.744-49.136 0-67.882 87.638-87.642 135.904-204.16 135.904-328.1 0-123.938-48.266-240.458-135.904-328.098-18.744-18.746-18.744-49.138 0-67.882s49.138-18.744 67.882 0c105.77 105.772 164.022 246.4 164.022 395.98s-58.252 290.208-164.022 395.98c-9.372 9.372-21.656 14.058-33.94 14.058zM719.53 831.53c-12.286 0-24.566-4.686-33.942-14.056-18.744-18.744-18.744-49.136 0-67.882 131.006-131.006 131.006-344.17 0-475.176-18.744-18.746-18.744-49.138 0-67.882 18.744-18.742 49.138-18.744 67.882 0 81.594 81.59 126.53 190.074 126.53 305.466 0 115.39-44.936 223.876-126.53 305.47-9.372 9.374-21.656 14.060-33.94 14.060v0zM549.020 741.020c-12.286 0-24.568-4.686-33.942-14.058-18.746-18.746-18.746-49.134 0-67.88 81.1-81.1 81.1-213.058 0-294.156-18.746-18.746-18.746-49.138 0-67.882s49.136-18.744 67.882 0c118.53 118.53 118.53 311.392 0 429.922-9.372 9.368-21.656 14.054-33.94 14.054z",
+          "M416.006 960c-8.328 0-16.512-3.25-22.634-9.374l-246.626-246.626h-114.746c-17.672 0-32-14.326-32-32v-320c0-17.672 14.328-32 32-32h114.746l246.626-246.628c9.154-9.154 22.916-11.89 34.874-6.936 11.958 4.952 19.754 16.622 19.754 29.564v832c0 12.944-7.796 24.612-19.754 29.564-3.958 1.64-8.118 2.436-12.24 2.436z"
+        ],
+        "tags": [
+          "volume-high",
+          "volume",
+          "audio",
+          "speaker",
+          "player"
+        ],
+        "defaultCode": 59942,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "volume-high, volume",
+        "name": "volume-high",
+        "order": 26,
+        "id": 295,
+        "prevSize": 32,
+        "code": 59942
+      },
+      "setIdx": 17,
+      "setId": 1,
+      "iconIdx": 294
+    },
+    {
+      "icon": {
+        "paths": [
+          "M960 619.148v84.852h-84.852l-107.148-107.148-107.148 107.148h-84.852v-84.852l107.148-107.148-107.148-107.148v-84.852h84.852l107.148 107.148 107.148-107.148h84.852v84.852l-107.148 107.148 107.148 107.148z",
+          "M416.006 960c-8.328 0-16.512-3.25-22.634-9.374l-246.626-246.626h-114.746c-17.672 0-32-14.326-32-32v-320c0-17.672 14.328-32 32-32h114.746l246.626-246.628c9.154-9.154 22.916-11.89 34.874-6.936 11.958 4.952 19.754 16.622 19.754 29.564v832c0 12.944-7.796 24.612-19.754 29.564-3.958 1.64-8.118 2.436-12.24 2.436z"
+        ],
+        "tags": [
+          "volume-mute",
+          "volume",
+          "audio",
+          "player"
+        ],
+        "defaultCode": 59946,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "volume-mute2, volume5",
+        "name": "volume-mute2",
+        "order": 25,
+        "id": 299,
+        "prevSize": 32,
+        "code": 59946
+      },
+      "setIdx": 17,
+      "setId": 1,
+      "iconIdx": 298
     }
   ],
   "height": 1024,

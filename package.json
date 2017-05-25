@@ -37,6 +37,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "jeet": "^7.1.0",
+    "mediaelement": "^4.1.1",
     "merge-stream": "^1.0.0",
     "sw-precache": "^5.1.1",
     "sw-toolbox": "^3.6.0"

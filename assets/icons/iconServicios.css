@@ -74,6 +74,15 @@
 .icon-sync:before {
   content: "\e907";
 }
+.icon-flash_on:before {
+  content: "\e3e7";
+}
+.icon-pause:before {
+  content: "\e034";
+}
+.icon-play_arrow:before {
+  content: "\e037";
+}
 .icon-email:before {
   content: "\e616";
 }
@@ -118,4 +127,10 @@
 }
 .icon-office:before {
   content: "\e905";
+}
+.icon-volume-high:before {
+  content: "\ea26";
+}
+.icon-volume-mute2:before {
+  content: "\ea2a";
 }

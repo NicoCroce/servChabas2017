@@ -62,3 +62,20 @@
 }
 
 
+@keyframes rotate-shadow {
+  0% {
+    box-shadow: 2px 2px 3px rgba(0, 150, 136, 0.69) inset;
+  }
+  25% {
+    box-shadow: 1px 2px 3px rgba(0, 150, 136, 0.69) inset;
+  }
+  50% {
+    box-shadow: -2px -2px 3px rgba(0, 150, 136, 0.69) inset;
+  }
+  75% {
+    box-shadow: 1px -1px 3px rgba(0, 150, 136, 0.69) inset;
+  }
+  100% {
+    box-shadow: 2px 2px 3px rgba(0, 150, 136, 0.69) inset;
+  }
+}

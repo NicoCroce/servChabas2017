@@ -52,8 +52,7 @@
                 { 'url': 'farmacias', 'icon': 'icon-heart', 'text': '', 'fontSize': 'fs-23' },
                 { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': '', 'fontSize': 'fs-20' },
                 { 'url': 'servicios.list', 'icon': 'icon-office', 'text': '', 'fontSize': '' },
-                /*{ 'url': 'fespal', 'icon': '', 'text': 'FESPAL', 'fontSize': 'bold' },*/
-                { 'url': 'menu', 'icon': 'icon-options-v', 'text': '', 'fontSize': '' }
+                { 'url': 'stack.list', 'icon': 'icon-stack', 'text': '', 'fontSize': 'fs-20' }
             ],
             tabSelected: factoryIndex.setTab()
         };

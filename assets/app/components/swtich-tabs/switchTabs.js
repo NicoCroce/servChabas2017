@@ -18,15 +18,10 @@
 
 				var maxTabs, tabsCount;
 
-				maxTabs = 5;
+				maxTabs = 4;
 				tabsCount = (scope.tabs.tabArray.length >= maxTabs) ? maxTabs : scope.tabs.tabArray.length;
 				scope.tabsSize = function (index) {
-					var width = {};
-					if (index == tabsCount - 1) {
-						width = { "width": 10 + "%" };
-					} else {
-						width = { "width": 90 / (tabsCount - 1) + "%" };
-					}
+					var width = { "width": 100 / (tabsCount) + "%" };
 					return width;
 				};
 

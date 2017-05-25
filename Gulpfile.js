@@ -98,13 +98,13 @@ gulp.task('copyData', gulp.series(cleanData, copyData));
 gulp.task('generateServiceWorker', gulp.series(generateServiceWorker));
 
 gulp.task("watch", function (done) {
-	gulp.watch(SASS_FILES, gulp.series('sass', generateServiceWorker));
-	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates', generateServiceWorker));
-	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat", generateServiceWorker));
-	gulp.watch(ICON_FILES, gulp.series('copyIcons', generateServiceWorker));
-	gulp.watch(IMAGES_FILES, gulp.series("copyImg", generateServiceWorker));
-	gulp.watch(DATA_FILES, gulp.series('copyData', generateServiceWorker));
-	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles, generateServiceWorker));
+	gulp.watch(SASS_FILES, gulp.series('sass'/*, generateServiceWorker*/));
+	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'/*, generateServiceWorker*/));
+	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat"/*, generateServiceWorker*/));
+	gulp.watch(ICON_FILES, gulp.series('copyIcons'/*, generateServiceWorker*/));
+	gulp.watch(IMAGES_FILES, gulp.series("copyImg"/*, generateServiceWorker*/));
+	gulp.watch(DATA_FILES, gulp.series('copyData'/*, generateServiceWorker*/));
+	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles/*, generateServiceWorker*/));
 	gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
 	return done();
 });
