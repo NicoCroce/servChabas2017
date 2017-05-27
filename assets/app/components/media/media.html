@@ -1,22 +1,22 @@
-<!--<audio id="audio_0" preload="none"controls src="http://fmvida.radio.rosario3.com:8000/fmvida.mp3/;"></audio>-->
-<h1 ng-bind="config.name"></h1>
-<div id='player' class="audio-player-button">
+<div id='player_{{config.id}}' class="audio-player-button" ng-class="{'is-playing': config.isPlaying}">
     <div class="clear-content">
         <div>
             <img src="{{ config.img }}" alt="">
         </div>
         <div>
-            <div id="play_button" src="images/play.png" ng-click="play_aud()" class="button-play">
-                <span class="icon-play_arrow" ng-class="{'hide-element': config.isPlaying}"></span>
-                <span class="icon-pause" ng-class="{'hide-element': !config.isPlaying}"></span>
+            <h1 ng-bind="config.name"></h1>
+            <div id="play_button" ng-click="play_aud()" class="button-play-pause">
+                <span class="icon-play_arrow"></span>
+                <span class="icon-pause"></span>
             </div>
         </div>
     </div>
     <audio id="musicPlayer_{{config.id}}">
         <source src="{{ config.src }}" />
     </audio>
-    <!--<img src="images/volume.png" id="vol_img">-->
-    <input id="change_vol" type="range" ng-model="config.range" min="0" max="1" step="0.01" ng-change="change_vol()" ng-class="{'show-bar': config.isPlaying}">
-    <span class="icon-volume-mute2" ng-class="{'visible-audio': config.isPlaying}"></span>
-    <span class="icon-volume-high" ng-class="{'visible-audio': config.isPlaying}"></span>
+    <div class="vol-control">
+        <input id="change_vol_{{config.id}}" type="range" ng-model="config.range" min="0" max="1" step="0.01" ng-change="change_vol()">
+        <span class="icon-volume-mute2" ng-class="{'visible-audio': config.isPlaying}"></span>
+        <span class="icon-volume-high" ng-class="{'visible-audio': config.isPlaying}"></span>
+    </div>
 </div>

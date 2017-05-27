@@ -84,6 +84,8 @@
                 return $state.go('servicios.list');
             } else if (window.location.hash.indexOf('colectivos') >= 0) {
                 return $state.go('colectivos.list');
+            } else if (window.location.hash.indexOf('stack') >= 0) {
+                return $state.go('stack.list');
             } else {
                 $state.go('home');
             }

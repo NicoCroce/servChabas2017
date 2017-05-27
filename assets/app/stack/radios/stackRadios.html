@@ -1,4 +1,5 @@
-<div media-controller config="dataRadios.radioUno"></div>
-<div media-controller config="dataRadios.fmvida"></div>
+<div transition ng-cloak>
+    <div media-controller config="radio" ng-repeat="radio in dataRadios track by $index"></div>
+</div>
 <!--<h2>RADIO UNO 99.1</h2>
 <audio id="audio_1" preload="none" controls src="http://server1.dainusradio.com:9884/;"></audio>-->

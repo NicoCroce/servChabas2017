@@ -25,7 +25,7 @@
                 return index = 2;
             };
 
-            if (section.indexOf('fespal') >= 0) {
+            if (section.indexOf('stack') >= 0) {
                 return index = 3;
             };
 

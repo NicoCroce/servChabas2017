@@ -28,9 +28,9 @@
 	}
 	// font-family: 'Fjalla One', sans-serif;
 	.fecha { float: right; color: #aaa; font-weight: 100;}
-	.circle-menu { width: 4px; height: 4px; background: white; border-radius: 50%; margin-bottom: 7px; }
+	.circle-menu { width: 3px; height: 3px; background: white; border-radius: 50%; margin-bottom: 4px; }
 	.menu-access {
-		float: right; margin-top: 8px; cursor: pointer; padding-left: 10px;
+		float: right; margin-top: 12px; cursor: pointer; padding-left: 10px;
 		.menu-i { 
 			@extend .circle-menu;
 			&:last-of-type { margin: 0; }
