@@ -316,11 +316,12 @@ function copyRootFiles() {
 		.pipe(gulp.dest(path.join(ENVIRONMENT))).on('error', gutil.log);
 };
 
-function compressImg(done) {
-	gulp.src(IMAGES_FILES)
-		/*.pipe(imagemin())*/
+function compressImg() {
+	return gulp.src(SRC_IMAGES_BASE + '/*')
+		/*.pipe(imagemin([imagemin.gifsicle({ interlaced: true }),
+		imagemin.jpegtran({ progressive: true }),
+		imagemin.optipng({ optimizationLevel: 5 })], {}))*/
 		.pipe(gulp.dest(ENVIRONMENT + '/img'));
-	return done();
 };
 
 function copyIconsFunction(done) {

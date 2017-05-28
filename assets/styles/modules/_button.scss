@@ -83,7 +83,7 @@ $button_border-color: #B5B5B5;
 
 .stack-button { 
   width: 100px; height: 100px; background: transparent; border: 1px solid $color500; border-radius: 5px;
-  margin: 0 auto; display: block;
+  margin: 0 auto; display: block; cursor: pointer;
   >span { color: $color500; }
   >span[class*=icon] { margin: 0; font-size: 30px; display: block; margin-bottom: 10px; }
 }
