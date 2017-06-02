@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <button type="" onclick="getUserData()">get</button>
+    <button type="" onclick="writeUserData()">set</button>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDDeONbh3b6fYdEwMA8mSkXu19tV7mCspw",
+            authDomain: "chabashoytest.firebaseapp.com",
+            databaseURL: "https://chabashoytest.firebaseio.com",
+            projectId: "chabashoytest",
+            storageBucket: "chabashoytest.appspot.com",
+            messagingSenderId: "225376352029"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+            function getUserData(){
+                var usersDB = firebase.database().ref('users');
+                /*usersDB.on('value', function(data){
+                    console.log(data.val());
+                });*/
+                usersDB.once('value').then(function (data) {
+                    console.log(data.val());
+                });
+            }
+
+            function writeUserData() {
+                /*firebase.database().ref('users/' + 1113).set({
+                    username: "nicoCroce Pablo",
+                    email: "email@k.com",
+                    profile_picture: "imageUrl"
+                });*/
+                firebase.database().ref('users/' + 1113).update({
+                    username: "nicoCroce Pablo",
+                    email: "email@k.com",
+                    profile_picture: "imageUr23"
+                });
+            }
+    </script>
+</body>
+
+</html>
