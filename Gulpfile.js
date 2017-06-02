@@ -318,9 +318,9 @@ function copyRootFiles() {
 
 function compressImg() {
 	return gulp.src(SRC_IMAGES_BASE + '/*')
-		/*.pipe(imagemin([imagemin.gifsicle({ interlaced: true }),
+		.pipe(imagemin([imagemin.gifsicle({ interlaced: true }),
 		imagemin.jpegtran({ progressive: true }),
-		imagemin.optipng({ optimizationLevel: 5 })], {}))*/
+		imagemin.optipng({ optimizationLevel: 5 })], {}))
 		.pipe(gulp.dest(ENVIRONMENT + '/img'));
 };
 
@@ -452,3 +452,14 @@ gulp.task('deploy', gulp.series(setEnvironmentProd, clean, 'deployTasks', functi
 }));
 
 //************************************************************************************
+
+
+function run(done) {
+	exec('@"%SYSTEMDRIVE%\Program Files\Git\bin\bash.exe" --login -i -c "gulp"', {
+	}, function (error, stdout, stderr) {
+		console.log(stdout);
+	});
+	done();
+}
+
+gulp.task('run', gulp.series(run));
