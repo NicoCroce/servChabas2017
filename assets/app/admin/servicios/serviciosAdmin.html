@@ -1,0 +1,9 @@
+<div combo list-options="listOptions"></div>
+
+HEADERS {{service.headers }}
+
+<div table-backend service="service" ng-if="isLoaded"></div>
+
+<pre>
+ {{ service | json }}
+</pre>

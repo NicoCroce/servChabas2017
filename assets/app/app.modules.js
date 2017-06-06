@@ -8,6 +8,7 @@
             $rootScope.loadingService = true;
             $rootScope.modalIsOpen = false;
             $rootScope.offline = false;
+            $rootScope.isAdmin = false;
             analytics.pageview('/home');
 
             if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
@@ -25,6 +26,10 @@
             window.addEventListener('online', updateIndicator);
             window.addEventListener('offline', updateIndicator);
             updateIndicator();
+
+            if(getUrlVars()["admin"]){
+                $rootScope.isAdmin = true;
+            }
         })
         .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider) {
             $qProvider.errorOnUnhandledRejections(false);
@@ -109,10 +114,6 @@
                     url: '/stack',
                     template: '<ui-view/>',
                     controller: 'ServicesController'
-                })
-                .state('stack.list', {
-                    url: '/list',
-                    templateUrl: 'templates/stack/stack.html'
                 })
                 .state('stack.radios', {
                     url: '/radios/:back',

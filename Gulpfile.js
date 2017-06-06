@@ -105,7 +105,7 @@ gulp.task("watch", function (done) {
 	gulp.watch(IMAGES_FILES, gulp.series("copyImg"/*, generateServiceWorker*/));
 	gulp.watch(DATA_FILES, gulp.series('copyData'/*, generateServiceWorker*/));
 	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles/*, generateServiceWorker*/));
-	gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
+	/*gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));*/
 	return done();
 });
 
@@ -422,7 +422,7 @@ function finishMsg(msg) {
 //*************************************    SECCIÓN  runner    *************************************
 
 gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
-	generateServiceWorker();
+	/*generateServiceWorker();*/
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
