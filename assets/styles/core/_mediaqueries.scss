@@ -23,7 +23,8 @@ $mediaquery_phones-small--portrait: 480px;
         width: 90%;
         .content-info.fb { text-align: right; }
     }
-    .modal-home { display: block !important; }   
+    .modal-home { display: block !important; }
+    .detail-block .element-icon.util-phone { display: table-cell; }
 }
 
 @media screen and (min-width: $mediaquery_phones) {

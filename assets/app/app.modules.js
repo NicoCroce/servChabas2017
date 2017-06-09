@@ -115,6 +115,10 @@
                     template: '<ui-view/>',
                     controller: 'ServicesController'
                 })
+                .state('stack.list', {
+                    url: '/list',
+                    templateUrl: 'templates/stack/stack.html'
+                })
                 .state('stack.radios', {
                     url: '/radios/:back',
                     templateUrl: 'templates/stack/radios/stackRadios.html',

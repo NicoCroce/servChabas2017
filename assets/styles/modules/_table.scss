@@ -68,7 +68,7 @@ table {
   padding: 10px 0; border-bottom: 1px solid $grey300; display: table; table-layout: fixed; width: 100%;
   &:first-of-type { border-top: 1px solid $grey300; }
   .content-info-first {
-	display: table-cell; width: 80%; border-right: 1px solid #929292; padding-right: 10px;
+	display: table-cell; width: 80%; padding-right: 10px;
   	h2 { 
 			margin-bottom: 5px; font-size: toem(16px); color: $color800; font-weight: 800;
 			&.bus-title { min-height: auto; }
@@ -77,6 +77,7 @@ table {
   >div { display: table-cell; vertical-align: middle; }
   .element-icon { 
 		width: 20%; text-align: center; font-size: 25px; color: $grey600; cursor: pointer;
+		&.util-phone { display: none; }
 	}
 	&.fixed-block { min-height: 71px; }
 }
