@@ -69,7 +69,7 @@
         }
 
         function getServices(cbSetData){
-            if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
+            /*if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
 
                 (function callService() {
                     factoryServices.getDataServices()
@@ -100,7 +100,24 @@
                 $rootScope.loadingService = false;
                 if (cbSetData) cbSetData(dataPersist);
                 return;
-            }
+            }*/
+
+            var usersDB = firebase.database().ref('data/servicios');
+
+            usersDB.once('value', servicesSuccess, servicesError);
+
+            function servicesSuccess(dataResponse) {
+                dataPersist.services = dataResponse;
+                if (cbSetData) {
+                    cbSetData(dataResponse.val());
+                    return $rootScope.loadingService = false;
+                }
+                return descServ();
+            };
+
+            function servicesError(dataError) {
+                return $rootScope.loadingService = false;;
+            };
         }
 
         function getBuses(cbSetData) {

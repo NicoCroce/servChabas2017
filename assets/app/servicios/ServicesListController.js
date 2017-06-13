@@ -12,9 +12,11 @@
         var typeService;
 
         $scope.$watch('allServices', function (value) {
-            typeService = factoryServices.getType();
-            $scope.title = typeService.title;
-            $scope.servicesList = value[typeService.jsonElement];
+            if(value){
+                typeService = factoryServices.getType();
+                $scope.title = typeService.title;
+                $scope.servicesList = value[typeService.jsonElement];
+            }
         });
 
         $scope.getValue = function (currentService) {

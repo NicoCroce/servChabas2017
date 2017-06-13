@@ -9,8 +9,10 @@
         services.getServices(setDataService);
 
         function setDataService(data) {
-            $scope.allServices = data.services;
+            $scope.allServices = data;
         };
+
+        $scope.allServices = services.getServices();
 
         $scope.modal = {
             name: '',
