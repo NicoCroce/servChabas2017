@@ -78,7 +78,7 @@
                     console.log("complete");
                 });*/
 
-             $.ajax("./data/servicios.json")
+             /*$.ajax("./data/servicios.json")
                  .done(function (response) {
                      console.log(response);
                      response.rotiserias.forEach(function (element) {
@@ -100,7 +100,53 @@
                  })
                  .always(function () {
                      console.log("complete");
-                 });
+                 });*/
+             /*$.ajax("./data/servicios.json")
+                 .done(function (response) {
+                     console.log(response);
+                     response.remises.forEach(function (element) {
+                         var objToSend = {
+                             "nombre": element.nombre,
+                             "tel": element.tel,
+                             "detalle": {
+                                 "patente": element.detalle.patente,
+                                 "marca": element.detalle.marca,
+                                 "modelo": element.detalle.modelo
+                             }
+                         }
+                         var newTelKey = firebase.database().ref('data/servicios/remises').push().key;
+                         firebase.database().ref('data/servicios/remises/' + newTelKey).update(objToSend);
+                     }, this);
+                 })
+                 .fail(function () {
+                     console.log("error");
+                 })
+                 .always(function () {
+                     console.log("complete");
+                 });*/
+
+             /*$.ajax("./data/servicios.json")
+                 .done(function (response) {
+                     console.log(response);
+                     response.instituciones.forEach(function (element) {
+                         var objToSend = {
+                             "nombre": element.nombre,
+                             "tel": element.tel,
+                             "mapa": element.mapa,
+                             "detalle": {
+                                 "direccion": element.detalle.direccion
+                             }
+                         }
+                         var newTelKey = firebase.database().ref('data/servicios/instituciones').push().key;
+                         firebase.database().ref('data/servicios/instituciones/' + newTelKey).update(objToSend);
+                     }, this);
+                 })
+                 .fail(function () {
+                     console.log("error");
+                 })
+                 .always(function () {
+                     console.log("complete");
+                 });*/
         }
 
 

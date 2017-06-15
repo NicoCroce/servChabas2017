@@ -116,7 +116,7 @@
             };
 
             function servicesError(dataError) {
-                return $rootScope.loadingService = false;;
+                return $rootScope.loadingService = false;
             };
         }
 

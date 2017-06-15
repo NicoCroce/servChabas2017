@@ -23,12 +23,13 @@
             }
         }
 
+        /*getDataServices: getDataServices,*/
+
         return {
-            getDataServices: getDataServices,
             getType: getType
         }
 
-        function getServices() {
+        /*function getServices() {
             return $resource('data/servicios.json').get().$promise;
         };
 
@@ -52,7 +53,7 @@
                 saveAllServices = deferred.promise;
             });
             return deferred.promise;
-        };
+        };*/
 
         function getType(){
             var index = $state.current.url.lastIndexOf('/');
