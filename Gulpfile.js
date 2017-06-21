@@ -98,13 +98,13 @@ gulp.task('copyData', gulp.series(cleanData, copyData));
 gulp.task('generateServiceWorker', gulp.series(generateServiceWorker));
 
 gulp.task("watch", function (done) {
-	gulp.watch(SASS_FILES, gulp.series('sass'/*, generateServiceWorker*/));
-	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates'/*, generateServiceWorker*/));
-	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat"/*, generateServiceWorker*/));
-	gulp.watch(ICON_FILES, gulp.series('copyIcons'/*, generateServiceWorker*/));
-	gulp.watch(IMAGES_FILES, gulp.series("copyImg"/*, generateServiceWorker*/));
-	gulp.watch(DATA_FILES, gulp.series('copyData'/*, generateServiceWorker*/));
-	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles/*, generateServiceWorker*/));
+	gulp.watch(SASS_FILES, gulp.series('sass', generateServiceWorker));
+	gulp.watch(APP_HTML_FILES, gulp.series('copyTemplates', generateServiceWorker));
+	gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat", generateServiceWorker));
+	gulp.watch(ICON_FILES, gulp.series('copyIcons', generateServiceWorker));
+	gulp.watch(IMAGES_FILES, gulp.series("copyImg", generateServiceWorker));
+	gulp.watch(DATA_FILES, gulp.series('copyData', generateServiceWorker));
+	gulp.watch(ROOT_FILES, gulp.series(copyRootFiles, generateServiceWorker));
 	/*gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));*/
 	return done();
 });
@@ -177,18 +177,6 @@ function reload(done) {
 function generateServiceWorker(callback) {
 	var configSw = {
 		cacheId: 'allFiles-1',
-		/*
-		dynamicUrlToDependencies: {
-		  'dynamic/page1': [
-			path.join(rootDir, 'views', 'layout.jade'),
-			path.join(rootDir, 'views', 'page1.jade')
-		  ],
-		  'dynamic/page2': [
-			path.join(rootDir, 'views', 'layout.jade'),
-			path.join(rootDir, 'views', 'page2.jade')
-		  ]
-		},
-		*/
 		// If handleFetch is false (i.e. because this is called from generate-service-worker-dev), then
 		// the service worker will precache resources but won't actually serve them.
 		// This allows you to test precaching behavior without worry about the cache preventing your
@@ -205,7 +193,7 @@ function generateServiceWorker(callback) {
 			ENVIRONMENT + '/templates/**/*.html',
 			ENVIRONMENT + '/index.html',
 			ENVIRONMENT + '/sw.js',
-			ENVIRONMENT + '/service-worker-1.js',
+			ENVIRONMENT + '/service-worker-2.js',
 			ENVIRONMENT + '/manifest.json'
 		],
 		stripPrefix: ENVIRONMENT,
@@ -213,25 +201,24 @@ function generateServiceWorker(callback) {
 		verbose: true
 	};
 
-	swPrecache.write(path.join(ENVIRONMENT, 'service-worker-1.js'), configSw, callback);
+	swPrecache.write(path.join(ENVIRONMENT, 'service-worker-2.js'), configSw, callback);
 }
 
-
-
-
-/*runtimeCaching: [{*/
-// See https://github.com/GoogleChrome/sw-toolbox#methods
-//	urlPattern: '/**/*.js',
-/*	handler: 'networkFirst',
+/*  runtimeCaching: [{
+	// See https://github.com/GoogleChrome/sw-toolbox#methods
+	urlPattern: '/\.gstatic\.com/',
+	handler: 'fastest',
+}, {
+	urlPattern: '/\.firebaseio\.com/',
+	handler: 'networkFirst', */
 	// See https://github.com/GoogleChrome/sw-toolbox#options
-	options: {
+	/* options: {
 		cache: {
-			name: 'jsScript',
-			maxEntries: 12,
+			name: 'firebase',
 			maxAgeSeconds: 86400
 		},
-	}
-}],*/
+	} */
+/* }],  */
 
 
 function connectServer(done) {
@@ -422,7 +409,7 @@ function finishMsg(msg) {
 //*************************************    SECCIÓN  runner    *************************************
 
 gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
-	/*generateServiceWorker();*/
+	generateServiceWorker();
 	runFirstTime = false;
 	finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));
