@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict'
     angular
         .module('servicios-chabas')
@@ -47,8 +47,8 @@
                         map: dataResponse.pharmacyData.mapa,
                     };
                     if (cbSetData) {
-                        cbSetData(dataPersist); 
-                        return $rootScope.loadingService = false; 
+                        cbSetData(dataPersist);
+                        return $rootScope.loadingService = false;
                     }
                     return descServ();
                 };
@@ -68,7 +68,7 @@
             }
         }
 
-        function getServices(cbSetData){
+        function getServices(cbSetData) {
             /*if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
 
                 (function callService() {
@@ -107,7 +107,7 @@
             usersDB.once('value', servicesSuccess, servicesError);
 
             function servicesSuccess(dataResponse) {
-                dataPersist.services = dataResponse;
+                dataPersist.services = dataResponse.val();
                 if (cbSetData) {
                     cbSetData(dataResponse.val());
                     return $rootScope.loadingService = false;
@@ -147,8 +147,7 @@
                 function busesFinally(dataFinally) {
                     $rootScope.loadingService = false;
                 };
-            }
-            else {
+            } else {
                 $rootScope.loadingService = false;
                 if (cbSetData) cbSetData(dataPersist);
                 return;
@@ -162,7 +161,7 @@
         }
 
         function descServ() {
-            contServ --;
+            contServ--;
             if (contServ == 0) { $rootScope.loadingService = false; }
         }
     };
