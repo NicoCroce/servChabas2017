@@ -69,38 +69,37 @@
         }
 
         function getServices(cbSetData) {
-            /*if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
+            /*var dbIndex = new Dexie('chabashoy');
+            dbIndex.version(1).stores({
+                servicios: 'stringServ'
+            });
 
-                (function callService() {
-                    factoryServices.getDataServices()
-                        .then(servicesSuccess)
-                        .catch(servicesError)
-                        .finally(servicesFinally);
-                })();
+            dbIndex.servicios.get('stringServ').then(function(value) {
+                console.log(value);
+            })*/
 
-                function servicesSuccess(dataResponse) {
-                    dataPersist.services = dataResponse;
-                    if (cbSetData) {
-                        cbSetData(dataPersist);
-                        return $rootScope.loadingService = false;
-                    }
-                    return descServ();
-                };
+            //
+            // Put some data into it
+            //
+            /*dbIndex.friends.put({ name: "Nicolas", shoeSize: 8 }).then(function() {
+                //
+                // Then when data is stored, read from it
+                //
+                return dbIndex.friends.get('');
+            }).then(function(friend) {
+                //
+                // Display the result
+                //
+                console.log("Nicolas has shoe size " + friend);
+            }).catch(function(error) {
+                //
+                // Finally don't forget to catch any error
+                // that could have happened anywhere in the
+                // code blocks above.
+                //
+                console.log("Ooops: " + error);
+            });*/
 
-                function servicesError(dataError) {
-                    return;
-                };
-
-                function servicesFinally(dataFinally) {
-                    $rootScope.loadingService = false;
-
-                };
-            }
-            else {
-                $rootScope.loadingService = false;
-                if (cbSetData) cbSetData(dataPersist);
-                return;
-            }*/
 
             var usersDB = firebase.database().ref('data/servicios');
 
@@ -108,6 +107,21 @@
 
             function servicesSuccess(dataResponse) {
                 dataPersist.services = dataResponse.val();
+
+                /*dbIndex.servicios.put({ stringServ: JSON.stringify(dataPersist.services) }).then(function() {
+                    //
+                    // Then when data is stored, read from it
+                    //
+                }).catch(function(error) {
+                    //
+                    // Finally don't forget to catch any error
+                    // that could have happened anywhere in the
+                    // code blocks above.
+                    //
+                    console.log("Ooops: " + error);
+                });*/
+
+
                 if (cbSetData) {
                     cbSetData(dataResponse.val());
                     return $rootScope.loadingService = false;

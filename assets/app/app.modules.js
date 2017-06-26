@@ -1,9 +1,9 @@
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('servicios-chabas')
-        .run(function ($rootScope, analytics, services) {
+        .run(function($rootScope, analytics, services) {
             $rootScope.backSectionVisible = false;
             $rootScope.loadingService = true;
             $rootScope.modalIsOpen = false;
@@ -11,7 +11,7 @@
             $rootScope.isAdmin = false;
             analytics.pageview('/home');
 
-            if (typeof (Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
+            if (typeof(Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);
                 localStorage.setItem("showModalUpdate1", true);
             }
@@ -27,16 +27,16 @@
             window.addEventListener('offline', updateIndicator);
             updateIndicator();
 
-            if(getUrlVars()["admin"]){
+            if (getUrlVars()["admin"]) {
                 $rootScope.isAdmin = true;
             }
         })
-        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function ($qProvider, $stateProvider, $urlRouterProvider) {
+        .config(['$qProvider', '$stateProvider', '$urlRouterProvider', function($qProvider, $stateProvider, $urlRouterProvider) {
             $qProvider.errorOnUnhandledRejections(false);
             $urlRouterProvider.otherwise('/home');
 
             $stateProvider
-                // HOME STATES AND NESTED VIEWS ========================================
+            // HOME STATES AND NESTED VIEWS ========================================
                 .state('home', {
                     url: '/home',
                     templateUrl: 'templates/home/home.html',
@@ -49,7 +49,7 @@
                 })
 
 
-                .state('colectivos', {
+            .state('colectivos', {
                     abstract: true,
                     url: '/colectivos',
                     templateUrl: 'templates/colectivos/colectivosPrincipal.html',
@@ -77,7 +77,7 @@
                 })
 
 
-                .state('servicios', {
+            .state('servicios', {
                     abstract: true,
                     url: '/servicios',
                     templateUrl: 'templates/servicios/serviciosPrincipal.html',
@@ -109,7 +109,7 @@
                 })
 
 
-                .state('stack', {
+            .state('stack', {
                     abstract: true,
                     url: '/stack',
                     template: '<ui-view/>',
@@ -125,7 +125,7 @@
                     controller: 'StackRadioController'
                 })
 
-                .state('menu', {
+            .state('menu', {
                     url: '/menu',
                     templateUrl: 'templates/options/options.html',
                     controller: 'OptionsController'

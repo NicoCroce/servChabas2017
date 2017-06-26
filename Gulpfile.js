@@ -1,11 +1,11 @@
-W 'use strict';
+'use strict';
 
 var serverPort = 2173;
 
 var vendorLibraries = require('./config/vendor-libraries'),
     genVersion = require('./config/genVersion.js'),
     rootFiles = require('./config/utils.js'),
-    W gulp = require("gulp"), //http://gulpjs.com/
+    gulp = require("gulp"), //http://gulpjs.com/
     gutil = require("gulp-util"), //https://github.com/gulpjs/gulp-util
     sass = require("gulp-sass"), //https://www.npmjs.org/package/gulp-sass
     autoprefixer = require('gulp-autoprefixer'), //https://www.npmjs.org/package/gulp-autoprefixer
@@ -43,6 +43,7 @@ var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
     SRC_JAVASCRIPT_BASE = path.join(FOLDER_ASSETS, 'js'),
     SRC_DATA_BASE = path.join(FOLDER_ASSETS, 'data'),
     SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app'),
+    JS_LIBS_ASSETS = path.join(FOLDER_ASSETS, 'libs'),
     SRC_FAVICONS_BASE = path.join(FOLDER_ASSETS, 'favicon');
 
 var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
@@ -54,13 +55,14 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
     ICON_FILES = SRC_FONTS_BASE + '/**/*',
     DATA_FILES = SRC_DATA_BASE + '/**/*.json',
     ROOT_FILES = rootFiles.getRootFiles(SRC_APP_BASE),
-    FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*';
+    FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*',
+    JS_LIBS_ASSETS_FILES = JS_LIBS_ASSETS + '/**/*.js';
 
 var DEV_HTML_JS_FILES = [FOLDER_DEV + 'index.html', FOLDER_DEV + '/templates/**/*.html', FOLDER_DEV + '/js/*.js'],
     JS_WATCH = FOLDER_DEV + '/js/**/*.js';
 
 
-var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS, NPM_COMPONENTS);
+var JS_FILES_EXTERNAL_ORDER = vendorLibraries.getFiles(BOWER_COMPONENTS, NPM_COMPONENTS, JS_LIBS_ASSETS_FILES);
 
 var JS_FILES_APP_ORDER = vendorLibraries.getAppFiles(SRC_APP_BASE, JS_EXTERNAL_FILES);
 
@@ -342,6 +344,7 @@ function jsConcatFunction(done) {
 function jsConcatLibsFunction(done) {
     var concatLibs = gulp.src(JS_FILES_EXTERNAL_ORDER)
         .pipe(concat('libs.js')) // concat pulls all our files together before minifying them
+        .pipe(gpUglify(uglifyOptions))
         .pipe(gulp.dest(path.join(ENVIRONMENT, 'js/min/'))).on('error', gutil.log);
     return merge(concatLibs);
 }
