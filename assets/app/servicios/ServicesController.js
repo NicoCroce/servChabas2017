@@ -136,21 +136,50 @@
 
 
 
-
-
-
         var db;
         $scope.setDB = function() {
-            var request = window.indexedDB.open("MyTestDatabase", 1);
+            var openRequest = window.indexedDB.open("MyTestDatabase", 1);
 
-            request.onsuccess = function(event) {
-                console.log('OK');
-                db = request.result;
+            openRequest.onupgradeneeded = function (e) {
+                console.log("Upgrading...");
+                var thisDB = e.target.result;
+                if (!thisDB.objectStoreNames.contains("firstOS")) {
+                    thisDB.createObjectStore("firstOS");
+                }
             };
-            request.onerror = function(event) {
+
+            openRequest.onsuccess = function (event) {
+                console.log('OK');
+                db = openRequest.result;
+                addPerson();
+            };
+            openRequest.onerror = function (event) {
                 console.log('ERROR> ' + event);
             };
         }
+
+        function addPerson() {
+            var transaction = db.transaction(["people"], "readwrite");
+            var store = transaction.objectStore("people");
+
+            //Define a person
+            var person = {
+                name: name,
+                email: email,
+                created: new Date()
+            }
+
+            //Perform the add
+            var request = store.add(person, 1);
+
+            request.onerror = function (e) {
+                console.log("Error", e.target.error.name);
+                //some type of error handler
+            }
+        }
+
+
+
 
         $scope.getDB = function() {
 
