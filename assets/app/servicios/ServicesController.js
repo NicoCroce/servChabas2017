@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .controller('ServicesController', ServicesController);
 
-    function ServicesController($scope, factoryServices, $rootScope, services) {
+    function ServicesController($scope, factoryServices, $rootScope, services, indexedDB) {
         $scope.allServices = {};
         services.getServices(setDataService);
 
@@ -133,53 +133,9 @@
             return Object.keys(detail)[index];
         };
 
+        $scope.setDB = function () {
 
-
-
-        var db;
-        $scope.setDB = function() {
-            var openRequest = window.indexedDB.open("MyTestDatabase", 1);
-
-            openRequest.onupgradeneeded = function (e) {
-                console.log("Upgrading...");
-                var thisDB = e.target.result;
-                if (!thisDB.objectStoreNames.contains("firstOS")) {
-                    thisDB.createObjectStore("firstOS");
-                }
-            };
-
-            openRequest.onsuccess = function (event) {
-                console.log('OK');
-                db = openRequest.result;
-                addPerson();
-            };
-            openRequest.onerror = function (event) {
-                console.log('ERROR> ' + event);
-            };
         }
-
-        function addPerson() {
-            var transaction = db.transaction(["people"], "readwrite");
-            var store = transaction.objectStore("people");
-
-            //Define a person
-            var person = {
-                name: name,
-                email: email,
-                created: new Date()
-            }
-
-            //Perform the add
-            var request = store.add(person, 1);
-
-            request.onerror = function (e) {
-                console.log("Error", e.target.error.name);
-                //some type of error handler
-            }
-        }
-
-
-
 
         $scope.getDB = function() {
 
