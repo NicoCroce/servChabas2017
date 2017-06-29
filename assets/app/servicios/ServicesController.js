@@ -134,7 +134,7 @@
         };
 
         $scope.setDB = function () {
-
+            indexedDB.setData();
         }
 
         $scope.getDB = function() {
