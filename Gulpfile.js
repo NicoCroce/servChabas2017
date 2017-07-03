@@ -419,8 +419,7 @@ function finishMsg(msg) {
 
 //*************************************    SECCIÓN  runner    *************************************
 
-gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', function runDev() {
-    generateServiceWorker();
+gulp.task('default', gulp.series(setEnvironmentEnv, clean, 'connect', 'watch', generateServiceWorker, function runDev() {
     runFirstTime = false;
     finishMsg('YOU CAN START YOUR WORK in http://localhost:' + serverPort + ' GOOD CODE...');
 }));

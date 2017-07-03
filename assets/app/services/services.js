@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .factory('services', services);
 
-    function services($rootScope, factoryFarmacy, factoryBus, factoryServices) {
+    function services($rootScope, factoryFarmacy, factoryBus, factoryServices, indexedDB) {
 
         var contServ = 3;
 
@@ -69,69 +69,40 @@
         }
 
         function getServices(cbSetData) {
-            /*var dbIndex = new Dexie('chabashoy');
-            dbIndex.version(1).stores({
-                servicios: 'stringServ'
-            });
+            indexedDB.getItem('servicios', evaluateService);
+            
+            function evaluateService(allServices) {
+                cbSetData(allServices);
+                 var usersDB = firebase.database().ref('data/servicios');
+                usersDB.once('value', servicesSuccess, servicesError);
+            
+                function servicesSuccess(dataResponse) {
+                    dataPersist.services = dataResponse.val();
 
-            dbIndex.servicios.get('stringServ').then(function(value) {
-                console.log(value);
-            })*/
+                    var item = {
+                        name: 'servicios',
+                        data: dataPersist.services
+                    };
 
-            //
-            // Put some data into it
-            //
-            /*dbIndex.friends.put({ name: "Nicolas", shoeSize: 8 }).then(function() {
-                //
-                // Then when data is stored, read from it
-                //
-                return dbIndex.friends.get('');
-            }).then(function(friend) {
-                //
-                // Display the result
-                //
-                console.log("Nicolas has shoe size " + friend);
-            }).catch(function(error) {
-                //
-                // Finally don't forget to catch any error
-                // that could have happened anywhere in the
-                // code blocks above.
-                //
-                console.log("Ooops: " + error);
-            });*/
+                    indexedDB.setData('servicios', item);
 
+                    if (cbSetData) {
+                        returnValue(dataResponse);
+                        return $rootScope.loadingService = false;
+                    }
+                    return descServ();
+                };
 
-            var usersDB = firebase.database().ref('data/servicios');
-
-            usersDB.once('value', servicesSuccess, servicesError);
-
-            function servicesSuccess(dataResponse) {
-                dataPersist.services = dataResponse.val();
-
-                /*dbIndex.servicios.put({ stringServ: JSON.stringify(dataPersist.services) }).then(function() {
-                    //
-                    // Then when data is stored, read from it
-                    //
-                }).catch(function(error) {
-                    //
-                    // Finally don't forget to catch any error
-                    // that could have happened anywhere in the
-                    // code blocks above.
-                    //
-                    console.log("Ooops: " + error);
-                });*/
-
-
-                if (cbSetData) {
-                    cbSetData(dataResponse.val());
+                function servicesError(dataError) {
                     return $rootScope.loadingService = false;
-                }
-                return descServ();
-            };
+                };
 
-            function servicesError(dataError) {
-                return $rootScope.loadingService = false;
-            };
+                function returnValue(dataResponse){
+                    if (!angular.deepEquals(dataResponse.val(), allServices)) {
+                        return cbSetData(dataResponse.val());
+                    }
+                }; 
+            }
         }
 
         function getBuses(cbSetData) {

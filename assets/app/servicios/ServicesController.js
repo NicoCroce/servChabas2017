@@ -12,8 +12,6 @@
             $scope.allServices = data;
         };
 
-        $scope.allServices = services.getServices();
-
         $scope.modal = {
             name: '',
             map: '',

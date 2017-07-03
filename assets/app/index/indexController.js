@@ -91,6 +91,6 @@
             }
         }
 
-        services.init();
+        /* services.init(); */
     };
 })();
