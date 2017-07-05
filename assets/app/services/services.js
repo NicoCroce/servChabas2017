@@ -17,8 +17,7 @@
 
         return {
             getPaharmacy: getPaharmacy,
-            getBuses: getBuses,
-            getServices: getServices,
+            getData: getData,
             init: init
         }
 
@@ -68,44 +67,42 @@
             }
         }
 
-        function getServices(cbSetData) {
-            indexedDB.getItem('servicios', evaluateService);
-            
-            function evaluateService(allServices) {
-                cbSetData(allServices);
-                 var usersDB = firebase.database().ref('data/servicios');
-                usersDB.once('value', servicesSuccess, servicesError);
-            
-                function servicesSuccess(dataResponse) {
-                    dataPersist.services = dataResponse.val();
+        function getData(name, cbSetData) {
+            indexedDB.getItem(name, evaluateService);
 
+            function evaluateService(indexResponse) {
+                console.log('off:' + $rootScope.offline);
+                if (indexResponse != null) cbSetData(indexResponse);
+                if ($rootScope.offline) return;
+                var usersDB = firebase.database().ref('data/' + name);
+                usersDB.once('value', servicesSuccess, servicesError);
+
+                function servicesSuccess(dataResponse) {
                     var item = {
-                        name: 'servicios',
-                        data: dataPersist.services
+                        name: name,
+                        data: dataResponse.val()
                     };
 
-                    indexedDB.setData('servicios', item);
-
-                    if (cbSetData) {
-                        returnValue(dataResponse);
-                        return $rootScope.loadingService = false;
-                    }
+                    returnValue(dataResponse, item);
                     return descServ();
                 };
 
                 function servicesError(dataError) {
+                    console.log('error');
                     return $rootScope.loadingService = false;
                 };
 
-                function returnValue(dataResponse){
-                    if (!angular.deepEquals(dataResponse.val(), allServices)) {
-                        return cbSetData(dataResponse.val());
+                function returnValue(dataResponse, item) {
+                    if (!angular.deepEquals(dataResponse.val(), indexResponse)) {
+                        indexedDB.setData(name, item);
+                        cbSetData(dataResponse.val());
+                        console.log('enviando a la vista');
                     }
-                }; 
+                };
             }
         }
 
-        function getBuses(cbSetData) {
+        /*function getBuses(cbSetData) {
             if (angular.isUndefinedOrNullOrEmpty(dataPersist.allBuses)) {
 
                 (function callService() {
@@ -137,12 +134,12 @@
                 if (cbSetData) cbSetData(dataPersist);
                 return;
             }
-        }
+        }*/
 
         function init() {
             getPaharmacy();
-            getBuses();
-            getServices();
+            /*getBuses();*/
+            /*getServices();*/
         }
 
         function descServ() {

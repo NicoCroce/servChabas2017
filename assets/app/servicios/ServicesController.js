@@ -6,10 +6,11 @@
 
     function ServicesController($scope, factoryServices, $rootScope, services, indexedDB) {
         $scope.allServices = {};
-        services.getServices(setDataService);
+        services.getData('servicios', setDataService);
 
         function setDataService(data) {
             $scope.allServices = data;
+            $scope.$broadcast('updateTableService', data);
         };
 
         $scope.modal = {

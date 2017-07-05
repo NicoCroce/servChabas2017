@@ -1,7 +1,6 @@
 (function() {
     'use strict';
-    angular
-        .module('servicios-chabas')
+    angular.module('indexdb', [])
         .factory('indexedDB', indexedDB);
 
     function indexedDB() {
@@ -12,9 +11,13 @@
             return;
         }
 
-        var dbPromise = idb.open('chabashoy', 1, function (upgradeDb) {
+        var dbPromise = idb.open('chabashoy', 1, function(upgradeDb) {
             if (!upgradeDb.objectStoreNames.contains('servicios')) {
                 var servicesOS = upgradeDb.createObjectStore('servicios', { keyPath: 'name' });
+                servicesOS.createIndex('name', 'name', { unique: false });
+            }
+            if (!upgradeDb.objectStoreNames.contains('colectivos')) {
+                var servicesOS = upgradeDb.createObjectStore('colectivos', { keyPath: 'name' });
                 servicesOS.createIndex('name', 'name', { unique: false });
             }
         });

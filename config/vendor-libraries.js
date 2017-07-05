@@ -15,6 +15,7 @@ exports.getFiles = function(BOWER_COMPONENTS, NPM_COMPONENTS, JS_LIBS_ASSETS_FIL
 
 exports.getAppFiles = function(SRC_APP_BASE, JS_EXTERNAL_FILES) {
     return [
+        path.join(SRC_APP_BASE, 'services/indexed.js'),
         path.join(SRC_APP_BASE, 'app.config.js'),
         path.join(SRC_APP_BASE, 'app.modules.js'),
         path.join(SRC_APP_BASE, '**/*.js'),

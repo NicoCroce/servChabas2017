@@ -1,12 +1,13 @@
 <div transition class="content-transition">
     <h1 class="title-line" ng-bind="title"></h1>
-    <div class="detail-block" ng-repeat="bus in busesList track by $index" >
+
+    <div class="detail-block" ng-repeat="bus in busesList track by $index">
         <div class="content-info-first">
             <h2 class="bus-title" ng-bind="bus.empresa"></h2>
             <span ng-bind="bus.horario"></span>
         </div>
         <div class="element-icon" ng-click="openModal(bus)">
-            <span class="icon-arrow_right" ng-if="bus.detalle != ''"></span> 
+            <span class="icon-arrow_right" ng-if="bus.detalle != ''"></span>
         </div>
     </div>
 </div>
