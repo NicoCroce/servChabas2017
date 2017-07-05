@@ -5,51 +5,51 @@ module.exports.init = function (){
 	var calendar2017 = {
             enero: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             febrero: {
                 days: 28,
-                calendar: []
+                calendar: {}
             },
             marzo: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             abril: {
                 days: 30,
-                calendar: []
+                calendar: {}
             },
             mayo: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             junio: {
                 days: 30,
-                calendar: []
+                calendar: {}
             },
             julio: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             agosto: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             septiembre: {
                 days: 30,
-                calendar: []
+                calendar: {}
             },
             octubre: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
             noviembre: {
                 days: 30,
-                calendar: []
+                calendar: {}
             },
             diciembre: {
                 days: 31,
-                calendar: []
+                calendar: {}
             },
         };
 
@@ -66,6 +66,6 @@ module.exports.init = function (){
             calendar2017[monthSelected].calendar[i] = dayFormat;
             (currentFarmacy < farmacias.length-1) ? currentFarmacy++ : currentFarmacy = 0;
         }
-        fs.writeFile(monthSelected + '.json', JSON.stringify(calendar2017[monthSelected]));
+        fs.writeFile('calendar/'+ monthSelected + '.json', JSON.stringify(calendar2017[monthSelected]));
     });
 }

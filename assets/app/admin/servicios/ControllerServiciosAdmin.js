@@ -57,7 +57,11 @@
         }, true);
 
 
-         $scope.writeData = function() {
+          $scope.writeData = function() { 
+             /* var months = [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre' ];
+             months.forEach(function(element) {
+                 execFB(element);
+             }, this); */
             //firebase.database().ref('data/servicios').update();
             /*$.ajax("./data/telefonos.json")
                 .done(function (response) {
@@ -146,9 +150,28 @@
                  })
                  .always(function () {
                      console.log("complete");
-                 });*/
-        }
+                    });*/
+                    
+            
+        } 
 
+         /* function execFB(month) {
+            $.ajax("./data/calendar/" + month + ".json")
+                .done(function (response) {
+                    console.log(response);
+                    
+                    //var newTelKey = firebase.database().ref('data/farmacias/calendar').push().key;
+                    firebase.database().ref('data/farmacias/calendario/' + month).update(response);
+                    //}, this); 
+                })
+                .fail(function () {
+                    console.log("error");
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+        } */
+ 
 
     };
 })();
