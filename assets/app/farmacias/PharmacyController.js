@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     angular
         .module('servicios-chabas')
@@ -12,14 +12,16 @@
         };
 
         $scope.allPharmacies;
-        services.getPaharmacy(setData);
+        services.getData('farmacias', setData);
 
         function setData(data) {
+            data = factoryFarmacy.getData(data);
             $scope.allPharmacies = data.allPharmacies;
-            $scope.dataPharmacy = data.dataPharmacy;
+            $scope.dataPharmacy = data.pharmacyData;
+            $scope.$apply();
         }
 
-        $scope.sendCall = function(){
+        $scope.sendCall = function() {
             window.location.href = "tel://03464" + $scope.dataPharmacy.phone;
             analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
         }

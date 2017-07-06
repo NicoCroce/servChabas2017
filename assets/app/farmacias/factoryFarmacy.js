@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     angular
         .module('servicios-chabas')
@@ -7,8 +7,7 @@
     function factoryFarmacy($resource, $q) {
 
         var returnObject = {
-            getData: getData,
-            getPharmacies: getPharmacies
+            getData: getData
         };
 
         var persist = {
@@ -19,32 +18,19 @@
 
         return returnObject;
 
-        function getData() {
-            var deferred = $q.defer();
-            $q.all([
-                getCalendar(),
-                getPharmacies()
-            ]).then(function (responses) {
-                var pharmacyName = responses[0].calendar[date.day].farmacia,
-                    serviceResponse = {
-                        allPharmacies: responses[1],
-                        pharmacyData: responses[1].farmacias[pharmacyName]
-                    };
-                deferred.resolve(serviceResponse);
-            });
-
-            return deferred.promise;
+        function getData(data) {
+            var pharmacyName = data.calendario[date.monthText].calendar[date.day].farmacia;
+            return {
+                allPharmacies: data.farmacias,
+                pharmacyData: {
+                    name: data.farmacias[pharmacyName].nombre,
+                    img: data.farmacias[pharmacyName].imagen,
+                    address: data.farmacias[pharmacyName].direccion,
+                    phone: data.farmacias[pharmacyName].telefono,
+                    map: data.farmacias[pharmacyName].mapa,
+                }
+            };
         };
-
-        function getCalendar() {
-            return  $resource('data/calendar/' + date.monthText + '.json').get().$promise;
-        };
-
-        function getPharmacies() {
-            if (!angular.isUndefinedOrNullOrEmpty(persist.pharmacies)) { return persist.pharmacies; }
-            persist.pharmacies = $resource('data/farmacias.json').get().$promise;
-            return persist.pharmacies;
-        }
 
         function getDate() {
             var month = ['', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];

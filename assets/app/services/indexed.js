@@ -20,6 +20,10 @@
                 var servicesOS = upgradeDb.createObjectStore('colectivos', { keyPath: 'name' });
                 servicesOS.createIndex('name', 'name', { unique: false });
             }
+            if (!upgradeDb.objectStoreNames.contains('farmacias')) {
+                var servicesOS = upgradeDb.createObjectStore('farmacias', { keyPath: 'name' });
+                servicesOS.createIndex('name', 'name', { unique: false });
+            }
         });
 
         return {

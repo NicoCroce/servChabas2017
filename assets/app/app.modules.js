@@ -4,6 +4,7 @@
     angular
         .module('servicios-chabas')
         .run(function($rootScope, analytics, services) {
+            services.init();
             $rootScope.backSectionVisible = false;
             $rootScope.loadingService = true;
             $rootScope.modalIsOpen = false;
