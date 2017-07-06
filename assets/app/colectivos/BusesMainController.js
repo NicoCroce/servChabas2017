@@ -12,13 +12,16 @@
         $scope.tableFirmat;
         $scope.allBuses = {};
 
-        services.getData('colectivos', setData);
+        services.getData('colectivos', getData);
 
-        function setData(data) {
+        function getData(data) {
             $scope.allBuses = data;
-            console.log('entra al C Buses');
             $scope.$broadcast('updateTableBuses', data);
         }
+
+        $rootScope.$on('updateData', function () {
+            services.getData('colectivos', getData);
+        });
 
         $scope.map = {
             show: false

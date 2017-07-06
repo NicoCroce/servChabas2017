@@ -3,7 +3,7 @@
     angular.module('indexdb', [])
         .factory('indexedDB', indexedDB);
 
-    function indexedDB() {
+    function indexedDB($rootScope) {
 
         //check for support
         if (!('indexedDB' in window)) {
@@ -11,7 +11,7 @@
             return;
         }
 
-        var dbPromise = idb.open('chabashoy', 1, function(upgradeDb) {
+        var dbPromise = idb.open('chabashoy', 2, function(upgradeDb) {
             if (!upgradeDb.objectStoreNames.contains('servicios')) {
                 var servicesOS = upgradeDb.createObjectStore('servicios', { keyPath: 'name' });
                 servicesOS.createIndex('name', 'name', { unique: false });
@@ -22,6 +22,10 @@
             }
             if (!upgradeDb.objectStoreNames.contains('farmacias')) {
                 var servicesOS = upgradeDb.createObjectStore('farmacias', { keyPath: 'name' });
+                servicesOS.createIndex('name', 'name', { unique: false });
+            }
+            if (!upgradeDb.objectStoreNames.contains('DB')) {
+                var servicesOS = upgradeDb.createObjectStore('DB', { keyPath: 'name' });
                 servicesOS.createIndex('name', 'name', { unique: false });
             }
         });
@@ -49,6 +53,7 @@
                 store.put(item);
                 return tx.complete;
             }).then(function() {
+                $rootScope.$emit('updateData');
                 console.log('added item to the store os!');
             });
         }

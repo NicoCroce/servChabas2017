@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict'
     angular
         .module('servicios-chabas')
@@ -15,6 +15,8 @@
             services: null
         }
 
+        var usersDBFull = firebase.database().ref('data');
+
         return {
             getData: getData,
             init: init
@@ -24,46 +26,33 @@
             return dataPersist;
         }
 
+        function callFirebase() {
+            console.log('LLAMANDO A FIREBASE');
+            console.log('off: ' + !navigator.onLine);
+            if (!navigator.onLine) return;
+            usersDBFull.on('value', function (dataResponse) {
+                var item = {
+                    name: 'DB',
+                    data: dataResponse.val()
+                };
+                console.log('GUARDANDO EN INDEXDB');
+                indexedDB.setData('DB', item);
+                //$scope.$apply();
+            });
+        };
+
         function getData(name, cbSetData) {
-            indexedDB.getItem(name, evaluateService);
-
+            indexedDB.getItem('DB', evaluateService);
             function evaluateService(indexResponse) {
-                console.log('off:' + $rootScope.offline);
-                if (indexResponse != null && cbSetData) cbSetData(indexResponse);
-                if ($rootScope.offline) return;
-                var usersDB = firebase.database().ref('data/' + name);
-                usersDB.once('value', servicesSuccess, servicesError);
-
-                function servicesSuccess(dataResponse) {
-                    var item = {
-                        name: name,
-                        data: dataResponse.val()
-                    };
-
-                    returnValue(dataResponse, item);
-                    return descServ();
-                };
-
-                function servicesError(dataError) {
-                    console.log('error');
-                    return $rootScope.loadingService = false;
-                };
-
-                function returnValue(dataResponse, item) {
-                    if (!angular.deepEquals(dataResponse.val(), indexResponse)) {
-                        indexedDB.setData(name, item);
-                        if (!cbSetData) { return; }
-                        cbSetData(dataResponse.val());
-                        console.log('enviando a la vista');
-                    }
-                };
+                if (indexResponse && indexResponse != null && cbSetData) {
+                    return cbSetData(indexResponse[name]);
+                }
+                return console.log('Error');
             }
         };
 
         function init() {
-            getData('farmacias');
-            getData('colectivos');
-            getData('servicios');
+            callFirebase();
         }
 
         function descServ() {

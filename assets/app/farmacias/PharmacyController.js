@@ -12,14 +12,18 @@
         };
 
         $scope.allPharmacies;
-        services.getData('farmacias', setData);
+        services.getData('farmacias', getData);
 
-        function setData(data) {
+        function getData(data) {
             data = factoryFarmacy.getData(data);
             $scope.allPharmacies = data.allPharmacies;
             $scope.dataPharmacy = data.pharmacyData;
             $scope.$apply();
-        }
+        };
+
+        $rootScope.$on('updateData', function () {
+            services.getData('farmacias', getData);
+        });
 
         $scope.sendCall = function() {
             window.location.href = "tel://03464" + $scope.dataPharmacy.phone;
