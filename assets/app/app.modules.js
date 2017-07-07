@@ -6,7 +6,7 @@
         .run(function($rootScope, analytics, services) {
             services.init();
             $rootScope.backSectionVisible = false;
-            $rootScope.loadingService = true;
+            $rootScope.loadingService = false;
             $rootScope.modalIsOpen = false;
             $rootScope.offline = false;
             $rootScope.isAdmin = false;

@@ -94,14 +94,14 @@
                 <div class="wrapper">
                     <div class="content-info clear-both">
 
-                        <!--<section class="bg-spinner" ng-class="{'hidden-modal': !loadingService}">
-							<div class="spinner">
-								<div class="bounce1"></div>
-								<div class="bounce2"></div>
-								<div class="bounce3"></div>
-							</div>
-							<h4>actualizando datos...</h4>
-						</section>-->
+                        <section class="bg-spinner hidden-modal" ng-class="{'hidden-modal': !loadingService}">
+                            <div class="spinner">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                            <h4>actualizando datos...</h4>
+                        </section>
                         <div ui-view ng-cloak class="view"></div>
                     </div>
                     <div class="content-info fb clear-both">
@@ -121,7 +121,7 @@
 
     <!-- <div ng-include="'templates/servicios/modalServiceUpdate.html'"></div> -->
 
-    <div ng-include="'templates/index/modalAddHome.html'" class="modal-home"></div>
+    <!--<div ng-include="'templates/index/modalAddHome.html'" class="modal-home"></div>-->
     <script type="text/javascript" src="sw.js"></script>
     <script type="text/javascript" src="js/min/libs.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

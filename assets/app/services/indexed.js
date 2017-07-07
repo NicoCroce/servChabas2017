@@ -12,18 +12,6 @@
         }
 
         var dbPromise = idb.open('chabashoy', 2, function(upgradeDb) {
-            if (!upgradeDb.objectStoreNames.contains('servicios')) {
-                var servicesOS = upgradeDb.createObjectStore('servicios', { keyPath: 'name' });
-                servicesOS.createIndex('name', 'name', { unique: false });
-            }
-            if (!upgradeDb.objectStoreNames.contains('colectivos')) {
-                var servicesOS = upgradeDb.createObjectStore('colectivos', { keyPath: 'name' });
-                servicesOS.createIndex('name', 'name', { unique: false });
-            }
-            if (!upgradeDb.objectStoreNames.contains('farmacias')) {
-                var servicesOS = upgradeDb.createObjectStore('farmacias', { keyPath: 'name' });
-                servicesOS.createIndex('name', 'name', { unique: false });
-            }
             if (!upgradeDb.objectStoreNames.contains('DB')) {
                 var servicesOS = upgradeDb.createObjectStore('DB', { keyPath: 'name' });
                 servicesOS.createIndex('name', 'name', { unique: false });
