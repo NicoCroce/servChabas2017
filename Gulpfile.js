@@ -41,7 +41,6 @@ var SRC_SASS_BASE = path.join(FOLDER_ASSETS, 'styles'),
     SRC_IMAGES_BASE = path.join(FOLDER_ASSETS, 'images'),
     SRC_FONTS_BASE = path.join(FOLDER_ASSETS, 'icons'),
     SRC_JAVASCRIPT_BASE = path.join(FOLDER_ASSETS, 'js'),
-    SRC_DATA_BASE = path.join(FOLDER_ASSETS, 'data'),
     SRC_APP_BASE = path.join(FOLDER_ASSETS, 'app'),
     JS_LIBS_ASSETS = path.join(FOLDER_ASSETS, 'libs'),
     SRC_FAVICONS_BASE = path.join(FOLDER_ASSETS, 'favicon');
@@ -53,7 +52,6 @@ var SASS_FILES = SRC_SASS_BASE + '/**/*.scss',
     JS_EXTERNAL_FILES = SRC_JAVASCRIPT_BASE + '/*.js',
     IMAGES_FILES = SRC_IMAGES_BASE + '/**/*',
     ICON_FILES = SRC_FONTS_BASE + '/**/*',
-    DATA_FILES = SRC_DATA_BASE + '/**/*.json',
     ROOT_FILES = rootFiles.getRootFiles(SRC_APP_BASE),
     FAVICONS_FILES = SRC_FAVICONS_BASE + '/**/*',
     JS_LIBS_ASSETS_FILES = JS_LIBS_ASSETS + '/**/*.js';
@@ -105,7 +103,6 @@ gulp.task("watch", function(done) {
     gulp.watch([APP_JS_FILES, JS_EXTERNAL_FILES], gulp.series("jsConcat" /* , generateServiceWorker */ ));
     gulp.watch(ICON_FILES, gulp.series('copyIcons' /* , generateServiceWorker */ ));
     gulp.watch(IMAGES_FILES, gulp.series("copyImg" /* , generateServiceWorker */ ));
-    gulp.watch(DATA_FILES, gulp.series('copyData' /* , generateServiceWorker */ ));
     gulp.watch(ROOT_FILES, gulp.series(copyRootFiles /* , generateServiceWorker */ ));
     /*gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));*/
     return done();
@@ -250,13 +247,9 @@ function connectServer(done) {
 };
 
 function copyData() {
-    showComment('Copying DATA Files and favIcons');
-    var data = gulp.src(DATA_FILES)
-        .pipe(gulp.dest(ENVIRONMENT + '/data')).on('error', gutil.log);
-
     var favIcon = gulp.src(FAVICONS_FILES)
         .pipe(gulp.dest(ENVIRONMENT + '/favicon')).on('error', gutil.log);
-    return merge(data, favIcon);
+    return merge(favIcon);
 };
 
 function copyBuildToFirebase(done) {
