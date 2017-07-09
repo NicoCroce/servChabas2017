@@ -3,7 +3,7 @@
 
     angular
         .module('servicios-chabas')
-        .run(function($rootScope, analytics, services) {
+        .run(function($rootScope, services) {
             services.init();
             $rootScope.backSectionVisible = false;
             $rootScope.loadingService = false;
@@ -11,7 +11,6 @@
             $rootScope.offline = false;
             $rootScope.isAdmin = false;
             $rootScope.isMobile = window.mobilecheck();
-            analytics.pageview('/home');
 
             if (typeof(Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {
                 localStorage.setItem("showAddHomeModal", true);

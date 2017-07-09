@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .controller('PharmacyController', PharmacyController);
 
-    function PharmacyController($scope, factoryFarmacy, $rootScope, analytics, services) {
+    function PharmacyController($scope, factoryFarmacy, $rootScope, services) {
 
         $scope.dataPharmacy;
         $scope.map = {
@@ -27,7 +27,7 @@
 
         $scope.sendCall = function() {
             window.location.href = "tel://03464" + $scope.dataPharmacy.phone;
-            analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
+            //analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
         }
 
 
