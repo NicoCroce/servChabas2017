@@ -10,6 +10,7 @@
             $rootScope.modalIsOpen = false;
             $rootScope.offline = false;
             $rootScope.isAdmin = false;
+            $rootScope.isMobile = window.mobilecheck();
             analytics.pageview('/home');
 
             if (typeof(Storage) !== "undefined" && !localStorage.getItem("showAddHomeModal")) {

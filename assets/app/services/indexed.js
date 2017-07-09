@@ -30,7 +30,7 @@
                 var store = tx.objectStore(storeName);
                 return store.getAll();
             }).then(function(items) {
-                console.log('Items by name:', items);
+                /*console.log('Items by name:', items);*/
             });
         }
 
@@ -42,7 +42,7 @@
                 return tx.complete;
             }).then(function() {
                 $rootScope.$emit('updateData');
-                console.log('added item to the store os!');
+                /*console.log('added item to the store os!');*/
             });
         }
 
@@ -54,13 +54,13 @@
                 return index.openCursor(storeName);
             }).then(function showRange(cursor) {
                 if (!cursor) { return cbReturn(null); }
-                console.log('Cursored at:', cursor.key);
+                /*console.log('Cursored at:', cursor.key);*/
                 /* for (var field in cursor.value) {
                     cbReturn(cursor.value[field]);
                 } */
                 return cursor.continue().then(cbReturn(cursor.value["data"]));
             }).then(function() {
-                console.log('Done cursoring');
+                /*console.log('Done cursoring');*/
             });
         }
     };

@@ -186,7 +186,7 @@ function generateServiceWorker(done) {
             urlPattern: '/(.*)',
             handler: 'fastest',
             options: {
-                origin: /.*gstatic/,
+                origin: /\.gstatic\.com/,
                 cache: {
                     name: 'gstatic',
                     maxEntries: 50
@@ -197,7 +197,7 @@ function generateServiceWorker(done) {
             handler: 'fastest',
             // See https://github.com/GoogleChrome/sw-toolbox#options
             options: {
-                origin: /.*googleapis/,
+                origin: /\.googleapis\.com$/,
                 cache: {
                     name: 'googleapis',
                     maxEntries: 50
@@ -214,8 +214,6 @@ function generateServiceWorker(done) {
             ENVIRONMENT + '/js/**/*.js',
             ENVIRONMENT + '/templates/**/*.html',
             ENVIRONMENT + '/index.html',
-            ENVIRONMENT + '/sw.js',
-            ENVIRONMENT + '/service-worker-2.js',
             ENVIRONMENT + '/manifest.json'
         ],
         stripPrefix: ENVIRONMENT,
@@ -223,7 +221,7 @@ function generateServiceWorker(done) {
         verbose: true
     };
 
-    swPrecache.write(path.join(ENVIRONMENT, 'service-worker-2.js'), configSw, done);
+    swPrecache.write(path.join(ENVIRONMENT, 'sw-chabasHoy-1.js'), configSw, done);
 }
 
 

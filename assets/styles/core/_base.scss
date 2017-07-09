@@ -63,7 +63,8 @@ body {
 footer { background: #d8d8d8; padding: toem(20px); font-size: toem(11px); padding-right: 15px; } 
 
 main { 
-	position: relative; display: block; padding-bottom: 60px; height: 100%;
+	position: relative; display: block; padding-bottom: 60px; height: 100%; padding-top: 161px;
+	&.is-back-visible { padding-top: 153px; }
 	.content { height: 100% }
 
 }
@@ -125,14 +126,14 @@ img { width: 100%; }
 .content-transition {
 	position: relative; transform: translate3d(-40%, 0, 0); opacity: 0; 
 	&.anim-in-section { 
-		transform: translate3d(0, 0, 0); transition: opacity .3s ease-out; opacity: 1; 
+		transform: translate3d(0, 0, 0); transition: transform .2s ease, opacity .3s ease-out; opacity: 1; 
 	}
 }
 
 .content-info { 
 	width: 50%; float: left;
 	&.fb {
-		text-align: center; overflow: hidden; z-index: 0; position: relative; height: 100%; padding-top: 15px;
+		text-align: center; overflow: hidden; z-index: 0; position: relative; height: 100%; padding-top: toem(30px);
 	}
 }
 
@@ -143,7 +144,8 @@ img { width: 100%; }
 }
 
 .credits { 
-	display: block; color: #929292; /*padding: 20px;*/ text-align: right; width: 100%;
+	color: #929292; display: inline-block;
+	&.version { float: right; padding-top: 1px; }
 	span { font-weight: 700; }
 }
 
@@ -198,17 +200,9 @@ form {
 	img { max-width: 300px; margin: 0 auto; }
 }
 
-/*.info.header-section {
-				>div {
-					&:first-child {
-						border-bottom: 1px solid rgb(61, 61, 61); margin-bottom: 2%; background: $color500; color: white; padding: toem(20px);
-						display: table; width: 100%;
-
-						span { font-size: toem(30px); padding-right: toem(10px); }
-					}
-				}
-
-		 	.nombre-farmacia { font-size: 1.8em; font-weight: 600; display: inline-block;
-				text-shadow: rgba(22, 65, 94, 1) 1px 1px 0;
-			}
-		}*/
+.info.header-section {
+	h1 { font-size: toem(21px); color: $color800; }
+	h3 { 
+		line-height: 20px; margin-bottom: 15px;
+	}
+}

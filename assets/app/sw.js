@@ -88,23 +88,35 @@ if ('serviceWorker' in navigator) {
 /* eslint-env browser */
 'use strict';
 
+navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (var registration of registrations) {
+        if(registration.active.scriptURL.indexOf('service-worker') != -1){
+            console.log('eliminado');
+            registration.unregister()
+        }        
+    }
+});
+
 if ('serviceWorker' in navigator) {
     // Delay registration until after the page has loaded, to ensure that our
     // precaching requests don't degrade the first visit experience.
     // See https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
+        /*console.log('entra 1');*/
         // Your service-worker.js *must* be located at the top-level directory relative to your site.
         // It won't be able to control pages unless it's located at the same level or higher than them.
         // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
         // See https://github.com/slightlyoff/ServiceWorker/issues/468
-        navigator.serviceWorker.register('./service-worker-2.js').then(function(reg) {
+        navigator.serviceWorker.register('./sw-chabasHoy-1.js').then(function (reg) {
+            /*console.log('entra 2');*/
             // updatefound is fired if service-worker.js changes.
-            reg.onupdatefound = function() {
+            reg.onupdatefound = function () {
+                /*console.log('entra 3');*/
                 // The updatefound event implies that reg.installing is set; see
                 // https://w3c.github.io/ServiceWorker/#service-worker-registration-updatefound-event
                 var installingWorker = reg.installing;
 
-                installingWorker.onstatechange = function() {
+                installingWorker.onstatechange = function () {
                     switch (installingWorker.state) {
                         case 'installed':
                             if (navigator.serviceWorker.controller) {
@@ -113,6 +125,7 @@ if ('serviceWorker' in navigator) {
                                 // It's the perfect time to display a "New content is available; please refresh."
                                 // message in the page's interface.
                                 console.log('New or updated content is available.');
+                                location.reload();
                             } else {
                                 // At this point, everything has been precached.
                                 // It's the perfect time to display a "Content is cached for offline use." message.
@@ -126,7 +139,7 @@ if ('serviceWorker' in navigator) {
                     }
                 };
             };
-        }).catch(function(e) {
+        }).catch(function (e) {
             console.error('Error during service worker registration:', e);
         });
     });

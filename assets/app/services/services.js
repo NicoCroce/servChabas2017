@@ -23,14 +23,15 @@
 
         function callFirebase() {
             $rootScope.loadingService = true;
-            console.log('LLAMANDO A FIREBASE');
+            /*console.log('LLAMANDO A FIREBASE');*/
             if (!navigator.onLine) return;
             usersDBFull.on('value', function(dataResponse) {
                 var item = {
                     name: 'DB',
                     data: dataResponse.val()
                 };
-                console.log('GUARDANDO EN INDEXDB');
+                /*console.log('GUARDANDO EN INDEXDB');*/
+                
                 indexedDB.setData('DB', item);
                 $rootScope.loadingService = false;
             });

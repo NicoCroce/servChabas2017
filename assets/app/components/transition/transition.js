@@ -20,7 +20,7 @@
 
                 $timeout(function () {
                     section.addClass('anim-in-section');
-                    scope.$apply();
+                    /*scope.$apply();*/
                 }, 100);
             }
         }

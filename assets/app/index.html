@@ -23,7 +23,7 @@
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <!-- Google Tag Manager -->
     <script>
-        (function(w, d, s, l, i) {
+        (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
                 'gtm.start': new Date().getTime(),
@@ -44,52 +44,40 @@
 
 <body ng-controller="IndexController" ng-class="{'modal-is-open': modalIsOpen, 'is-admin': isAdmin}">
     <div id="fb-root"></div>
-    <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=289764814382364";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6GKZ83" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-	</noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6GKZ83" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Include of main header -->
     <div class="main-container">
         <div class="connection" ng-class="{'visible-con': offline}">
             <p> Sin conexión </p>
         </div>
-        <header>
+        <header class="main-header">
             <section class="complete-header">
                 <div class="header">
                     <div class="wrapper mgb-0">
                         <h1 class="subTitle">
                             <strong>Chabás</strong><span class="hoy">hoy!</span>
-                            <div class="menu-access" ui-sref="menu">
-                                <div class="menu-i"></div>
-                                <div class="menu-i"></div>
-                                <div class="menu-i"></div>
-                            </div>
-                            <div id="updateData" class="update-toaster">
-                                <span class="icon-sync"></span>
-                            </div>
                         </h1>
-                        <!--<img src="/img/Banner.png" alt="">-->
-                        <!--<div alt=""></div>-->
-                        <!--<p id="fecha" class="fecha"></p><span id="hora"></span>-->
+                        <div class="menu-access" ui-sref="menu">
+                            <div class="menu-i"></div>
+                            <div class="menu-i"></div>
+                            <div class="menu-i"></div>
+                        </div>
+                        <!--<div id="updateData" class="update-toaster">
+                                <span class="icon-sync"></span>
+                            </div>-->
                     </div>
                 </div>
-                <nav id="mainTab" stack-element element-to-move="mainSection" switch-tabs tabs="tabs" ng-class="{'nav-show': showNav() }"></nav>
+                <nav id="mainTab" switch-tabs tabs="tabs" ng-class="{'nav-show': showNav() }"></nav>
             </section>
-        </header>
-        <main id="mainSection" role="main" class="main">
             <div class="back-section" ng-click="backSection()" ng-class="{'back-section-visible': backSectionVisible}">
                 <span class="icon-arrow_right rotate-arrow"></span><span class="text-back">Regresar</span>
             </div>
+        </header>
+        <main id="mainSection" role="main" class="main" ng-class="{'is-back-visible': backSectionVisible}">
             <section class="content">
                 <div class="wrapper">
                     <div class="content-info clear-both">
@@ -104,18 +92,13 @@
                         </section>
                         <div ui-view ng-cloak class="view"></div>
                     </div>
-                    <div class="content-info fb clear-both">
-                        <div class="fb-page" data-href="https://www.facebook.com/chabashoy/" data-tabs="timeline" data-width="400px" data-height="600px" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
-                            <blockquote cite="https://www.facebook.com/chabashoy/" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/chabashoy/"></a>
-                            </blockquote>
-                        </div>
-                    </div>
+                    <div facebook-wall class="content-info fb clear-both" ng-if="!isMobile"></div>
                 </div>
             </section>
         </main>
         <footer>
             <p class="credits">Diseñado y Desarrollado por <span>Nicolás Croce</span></p>
+            <p class="credits version">v1.0.2</p>
         </footer>
     </div>
 
@@ -126,6 +109,15 @@
     <script type="text/javascript" src="js/min/libs.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRrnGYhZW667iSgkZLCQ4tp6yS5iEi8tw"></script>
+    <script>
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            for (var registration of registrations) {
+                if (registration.active.scriptURL.indexOf('service-worker') != -1) {
+                    registration.unregister()
+                }
+            }
+        });
+    </script>
     <!--<script>
 		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
