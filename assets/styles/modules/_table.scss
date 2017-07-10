@@ -65,7 +65,7 @@ table {
 
 
 .detail-block {
-  padding: 10px 0; border-bottom: 1px solid $grey300; display: table; table-layout: fixed; width: 100%;
+  padding: 10px 0; border-bottom: 1px solid $grey300;
   &:first-of-type { border-top: 1px solid $grey300; }
   .content-info-first {
 	display: table-cell; width: 80%; padding-right: 10px;
@@ -74,10 +74,14 @@ table {
 			&.bus-title { min-height: auto; }
 		}
   }
-  >div { display: table-cell; vertical-align: middle; }
+  .table-detail {
+		display: table; table-layout: fixed; width: 100%;
+		>div { display: table-cell; vertical-align: middle; }
+  }
   .element-icon { 
 		width: 20%; text-align: center; font-size: 25px; color: $grey600; cursor: pointer;
 		&.util-phone { display: none; }
 	}
 	&.fixed-block { min-height: 71px; }
+	.has-detail { background: #e4e4e4; padding: 10px; text-align: center; }
 }

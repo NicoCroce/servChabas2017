@@ -26,12 +26,13 @@
         $scope.map = {
             show: false
         };
-        $scope.modal = {
+
+        /*$scope.modal = {
             detail: '',
             showModal: false
-        };
+        };*/
 
-        $scope.openModal = function(bus) {
+        /*$scope.openModal = function(bus) {
             if (angular.isUndefinedOrNullOrEmpty(bus) || angular.isUndefinedOrNullOrEmpty(bus.detalle)) return;
             $scope.modal.data = bus;
             $scope.modal.showModal = true;
@@ -41,6 +42,6 @@
         $scope.closeModal = function() {
             $scope.modal.showModal = false;
             $rootScope.modalIsOpen = false;
-        }
+        }*/
     }
 })();
