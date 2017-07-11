@@ -221,7 +221,7 @@ function generateServiceWorker(done) {
         verbose: true
     };
 
-    swPrecache.write(path.join(ENVIRONMENT, 'sw-chabasHoy-1.js'), configSw, done);
+    swPrecache.write(path.join(ENVIRONMENT, 'sw-chabasHoy-3.js'), configSw, done);
 }
 
 

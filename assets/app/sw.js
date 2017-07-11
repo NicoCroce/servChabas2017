@@ -107,7 +107,7 @@ if ('serviceWorker' in navigator) {
         // It won't be able to control pages unless it's located at the same level or higher than them.
         // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
         // See https://github.com/slightlyoff/ServiceWorker/issues/468
-        navigator.serviceWorker.register('./sw-chabasHoy-1.js').then(function (reg) {
+        navigator.serviceWorker.register('./sw-chabasHoy-3.js').then(function (reg) {
             /*console.log('entra 2');*/
             // updatefound is fired if service-worker.js changes.
             reg.onupdatefound = function () {

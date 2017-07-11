@@ -2,17 +2,6 @@
     <h1 class="title-line" ng-bind="title"></h1>
 
     <div class="detail-block" ng-repeat="bus in busesList track by $index">
-        <div class="table-detail">
-            <div class="content-info-first">
-                <h2 class="bus-title" ng-bind="bus.empresa"></h2>
-                <span ng-bind="bus.horario"></span>
-            </div>
-            <div class="element-icon">
-                <span class="icon-arrow_right" ng-if="bus.detalle != ''"></span>
-            </div>
-        </div>
-        <div ng-if="bus.detalle != ''" class="has-detail" ng-class="{'show-detail': true}">
-            <p ng-bind="bus.detalle"></p>
-        </div>
+        <div detail-bus data="bus"></div>
     </div>
 </div>
