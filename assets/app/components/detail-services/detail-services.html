@@ -1,0 +1,18 @@
+<div class="info-directive" ng-click="showDetailEvent()" ng-class="{'show-detail': showDetail, 'row-has-detail': data.detalle}">
+    <div class="table-detail">
+        <div class="content-info-first">
+            <h2 ng-bind="data.nombre"></h2>
+             <!-- {{ data | json }}  -->
+            <!-- <span ng-bind="getValue(data)"></span> -->
+        </div>
+        <div class="element-icon">
+            <span class="icon-arrow_right"></span>
+        </div>
+    </div>
+    <div class="has-detail">
+        <label ng-bind="getLabelTel(data, 'tel')"></label><span ng-bind="data.tel"></span>
+        <div class="modal-text" ng-repeat="detail in data track by $index">
+            <label ng-bind="getLabel(data, $index)"></label><span ng-bind="detail"></span>
+        </div>
+    </div>
+</div>
