@@ -1,0 +1,10 @@
+<div combo list-options="listOptions"></div>
+
+<table>
+    <tr>
+        <th></th>
+    </tr>
+    <tr ng-repeat="data in service track by $index">
+        <td ng-repeat="dataElement in data track by $index" ng-bind="data"></td>
+    </tr>
+</table>

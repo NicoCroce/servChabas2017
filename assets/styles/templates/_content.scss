@@ -19,7 +19,7 @@ main.element-stacked { padding-top: 50px; }
   .button-transparent { display: none; }
 }
 
-.view .content-transition { margin-top: 15px; }
+.view .content-transition { margin-top: 30px; }
 
 .back-section { 
   position: relative; color: $grey700; background: $grey200; transition: all .3s ease; z-index: 0; display: none;
@@ -120,7 +120,9 @@ span.icon-checkmark-circle {
 }
 
 .connection {
-    background: rgba(255, 71, 0, 0.83); color: #ffdada; text-align: center; padding: 2px; text-transform: uppercase; font-size: 12px; padding: 2px; position: fixed; width: 100%; z-index: 10; opacity: 1; margin-top: -16px; transition: all .3s ease; opacity: 0;
+    background: rgba(255, 71, 0, 0.63); color: #ffdada; text-align: center; padding: 1px; text-transform: uppercase; 
+    font-size: 10px; padding: 2px; position: fixed; width: 100%; z-index: 10; opacity: 1; margin-top: -16px; z-index: 100;
+    transition: all .3s ease; opacity: 0;
     &.visible-con { opacity: 1; margin: 0; }
 }
 
@@ -140,3 +142,18 @@ span.icon-checkmark-circle {
     }
     &.show-update { opacity: 1; }
 }
+
+
+.element-edit { 
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.47); padding: 10px; margin: 10px 0;
+
+  h1 { margin: 10px 0; margin-top: 0; color: $grey800; font-weight: 800; }
+
+  label { color: $grey800; text-transform: uppercase; font-size: 10px; } 
+  input { border: 0; border-bottom: 1px solid $grey300; padding: 3px; padding-left: 10px; margin-bottom: 3px; 
+    color: $color800; font-weight: 700; }
+}
+
+.sub-detail { padding-left: 20px; border-left: 1px dashed #888888; }
+
+.loading-serv { text-align: center; margin: 15px; }

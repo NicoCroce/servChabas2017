@@ -1,0 +1,10 @@
+<div class="select-option" ng-class="{'show-list':listOptions.open}">
+    <input type="button" class="button-select" ng-click="openList()" ng-value="listOptions.selected" ng-class="setErrorCombo()">
+    <span class="icon-arrow_right"></span>
+    <ul class="options-list">
+        <li ng-repeat="option in listOptions.options track by $index" ng-click="setSelection(option)" ng-bind="option">
+            <!--{{listOptions }}-->
+        </li>
+    </ul>
+    <div ng-class="{'bg-list': listOptions.open}" ng-click="setSelection('Seleccione tipo de servicio')"></div>
+</div>

@@ -1,10 +1,10 @@
-(function () {
+(function() {
     'use strict';
     angular
         .module('servicios-chabas')
         .controller('PharmacyController', PharmacyController);
 
-    function PharmacyController($scope, factoryFarmacy, $rootScope, analytics, services) {
+    function PharmacyController($scope, factoryFarmacy, $rootScope, services) {
 
         $scope.dataPharmacy;
         $scope.map = {
@@ -12,16 +12,22 @@
         };
 
         $scope.allPharmacies;
-        services.getPaharmacy(setData);
+        services.getData('farmacias', getData);
 
-        function setData(data) {
+        function getData(data) {
+            data = factoryFarmacy.getData(data);
             $scope.allPharmacies = data.allPharmacies;
-            $scope.dataPharmacy = data.dataPharmacy;
-        }
+            $scope.dataPharmacy = data.pharmacyData;
+            $scope.$apply();
+        };
 
-        $scope.sendCall = function(){
+        $rootScope.$on('updateData', function () {
+            services.getData('farmacias', getData);
+        });
+
+        $scope.sendCall = function() {
             window.location.href = "tel://03464" + $scope.dataPharmacy.phone;
-            analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
+            //analytics.sendClick('farmacia_' + $scope.dataPharmacy.name, 'Call');
         }
 
 

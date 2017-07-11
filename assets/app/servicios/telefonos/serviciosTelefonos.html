@@ -2,10 +2,10 @@
     <h1 class="title-line">Teléfonos útiles</h1>
     <div class="detail-block fixed-block" ng-repeat="phone in allPhones track by $index" >
         <div class="content-info-first">
-            <h2 ng-bind="getName(phone)"></h2>
-            <span ng-bind="getValue(phone)"></span>
+            <h2 ng-bind="phone.nombre"></h2>
+            <span ng-bind="phone.tel"></span>
         </div>
-        <div class="element-icon">
+        <div class="element-icon util-phone">
             <span ng-click="call(phone)" class="icon-phone"></span> 
         </div>
     </div>

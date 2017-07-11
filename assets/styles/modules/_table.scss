@@ -53,7 +53,7 @@ table {
 			color: white; padding: 6px 20px;;
  		}
 		 td { 
-			padding-left: 1.25em; border-bottom: 1px solid $color100; vertical-align: middle; line-height: 3.5;
+			padding-left: 1.25em; border-bottom: 1px solid $color100; vertical-align: middle;
 			&.icon-info { text-align: center; font-size: 1.7em; }
 			&:last-of-type { text-align: center; padding: 0; color: #757575; }
 		}
@@ -65,18 +65,33 @@ table {
 
 
 .detail-block {
-  padding: 10px 0; border-bottom: 1px solid $grey300; display: table; table-layout: fixed; width: 100%;
-  &:first-of-type { border-top: 1px solid $grey300; }
-  .content-info-first {
-	display: table-cell; width: 80%; border-right: 1px solid #929292; padding-right: 10px;
+  	padding: 10px 0; border-bottom: 1px solid $grey300;
+  	&:first-of-type { border-top: 1px solid $grey300; }
+  	.content-info-first {
+	display: table-cell; width: 80%; padding-right: 10px;
   	h2 { 
 			margin-bottom: 5px; font-size: toem(16px); color: $color800; font-weight: 800;
 			&.bus-title { min-height: auto; }
 		}
-  }
-  >div { display: table-cell; vertical-align: middle; }
-  .element-icon { 
-		width: 20%; text-align: center; font-size: 25px; color: $grey600; cursor: pointer;
+  	}
+  	.table-detail {
+		display: table; table-layout: fixed; width: 100%;
+		>div { display: table-cell; vertical-align: middle; }
+  	}
+  	.element-icon { 
+		width: 20%; text-align: center; font-size: 25px; color: $grey600; cursor: pointer; 
+		transition: all .3s ease;
+		&.util-phone { display: none; }
 	}
 	&.fixed-block { min-height: 71px; }
+	.has-detail {
+		max-height: 0; overflow: hidden; background: #f3f3f3; text-align: center; margin-top: 0;
+		opacity: 0; transition: all .2s ease-in;
+		p { color: dimgrey; margin: 10px; }
+	}
+	.row-has-detail { cursor: pointer; }
+	.info-directive.show-detail{
+		.has-detail { max-height: 50px; margin-top: 5px; opacity: 1; }
+		.element-icon { transform: rotate3d(0,0,1, 90deg) }
+	} 
 }

@@ -4,7 +4,7 @@
 		.module('servicios-chabas')
 		.directive('switchTabs', switchTabs);
 
-	function switchTabs(analytics) {
+	function switchTabs($rootScope) {
 		return {
 			restrict: 'A',
 			templateUrl: 'templates/components/swtich-tabs/switch-tabs.html',
@@ -45,7 +45,7 @@
 				scope.$on('$stateChangeStart',
 					function (event, toState, toParams, fromState, fromParams) {
 						var index = getIndex(toState.name);
-						analytics.pageview(toState.url);
+/*						$rootScope.$broadcast('changePage', { path: toState.url });*/
 						if (scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario será false
 						scope.setSelectedTab(index);
 					});

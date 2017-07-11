@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .directive('mediaController', mediaController);
 
-    function mediaController(analytics) {
+    function mediaController() {
         return {
             restrict: 'A',
             templateUrl: 'templates/components/media/media.html',

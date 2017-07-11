@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     angular
         .module('servicios-chabas')
@@ -6,27 +6,33 @@
 
     function BusesMainController($scope, factoryBus, $rootScope, services) {
 
-       /* modal.setModal('templates/colectivos/modalBus.html', 'modalColectivos');*/
+        /* modal.setModal('templates/colectivos/modalBus.html', 'modalColectivos');*/
 
         $scope.tableRosario;
         $scope.tableFirmat;
         $scope.allBuses = {};
 
-        services.getBuses(setData);
+        services.getData('colectivos', getData);
 
-        function setData(data) {
-            $scope.allBuses = data.allBuses;
+        function getData(data) {
+            $scope.allBuses = data;
+            $scope.$broadcast('updateTableBuses', data);
         }
+
+        $rootScope.$on('updateData', function () {
+            services.getData('colectivos', getData);
+        });
 
         $scope.map = {
             show: false
         };
-        $scope.modal = {
+
+        /*$scope.modal = {
             detail: '',
             showModal: false
-        };
+        };*/
 
-        $scope.openModal = function(bus){
+        /*$scope.openModal = function(bus) {
             if (angular.isUndefinedOrNullOrEmpty(bus) || angular.isUndefinedOrNullOrEmpty(bus.detalle)) return;
             $scope.modal.data = bus;
             $scope.modal.showModal = true;
@@ -36,6 +42,6 @@
         $scope.closeModal = function() {
             $scope.modal.showModal = false;
             $rootScope.modalIsOpen = false;
-        }
+        }*/
     }
 })();

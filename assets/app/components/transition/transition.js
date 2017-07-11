@@ -20,8 +20,8 @@
 
                 $timeout(function () {
                     section.addClass('anim-in-section');
-                    scope.$apply();
-                }, 50);
+                    /*scope.$apply();*/
+                }, 100);
             }
         }
     };

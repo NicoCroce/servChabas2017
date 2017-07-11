@@ -1,0 +1,37 @@
+.select-option {
+/*	margin: 0 auto; text-align: left; margin-bottom: 15px; position: relative;*/
+		position: relative; margin: 15px 0; margin-bottom: 30px;
+		input { 
+			width: 100%; border-radius: 3px; padding: 13px; border: 1px solid #d4d4d4;  border-bottom: 3px solid #03A9F4; color: #3e3e3e;
+			&:focus + label { @extend .has-text; }
+			&.has-error { 
+			+label { @extend .has-text; color: #FF5722 !important; }
+			border-color: #FF5722; color: #FF5722;
+			}
+		}
+		label { 
+			position: absolute; top: 13px; left: 10px; color: #3e3e3e; pointer-events: none; transition: all .3s ease;
+			transform: translate3d(0, 0, 0); font-size: toem(13px);
+			&.has-text { @extend .has-text; }
+		}
+}
+
+/*&.bg-white {
+	>ul { width: 90%; vertical-align: top; float: left; }
+	>div { 
+		width: 10%; position: relative; vertical-align: top; float: left;
+		input { height: 45px; border-radius: 0 3px 3px 0; }
+		span { position: absolute; top: 10px; color: white; font-size: toem(25px); left: 0; right: 0; margin: 0 auto; text-align: center; pointer-events: none; }
+	}
+	li, ul { margin: 0 !important;}
+	li {
+		input {
+			border-right: 0; border-radius: 3px 0 0 3px;
+			&:focus + label { 
+				@extend .has-text;
+				color: #3e3e3e;
+			}
+		}
+		label { font-size: toem(12px); top: 15px; }
+	} 
+}*/

@@ -1,10 +1,10 @@
-(function () {
+(function() {
     'use strict';
     angular
         .module('servicios-chabas')
         .controller('IndexController', IndexController);
 
-    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state, services) {
+    function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state) {
         $scope.showModalBool = false;
         $scope.htmlToAdd = '';
 
@@ -16,8 +16,8 @@
         };
 
         (function init() {
-            setTimeout(function () {
-                if (typeof (Storage) !== "undefined") {
+            setTimeout(function() {
+                if (typeof(Storage) !== "undefined") {
                     $scope.modal.showModalUpdate = localStorage.getItem("showModalUpdate1") == "true";
                 } else {
                     $scope.modal.showModalUpdate = true;
@@ -25,17 +25,17 @@
             }, 1000);
         })();
 
-        $scope.closeModalUpdate = function (type) {
+        $scope.closeModalUpdate = function(type) {
             $scope.modal.showModalUpdate = false;
             if (type && type == 'update') {
-                if (typeof (Storage) !== "undefined") {
+                if (typeof(Storage) !== "undefined") {
                     localStorage.setItem("showModalUpdate1", false);
                 }
             }
             $rootScope.modalIsOpen = false;
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModal = function() {
             $scope.modal.showModal = false;
             $rootScope.modalIsOpen = false;
         };
@@ -57,10 +57,10 @@
             tabSelected: factoryIndex.setTab()
         };
 
-        setTimeout(function () {
+        setTimeout(function() {
             var getShowModal;
 
-            if (typeof (Storage) !== "undefined") {
+            if (typeof(Storage) !== "undefined") {
                 getShowModal = localStorage.getItem("showAddHomeModal");
                 localStorage.setItem("showAddHomeModal", false);
             } else {
@@ -75,11 +75,11 @@
         }, 1000);
 
         $scope.$on('$stateChangeSuccess',
-            function (event, toState, toParams, fromState, fromParams) {
+            function(event, toState, toParams, fromState, fromParams) {
                 $rootScope.backSectionVisible = utilsComponents.showBack();
             });
 
-        $scope.backSection = function () {
+        $scope.backSection = function() {
             if (window.location.hash.indexOf('servicios') >= 0) {
                 return $state.go('servicios.list');
             } else if (window.location.hash.indexOf('colectivos') >= 0) {
@@ -90,7 +90,5 @@
                 $state.go('home');
             }
         }
-        
-        services.init();
     };
 })();

@@ -21,7 +21,7 @@
         }
 
         $scope.call = function (currentPhone) {
-            var phoneNumber = Object.values(currentPhone)[0],
+            var phoneNumber = currentPhone.tel,
                 clearIndex = phoneNumber.indexOf('/');
             if (clearIndex >= 0) { phoneNumber = phoneNumber.substring(0, clearIndex).replace('-', '') }
 

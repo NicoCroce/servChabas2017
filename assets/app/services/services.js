@@ -1,11 +1,10 @@
-(function () {
+(function() {
     'use strict'
     angular
         .module('servicios-chabas')
         .factory('services', services);
 
-    function services($rootScope, factoryFarmacy, factoryBus, factoryServices) {
-
+    function services($rootScope, indexedDB) {
         var contServ = 3;
 
         var dataPersist = {
@@ -15,138 +14,42 @@
             services: null
         }
 
+        var usersDBFull = firebase.database().ref('data');
+
         return {
-            getPaharmacy: getPaharmacy,
-            getBuses: getBuses,
-            getServices: getServices,
+            getData: getData,
             init: init
         }
 
-        function getDataResponse() {
-            return dataPersist;
-        }
-
-        function getPaharmacy(cbSetData) {
-            if (angular.isUndefinedOrNullOrEmpty(dataPersist.allPharmacies) ||
-                angular.isUndefinedOrNullOrEmpty(dataPersist.dataPharmacy)) {
-                $rootScope.loadingService = true;
-                (function callService() {
-                    factoryFarmacy.getData()
-                        .then(calendarSuccess)
-                        .catch(calendarError)
-                        .finally(calendarFinally);
-                })();
-
-                function calendarSuccess(dataResponse) {
-                    dataPersist.allPharmacies = dataResponse.allPharmacies.farmacias;
-                    dataPersist.dataPharmacy = {
-                        name: dataResponse.pharmacyData.nombre,
-                        img: dataResponse.pharmacyData.imagen,
-                        address: dataResponse.pharmacyData.direccion,
-                        phone: dataResponse.pharmacyData.telefono,
-                        map: dataResponse.pharmacyData.mapa,
-                    };
-                    if (cbSetData) {
-                        cbSetData(dataPersist); 
-                        return $rootScope.loadingService = false; 
-                    }
-                    return descServ();
+        function callFirebase() {
+            $rootScope.loadingService = true;
+            /*console.log('LLAMANDO A FIREBASE');*/
+            if (!navigator.onLine) return;
+            usersDBFull.on('value', function(dataResponse) {
+                var item = {
+                    name: 'DB',
+                    data: dataResponse.val()
                 };
-
-                function calendarError(dataError) {
-                    callService();
-                    return;
-                };
-
-                function calendarFinally(dataFinally) {
-                    $rootScope.loadingService = false;
-                };
-            } else {
+                /*console.log('GUARDANDO EN INDEXDB');*/
+                
+                indexedDB.setData('DB', item);
                 $rootScope.loadingService = false;
-                if (cbSetData) cbSetData(dataPersist);
-                return;
+            });
+        };
+
+        function getData(name, cbSetData) {
+            indexedDB.getItem('DB', evaluateService);
+
+            function evaluateService(indexResponse) {
+                if (indexResponse && indexResponse != null && cbSetData) {
+                    return cbSetData(indexResponse[name]);
+                }
+                return console.log('Error');
             }
-        }
-
-        function getServices(cbSetData){
-            if (angular.isUndefinedOrNullOrEmpty(dataPersist.services)) {
-
-                (function callService() {
-                    factoryServices.getDataServices()
-                        .then(servicesSuccess)
-                        .catch(servicesError)
-                        .finally(servicesFinally);
-                })();
-
-                function servicesSuccess(dataResponse) {
-                    dataPersist.services = dataResponse;
-                    if (cbSetData) {
-                        cbSetData(dataPersist);
-                        return $rootScope.loadingService = false;
-                    }
-                    return descServ();
-                };
-
-                function servicesError(dataError) {
-                    return;
-                };
-
-                function servicesFinally(dataFinally) {
-                    $rootScope.loadingService = false;
-
-                };
-            }
-            else {
-                $rootScope.loadingService = false;
-                if (cbSetData) cbSetData(dataPersist);
-                return;
-            }
-        }
-
-        function getBuses(cbSetData) {
-            if (angular.isUndefinedOrNullOrEmpty(dataPersist.allBuses)) {
-
-                (function callService() {
-                    factoryBus.getDataBuses()
-                        .then(busesSuccess)
-                        .catch(busesError)
-                        .finally(busesFinally)
-                })();
-
-                function busesSuccess(dataResponse) {
-                    dataPersist.allBuses = dataResponse;
-                    $rootScope.loadedService = true;
-                    if (cbSetData) {
-                        cbSetData(dataPersist);
-                        return $rootScope.loadingService = false;
-                    }
-                    return descServ();
-                };
-
-                function busesError(dataError) {
-                    return;
-                };
-
-                function busesFinally(dataFinally) {
-                    $rootScope.loadingService = false;
-                };
-            }
-            else {
-                $rootScope.loadingService = false;
-                if (cbSetData) cbSetData(dataPersist);
-                return;
-            }
-        }
+        };
 
         function init() {
-            getPaharmacy();
-            getBuses();
-            getServices();
-        }
-
-        function descServ() {
-            contServ --;
-            if (contServ == 0) { $rootScope.loadingService = false; }
+            callFirebase();
         }
     };
 })();
