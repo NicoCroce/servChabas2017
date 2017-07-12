@@ -16,16 +16,17 @@
             link: function (scope, element, attrs) {
                 scope.showDetail = false;
 
+                scope.actions = {
+                    phone: '03464' + scope.data.tel.replace('(03464)', '').replace('-', '').replace(/ /g, ''),
+                    map: scope.data.mapa
+                };
+
                 scope.showDetailEvent = function() {
                     scope.showDetail = !scope.showDetail;
                 }
 
                 scope.detalle = scope.data.detalle;
                 scope.detalle.teléfono = '(03464) ' + scope.data.tel;
-
-                scope.phone = '03464' + scope.data.tel.replace('(03464)', '').replace('-', '').replace(/ /g, '');
-                scope.map = scope.data.detalle.mapa;
-
 
                 scope.getLabel = function (index) {
                     return Object.keys(scope.detalle)[index] + ':  ';

@@ -15,9 +15,9 @@
                 <label ng-bind="getLabel($index)"></label><span ng-bind="detail"></span>
             </div>
         </div>
-        <div>
-            <span class="icon-phone"></span>
-            <span class="icon-location2"></span>
+        <div class="action-block">
+            <a class="" href="tel:{{actions.phone}}" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span class="icon-phone"></span></a>
+            <a class="location-action" href="{{ actions.map }}" ng-if="actions.map" target="_blank"><span class="icon-location2"></span></a>
         </div>
     </div>
 </div>
