@@ -89,10 +89,22 @@ table {
 		max-height: 0; overflow: hidden; background: #f3f3f3; text-align: center; margin-top: 0;
 		opacity: 0; transition: all .2s ease-in;
 		p { color: dimgrey; margin: 10px; }
+		&.is-service { 
+			.block-info { 
+				text-align: left; text-transform: capitalize; padding: 5px 10px;
+				>div { 
+					padding: 5px 0; padding-bottom: 0;
+					&:last-child { padding-bottom: 5px; }
+					>label { width: 75px; display: inline-block; }
+					>span { font-weight: 600; }
+				}
+			
+			}
+		}
 	}
 	.row-has-detail { cursor: pointer; }
 	.info-directive.show-detail{
-		.has-detail { max-height: 50px; margin-top: 5px; opacity: 1; }
+		.has-detail { max-height: 120px; margin-top: 5px; opacity: 1; }
 		.element-icon { transform: rotate3d(0,0,1, 90deg) }
 	} 
 }
