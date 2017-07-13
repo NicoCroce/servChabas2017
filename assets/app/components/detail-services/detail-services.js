@@ -21,11 +21,11 @@
                     map: scope.data.mapa
                 };
 
-                scope.mobileCheck = function() {
+                scope.mobileCheck = function () {
                     return window.mobilecheck();
                 }
 
-                scope.showDetailEvent = function() {
+                scope.showDetailEvent = function () {
                     scope.showDetail = !scope.showDetail;
                 }
 
@@ -35,6 +35,10 @@
                 scope.getLabel = function (index) {
                     return Object.keys(scope.detalle)[index] + ':  ';
                 };
+
+                angular.element(function (hola) {
+                    console.log(hola);
+                })
             }
         }
     };
