@@ -56,6 +56,16 @@
             typeService = val;          
         }, true);
 
+        
+        $scope.sendUtil = function() {
+            var objToSend = {
+                "nombre": 'Cerrajería',
+                "tel": '526438'
+            }
+            var newTelKey = firebase.database().ref('data/servicios/utiles').push().key;
+            firebase.database().ref('data/servicios/utiles/' + newTelKey).update(objToSend);
+        }
+
 
           $scope.writeData = function() { 
              /* var months = [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre' ];
