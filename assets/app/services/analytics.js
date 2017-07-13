@@ -8,9 +8,28 @@
 
     function GAnalytics($rootScope) {
 
-        window.addEventListener('hashchange', function (e) {
-            pageView();
-        });
+        var stores = {
+            'prod': 'UA-97821011-1',
+            'desa': 'UA-96039991-2',
+        };
+
+        var IdAnalytics = stores['desa'];
+
+        if (window.location.hostname == 'chabashoy.com.ar') {
+            IdAnalytics = stores['prod'];
+        };
+
+        if (angular.isUndefinedOrNullOrEmpty(IdAnalytics)) {
+            return;
+        } else {
+            dataLayer.push({
+                'IDanalyticsSet': IdAnalytics
+            });
+
+            window.addEventListener('hashchange', function (e) {
+                pageView();
+            });
+        }
 
         return {
             pageView: pageView
@@ -21,7 +40,6 @@
             console.log('ver:' + path);
             try {
                 dataLayer.push({
-                    'IDanalytics': 'UA-96039991-1',
                     'event': 'virtualPageView',
                     'dataView': {
                         'path': path
