@@ -49,10 +49,10 @@
 
         $scope.tabs = {
             tabArray: [
-                { 'url': 'farmacias', 'icon': 'icon-heart', 'text': '', 'fontSize': 'fs-23' },
-                { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': '', 'fontSize': 'fs-20' },
-                { 'url': 'servicios.list', 'icon': 'icon-office', 'text': '', 'fontSize': '' },
-                { 'url': 'stack.list', 'icon': 'icon-stack', 'text': '', 'fontSize': 'fs-20' }
+                { 'url': 'farmacias', 'icon': 'icon-heart', 'text': 'Farmacia de Turno', 'fontSize': 'fs-23' },
+                { 'url': 'colectivos.list', 'icon': 'icon-bus', 'text': 'Horario de Colectivos', 'fontSize': 'fs-20' },
+                { 'url': 'servicios.list', 'icon': 'icon-office', 'text': 'Contacto de Servicios', 'fontSize': '' },
+                { 'url': 'stack.list', 'icon': 'icon-stack', 'text': 'Otros', 'fontSize': 'fs-20' }
             ],
             tabSelected: factoryIndex.setTab()
         };

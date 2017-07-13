@@ -29,6 +29,11 @@ $mediaquery_phones-small--portrait: 480px;
 
 @media screen and (min-width: $mediaquery_phones) {
     .mobile { display: none !important; }
+    .tabs.nav-tabs li span { 
+        display: block;
+        &:last-of-type { font-size: 12px; margin-top: 4px; font-family: Roboto, Oswald, "PT Serif", "Dancing Script", sans-serif; }
+    }
+    .tabs.nav-tabs li { height: 58px; }
 }
 
 @media screen and (max-width: $mediaquery_phones) {
