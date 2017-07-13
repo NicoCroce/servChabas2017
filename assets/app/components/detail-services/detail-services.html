@@ -1,4 +1,5 @@
-<div class="info-directive" ng-class="{'show-detail': showDetail}">
+<div class="info-directive row-has-detail" ng-class="{'show-detail': showDetail}">
+    <!--<span class="icon-arrow_right icon-top"></span>-->
     <div class="table-detail" ng-click="showDetailEvent()">
         <div class="content-info-first">
             <h2 class="mg-0" ng-bind="data.nombre"></h2>
@@ -11,13 +12,16 @@
     </div>
     <div class="has-detail is-service mg-0">
         <div class="block-info">
-            <div ng-repeat="detail in detalle track by $index">
+            <div ng-repeat="detail in detalle track by $index" ng-if="detail">
                 <label ng-bind="getLabel($index)"></label><span ng-bind="detail"></span>
             </div>
         </div>
-        <div class="action-block">
+        <div class="action-block" ng-if="mobileCheck()">
             <a class="" href="tel:{{actions.phone}}" onClick="return (navigator.userAgent.match(/Android|iPhone|iPad|iPod|Mobile/i))!=null;"><span class="icon-phone"></span></a>
             <a class="location-action" href="{{ actions.map }}" ng-if="actions.map" target="_blank"><span class="icon-location2"></span></a>
         </div>
+        <a class="button-map" href="{{ actions.map }}" target="_blank" ng-if="actions.map && !mobileCheck()">
+            <button type="button" class="button-transparent" ng-click="initMapBus()" ng-class="{'is-offline': offline}">Mostrar ubicación</button>
+        </a>
     </div>
 </div>

@@ -21,6 +21,10 @@
                     map: scope.data.mapa
                 };
 
+                scope.mobileCheck = function() {
+                    return window.mobilecheck();
+                }
+
                 scope.showDetailEvent = function() {
                     scope.showDetail = !scope.showDetail;
                 }
