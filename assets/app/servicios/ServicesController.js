@@ -135,17 +135,5 @@
         $scope.getLabel = function(detail, index) {
             return Object.keys(detail)[index];
         };
-
-        $scope.setDB = function() {
-            indexedDB.setData();
-        }
-
-        $scope.getDB = function() {
-            indexedDB.getData();
-        }
-
-        $scope.getItem = function() {
-            indexedDB.getItem();
-        }
     }
 })();

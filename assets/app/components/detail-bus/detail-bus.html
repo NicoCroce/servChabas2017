@@ -1,6 +1,6 @@
-<div class="info-directive" ng-click="showDetailEvent()" ng-class="{'show-detail': showDetail, 'row-has-detail': data.detalle}">
-    <div class="table-detail">
-        <div class="content-info-first">
+<div class="info-directive" ng-class="{'show-detail': showDetail, 'row-has-detail': data.detalle}">
+    <div class="table-detail" ng-click="showDetailEvent()">
+        <div class="content-info-first" >
             <h2 class="bus-title" ng-bind="data.empresa"></h2>
             <span ng-bind="data.horario"></span>
         </div>
