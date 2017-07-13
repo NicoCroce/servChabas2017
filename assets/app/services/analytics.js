@@ -9,7 +9,7 @@
     function GAnalytics($rootScope) {
 
         var stores = {
-            'prod': 'UA-97821011-1',
+            'prod': 'UA-96039991-1',
             'desa': 'UA-96039991-2',
         };
 
