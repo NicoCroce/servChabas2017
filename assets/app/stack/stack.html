@@ -1,13 +1,24 @@
-<div transition class="info services header-section">
+<div transition class="stack-list">
     <div class="info-msg">
         <p>Próximamente en esta sección se encontrarán eventos, información sobre clubes, clima, entre otras funciones. </p>
     </div>
 
+    <div class="elements">
+        <div>
+            <button id="GTM-btStack-Radios" class="stack-button" ui-sref="stack.radios({back: 1})">
+                <span class="icon-feed"></span>
+                <span>RADIOS</span>
+            </button>
+        </div>
+        <div>
+            <button id="GTM-btStack-Radios" class="stack-button" ui-sref="stack.padron({back: 1})">
+                <span class="icon-user-check"></span>
+                <span>PADRÓN</span>
+            </button>
+        </div>
+    </div>
+
     <!--RADIOS-->
-    <button id="btStack-Radios" class="stack-button" ui-sref="stack.radios({back: 1})">
-        <span class="icon-feed"></span>
-        <span>RADIOS</span>
-	</button>
 </div>
 
-<div ng-include="'templates/servicios/addService.html'"></div>
+<!-- <div ng-include="'templates/servicios/addService.html'"></div> -->

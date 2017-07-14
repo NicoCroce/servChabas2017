@@ -125,6 +125,11 @@
                     templateUrl: 'templates/stack/radios/stackRadios.html',
                     controller: 'StackRadioController'
                 })
+                .state('stack.padron', {
+                    url: '/padron/:back',
+                    templateUrl: 'templates/stack/padron/stackPadron.html',
+                    controller: 'StackPadronController'
+                })
 
             .state('menu', {
                     url: '/menu',

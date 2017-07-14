@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconServicios';
   src:
-    url('../fonts/iconServicios.ttf') format('truetype'),
-    url('../fonts/iconServicios.woff') format('woff'),
-    url('../fonts/iconServicios.svg#iconServicios') format('svg');
+    url('../fonts/iconServicios.ttf?nk6po5') format('truetype'),
+    url('../fonts/iconServicios.woff?nk6po5') format('woff'),
+    url('../fonts/iconServicios.svg?nk6po5#iconServicios') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,9 +23,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-futbol-o:before {
-  content: "\e908";
-}
 .icon-options-v:before {
   content: "\e901";
 }
@@ -89,33 +86,6 @@
 .icon-email:before {
   content: "\e616";
 }
-.icon-googleplus:before {
-  content: "\e601";
-}
-.icon-facebook:before {
-  content: "\e602";
-}
-.icon-equalizer:before {
-  content: "\e60f";
-}
-.icon-menu:before {
-  content: "\e610";
-}
-.icon-menu2:before {
-  content: "\e611";
-}
-.icon-cancel-circle:before {
-  content: "\e612";
-}
-.icon-checkmark-circle:before {
-  content: "\e613";
-}
-.icon-mobile:before {
-  content: "\e614";
-}
-.icon-skype:before {
-  content: "\e615";
-}
 .icon-location:before {
   content: "\e600";
 }
@@ -166,4 +136,10 @@
 }
 .icon-feed:before {
   content: "\e91d";
+}
+.icon-user-check:before {
+  content: "\e975";
+}
+.icon-futbol-o:before {
+  content: "\e908";
 }
