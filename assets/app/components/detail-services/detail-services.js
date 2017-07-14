@@ -33,8 +33,16 @@
                 scope.detalle.teléfono = '(03464) ' + scope.data.tel;
 
                 scope.getLabel = function (index) {
+                    if(Object.keys(scope.detalle)[index] == 'direccion') { return 'dirección: ' }
+
                     return Object.keys(scope.detalle)[index] + ':  ';
                 };
+
+                scope.$on('updateDirective', function() {
+                    scope.detalle = scope.data.detalle;
+                    scope.detalle.teléfono = '(03464) ' + scope.data.tel;
+                    scope.$apply();
+                });
             }
         }
     };

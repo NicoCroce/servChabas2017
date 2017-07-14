@@ -56,6 +56,17 @@
             typeService = val;          
         }, true);
 
+        $scope.addDetail = function() {
+            var servKeys = Object.keys($scope.allServicies.utiles);
+            servKeys.forEach(function(element) {
+                if($scope.allServicies.utiles[element].detalle){ return; }
+                $scope.allServicies.utiles[element]['detalle'] = {
+                    direccion: ""
+                }
+            });
+            firebase.database().ref('data/servicios/utiles').update($scope.allServicies.utiles);
+        }
+
         
         $scope.sendUtil = function() {
             var objToSend = {

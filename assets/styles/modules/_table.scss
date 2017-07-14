@@ -80,7 +80,7 @@ table {
 	display: table-cell; vertical-align: middle; width: 85%; padding-right: 20px;
   	h2 { 
 			margin-bottom: 5px; font-size: toem(16px); color: $color800; font-weight: 800;
-			transition: font-size .3s ease;
+			transition: font-size .3s ease; line-height: 20px;
 			&.bus-title { min-height: auto; }
 		}
   	}
@@ -116,9 +116,9 @@ table {
 				a { 
 					padding: 15px; display: table-cell; font-size: 33px; margin: 0;
 					span { 
-						display: inline-block; transform: scale3d(0, 0, 0); transition: all .3s ease .2s; opacity: 0; background: $color500;
+						display: inline-block; transform: scale3d(0, 0, 0); transition: all .3s ease-out .1s; opacity: 0; background: $color500;
     					padding: 10px; color: white; border-radius: 50%;
-						&.icon-location2 { transition-delay: .3s }
+						&.icon-location2 { transition-delay: .2s }
 					}
 				}
 			 }

@@ -23,6 +23,7 @@
                 $scope.title = typeService.title;
                 $scope.servicesList = value[typeService.jsonElement];
                 $scope.$apply();
+                $scope.$broadcast('updateDirective');
             }
         });
 

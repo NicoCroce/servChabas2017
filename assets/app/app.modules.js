@@ -103,10 +103,10 @@
                     templateUrl: 'templates/servicios/serviciosList.html',
                     controller: 'ServicesListController'
                 })
-                .state('servicios.telefonos', {
-                    url: '/telefonos/:back',
-                    templateUrl: 'templates/servicios/telefonos/serviciosTelefonos.html',
-                    controller: 'ServicesTelefonosController'
+                .state('servicios.utiles', {
+                    url: '/utiles/:back',
+                    templateUrl: 'templates/servicios/serviciosList.html',
+                    controller: 'ServicesListController'
                 })
 
 
