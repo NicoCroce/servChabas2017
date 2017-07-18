@@ -16,7 +16,6 @@ function genVersion() {
 	var final = b + "" + c + "" +  d + "." + f + "-" + seconds; 
 
 	return final;
-
 } 
 
 function writeFile(done) {
