@@ -30,73 +30,86 @@ var stringToFind = {
     }
 };
 
-app.get('/', function (req, res) {
-    request(requestOptions, function (error, response, body) {
-        /* console.log(body); */
-        var utf8String = iconv.decode(new Buffer(body), "ISO-8859-1");
-        fs.writeFile('comepleteHTML.html', utf8String);
-        getIndexesOf(utf8String);
-        res.send(utf8String);
+exports.getPage = function () {
+    return new Promise(function (resolve, reject) {
+        console.log('antes');
+        request(requestOptions, function (error, response, body) {
+            var utf8String = iconv.decode(new Buffer(body), "ISO-8859-1");
+            fs.writeFile('comepleteHTML.html', utf8String);
+            getIndexesOf(utf8String)
+                .then(function (result) {
+                    console.log('enviando');
+                    resolve(result);
+                });
+        });
     });
-});
+};
 
-app.listen(3000, function () {
+
+/* app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
-
+ */
 
 function getIndexesOf(html) {
-    var indexStart = html.indexOf(stringToFind.table.start);
-    var indexEnd = html.indexOf(stringToFind.table.end, indexStart) + stringToFind.table.end.length;
-    // Buscar todas las tablas, son las que contienen la info.
-    var contMain = 0;
-     while (indexStart >= 0) { 
-        /* console.log('indexStart:  ' + indexStart + '   ' + 'indexEnd:  ' + indexEnd); */
-        var string = html.substring(indexStart, indexEnd);
-        stringToFind.table.tables.push(string.toString());
-        indexStart = html.indexOf(stringToFind.table.start, indexStart + 1);
-        indexEnd = html.indexOf(stringToFind.table.end, indexStart + 1) + stringToFind.table.end.length;
-        
-        //Buscar todos los fonts dentro de las tablas. 
-        var indexStartFont = string.indexOf(stringToFind.info.start);
-        var indexEndFont = string.indexOf(stringToFind.info.end, indexStartFont) + stringToFind.info.end.length;
-         cont = 0; 
-        var arrayFonts = {};
-        while (indexStartFont >= 0) {
-            /* console.log('indexStartFont:  ' + indexStartFont + '   ' + 'indexEndFont:  ' + indexEndFont); */
-            var stringFont = string.substring(indexStartFont, indexEndFont);
-            //Eliminar todos los datos de más. Dejar solo la info correcta.
+    return new Promise(function (resolve, reject) {
+        var indexStart = html.indexOf(stringToFind.table.start);
+        var indexEnd = html.indexOf(stringToFind.table.end, indexStart) + stringToFind.table.end.length;
+        // Buscar todas las tablas, son las que contienen la info.
+        var contMain = 0;
+        while (indexStart >= 0) {
+            /* console.log('indexStart:  ' + indexStart + '   ' + 'indexEnd:  ' + indexEnd); */
+            var string = html.substring(indexStart, indexEnd);
+            stringToFind.table.tables.push(string.toString());
+            indexStart = html.indexOf(stringToFind.table.start, indexStart + 1);
+            indexEnd = html.indexOf(stringToFind.table.end, indexStart + 1) + stringToFind.table.end.length;
 
-            arrayFonts['valor'+cont] = clearText(stringFont);
-            /* console.log('INDEX ' + cont + ' Valor:   ' + clearText(stringFont)); */
-            indexStartFont = string.indexOf(stringToFind.info.start, indexStartFont + 1);
-            indexEndFont = string.indexOf(stringToFind.info.end, indexStartFont + 1) + stringToFind.info.end.length;
-             cont = cont+1; 
+            //Buscar todos los fonts dentro de las tablas. 
+            var indexStartFont = string.indexOf(stringToFind.info.start);
+            var indexEndFont = string.indexOf(stringToFind.info.end, indexStartFont) + stringToFind.info.end.length;
+            cont = 0;
+            var arrayFonts = {};
+            while (indexStartFont >= 0) {
+                /* console.log('indexStartFont:  ' + indexStartFont + '   ' + 'indexEndFont:  ' + indexEndFont); */
+                var stringFont = string.substring(indexStartFont, indexEndFont);
+                //Eliminar todos los datos de más. Dejar solo la info correcta.
+
+                arrayFonts['valor' + cont] = clearText(stringFont);
+                /* console.log('INDEX ' + cont + ' Valor:   ' + clearText(stringFont)); */
+                indexStartFont = string.indexOf(stringToFind.info.start, indexStartFont + 1);
+                indexEndFont = string.indexOf(stringToFind.info.end, indexStartFont + 1) + stringToFind.info.end.length;
+                cont = cont + 1;
+            };
+            stringToFind.blockInfo["bloque" + contMain] = arrayFonts;
+            contMain = contMain + 1;
         };
-        stringToFind.blockInfo["bloque" + contMain] = arrayFonts;
-        contMain = contMain +1;
-    };
-    getValoresTemperatura();
-    getValoresHumedad();
-    getPuntoRocio();
-    getTemperaturaViento();
-    getTemperaturaHumedad();
-    getPresion();
-    getViento();
-    getLluvia();
-    fs.writeFile('dataFormated.json', JSON.stringify(stringToFind.valores));
-    fs.writeFile('stringToFind.json', JSON.stringify(stringToFind.blockInfo));
-};
+        getValoresTemperatura();
+        getValoresHumedad();
+        getPuntoRocio();
+        getTemperaturaViento();
+        getTemperaturaHumedad();
+        getPresion();
+        getViento();
+        getLluvia();
+         setTimeout(function () { 
+            resolve(JSON.stringify(stringToFind.valores));
+         }, 3000); 
+
+        /* fs.writeFile('dataFormated.json', JSON.stringify(stringToFind.valores));
+        fs.writeFile('stringToFind.json', JSON.stringify(stringToFind.blockInfo)); */
+    });
+}
+
 
 function clearText(stringToClean) {
     var firstChar = stringToClean.indexOf('>') + 1;
-    if(firstChar > 0) {
+    if (firstChar > 0) {
         var secondChar = stringToClean.indexOf('</font>', firstChar);
         return stringToClean.substring(firstChar, secondChar).replace(/\&nbsp /g, '').replace(/\&nbsp/g, '').replace(/;/g, '').trim();
     }
 };
 
-function getValoresTemperatura(){
+function getValoresTemperatura() {
     stringToFind.valores.temperatura = {
         actual: stringToFind.blockInfo["bloque0"].valor1,
         diaria: {

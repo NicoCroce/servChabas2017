@@ -1,0 +1,91 @@
+[debug] [2017-07-19T02:05:25.553Z] ----------------------------------------------------------------------
+[debug] [2017-07-19T02:05:25.556Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\nico_\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-07-19T02:05:25.557Z] CLI Version:  3.9.1
+[debug] [2017-07-19T02:05:25.557Z] Platform:     win32
+[debug] [2017-07-19T02:05:25.557Z] Node Version: v6.10.2
+[debug] [2017-07-19T02:05:25.557Z] Time:         Tue Jul 18 2017 23:05:25 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:25.557Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-19T02:05:25.573Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-19T02:05:25.574Z] > authorizing via signed-in user
+[debug] [2017-07-19T02:05:25.576Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-07-19T02:05:25.577Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/4ntZfkYYcMbnoUGLIphKt5lMoMC-YavCAvJ0Gcs9sH4',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Jul 18 2017 23:05:25 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:26.024Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:05:26.098Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chabashoytest  
+ Tue Jul 18 2017 23:05:26 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:27.434Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:05:27.435Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chabashoytest/tokens  
+ Tue Jul 18 2017 23:05:27 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:28.285Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Nico\Trabajos\2017\serviciosChabas2017\backend'...
+[info] 
+[info] i  functions: Preparing to emulate HTTPS functions. Support for other event types coming soon.
+[debug] [2017-07-19T02:05:29.105Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/chabashoytest  
+ Tue Jul 18 2017 23:05:29 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:29.106Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/chabashoytest/apiKeys  
+ Tue Jul 18 2017 23:05:29 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:05:30.245Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:05:30.406Z] <<< HTTP RESPONSE 200
+[info] +  functions: date: http://localhost:5002/chabashoytest/us-central1/date
+[info] Shutting down...
+[debug] [2017-07-19T02:06:16.626Z] ----------------------------------------------------------------------
+[debug] [2017-07-19T02:06:16.629Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\nico_\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-07-19T02:06:16.630Z] CLI Version:  3.9.1
+[debug] [2017-07-19T02:06:16.630Z] Platform:     win32
+[debug] [2017-07-19T02:06:16.630Z] Node Version: v6.10.2
+[debug] [2017-07-19T02:06:16.630Z] Time:         Tue Jul 18 2017 23:06:16 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:06:16.630Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-19T02:06:16.643Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-19T02:06:16.643Z] > authorizing via signed-in user
+[debug] [2017-07-19T02:06:16.646Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chabashoytest  
+ Tue Jul 18 2017 23:06:16 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:06:17.711Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:06:17.712Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chabashoytest/tokens  
+ Tue Jul 18 2017 23:06:17 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:06:18.500Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Nico\Trabajos\2017\serviciosChabas2017\backend'...
+[info] 
+[info] i  functions: Preparing to emulate HTTPS functions. Support for other event types coming soon.
+[debug] [2017-07-19T02:06:19.410Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/chabashoytest  
+ Tue Jul 18 2017 23:06:19 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:06:19.411Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/chabashoytest/apiKeys  
+ Tue Jul 18 2017 23:06:19 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:06:20.445Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:06:20.636Z] <<< HTTP RESPONSE 200
+[info] +  functions: date: http://localhost:5002/chabashoytest/us-central1/date
+[info] Shutting down...
+[debug] [2017-07-19T02:09:07.985Z] ----------------------------------------------------------------------
+[debug] [2017-07-19T02:09:07.990Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\nico_\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-07-19T02:09:07.990Z] CLI Version:  3.9.1
+[debug] [2017-07-19T02:09:07.990Z] Platform:     win32
+[debug] [2017-07-19T02:09:07.990Z] Node Version: v6.10.2
+[debug] [2017-07-19T02:09:07.991Z] Time:         Tue Jul 18 2017 23:09:07 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:09:07.991Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-19T02:09:08.008Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-19T02:09:08.009Z] > authorizing via signed-in user
+[debug] [2017-07-19T02:09:08.012Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chabashoytest  
+ Tue Jul 18 2017 23:09:08 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:09:09.453Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:09:09.454Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chabashoytest/tokens  
+ Tue Jul 18 2017 23:09:09 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:09:10.297Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Nico\Trabajos\2017\serviciosChabas2017\backend'...
+[info] 
+[info] i  functions: Preparing to emulate HTTPS functions. Support for other event types coming soon.
+[debug] [2017-07-19T02:09:11.065Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/chabashoytest  
+ Tue Jul 18 2017 23:09:11 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:09:11.065Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/chabashoytest/apiKeys  
+ Tue Jul 18 2017 23:09:11 GMT-0300 (Hora estándar de Argentina)
+[debug] [2017-07-19T02:09:12.159Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-19T02:09:12.299Z] <<< HTTP RESPONSE 200
+[info] +  functions: date: http://localhost:5002/chabashoytest/us-central1/date

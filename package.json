@@ -48,6 +48,7 @@
     "@types/angular-resource": "^1.5.8",
     "@types/angular-ui-router": "^1.1.36",
     "@types/jquery": "^2.0.41",
+    "firebase-functions": "^0.5.9",
     "gulp-install": "^0.6.0",
     "gulp-wait": "0.0.2",
     "node-sass": "^4.5.2",
