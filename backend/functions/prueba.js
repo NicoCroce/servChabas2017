@@ -2,9 +2,19 @@ var request = require("request");
 var express = require('express');
 var fs = require('fs');
 var iconv = require('iconv-lite');
+var http = require("http");
+var rp = require('request-promise');
+/* var requestOptions = { host: "www.chabas.gob.ar", port: 80, path: "/ema/mb1.htm", method: 'GET' }; */
 var requestOptions = { encoding: null, method: "GET", uri: "http://www.chabas.gob.ar/ema/mb1.htm" };
-
 var app = express();
+
+
+/* var iconv = new Iconv('ISO-8859-1', 'UTF-8'); */
+/* console.log(iconv.convert(new Buffer(res.headers['icy-name'], 'binary')));
+ */
+
+
+
 
 var stringToFind = {
     table: {
@@ -30,9 +40,8 @@ var stringToFind = {
     }
 };
 
-exports.getPage = function () {
+function getPage() {
     return new Promise(function (resolve, reject) {
-        console.log('antes');
         request(requestOptions, function (error, response, body) {
             var utf8String = iconv.decode(new Buffer(body), "ISO-8859-1");
             fs.writeFile('comepleteHTML.html', utf8String);
@@ -46,10 +55,15 @@ exports.getPage = function () {
 };
 
 
-/* app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-});
+/*  getPage()
+    .then(function (nico123) {
+        console.log(nico123);
+    }); 
  */
+/*  app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
+}) */
+
 
 function getIndexesOf(html) {
     return new Promise(function (resolve, reject) {
@@ -91,9 +105,12 @@ function getIndexesOf(html) {
         getPresion();
         getViento();
         getLluvia();
-         setTimeout(function () { 
+        console.log('time');
+         setTimeout(function(){ 
             resolve(JSON.stringify(stringToFind.valores));
-         }, 3000); 
+         }, 3000)
+        
+
 
         /* fs.writeFile('dataFormated.json', JSON.stringify(stringToFind.valores));
         fs.writeFile('stringToFind.json', JSON.stringify(stringToFind.blockInfo)); */
@@ -204,3 +221,5 @@ function getLluvia() {
         anual: stringToFind.blockInfo["bloque7"].valor8
     }
 };
+
+exports.getPage = getPage;

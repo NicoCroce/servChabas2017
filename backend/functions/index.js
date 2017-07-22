@@ -23,7 +23,10 @@ const moment = require('moment');
 // CORS Express middleware to enable CORS Requests.
 const cors = require('cors')({ origin: true });
 const prueba = require('./prueba.js');
+var request = require("request");
+var iconv = require('iconv-lite');
 // [END additionalimports]
+var requestOptions = { encoding: null, method: "GET", uri: "http://www.chabas.gob.ar/ema/mb1.htm" };
 
 // [START all]
 /**
@@ -55,16 +58,26 @@ exports.date = functions.https.onRequest((req, res) => {
   // [START usingMiddleware]
   // Enable CORS using the `cors` express middleware.
   cors(req, res, () => {
-    /* prueba.getPage(); */
+    /*  prueba.getPage();  */
     // [START sendResponse]
     /* console.log(prueba.getPage()); */
-     prueba.getPage()
-       .then(function (result) {
+    /* prueba.getPage()
+      .then(function (result) {
         console.log('index');
         res.status(200).send(result);
-      });  
+      }); */
+    request(requestOptions, function (error, response, body) {
+      var utf8String = iconv.decode(new Buffer(body), "ISO-8859-1");
+      res.status(200).send(utf8String);
+    });
     // [END sendResponse]
-    
   });
 });
 // [END all]
+
+
+prueba.getPage()
+  .then(function (result) {
+    console.log(result);
+    /* res.status(200).send(result); */
+  }); 
