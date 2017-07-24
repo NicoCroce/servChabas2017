@@ -7,6 +7,7 @@
     function StackClimaController($scope, services) {
         services.getWeather()
             .then(function(response){
+                debugger;
                 console.log(response);
             })
     };

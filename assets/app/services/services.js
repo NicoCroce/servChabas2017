@@ -4,7 +4,7 @@
         .module('servicios-chabas')
         .factory('services', services);
 
-    function services($rootScope, indexedDB, $resource) {
+    function services($rootScope, indexedDB, $http) {
         var contServ = 3;
 
         var srcHeroku = 'https://chabashoy.herokuapp.com/'
@@ -56,7 +56,7 @@
         }
 
         function getWeather() {
-            return $http.get( srcHeroku + 'clima').$promise;
+            return $http.get( srcHeroku + 'clima');
         }
     };
 })();
