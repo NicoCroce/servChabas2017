@@ -4,8 +4,10 @@
         .module('servicios-chabas')
         .factory('services', services);
 
-    function services($rootScope, indexedDB) {
+    function services($rootScope, indexedDB, $resource) {
         var contServ = 3;
+
+        var srcHeroku = 'https://chabashoy.herokuapp.com/'
 
         var dataPersist = {
             allPharmacies: null,
@@ -18,6 +20,7 @@
 
         return {
             getData: getData,
+            getWeather: getWeather,
             init: init
         }
 
@@ -50,6 +53,10 @@
 
         function init() {
             callFirebase();
+        }
+
+        function getWeather() {
+            return $http.get( srcHeroku + 'clima').$promise;
         }
     };
 })();

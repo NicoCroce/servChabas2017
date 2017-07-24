@@ -130,6 +130,11 @@
                     templateUrl: 'templates/stack/padron/stackPadron.html',
                     controller: 'StackPadronController'
                 })
+                .state('stack.clima', {
+                    url: '/clima/:back',
+                    templateUrl: 'templates/stack/clima/stackClima.html',
+                    controller: 'StackClimaController'
+                })
 
             .state('menu', {
                     url: '/menu',
