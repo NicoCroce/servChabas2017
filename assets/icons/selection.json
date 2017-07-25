@@ -27,7 +27,7 @@
         "code": 59649
       },
       "setIdx": 0,
-      "setId": 20,
+      "setId": 31,
       "iconIdx": 0
     },
     {
@@ -56,7 +56,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 0
     },
     {
@@ -84,7 +84,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 1
     },
     {
@@ -110,7 +110,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 2
     },
     {
@@ -137,7 +137,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 3
     },
     {
@@ -165,7 +165,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 4
     },
     {
@@ -192,7 +192,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 5
     },
     {
@@ -222,7 +222,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 6
     },
     {
@@ -250,7 +250,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 7
     },
     {
@@ -280,7 +280,7 @@
         "ligatures": ""
       },
       "setIdx": 1,
-      "setId": 19,
+      "setId": 30,
       "iconIdx": 8
     },
     {
@@ -309,7 +309,7 @@
         "name": "bus"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 0
     },
     {
@@ -338,7 +338,7 @@
         "name": "info"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 1
     },
     {
@@ -367,7 +367,7 @@
         "name": "phone"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 2
     },
     {
@@ -396,7 +396,7 @@
         "name": "arrow_right"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 3
     },
     {
@@ -423,7 +423,7 @@
         "name": "signal_wifi_off"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 4
     },
     {
@@ -452,7 +452,7 @@
         "name": "system_update"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 5
     },
     {
@@ -481,7 +481,7 @@
         "name": "sync"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 6
     },
     {
@@ -508,7 +508,7 @@
         "name": "flash_on"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 7
     },
     {
@@ -535,7 +535,7 @@
         "name": "pause"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 8
     },
     {
@@ -562,8 +562,62 @@
         "name": "play_arrow"
       },
       "setIdx": 2,
-      "setId": 18,
+      "setId": 29,
       "iconIdx": 9
+    },
+    {
+      "icon": {
+        "paths": [
+          "M854 512l-342 342-342-342 62-60 238 238v-520h84v520l240-238z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "arrow_downward"
+        ],
+        "defaultCode": 58843,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "arrow_downward",
+        "id": 46,
+        "order": 53,
+        "prevSize": 24,
+        "code": 58843,
+        "name": "arrow_down"
+      },
+      "setIdx": 23,
+      "setId": 8,
+      "iconIdx": 46
+    },
+    {
+      "icon": {
+        "paths": [
+          "M170 512l342-342 342 342-62 60-238-238v520h-84v-520l-240 238z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "arrow_upward"
+        ],
+        "defaultCode": 58840,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "arrow_upward",
+        "id": 51,
+        "order": 52,
+        "prevSize": 24,
+        "code": 58840,
+        "name": "arrow_up"
+      },
+      "setIdx": 23,
+      "setId": 8,
+      "iconIdx": 51
     },
     {
       "icon": {
@@ -587,7 +641,7 @@
         "name": "email"
       },
       "setIdx": 3,
-      "setId": 17,
+      "setId": 28,
       "iconIdx": 0
     },
     {
@@ -616,7 +670,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 0
     },
     {
@@ -643,7 +697,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 1
     },
     {
@@ -670,7 +724,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 2
     },
     {
@@ -700,7 +754,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 3
     },
     {
@@ -727,7 +781,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 4
     },
     {
@@ -757,7 +811,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 5
     },
     {
@@ -786,7 +840,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 6
     },
     {
@@ -814,7 +868,7 @@
         "ligatures": ""
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 7
     },
     {
@@ -842,7 +896,7 @@
         "code": 58900
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 8
     },
     {
@@ -870,7 +924,7 @@
         "code": 58901
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 9
     },
     {
@@ -901,7 +955,7 @@
         "code": 59835
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 10
     },
     {
@@ -929,7 +983,7 @@
         "code": 59694
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 11
     },
     {
@@ -958,7 +1012,7 @@
         "code": 60051
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 12
     },
     {
@@ -987,7 +1041,7 @@
         "code": 59653
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 13
     },
     {
@@ -1020,7 +1074,7 @@
         "code": 59942
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 14
     },
     {
@@ -1051,7 +1105,7 @@
         "code": 59946
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 15
     },
     {
@@ -1082,16 +1136,19 @@
         "code": 59677
       },
       "setIdx": 4,
-      "setId": 16,
+      "setId": 27,
       "iconIdx": 16
     },
     {
       "icon": {
-        "width": 1024,
         "paths": [
           "M960 608l-288 288-96-96-64 64 160 160 352-352z",
           "M448 768h320v-115.128c-67.22-39.2-156.308-66.11-256-74.26v-52.78c70.498-39.728 128-138.772 128-237.832 0-159.058 0-288-192-288s-192 128.942-192 288c0 99.060 57.502 198.104 128 237.832v52.78c-217.102 17.748-384 124.42-384 253.388h448v-64z"
         ],
+        "width": 1024,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
         "tags": [
           "user-check",
           "user",
@@ -1102,21 +1159,20 @@
           "member"
         ],
         "defaultCode": 59765,
-        "grid": 16,
-        "attrs": []
+        "grid": 16
       },
       "attrs": [],
       "properties": {
         "ligatures": "user-check, user4",
         "name": "user-check",
         "order": 25,
-        "id": 118,
+        "id": 17,
         "prevSize": 32,
         "code": 59765
       },
-      "setIdx": 19,
-      "setId": 1,
-      "iconIdx": 117
+      "setIdx": 4,
+      "setId": 27,
+      "iconIdx": 17
     },
     {
       "icon": {
@@ -1145,7 +1201,7 @@
         "name": "futbol-o"
       },
       "setIdx": 5,
-      "setId": 15,
+      "setId": 26,
       "iconIdx": 0
     }
   ],

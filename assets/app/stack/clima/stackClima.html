@@ -1,6 +1,65 @@
-<div transition ng-cloak>
-    <pre>
-        {{ dataWeather | json }}
-    </pre>
-    
+<div transition ng-cloak class="weather-section">
+    <h1 class="title-line">Datos actuales</h1>
+<!--     <pre>
+    {{ dataWeather.dia | json }}
+    </pre> -->
+    <div class="weather-block">
+        <!-- <span ng-bind="dataWeather.dia.temperatura.prop" class="weather-prop"> </span> -->
+        <div>
+            <div class="weather-data actual">
+                <span ng-bind="dataWeather.dia.temperatura.prop" class="weather-prop"></span>
+                <span class="weather-icon"></span>
+                <span ng-bind="dataWeather.dia.temperatura.actual" class="weather-number"></span>
+                <span class="weather-time">Ahora</span>
+            </div>
+            <div class="weather-data">
+                <span class="weather-prop">Min</span>
+                <span class="icon-arrow_down weather-icon"></span>
+                <span ng-bind="dataWeather.dia.temperatura.min" class="weather-number"></span>
+                <span ng-bind="dataWeather.dia.temperatura.hMin" class="weather-time"></span><span>hs</span>
+            </div>
+            <div class="weather-data">
+                <span class="weather-prop">Max</span>
+                <span class="icon-arrow_up weather-icon"></span>
+                <span ng-bind="dataWeather.dia.temperatura.max"  class="weather-number"></span>
+                <span ng-bind="dataWeather.dia.temperatura.hMax" class="weather-time"></span><span>hs</span>
+            </div>
+        </div>
+    </div>
+    <div class="weather-block">
+        <div>
+            <div class="weather-data actual">
+                <span ng-bind="dataWeather.dia.humedad.prop" class="weather-prop"></span>
+                <span class="weather-icon"></span>
+                <span ng-bind="dataWeather.dia.humedad.actual" class="weather-number"></span>
+                <span class="weather-time">Ahora</span>
+            </div>
+            <div class="weather-data">
+                <span class="weather-prop">Min</span>
+                <span class="icon-arrow_down weather-icon"></span>
+                <span ng-bind="dataWeather.dia.humedad.min" class="weather-number"></span>
+                <span ng-bind="dataWeather.dia.humedad.hMin" class="weather-time"></span><span>hs</span>
+            </div>
+            <div class="weather-data">
+                <span class="weather-prop">Max</span>
+                <span class="icon-arrow_up weather-icon"></span>
+                <span ng-bind="dataWeather.dia.humedad.max" class="weather-number"></span>
+                <span ng-bind="dataWeather.dia.humedad.hMax" class="weather-time"></span><span>hs</span>
+            </div>
+        </div>
+    </div>
+    <!-- <div ng-repeat="dataSelected in dataWeather.actual track by $index" class="display-table">
+        <span ng-bind="dataSelected.prop"></span>
+        <span ng-bind="dataSelected.value"></span>
+    </div> -->
+    <!-- <h1 class="title-line">En el día</h1>
+    <div>
+        <p><span>La temperatura mínima para hoy será de </span>
+            <strong ng-bind="dataWeather.dia.temperatura.min"></strong>
+            <span> a las </span> <strong ng-bind="dataWeather.dia.temperatura.hMin"></strong>
+            <span>hs, con una humedad mínima de </span>
+            <strong ng-bind="dataWeather.dia.humedad.min"></strong>
+            <span> a las </span> <strong ng-bind="dataWeather.dia.humedad.hMin"></strong><span> hs.</span>
+        </p>
+    </div> -->
 </div>
