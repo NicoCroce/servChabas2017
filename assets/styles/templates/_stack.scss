@@ -1,7 +1,7 @@
 .stack-list {
     .elements {
-        margin-top: 40px;
-        >div { @include column(1/2, $cycle: 2) }
+        margin-top: 40px; 
+        >div { @include column(1/2, $cycle: 2); margin-bottom: 30px; }
     }
 }
 

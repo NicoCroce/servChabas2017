@@ -5,10 +5,11 @@
         .controller('StackClimaController', StackClimaController);
 
     function StackClimaController($scope, services) {
+        $scope.dataWeather = {};
+
         services.getWeather()
             .then(function(response){
-                debugger;
-                console.log(response);
+                $scope.dataWeather = response.data;
             })
     };
 })();
