@@ -14,10 +14,6 @@
                 actual: {
                     temperatura: {  },
                     humedad: { },
-                    rocio: { prop: 'Rocío', value: data.rocio.actual },
-                    st: { prop: 'Sensación Térmica', value: data.temperaturaHumedad.actual },
-                    pb: { prop: 'Presión Barométrica', value: data.presion.actual },
-                    viento: { prop: 'Viento', value: data.viento.velocidad + '  ' + data.viento.delSector },
                 },
                 dia: {
                     temperatura: {
@@ -35,6 +31,17 @@
                         max: data.humedad.diaria.max,
                         hMin: data.humedad.hora.min,
                         hMax: data.humedad.hora.max
+                    },
+                    rocio: { prop: 'Rocío', value: data.rocio.actual },
+                    st: { prop: 'Sensación Térmica', value: data.temperaturaHumedad.actual },
+                    pb: { prop: 'Presión Barométrica', value: data.presion.actual },
+                    viento: { prop: 'Viento', value: data.viento.velocidad + '     ' + data.viento.delSector },
+                    lluvia: { 
+                        prop: 'Lluvia', 
+                        actual: data.lluvia.diaria,
+                        intensidad: data.lluvia.intensidad,
+                        mensual: data.lluvia.mensual,
+                        anual: data.lluvia.anual
                     }
                 }
             };

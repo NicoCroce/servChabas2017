@@ -81,23 +81,39 @@
 .weather-section {
     span { display: inline-block; }
     .weather-block {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         >div, .weather-prop { 
             margin-right: -4px;
-            .weather-number { width: 40%; }
+            .weather-number { width: 23%; }
             .weather-time { width: 40px; }
             .weather-icon { width: 20px; margin: 0; }
         }
-        .weather-prop { display: inline-block; vertical-align: top; line-height: 1; width: 30%; }
+        .weather-prop { display: inline-block; line-height: 1; width: 40%; }
         .icon-arrow_down { color: #1565C0; }
         .icon-arrow_up{ color: #C62828; }
-        .weather-data.actual { font-weight: 800; margin-bottom: 5px }
+        .weather-data.actual { font-weight: 800; transition: margin .3s ease; }
+        .arrow-weather { 
+            width: 27%; margin: 0; text-align: right; font-size: 18px;
+            &:before { transition: all .3s ease; display: inline-block; }
+        }
+        .aditional-info { 
+            max-height: 0; overflow: hidden; transition: all .3s ease; opacity: 0;
+        }
+        &.info-visible {
+            .aditional-info { max-height: 100px; opacity: 1; }
+            .arrow-weather:before { transform: rotate3d(0,0,1, 90deg) }
+            .weather-data.actual { margin-bottom: 5px; }
+        }
     }
     .display-table {
         margin-bottom: 10px;
         span { display: table-cell; }
     }
-        
+    .fuente { 
+        margin-top: 30px;
+        span, a { display: inline-block; }
+        a { color: $color700; margin-left: 10px; cursor: pointer !important; }
+    }   
 }
 
 
