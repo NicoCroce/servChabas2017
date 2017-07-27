@@ -4,15 +4,16 @@
         .module('servicios-chabas')
         .controller('StackClimaController', StackClimaController);
 
-    function StackClimaController($scope, services, factoryClima) {
+    function StackClimaController($scope, services, factoryClima, $rootScope) {
         $scope.dataWeather = {};
         $scope.showInfoTemp = false,
         $scope.showInfoHum = false;
         $scope.showInfoRun = false;
-
+        $rootScope.loadingService = true;
         services.getWeather()
             .then(function(response){
                 $scope.dataWeather = factoryClima.getData(response.data);
+                $rootScope.loadingService = false;
             });
 
         $scope.showTemp = function(){

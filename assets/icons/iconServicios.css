@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconServicios';
   src:
-    url('../fonts/iconServicios.ttf?7oxql0') format('truetype'),
-    url('../fonts/iconServicios.woff?7oxql0') format('woff'),
-    url('../fonts/iconServicios.svg?7oxql0#iconServicios') format('svg');
+    url('../fonts/iconServicios.ttf?vjln0l') format('truetype'),
+    url('../fonts/iconServicios.woff?vjln0l') format('woff'),
+    url('../fonts/iconServicios.svg?vjln0l#iconServicios') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,6 +23,63 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cloudy:before {
+  content: "\e909";
+}
+.icon-location:before {
+  content: "\e600";
+}
+.icon-googleplus:before {
+  content: "\e601";
+}
+.icon-facebook:before {
+  content: "\e602";
+}
+.icon-equalizer:before {
+  content: "\e60f";
+}
+.icon-menu:before {
+  content: "\e610";
+}
+.icon-menu2:before {
+  content: "\e611";
+}
+.icon-cancel-circle:before {
+  content: "\e612";
+}
+.icon-checkmark-circle:before {
+  content: "\e613";
+}
+.icon-mobile:before {
+  content: "\e614";
+}
+.icon-skype:before {
+  content: "\e615";
+}
+.icon-list2:before {
+  content: "\e9bb";
+}
+.icon-stack:before {
+  content: "\e92e";
+}
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+.icon-office:before {
+  content: "\e905";
+}
+.icon-volume-high:before {
+  content: "\ea26";
+}
+.icon-volume-mute2:before {
+  content: "\ea2a";
+}
+.icon-feed:before {
+  content: "\e91d";
+}
+.icon-user-check:before {
+  content: "\e975";
+}
 .icon-options-v:before {
   content: "\e901";
 }
@@ -91,60 +148,6 @@
 }
 .icon-email:before {
   content: "\e616";
-}
-.icon-location:before {
-  content: "\e600";
-}
-.icon-googleplus:before {
-  content: "\e601";
-}
-.icon-facebook:before {
-  content: "\e602";
-}
-.icon-equalizer:before {
-  content: "\e60f";
-}
-.icon-menu:before {
-  content: "\e610";
-}
-.icon-menu2:before {
-  content: "\e611";
-}
-.icon-cancel-circle:before {
-  content: "\e612";
-}
-.icon-checkmark-circle:before {
-  content: "\e613";
-}
-.icon-mobile:before {
-  content: "\e614";
-}
-.icon-skype:before {
-  content: "\e615";
-}
-.icon-list2:before {
-  content: "\e9bb";
-}
-.icon-stack:before {
-  content: "\e92e";
-}
-.icon-whatsapp:before {
-  content: "\ea93";
-}
-.icon-office:before {
-  content: "\e905";
-}
-.icon-volume-high:before {
-  content: "\ea26";
-}
-.icon-volume-mute2:before {
-  content: "\ea2a";
-}
-.icon-feed:before {
-  content: "\e91d";
-}
-.icon-user-check:before {
-  content: "\e975";
 }
 .icon-futbol-o:before {
   content: "\e908";
