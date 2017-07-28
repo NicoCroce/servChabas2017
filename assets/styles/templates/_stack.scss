@@ -1,7 +1,6 @@
 .stack-list {
     .elements {
-        margin-top: 40px; 
-        >div { @include column(1/2, $cycle: 2); margin-bottom: 30px; }
+        /* >div { @include column(1/2, $cycle: 2); margin-bottom: 30px; } */
     }
 }
 
@@ -104,6 +103,9 @@
             .arrow-weather:before { transform: rotate3d(0,0,1, 90deg) }
             .weather-data.actual { margin-bottom: 5px; }
         }
+        .weather-data { 
+            margin-top: 5px;
+         }
     }
     .display-table {
         margin-bottom: 10px;
