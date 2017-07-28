@@ -5,7 +5,7 @@
     <section ng-if="!loadingService">
         <h1 class="title-line">Clima</h1>
         <div class="card">
-            <div class="weather-block" ng-class="{'info-visible': showInfoTemp}">
+            <div class="weather-block action" ng-class="{'info-visible': showInfoTemp}">
                 <!-- <span ng-bind="dataWeather.dia.temperatura.prop" class="weather-prop"> </span> -->
                 <div>
                     <div class="weather-data actual mg-0" ng-click="showTemp()">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="weather-block" ng-class="{'info-visible': showInfoHum}">
+            <div class="weather-block action" ng-class="{'info-visible': showInfoHum}">
                 <div>
                     <div class="weather-data actual mg-0" ng-click="showHum()">
                         <span ng-bind="dataWeather.dia.humedad.prop" class="weather-prop"></span>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="weather-block" ng-class="{'info-visible': showInfoRun}">
+            <div class="weather-block action" ng-class="{'info-visible': showInfoRun}">
                 <div>
                     <div class="weather-data actual mg-0" ng-click="showRun()">
                         <span ng-bind="dataWeather.dia.lluvia.prop" class="weather-prop"></span>
