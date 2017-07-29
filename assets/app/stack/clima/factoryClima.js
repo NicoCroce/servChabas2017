@@ -33,8 +33,8 @@
                         hMax: data.humedad.hora.max
                     },
                     rocio: { prop: 'Rocío', value: data.rocio.actual },
-                    st: { prop: 'Sensación Térmica', value: data.temperaturaHumedad.actual },
-                    pb: { prop: 'Presión Barométrica', value: data.presion.actual },
+                    st: { prop: 'Sensación T.', value: data.temperaturaHumedad.actual },
+                    pb: { prop: 'Presión Bar.', value: data.presion.actual },
                     viento: { prop: 'Viento', value: data.viento.velocidad + '     ' + data.viento.delSector },
                     lluvia: { 
                         prop: 'Lluvia', 

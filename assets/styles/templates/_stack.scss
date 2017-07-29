@@ -81,14 +81,17 @@
 .weather-section {
     span { display: inline-block; }
     .weather-block {
-        margin-bottom: 10px;
+        padding-bottom: 15px;
         >div, .weather-prop { 
             margin-right: -4px;
-            .weather-number { width: 23%; }
+            .weather-number { 
+                width: 23%;
+                &.auto { @extend .width-auto; }
+            }
             .weather-time { width: 40px; }
             .weather-icon { width: 20px; margin: 0; }
         }
-        .weather-prop { display: inline-block; line-height: 1; width: 40%; }
+        .weather-prop { display: inline-block; line-height: 1; width: 39%; }
         .icon-arrow_down { color: #1565C0; }
         .icon-arrow_up{ color: #C62828; }
         .weather-data.actual { font-weight: 800; transition: margin .3s ease; }

@@ -9,6 +9,8 @@
         $scope.showInfoTemp = false,
         $scope.showInfoHum = false;
         $scope.showInfoRun = false;
+        $scope.showMoreInfo = false;
+
         $rootScope.loadingService = true;
         services.getWeather()
             .then(function(response){
@@ -26,6 +28,10 @@
         
         $scope.showRun = function(){
             return $scope.showInfoRun = !$scope.showInfoRun;
+        }
+        
+        $scope.showMore = function(){
+            return $scope.showMoreInfo = !$scope.showMoreInfo;
         }
     };
 })();
