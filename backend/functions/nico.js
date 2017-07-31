@@ -1,36 +1,14 @@
-var http = require("http");
+var admin = require("firebase-admin");
 
+var serviceAccount = require("./serviceAccountKey.json");
 
-
-
-
-
-
-var content = "";
-
-
-
-var req = http.request(options, function (res) {
-
-    res.setEncoding("utf8");
-
-    res.on("data", function (chunk) {
-
-        content += chunk;
-
-    });
-
-
-
-    res.on("end", function () {
-
-        console.log(content);
-
-    });
-
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://chabashoytest.firebaseio.com"
 });
 
-
-
-req.end();
-
+var db = admin.database();
+var ref = db.ref("users");
+ref.once("value", function (snapshot) {
+    console.log(snapshot.val());
+});
