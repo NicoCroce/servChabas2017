@@ -1,6 +1,10 @@
 .stack-list {
     .elements {
-        /* >div { @include column(1/2, $cycle: 2); margin-bottom: 30px; } */
+        margin-top: 30px;
+        >div {
+            margin-bottom: 15px;
+            &:last-of-type { margin-bottom: 0; }
+        }
     }
 }
 
@@ -80,6 +84,14 @@
 
 .weather-section {
     span { display: inline-block; }
+    .date-hour {
+        margin-bottom: 20px;
+        >div {
+            width: 50%; display: inline-block;
+            &:last-of-type { margin-left: -4px; text-align: right; }
+            .value { margin-left: 15px; font-weight: 800; padding-right: 5px; }
+        }
+    }
     .weather-block {
         padding-bottom: 15px;
         >div, .weather-prop { 

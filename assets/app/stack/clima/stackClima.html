@@ -1,6 +1,14 @@
 <div transition ng-cloak class="weather-section">
     <section ng-if="!loadingService">
         <h1 class="title-line">Clima</h1>
+        <div class="date-hour">
+            <div>
+                <span class="label">Fecha </span><span ng-bind="dataWeather.dia.fecha" class="value"></span>
+            </div>
+            <div>
+                <span class="label">Hora estimada</span><span ng-bind="dataWeather.dia.hora" class="value"></span><span> hs</span>
+            </div>
+        </div>
         <div class="card">
             <div class="weather-block action" ng-class="{'info-visible': showInfoTemp}">
                 <!-- <span ng-bind="dataWeather.dia.temperatura.prop" class="weather-prop"> </span> -->

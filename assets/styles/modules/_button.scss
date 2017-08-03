@@ -82,8 +82,9 @@ $button_border-color: #B5B5B5;
 }
 
 .stack-button { 
-  height: 70px; background: transparent; border: none; border-bottom: 1px solid rgba(0, 150, 136, 0.4);
-  margin: 0 auto; display: block; cursor: pointer;
+  height: 70px; background: transparent; border: none; border: 1px solid $color200; border-radius: 3px;
+  margin: 0 auto; display: block; cursor: pointer; transition: all .3s ease;
+  &:hover { background: rgba(0, 150, 136, 0.15); }
   >span { 
     color: $color500; vertical-align: middle; margin-left: -4px; display: inline-block; width: 50%;
     text-align: left; 

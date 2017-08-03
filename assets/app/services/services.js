@@ -6,15 +6,11 @@
 
     function services($rootScope, indexedDB, $http) {
         var contServ = 3;
-
-        var srcHeroku = 'https://chabashoy.herokuapp.com/'
+        var srcHeroku = 'https://chabashoy.herokuapp.com/';
 
         var dataPersist = {
-            allPharmacies: null,
-            dataPharmacy: null,
-            allBuses: null,
-            services: null
-        }
+            weather: null
+        };
 
         var usersDBFull = firebase.database().ref('data');
 
@@ -34,7 +30,6 @@
                     data: dataResponse.val()
                 };
                 /*console.log('GUARDANDO EN INDEXDB');*/
-                
                 indexedDB.setData('DB', item);
                 $rootScope.loadingService = false;
             });

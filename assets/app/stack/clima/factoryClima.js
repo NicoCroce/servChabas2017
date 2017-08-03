@@ -16,6 +16,8 @@
                     humedad: { },
                 },
                 dia: {
+                    hora: data.hora,
+                    fecha: data.fecha,
                     temperatura: {
                         prop: 'Temperatura', 
                         actual: data.temperatura.actual,

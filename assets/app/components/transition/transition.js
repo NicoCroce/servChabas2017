@@ -18,10 +18,14 @@
                         section.removeClass('anim-in-section');
                     });
 
-                $timeout(function () {
-                    section.addClass('anim-in-section');
+                /* $timeout(function () { */
+                   
+                        setInterval(function(){
+                             if(!$rootScope.loadingService) {
+                                return section.addClass('anim-in-section');
+                             }
+                        }, 100);
                     /*scope.$apply();*/
-                }, 100);
             }
         }
     };
