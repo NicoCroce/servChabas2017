@@ -44,6 +44,7 @@
 				// Si cambia la URL
 				scope.$on('$stateChangeStart',
 					function (event, toState, toParams, fromState, fromParams) {
+						$rootScope.loadingService = false;
 						var index = getIndex(toState.name);
 /*						$rootScope.$broadcast('changePage', { path: toState.url });*/
 						if (scope.indexTabSelected == index) return; //Si es true es porque se hizo click en el tab. De lo contrario será false
