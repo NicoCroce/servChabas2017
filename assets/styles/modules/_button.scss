@@ -47,8 +47,13 @@ $button_border-color: #B5B5B5;
 
 .button-transparent { 
   margin: 20px auto; padding: 14px; background: transparent; border: 1px solid #009688; border-radius: 3px; color: #009688; cursor: pointer;
-    &.is-offline { border-color: #c3c3c3; color: #c3c3c3; pointer-events: none; }
-  }
+}
+
+.is-offline { 
+  border-color: #c3c3c3 !important; color: #c3c3c3 !important; pointer-events: none;
+  span { color: #c3c3c3 !important; }
+  &:hover { background: transparent !important; }
+}
 
 .fab{
   border-radius: 50%;

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconServicios';
   src:
-    url('../fonts/iconServicios.ttf?vjln0l') format('truetype'),
-    url('../fonts/iconServicios.woff?vjln0l') format('woff'),
-    url('../fonts/iconServicios.svg?vjln0l#iconServicios') format('svg');
+    url('../fonts/iconServicios.ttf') format('truetype'),
+    url('../fonts/iconServicios.woff') format('woff'),
+    url('../fonts/iconServicios.svg#iconServicios') format('svg');
   font-weight: normal;
   font-style: normal;
 }
