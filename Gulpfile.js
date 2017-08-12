@@ -104,7 +104,7 @@ gulp.task("watch", function(done) {
     gulp.watch(ICON_FILES, gulp.series('copyIcons' /* , generateServiceWorker */ ));
     gulp.watch(IMAGES_FILES, gulp.series("copyImg" /* , generateServiceWorker */ ));
     gulp.watch(ROOT_FILES, gulp.series(copyRootFiles /* , generateServiceWorker */ ));
-    /*gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));*/
+    gulp.watch([JS_WATCH, DEV_HTML_JS_FILES], gulp.series(reload));
     return done();
 });
 

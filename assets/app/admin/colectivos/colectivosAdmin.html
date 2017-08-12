@@ -1,10 +1,18 @@
-<div combo list-options="listOptions"></div>
-
-<table>
-    <tr>
-        <th></th>
-    </tr>
-    <tr ng-repeat="data in service track by $index">
-        <td ng-repeat="dataElement in data track by $index" ng-bind="data"></td>
-    </tr>
-</table>
+<p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
+<div ng-if="!isLoading">
+    <div combo list-options="listOptions"></div>
+    <div class="element-edit" ng-repeat="dataLevel in bus.data track by $index">
+        <h1 ng-bind="dataLevel['nombre']"></h1>
+        <div ng-repeat="(i, d) in dataLevel track by $index">
+            <label ng-bind="i"></label>
+            <div ng-if="!isObject(d)">
+                <input ng-model="dataLevel[i]" ng-change="setValue()">
+            </div>
+            <div ng-if="isObject(d)" class="sub-detail">
+                <div ng-repeat="(j, subData) in d track by $index">
+                    <label ng-bind="j"></label><input ng-model="d[j]" ng-change="setValue()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
