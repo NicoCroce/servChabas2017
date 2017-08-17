@@ -6,7 +6,11 @@
 
     function ControllerColectivosAdmin ($scope){
 
-                $scope.isLoaded = false;
+        $scope.nico = {
+            nico: 'nico'
+        }
+
+        $scope.isLoaded = false;
         $scope.isLoading = true;
         var typeBus = '',
             persistBus = {},

@@ -7,13 +7,15 @@
     function ControllerServiciosAdmin ($scope){
         $scope.isLoaded = false;
         $scope.isLoading = true;
+
         var typeService = '',
             persistService = {},
-            localChanged = false;
+            localChanged = false,
+            dropPlaceholder = 'Seleccione tipo de servicio';
 
         $scope.listOptions = {
             options: [],
-            selected: 'Seleccione tipo de servicio',
+            selected: dropPlaceholder,
             open: false
         };
 
@@ -44,7 +46,9 @@
 
         $scope.setValue = function() {
             localChanged = true;
-            firebase.database().ref('data/servicios/' + typeService).update($scope.service.data);
+            debugger;
+             firebase.database().ref('data/servicios/' + typeService).update($scope.service.data);
+
         }
 
         $scope.isObject = function(element) {
@@ -52,11 +56,13 @@
         }
 
         $scope.$watch('listOptions.selected', function(val){
+            if( val == dropPlaceholder ){return;}
             $scope.service.data = $scope.allServicies[val];
-            typeService = val;          
+            debugger;
+            typeService = val;
         }, true);
 
-        $scope.addDetail = function() {
+        /* $scope.addDetail = function() {
             var servKeys = Object.keys($scope.allServicies.utiles);
             servKeys.forEach(function(element) {
                 if($scope.allServicies.utiles[element].detalle){ return; }
@@ -65,7 +71,7 @@
                 }
             });
             firebase.database().ref('data/servicios/utiles').update($scope.allServicies.utiles);
-        }
+        } */
 
         
         $scope.sendUtil = function() {

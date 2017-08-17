@@ -1,4 +1,4 @@
-<p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
+<!-- <p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
 <div ng-if="!isLoading">
     <div combo list-options="listOptions"></div>
     <div class="element-edit" ng-repeat="dataLevel in service.data track by $index">
@@ -16,4 +16,16 @@
         </div>
     </div>
      <button type="button" ng-click="addDetail()"> Cargar servicios</button> 
+</div> -->
+
+{{ service.data }}
+
+
+<div ng-if="!isLoading">
+    <div combo list-options="listOptions"></div>
+    <div class="element-edit" ng-repeat="(key, dataLevel) in service.data">
+         <div block-info current-info="{{dataLevel}}" current-index="{{key}}" root-json="service.data"></div>
+    </div>
+        <button type="button" ng-click="setValue()"> Cargar servicios</button> 
+    <!-- <div block-info info-array="bus.data"></div> -->
 </div>
