@@ -8,20 +8,55 @@
         return {
             link: function (scope, element, $attr) {
                 /* var dataLength = Object.keys(JSON.parse($attr.currentInfo)).length; */
-                var currentPath = "";
-                 var currentIndex = $attr.currentIndex; 
+                var currentIndex = $attr.currentIndex;
+                var template;
+                var content;
 
-                 angular.forEach(JSON.parse($attr.currentInfo), function(obj, index){
-                     currentPath = $attr.rootJson + "['"+currentIndex+"']" + '.' + index;   /*   */
-                    addItem(currentPath);
-                })
-
-                function addItem(model) {
-                    var template = '<input ng-model='+currentPath+'>';
+                function init() {
+                    template = '';
+                   /*  console.log($attr.currentInfo); */
+                    angular.forEach(JSON.parse($attr.currentInfo), function (obj, index) {
+                        var currentPath = $attr.rootJson + "['"+currentIndex+"']" + '.' + index;   /*   */
+                        if (typeof (obj) == 'object') {
+                            addObjectLevel(index);
+                            analizeObject(obj, currentPath);
+                            template += '</div>';
+                        } else {
+                            addItem(index, currentPath);
+                        }
+                    });
                     var linkFn = $compile(template);
-                    var content = linkFn(scope);
+                    content = linkFn(scope);
                     element.append(content);
-                }  
+                };
+
+                function addItem(label, currentPath) {
+                    template += '<div><label>' + label + '</label><input ng-model=' + currentPath + '></div>';
+                    /*  */
+                }
+
+                function addObjectLevel(label) {
+                    template += '<div class="sub-detail"><label>' + label + '</label>';
+                }
+
+                function analizeObject(obj, ngPath) {
+                    var subPath;
+                    angular.forEach(obj, function (currentObject, index) {
+                        subPath = ngPath + '.' + index;   /*   */
+                        /* if (typeof (obj) == 'object') {
+
+                        } else { */
+                        addItem(index, subPath);
+                        /* } */
+                    });
+                }
+
+                scope.$on('removeElement', function(){
+                    console.log('se elimina');
+                    content.remove();
+                });
+
+                init();
 
                 /* $templateRequest('index.html').then(function (tpl) { */
 

@@ -155,6 +155,6 @@ span.icon-checkmark-circle {
     color: $color800; font-weight: 700; }
 }
 
-.sub-detail { padding-left: 20px; border-left: 1px dashed #888888; }
+.sub-detail > div { padding-left: 20px; border-left: 1px dashed #888888; }
 
 .loading-serv { text-align: center; margin: 15px; }

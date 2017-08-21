@@ -46,7 +46,6 @@
 
         $scope.setValue = function() {
             localChanged = true;
-            debugger;
              firebase.database().ref('data/servicios/' + typeService).update($scope.service.data);
 
         }
@@ -57,8 +56,8 @@
 
         $scope.$watch('listOptions.selected', function(val){
             if( val == dropPlaceholder ){return;}
+            $scope.$broadcast('removeElement', function () {});
             $scope.service.data = $scope.allServicies[val];
-            debugger;
             typeService = val;
         }, true);
 
