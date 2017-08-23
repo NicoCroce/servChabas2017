@@ -56,7 +56,6 @@
 
         $scope.$watch('listOptions.selected', function(val){
             if( val == dropPlaceholder ){return;}
-            $scope.$broadcast('removeElement', function () {});
             $scope.service.data = $scope.allServicies[val];
             typeService = val;
         }, true);

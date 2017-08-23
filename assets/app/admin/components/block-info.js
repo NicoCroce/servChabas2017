@@ -11,10 +11,11 @@
                 var currentIndex = $attr.currentIndex;
                 var template;
                 var content;
+                scope.currentInfo = $attr.currentInf;
 
                 function init() {
                     template = '';
-                   /*  console.log($attr.currentInfo); */
+                    console.log($attr.currentInfo);
                     angular.forEach(JSON.parse($attr.currentInfo), function (obj, index) {
                         var currentPath = $attr.rootJson + "['"+currentIndex+"']" + '.' + index;   /*   */
                         if (typeof (obj) == 'object') {
@@ -51,9 +52,12 @@
                     });
                 }
 
-                scope.$on('removeElement', function(){
-                    console.log('se elimina');
-                    content.remove();
+                scope.$watch('currentInfo', function(){
+                    if(content) {
+                        console.log('se elimina');
+                        content.remove();
+                        init();
+                    }
                 });
 
                 init();
