@@ -20,9 +20,9 @@
 
 <div ng-if="!isLoading">
     <div combo list-options="listOptions"></div>
-    <div class="element-edit" ng-repeat="(key, dataLevel) in service.data track by $index">
-        <h1 ng-bind="dataLevel['nombre']"></h1>
-        <div block-info current-info="{{dataLevel}}" current-index="{{key}}" root-json="service.data"></div>
-    </div>
-    <!-- <div block-info info-array="bus.data"></div> -->
+    <div block-info  current-info="service.data" root-json="service.data"></div>
 </div>
+
+
+<!--  <h1 ng-bind="dataLevel['nombre']"></h1>
+        <div block-info current-info="{{dataLevel}}" current-index="{{key}}" root-json="service.data"></div> -->

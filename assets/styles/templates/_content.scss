@@ -151,10 +151,10 @@ span.icon-checkmark-circle {
   h1 { margin: 10px 0; margin-top: 0; color: $grey800; font-weight: 800; }
 
   label { color: $grey800; text-transform: uppercase; font-size: 10px; } 
-  input { border: 0; border-bottom: 1px solid $grey300; padding: 3px; padding-left: 10px; margin-bottom: 3px; 
+  input { border: 0; border-bottom: 1px solid $grey300; padding: 3px; padding-left: 10px;
     color: $color800; font-weight: 700; }
 }
 
-.sub-detail > div { padding-left: 20px; border-left: 1px dashed #888888; }
+.sub-detail > div { padding-left: 20px; border-left: 1px dashed #888888; margin-bottom: 3px; }
 
 .loading-serv { text-align: center; margin: 15px; }

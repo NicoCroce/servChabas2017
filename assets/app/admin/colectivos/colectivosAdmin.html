@@ -1,11 +1,7 @@
 <p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
- 
-ver! {{ bus.data[0] }} 
-
 <div ng-if="!isLoading">
     <div combo list-options="listOptions"></div>
-     <div class="element-edit" ng-repeat="(key, dataLevel) in bus.data track by $index">
-        <div block-info current-info="{{dataLevel}}" current-index="{{key}}" root-json="bus.data"></div>
+    <div block-info  current-info="bus.data" root-json="bus.data"></div>
     </div> 
     <!-- <div block-info info-array="bus.data"></div> -->
 </div>

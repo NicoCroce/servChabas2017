@@ -6,18 +6,41 @@
 
     function dataBlock($compile) {
         return {
+            scope: {
+                currentInfo: '=',
+                rootJson: '@'
+            },
             link: function (scope, element, $attr) {
                 /* var dataLength = Object.keys(JSON.parse($attr.currentInfo)).length; */
-                var currentIndex = $attr.currentIndex;
                 var template;
                 var content;
-                scope.currentInfo = $attr.currentInf;
+
+                scope.$watch('currentInfo', function (newValue) {
+                    if (newValue) {
+                        init();
+                    }
+                });
 
                 function init() {
+                    if (content) { content.remove(); }
                     template = '';
-                    console.log($attr.currentInfo);
-                    angular.forEach(JSON.parse($attr.currentInfo), function (obj, index) {
-                        var currentPath = $attr.rootJson + "['"+currentIndex+"']" + '.' + index;   /*   */
+                    angular.forEach(scope.currentInfo, function (obj, index) {
+                        createBlock(obj, scope.rootJson + "['" + index + "']");
+                    });
+                    var linkFn = $compile(template);
+                    content = linkFn(scope.$parent);
+                    element.append(content);
+                }
+
+
+                function createBlock(blockInfo, rootModel) {
+                    if (blockInfo.nombre) {
+                        template += '<div class="element-edit"><h1 ng-bind="' + rootModel + '.nombre' + '"></h1>';
+                    } else {
+                        template += '<div class="element-edit">';
+                    }
+                    angular.forEach(blockInfo, function (obj, index) {
+                        var currentPath = rootModel + '.' + index;   /*   */
                         if (typeof (obj) == 'object') {
                             addObjectLevel(index);
                             analizeObject(obj, currentPath);
@@ -26,9 +49,7 @@
                             addItem(index, currentPath);
                         }
                     });
-                    var linkFn = $compile(template);
-                    content = linkFn(scope);
-                    element.append(content);
+                    template += '</div>'
                 };
 
                 function addItem(label, currentPath) {
@@ -44,23 +65,14 @@
                     var subPath;
                     angular.forEach(obj, function (currentObject, index) {
                         subPath = ngPath + '.' + index;   /*   */
-                        /* if (typeof (obj) == 'object') {
-
+                        /* if (typeof (currentObject) == 'object') {
+                            addObjectLevel(index);
+                            analizeObject(currentObject, subPath)
                         } else { */
-                        addItem(index, subPath);
+                        addItem(index, ngPath + '.' + index);
                         /* } */
                     });
-                }
-
-                scope.$watch('currentInfo', function(){
-                    if(content) {
-                        console.log('se elimina');
-                        content.remove();
-                        init();
-                    }
-                });
-
-                init();
+                };
 
                 /* $templateRequest('index.html').then(function (tpl) { */
 
