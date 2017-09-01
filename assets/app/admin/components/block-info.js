@@ -15,6 +15,8 @@
                 var template;
                 var content;
 
+                var ObjectKeys, firstKey, lastKey;
+
                 scope.$watch('currentInfo', function (newValue) {
                     if (newValue) {
                         init();
@@ -23,19 +25,38 @@
 
                 function init() {
                     if (content) { content.remove(); }
-                    template = '';
+
+                    ObjectKeys = Object.keys(scope.currentInfo),
+                    firstKey = ObjectKeys[0],
+                    lastKey  = ObjectKeys[ObjectKeys.length-1];
+
+                    template = '<div>';
                     angular.forEach(scope.currentInfo, function (obj, index) {
-                        createBlock(obj, scope.rootJson + "['" + index + "']");
+                        createBlock(obj, scope.rootJson + "['" + index + "']", index);
                     });
+                    template += '</div>';
                     var linkFn = $compile(template);
                     content = linkFn(scope.$parent);
                     element.append(content);
                 }
 
+                function createBlock(blockInfo, rootModel, index) {
 
-                function createBlock(blockInfo, rootModel) {
+                    var templateDown = '<button ng-click="downLevel(\'' + index + '\')" class="icon-arrow_right bt-down"></button>',
+                        templateUp = '<button ng-click="upLevel(\'' + index + '\')" class="icon-arrow_right bt-up"></button>',
+                        templateControl = '';
+
+                    if(index == firstKey){
+                        templateControl = templateDown;
+                    } else if (index == lastKey) {
+                        templateControl = templateUp;
+                    } else {
+                        templateControl = templateUp + templateDown;
+                    }
+
+
                     if (blockInfo.nombre) {
-                        template += '<div class="element-edit"><h1 ng-bind="' + rootModel + '.nombre' + '"></h1>';
+                        template += '<div class="element-edit"><h1 ng-bind="' + rootModel + '.nombre' + '"></h1><div class="block-content">';
                     } else {
                         template += '<div class="element-edit">';
                     }
@@ -49,7 +70,9 @@
                             addItem(index, currentPath);
                         }
                     });
-                    template += '</div>'
+                    template += '</div>';
+                    template +='<div class="control-block">' + templateControl + '</div>';
+                    template += '</div>';
                 };
 
                 function addItem(label, currentPath) {

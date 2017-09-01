@@ -4,11 +4,11 @@ var path = require('path');
 
 exports.getFiles = function(BOWER_COMPONENTS, NPM_COMPONENTS, JS_LIBS_ASSETS_FILES) {
     return [
-        JS_LIBS_ASSETS_FILES,
         path.join(BOWER_COMPONENTS, 'jquery/dist/jquery.min.js'),
         path.join(BOWER_COMPONENTS, 'angular/angular.min.js'),
         path.join(BOWER_COMPONENTS, 'angular-resource/angular-resource.min.js'),
         path.join(BOWER_COMPONENTS, 'angular-ui-router/release/angular-ui-router.min.js')
+        JS_LIBS_ASSETS_FILES,
     ];
 };
 

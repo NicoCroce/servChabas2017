@@ -1,14 +1,12 @@
-(function(){
+(function () {
     'use strict'
     angular
         .module('backend')
         .controller('ControllerColectivosAdmin', ControllerColectivosAdmin);
 
-    function ControllerColectivosAdmin ($scope){
+    function ControllerColectivosAdmin($scope) {
 
-        $scope.nico = {
-            nico: 'nico'
-        }
+        $scope.kanbanBoard = { "name": "Kanban Board", "numberOfColumns": 4, "columns": [{ "name": "Ideas", "cards": [{ "title": "Come up with a POC for new Project", "status": "Ideas" }, { "title": "Design new framework for reporting module", "status": "Ideas" }] }, { "name": "Not started", "cards": [{ "title": "Explore new IDE for Development", "status": "Not started", "details": "Testing Card Details" }, { "title": "Get new resource for new Project", "status": "Not started", "details": "Testing Card Details" }] }, { "name": "In progress", "cards": [{ "title": "Develop ui for tracker module", "status": "In progress", "details": "Testing Card Details" }, { "title": "Develop backend for plan module", "status": "In progress", "details": "Testing Card Details" }] }, { "name": "Done", "cards": [{ "title": "Test user module", "status": "Done", "details": "Testing Card Details" }, { "title": "End to End Testing for user group module", "status": "Done", "details": "Testing Card Details" }, { "title": "CI for user module", "status": "Done", "details": "Testing Card Details" }] }], "backlogs": [] };
 
         $scope.isLoaded = false;
         $scope.isLoading = true;
@@ -26,7 +24,7 @@
 
         $scope.bus = {
             data: {},
-            headers: {} 
+            headers: {}
         };
 
         $scope.persistBus;
@@ -47,18 +45,18 @@
             $scope.$apply();
         });
 
-        $scope.setValue = function() {
+        $scope.setValue = function () {
             localChanged = true;
             /* firebase.database().ref('data/colectivos/' + typeBus).update($scope.bus.data); */
         }
 
-        $scope.isObject = function(element) {
+        $scope.isObject = function (element) {
             return typeof element == "object";
         }
 
-        $scope.$watch('listOptions.selected', function(val){
+        $scope.$watch('listOptions.selected', function (val) {
             $scope.bus.data = $scope.allServicies[val];
-            typeBus = val;          
+            typeBus = val;
         }, true);
 
         /* $scope.addDetail = function() {
@@ -72,8 +70,8 @@
             firebase.database().ref('data/servicios/utiles').update($scope.allServicies.utiles);
         } */
 
-        
-        $scope.sendUtil = function() {
+
+        $scope.sendUtil = function () {
             var objToSend = {
                 "nombre": 'Cerrajería',
                 "tel": '526438'
@@ -107,7 +105,7 @@
             $scope.$apply();
         });
 
-        $scope.$watch('listOptions.selected', function(val){
+        $scope.$watch('listOptions.selected', function (val) {
             $scope.buses = $scope.allServicies[val];
         }, true);
 
