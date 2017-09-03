@@ -57,7 +57,7 @@
             tabSelected: factoryIndex.setTab()
         };
 
-        setTimeout(function() {
+        /* setTimeout(function() {
             var getShowModal;
 
             if (typeof(Storage) !== "undefined") {
@@ -72,7 +72,7 @@
                 $rootScope.modalIsOpen = true;
             }
             $scope.$apply();
-        }, 1000);
+        }, 1000); */
 
         $scope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
