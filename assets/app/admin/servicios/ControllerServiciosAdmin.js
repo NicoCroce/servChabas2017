@@ -31,7 +31,7 @@
         $scope.upLevel = function (index) {
             var tempData = {};
             var selectedObj = null;
-            var indexCont = 1;
+            var indexCont = 0;
             angular.forEach($scope.service.data, function(currentObj, indexList){
 
                 if(index == indexList) {
@@ -51,7 +51,7 @@
         $scope.downLevel = function (index) {
             var tempData = {};
             var selectedObj = null;
-            var indexCont = 1;
+            var indexCont = 0;
             angular.forEach($scope.service.data, function(currentObj, indexList){
 
                 if(index != indexList) {
