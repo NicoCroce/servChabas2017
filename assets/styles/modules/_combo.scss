@@ -16,6 +16,17 @@
 		}
 }
 
+.select-option-add {
+	margin: 15px 0; margin-bottom: 30px; width: 100%; display: table;
+	.select-option { margin: 0; display: table-cell; vertical-align: middle; width: 100%; }
+	>button { 
+		display: table-cell; vertical-align: middle; line-height: 1;
+		width: 0; overflow: hidden; padding: 0; margin: 0;
+	}
+	&.is-selected >button { width: 45px; margin-left: 10px; padding: 14px; }
+
+}
+
 /*&.bg-white {
 	>ul { width: 90%; vertical-align: top; float: left; }
 	>div { 

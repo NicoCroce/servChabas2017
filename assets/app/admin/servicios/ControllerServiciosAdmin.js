@@ -4,18 +4,19 @@
         .module('backend')
         .controller('ControllerServiciosAdmin', ControllerServiciosAdmin);
 
-    function ControllerServiciosAdmin($scope) {
+    function ControllerServiciosAdmin($scope, newElement) {
         $scope.isLoaded = false;
         $scope.isLoading = true;
+        $scope.displayAddBlock = false;
 
         var typeService = '',
             persistService = {},
-            localChanged = false,
-            dropPlaceholder = 'Seleccione tipo de servicio';
+            localChanged = false;
+        $scope.dropPlaceholder = 'Seleccione tipo de servicio';
 
         $scope.listOptions = {
             options: [],
-            selected: dropPlaceholder,
+            selected: $scope.dropPlaceholder,
             open: false
         };
 
@@ -25,6 +26,15 @@
             data: {},
             headers: {}
         };
+
+        $scope.newElement;
+
+        $scope.addElement = function() {
+            $scope.newElement = {
+                newObject: newElement[typeService]
+            };
+            $scope.displayAddBlock = true;
+        }
 
         $scope.persistService;
 
@@ -98,7 +108,7 @@
         }
 
         $scope.$watch('listOptions.selected', function (val) {
-            if (val == dropPlaceholder) { return; }
+            if (val == $scope.dropPlaceholder) { return; }
             $scope.service.data = $scope.allServicies[val];
             typeService = val;
         }, true);
