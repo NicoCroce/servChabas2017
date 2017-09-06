@@ -8,7 +8,8 @@
         return {
             scope: {
                 currentInfo: '=',
-                rootJson: '@'
+                rootJson: '@',
+                addElement: '@?'
             },
             link: function (scope, element, $attr) {
                 /* var dataLength = Object.keys(JSON.parse($attr.currentInfo)).length; */
@@ -46,12 +47,18 @@
                         templateUp = '<button ng-click="upLevel(\'' + index + '\')" class="icon-arrow_right bt-up"></button>',
                         templateControl = '';
 
-                    if(index == firstKey){
-                        templateControl = templateDown;
-                    } else if (index == lastKey) {
-                        templateControl = templateUp;
+                    if(!scope.addElement) {
+                        if(index == firstKey){
+                            templateControl = templateDown;
+                        } else if (index == lastKey) {
+                            templateControl = templateUp;
+                        } else {
+                            templateControl = templateUp + templateDown;
+                        }
+                        templateControl = '<div class="control-block">' + templateControl + '</div>';
                     } else {
-                        templateControl = templateUp + templateDown;
+                        templateControl = '<div class="control-file"><button class="button" ng-click="cancelElement()">cancelar</button>'
+                        +'<button class="button" ng-click="addElement()">guardar</button></div>';
                     }
 
 
@@ -70,8 +77,8 @@
                             addItem(index, currentPath);
                         }
                     });
+                    template += templateControl;
                     template += '</div>';
-                    template +='<div class="control-block">' + templateControl + '</div>';
                     template += '</div>';
                 };
 

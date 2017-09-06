@@ -1,7 +1,7 @@
 (function () {
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .controller('StackClimaController', StackClimaController);
 
     function StackClimaController($scope, services, factoryClima, $rootScope) {

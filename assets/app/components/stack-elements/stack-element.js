@@ -1,7 +1,7 @@
 (function () {
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .directive('stackElement', stackElement)
 
     function stackElement($window, $document, $state, $rootScope) {

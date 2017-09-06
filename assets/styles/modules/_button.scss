@@ -99,6 +99,15 @@ $button_border-color: #B5B5B5;
 }
 
 
+.control-file {
+  text-align: center; margin-top: 15px;
+  .button{ 
+    display: inline-block; width: auto; min-width: 100px; 
+    &:first-of-type { margin-right: 10px; background: transparent; color: $grey600; }
+    &:last-of-type { margin-right: 10px; }
+  }
+}
+
 @keyframes ripple-animation {
     from {
       transform: scale(1);

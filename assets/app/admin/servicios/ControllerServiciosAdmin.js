@@ -4,13 +4,13 @@
         .module('backend')
         .controller('ControllerServiciosAdmin', ControllerServiciosAdmin);
 
-    function ControllerServiciosAdmin($scope, newElement) {
+    function ControllerServiciosAdmin($scope) {
         $scope.isLoaded = false;
         $scope.isLoading = true;
         $scope.displayAddBlock = false;
 
-        var typeService = '',
-            persistService = {},
+        $scope.serviceType = '';
+        var    persistService = {},
             localChanged = false;
         $scope.dropPlaceholder = 'Seleccione tipo de servicio';
 
@@ -21,20 +21,30 @@
         };
 
         $scope.allServicies = {};
+        $scope.newElement = {
+            newObject: undefined
+        };
 
         $scope.service = {
             data: {},
             headers: {}
         };
 
-        $scope.newElement;
-
         $scope.addElement = function() {
-            $scope.newElement = {
-                newObject: newElement[typeService]
-            };
             $scope.displayAddBlock = true;
         }
+
+        $scope.aceptElement = function(newElement){
+            var tempData = $scope.service.data;
+            tempData[$scope.service.data.length] = newElement;
+            $scope.service.data = tempData;
+
+            $scope.displayAddBlock = false;
+        };
+
+        $scope.cancelElement = function(){
+            $scope.displayAddBlock = false;
+        };
 
         $scope.persistService;
 
@@ -86,7 +96,7 @@
         usersDB.on('value', function (data) {
             $scope.listOptions.options = Object.keys(data.val());
             $scope.allServicies = data.val();
-            $scope.service.data = data.val()[typeService];
+            $scope.service.data = data.val()[$scope.serviceType];
             $scope.isLoaded = true;
             persistService = data.val();
             $scope.isLoading = false;
@@ -99,7 +109,7 @@
 
         $scope.setValue = function () {
             localChanged = true;
-            firebase.database().ref('data/servicios/' + typeService).set($scope.service.data);
+            firebase.database().ref('data/servicios/' + $scope.serviceType).set($scope.service.data);
 
         }
 
@@ -110,7 +120,7 @@
         $scope.$watch('listOptions.selected', function (val) {
             if (val == $scope.dropPlaceholder) { return; }
             $scope.service.data = $scope.allServicies[val];
-            typeService = val;
+            $scope.serviceType = val;
         }, true);
 
         /* $scope.addDetail = function() {

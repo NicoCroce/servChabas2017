@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .run(function($rootScope, services) {
             services.init();
             $rootScope.backSectionVisible = false;

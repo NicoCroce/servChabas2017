@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .factory('factoryClima', factoryClima);
 
     function factoryClima() {

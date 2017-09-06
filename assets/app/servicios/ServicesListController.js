@@ -1,7 +1,7 @@
 (function() {
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .controller('ServicesListController', ServicesListController);
 
     function ServicesListController($scope, factoryServices) {

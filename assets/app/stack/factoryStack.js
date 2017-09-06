@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .factory('factoryStack', factoryStack);
 
     function factoryStack($resource, $q, $state) {

@@ -1,7 +1,7 @@
 (function(){
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .directive('tableBackend', tableBackend);
 
     function tableBackend (){
