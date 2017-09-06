@@ -18,12 +18,14 @@
      <button type="button" ng-click="addDetail()"> Cargar servicios</button> 
 </div> -->
 
+
 <div ng-if="!isLoading">
     <div class="select-option-add" ng-class="{'is-selected': listOptions.selected != dropPlaceholder}" ng-if="!displayAddBlock">
         <div combo list-options="listOptions"></div>
         <button class="button" ng-click="addElement()">+</button>
     </div>
-    <div add-block new-element="newElement" ng-if="displayAddBlock" service-type="{{serviceType}}" acept-element="aceptElement" cancel-element="cancelElement"></div>
+    <div add-block new-element="newElement" ng-if="displayAddBlock" service-type="{{serviceType}}" acept-element="aceptElement"
+        cancel-element="cancelElement"></div>
 
     <div block-info current-info="service.data" root-json="service.data"></div>
 </div>
@@ -47,4 +49,3 @@
         </ul>
     </div>
 </div> -->
-

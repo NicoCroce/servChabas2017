@@ -16,18 +16,24 @@
                cancelElement: "="
             },
             link: function (scope, element, attrs) {
-                scope.tempNewElement;
+                scope.tempNewElement = {
+                    newObject: {}
+                };
+                angular.copy(newElement[scope.serviceType], scope.tempNewElement.newObject);
 
                 scope.$watch('serviceType', function(){
-                    scope.tempNewElement = {
-                        newObject: newElement[scope.serviceType]
-                    };
+                    angular.copy(newElement[scope.serviceType], scope.tempNewElement.newObject);
                 });
 
+                /* scope.$watch('newElement', function (newValue) {
+                    angular.copy(newElement[scope.serviceType], scope.tempNewElement.newObject);
+                }, true);
+ */
                 scope.addElement = function(){
                     scope.aceptElement(scope.tempNewElement.newObject);
+                    scope.$broadcast('delContent');
                 }
             }
-        }
+        } 
 };
 })();

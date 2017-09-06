@@ -19,17 +19,17 @@
                 var ObjectKeys, firstKey, lastKey;
 
                 scope.$watch('currentInfo', function (newValue) {
-                    if (newValue) {
+                    if (newValue && (!scope.addElement || (scope.addElement && !content))) {
                         init();
                     }
-                });
+                }, true);
 
                 function init() {
                     if (content) { content.remove(); }
 
                     ObjectKeys = Object.keys(scope.currentInfo),
-                    firstKey = ObjectKeys[0],
-                    lastKey  = ObjectKeys[ObjectKeys.length-1];
+                        firstKey = ObjectKeys[0],
+                        lastKey = ObjectKeys[ObjectKeys.length - 1];
 
                     template = '<div>';
                     angular.forEach(scope.currentInfo, function (obj, index) {
@@ -47,8 +47,8 @@
                         templateUp = '<button ng-click="upLevel(\'' + index + '\')" class="icon-arrow_right bt-up"></button>',
                         templateControl = '';
 
-                    if(!scope.addElement) {
-                        if(index == firstKey){
+                    if (!scope.addElement) {
+                        if (index == firstKey) {
                             templateControl = templateDown;
                         } else if (index == lastKey) {
                             templateControl = templateUp;
@@ -58,7 +58,7 @@
                         templateControl = '<div class="control-block">' + templateControl + '</div>';
                     } else {
                         templateControl = '<div class="control-file"><button class="button" ng-click="cancelElement()">cancelar</button>'
-                        +'<button class="button" ng-click="addElement()">guardar</button></div>';
+                            + '<button class="button" ng-click="addElement()">guardar</button></div>';
                     }
 
 
@@ -90,6 +90,10 @@
                 function addObjectLevel(label) {
                     template += '<div class="sub-detail"><label>' + label + '</label>';
                 }
+
+                scope.$on('delContent', function(){
+                    if (content && scope.addElement) { content.remove(); }
+                });
 
                 function analizeObject(obj, ngPath) {
                     var subPath;

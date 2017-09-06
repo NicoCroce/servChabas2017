@@ -4,7 +4,7 @@
         .module('backend')
         .controller('ControllerServiciosAdmin', ControllerServiciosAdmin);
 
-    function ControllerServiciosAdmin($scope) {
+    function ControllerServiciosAdmin($scope, firebaseUtil) {
         $scope.isLoaded = false;
         $scope.isLoading = true;
         $scope.displayAddBlock = false;
@@ -31,65 +31,35 @@
         };
 
         $scope.addElement = function() {
+            $scope.newElement.newObject = undefined;
             $scope.displayAddBlock = true;
         }
 
         $scope.aceptElement = function(newElement){
-            var tempData = $scope.service.data;
-            tempData[$scope.service.data.length] = newElement;
-            $scope.service.data = tempData;
-
+            firebaseUtil.addElement($scope.service.data, newElement, 2);
             $scope.displayAddBlock = false;
+            $scope.setValue();
         };
 
         $scope.cancelElement = function(){
             $scope.displayAddBlock = false;
         };
 
-        $scope.persistService;
-
         $scope.upLevel = function (index) {
-            var tempData = {};
-            var selectedObj = null;
-            var indexCont = 0;
-            angular.forEach($scope.service.data, function(currentObj, indexList){
-
-                if(index == indexList) {
-                    selectedObj = tempData[indexCont-1];
-                    tempData[indexCont-1] = currentObj;
-                    tempData[indexCont] = selectedObj;
-                } else {
-                    tempData[indexCont] = currentObj;
-                }
-
-                indexCont ++;
-            });
-            $scope.service.data = tempData;
+            firebaseUtil.upLevel($scope.service.data, index);
             $scope.setValue();
-        };
-
+        }
+        
         $scope.downLevel = function (index) {
-            var tempData = {};
-            var selectedObj = null;
-            var indexCont = 0;
-            angular.forEach($scope.service.data, function(currentObj, indexList){
-
-                if(index != indexList) {
-                    tempData[indexCont] = currentObj;
-                } else {
-                    return selectedObj = currentObj;
-                }
-
-                if(selectedObj != null) {
-                    indexCont ++;
-                    tempData[indexCont] = selectedObj;
-                    selectedObj = null;
-                }
-                indexCont ++;
-            });
-            $scope.service.data = tempData;
+            firebaseUtil.downLevel($scope.service.data, index);
             $scope.setValue();
-        };
+        }
+
+        $scope.removeElement = function(index){
+            firebaseUtil.removeElement($scope.service.data, index);
+        }
+
+        $scope.persistService;
 
         var usersDB = firebase.database().ref('data/servicios');
 
