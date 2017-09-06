@@ -154,14 +154,17 @@ span.icon-checkmark-circle {
   input { border: 0; border-bottom: 1px solid $grey300; padding: 3px; padding-left: 10px;
     color: $color800; font-weight: 700; }
   .control-block {
-    padding: 10px; text-align: center; padding-bottom: 0;
+    padding: 10px; text-align: center; padding-bottom: 0; position: relative;
     button { 
       width: 40px; height: 40px; display: inline-block; margin: 10px; border: 0; border-radius: 50%;
       font-size: 20px; cursor: pointer; background: $grey200; color: $grey800;
       &.bt-up { transform: rotate3D(0, 0, 1, -90deg); }
       &.bt-down { transform: rotate3D(0, 0, 1, 90deg); }
-      &.icon-arrow_right:before { top: -1px; }
-    
+      &.icon-arrow_right:before { top: 0; }
+      &.icon-delete { 
+        position: absolute; left: 0;
+        &:before { position: relative; top: -1px; }
+      }
     }
   }
 }
@@ -169,3 +172,5 @@ span.icon-checkmark-circle {
 .sub-detail > div { padding-left: 20px; border-left: 1px dashed #888888; margin-bottom: 3px; }
 
 .loading-serv { text-align: center; margin: 15px; }
+
+.add-element-block { margin: 30px 0; }

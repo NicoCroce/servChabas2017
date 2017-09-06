@@ -45,15 +45,16 @@
 
                     var templateDown = '<button ng-click="downLevel(\'' + index + '\')" class="icon-arrow_right bt-down"></button>',
                         templateUp = '<button ng-click="upLevel(\'' + index + '\')" class="icon-arrow_right bt-up"></button>',
+                        templateDelete = '<button ng-click="deleteElement(\'' + index + '\')" class="icon-delete"></button>',
                         templateControl = '';
 
                     if (!scope.addElement) {
                         if (index == firstKey) {
-                            templateControl = templateDown;
+                            templateControl = templateDelete + templateDown;
                         } else if (index == lastKey) {
-                            templateControl = templateUp;
+                            templateControl = templateDelete + templateUp;
                         } else {
-                            templateControl = templateUp + templateDown;
+                            templateControl = templateDelete + templateUp + templateDown;
                         }
                         templateControl = '<div class="control-block">' + templateControl + '</div>';
                     } else {

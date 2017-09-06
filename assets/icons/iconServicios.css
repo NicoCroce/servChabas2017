@@ -23,6 +23,81 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-add:before {
+  content: "\e90b";
+}
+.icon-delete:before {
+  content: "\e90a";
+}
+.icon-bus:before {
+  content: "\e904";
+}
+.icon-info:before {
+  content: "\e903";
+}
+.icon-phone:before {
+  content: "\e902";
+}
+.icon-arrow_right:before {
+  content: "\e900";
+}
+.icon-signal_wifi_off:before {
+  content: "\e1da";
+}
+.icon-system_update:before {
+  content: "\e906";
+}
+.icon-sync:before {
+  content: "\e907";
+}
+.icon-flash_on:before {
+  content: "\e3e7";
+}
+.icon-pause:before {
+  content: "\e034";
+}
+.icon-play_arrow:before {
+  content: "\e037";
+}
+.icon-arrow_down:before {
+  content: "\e5db";
+}
+.icon-arrow_up:before {
+  content: "\e5d8";
+}
+.icon-options-v:before {
+  content: "\e901";
+}
+.icon-location2:before {
+  content: "\e603";
+}
+.icon-map:before {
+  content: "\e605";
+}
+.icon-stack2:before {
+  content: "\e606";
+}
+.icon-patch:before {
+  content: "\e607";
+}
+.icon-pil:before {
+  content: "\e608";
+}
+.icon-injection:before {
+  content: "\e609";
+}
+.icon-envelope:before {
+  content: "\e60a";
+}
+.icon-paperplane:before {
+  content: "\e60d";
+}
+.icon-heart:before {
+  content: "\e60e";
+}
+.icon-email:before {
+  content: "\e616";
+}
 .icon-cloudy:before {
   content: "\e909";
 }
@@ -79,75 +154,6 @@
 }
 .icon-user-check:before {
   content: "\e975";
-}
-.icon-options-v:before {
-  content: "\e901";
-}
-.icon-location2:before {
-  content: "\e603";
-}
-.icon-map:before {
-  content: "\e605";
-}
-.icon-stack2:before {
-  content: "\e606";
-}
-.icon-patch:before {
-  content: "\e607";
-}
-.icon-pil:before {
-  content: "\e608";
-}
-.icon-injection:before {
-  content: "\e609";
-}
-.icon-envelope:before {
-  content: "\e60a";
-}
-.icon-paperplane:before {
-  content: "\e60d";
-}
-.icon-heart:before {
-  content: "\e60e";
-}
-.icon-bus:before {
-  content: "\e904";
-}
-.icon-info:before {
-  content: "\e903";
-}
-.icon-phone:before {
-  content: "\e902";
-}
-.icon-arrow_right:before {
-  content: "\e900";
-}
-.icon-signal_wifi_off:before {
-  content: "\e1da";
-}
-.icon-system_update:before {
-  content: "\e906";
-}
-.icon-sync:before {
-  content: "\e907";
-}
-.icon-flash_on:before {
-  content: "\e3e7";
-}
-.icon-pause:before {
-  content: "\e034";
-}
-.icon-play_arrow:before {
-  content: "\e037";
-}
-.icon-arrow_down:before {
-  content: "\e5db";
-}
-.icon-arrow_up:before {
-  content: "\e5d8";
-}
-.icon-email:before {
-  content: "\e616";
 }
 .icon-futbol-o:before {
   content: "\e908";
