@@ -59,6 +59,10 @@
             firebaseUtil.removeElement($scope.service.data, index);
         }
 
+        $scope.showAddElement = function() {
+            return $scope.service.data && $scope.service.data.length > 0 && !$scope.displayAddBlock;
+        }
+
         $scope.persistService;
 
         var usersDB = firebase.database().ref('data/servicios');

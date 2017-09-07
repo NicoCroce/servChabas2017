@@ -26,7 +26,7 @@
     <div add-block new-element="newElement" ng-if="displayAddBlock" service-type="{{serviceType}}" acept-element="aceptElement"
         cancel-element="cancelElement" class="add-element-block"></div>
     <div block-info current-info="service.data" root-json="service.data"></div>
-    <button class="button" ng-click="addElement()">
+    <button class="button add-element" ng-click="addElement()" ng-class="{'add-element-visible': showAddElement()}">
         <span class="icon-add"></span>
     </button>
 </div>

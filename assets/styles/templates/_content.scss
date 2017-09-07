@@ -174,3 +174,10 @@ span.icon-checkmark-circle {
 .loading-serv { text-align: center; margin: 15px; }
 
 .add-element-block { margin: 30px 0; }
+
+.button.add-element {
+  border-radius: 50%; width: 57px; height: 57px; font-size: 25px; position: fixed; right: -70px; bottom: 20px; z-index: 1000;
+  transition: all .3s ease;
+  span { margin: 0; }
+  &.add-element-visible { right: 20px; }
+}
