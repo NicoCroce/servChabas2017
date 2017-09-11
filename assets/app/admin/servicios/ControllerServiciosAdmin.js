@@ -20,6 +20,8 @@
             open: false
         };
 
+        $scope.showBlockConfirm = false;
+
         $scope.allServicies = {};
         $scope.newElement = {
             newObject: undefined
@@ -56,11 +58,16 @@
         }
 
         $scope.removeElement = function(index){
-            firebaseUtil.removeElement($scope.service.data, index);
+            $scope.showBlockConfirm = true;
+            /* firebaseUtil.removeElement($scope.service.data, index); */
         }
 
         $scope.showAddElement = function() {
             return $scope.service.data && $scope.service.data.length > 0 && !$scope.displayAddBlock;
+        }
+
+        $scope.cancelAction = function() {
+            $scope.showBlockConfirm = false;
         }
 
         $scope.persistService;
