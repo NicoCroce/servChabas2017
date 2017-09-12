@@ -43,7 +43,9 @@
             return;
         }
 
-        function removeElement(){};
+        function removeElement(elementsArrays, index){
+            return elementsArrays.splice(index, 1);
+        };
 
         function arrayToJson(){};
 

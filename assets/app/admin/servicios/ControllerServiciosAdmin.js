@@ -38,7 +38,7 @@
         }
 
         $scope.aceptElement = function(newElement){
-            firebaseUtil.addElement($scope.service.data, newElement, 2);
+            firebaseUtil.addElement($scope.service.data, newElement, 0);
             $scope.displayAddBlock = false;
             $scope.setValue();
         };
@@ -57,8 +57,10 @@
             $scope.setValue();
         }
 
+        var indexToRemove;
         $scope.removeElement = function(index){
             $scope.showBlockConfirm = true;
+            indexToRemove = index;
             /* firebaseUtil.removeElement($scope.service.data, index); */
         }
 
@@ -68,6 +70,12 @@
 
         $scope.cancelAction = function() {
             $scope.showBlockConfirm = false;
+        }
+
+        $scope.aceptAction = function() {
+            $scope.showBlockConfirm = false;
+            firebaseUtil.removeElement($scope.service.data, indexToRemove);
+            $scope.setValue();
         }
 
         $scope.persistService;

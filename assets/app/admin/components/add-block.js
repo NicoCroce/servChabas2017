@@ -22,6 +22,7 @@
                 angular.copy(newElement[scope.serviceType], scope.tempNewElement.newObject);
 
                 scope.$watch('serviceType', function(){
+                    scrollTo(document.body, 0, 100);
                     angular.copy(newElement[scope.serviceType], scope.tempNewElement.newObject);
                 });
 
