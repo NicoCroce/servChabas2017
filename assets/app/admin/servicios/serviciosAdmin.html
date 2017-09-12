@@ -1,24 +1,4 @@
-<!-- <p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
-<div ng-if="!isLoading">
-    <div combo list-options="listOptions"></div>
-    <div class="element-edit" ng-repeat="dataLevel in service.data track by $index">
-        <h1 ng-bind="dataLevel['nombre']"></h1>
-        <div ng-repeat="(i, d) in dataLevel track by $index">
-            <label ng-bind="i"></label>
-            <div ng-if="!isObject(d)">
-                <input ng-model="dataLevel[i]" ng-change="setValue()">
-            </div>
-            <div ng-if="isObject(d)" class="sub-detail">
-                <div ng-repeat="(j, subData) in d track by $index">
-                    <label ng-bind="j"></label><input ng-model="d[j]" ng-change="setValue()">
-                </div>
-            </div>
-        </div>
-    </div>
-     <button type="button" ng-click="addDetail()"> Cargar servicios</button> 
-</div> -->
-
-
+<p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
 <div ng-if="!isLoading">
     <div class="select-option-add" ng-class="{'is-selected': listOptions.selected != dropPlaceholder}" ng-if="!displayAddBlock">
         <div combo list-options="listOptions"></div>
@@ -34,23 +14,3 @@
     <button class="button" ng-click="cancelAction()">cancelar</button>
     <button class="button" ng-click="aceptAction()">aceptar</button>
 </div>
-
-
-<!--  <h1 ng-bind="dataLevel['nombre']"></h1>
-        <div block-info current-info="{{dataLevel}}" current-index="{{key}}" root-json="service.data"></div> -->
-
-
-<!-- <div class="col-sm-{{12/kanbanBoard.numberOfColumns}} col-xs-{{12/kanbanBoard.numberOfColumns}}" ng-repeat="column in kanbanBoard.columns"
-    data-columnindex="{{$index}}" id="column{{$index}}">
-    <div class="column">
-        <div class="columnHeader">
-            <a title="Add card to column" ng-click="addNewCard(column)"><i
-                       class="glyphicon glyphicon-plus addNewCard"></i></a>
-            <span>{{column.name}} ({{column.cards.length}})</span>
-        </div>
-        <ul class="cards card-list" as-sortable="kanbanSortOptions" data-ng-model="column.cards">
-            <li class="card" ng-repeat="card in column.cards" as-sortable-item ng-include="'./templates/admin/servicios/card.html'">
-            </li>
-        </ul>
-    </div>
-</div> -->

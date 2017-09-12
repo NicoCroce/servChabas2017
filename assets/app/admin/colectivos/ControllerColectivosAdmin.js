@@ -4,28 +4,80 @@
         .module('backend')
         .controller('ControllerColectivosAdmin', ControllerColectivosAdmin);
 
-    function ControllerColectivosAdmin($scope) {
-
-        $scope.kanbanBoard = { "name": "Kanban Board", "numberOfColumns": 4, "columns": [{ "name": "Ideas", "cards": [{ "title": "Come up with a POC for new Project", "status": "Ideas" }, { "title": "Design new framework for reporting module", "status": "Ideas" }] }, { "name": "Not started", "cards": [{ "title": "Explore new IDE for Development", "status": "Not started", "details": "Testing Card Details" }, { "title": "Get new resource for new Project", "status": "Not started", "details": "Testing Card Details" }] }, { "name": "In progress", "cards": [{ "title": "Develop ui for tracker module", "status": "In progress", "details": "Testing Card Details" }, { "title": "Develop backend for plan module", "status": "In progress", "details": "Testing Card Details" }] }, { "name": "Done", "cards": [{ "title": "Test user module", "status": "Done", "details": "Testing Card Details" }, { "title": "End to End Testing for user group module", "status": "Done", "details": "Testing Card Details" }, { "title": "CI for user module", "status": "Done", "details": "Testing Card Details" }] }], "backlogs": [] };
-
+    function ControllerColectivosAdmin($scope, firebaseUtil) {
         $scope.isLoaded = false;
         $scope.isLoading = true;
+        $scope.displayAddBlock = false;
+
         var typeBus = '',
             persistBus = {},
             localChanged = false;
+        $scope.dropPlaceholder = 'Seleccione recorrido';
 
         $scope.listOptions = {
             options: [],
-            selected: 'Seleccione recorrido',
+            selected: $scope.dropPlaceholder,
             open: false
         };
 
-        $scope.allServicies = {};
+        $scope.showBlockConfirm = false;
+
+        $scope.allBuses = {};
+
+        $scope.newElement = {
+            newObject: undefined
+        };
 
         $scope.bus = {
             data: {},
             headers: {}
         };
+
+        $scope.addElement = function () {
+            $scope.newElement.newObject = undefined;
+            $scope.displayAddBlock = true;
+        }
+
+        $scope.aceptElement = function (newElement) {
+            firebaseUtil.addElement($scope.bus.data, newElement, 0);
+            $scope.displayAddBlock = false;
+            $scope.setValue();
+        };
+
+        $scope.cancelElement = function () {
+            $scope.displayAddBlock = false;
+        };
+
+        $scope.upLevel = function (index) {
+            firebaseUtil.upLevel($scope.bus.data, index);
+            $scope.setValue();
+        }
+
+        $scope.downLevel = function (index) {
+            firebaseUtil.downLevel($scope.bus.data, index);
+            $scope.setValue();
+        }
+
+        var indexToRemove;
+        $scope.removeElement = function (index) {
+            $scope.showBlockConfirm = true;
+            indexToRemove = index;
+            /* firebaseUtil.removeElement($scope.bus.data, index); */
+        }
+
+        $scope.showAddElement = function () {
+            return $scope.bus.data && $scope.bus.data.length > 0 && !$scope.displayAddBlock;
+        }
+
+        $scope.cancelAction = function () {
+            $scope.showBlockConfirm = false;
+        }
+
+        $scope.aceptAction = function () {
+            $scope.showBlockConfirm = false;
+            firebaseUtil.removeElement($scope.bus.data, indexToRemove);
+            $scope.setValue();
+        }
 
         $scope.persistBus;
 
@@ -33,7 +85,7 @@
 
         usersDB.on('value', function (data) {
             $scope.listOptions.options = Object.keys(data.val());
-            $scope.allServicies = data.val();
+            $scope.allBuses = data.val();
             $scope.bus.data = data.val()[typeBus];
             $scope.isLoaded = true;
             persistBus = data.val();
@@ -47,29 +99,18 @@
 
         $scope.setValue = function () {
             localChanged = true;
-            /* firebase.database().ref('data/colectivos/' + typeBus).update($scope.bus.data); */
+            firebase.database().ref('data/colectivos/' + typeBus).set($scope.bus.data); 
         }
 
         $scope.isObject = function (element) {
             return typeof element == "object";
         }
 
-        $scope.$watch('listOptions.selected', function (val) {
-            $scope.bus.data = $scope.allServicies[val];
+        $scope.$watch('listOptions.selected', function (val, oldVal) {
+            if (val == $scope.dropPlaceholder) { return; }
+            $scope.bus.data = $scope.allBuses[val];
             typeBus = val;
         }, true);
-
-        /* $scope.addDetail = function() {
-            var servKeys = Object.keys($scope.allServicies.utiles);
-            servKeys.forEach(function(element) {
-                if($scope.allServicies.utiles[element].detalle){ return; }
-                $scope.allServicies.utiles[element]['detalle'] = {
-                    direccion: ""
-                }
-            });
-            firebase.database().ref('data/servicios/utiles').update($scope.allServicies.utiles);
-        } */
-
 
         $scope.sendUtil = function () {
             var objToSend = {
@@ -78,36 +119,6 @@
             }
             var newTelKey = firebase.database().ref('data/servicios/utiles').push().key;
             firebase.database().ref('data/servicios/utiles/' + newTelKey).update(objToSend);
-        }
-
-
-
-
-
-        $scope.listOptions = {
-            options: [],
-            selected: 'Seleccione tipo de servicio',
-            open: false
         };
-
-        $scope.allServicies = {};
-
-        $scope.buses = {};
-
-        var usersDB = firebase.database().ref('data/colectivos');
-        // Si se actualzia el valor se obtiene automáticamente. Como un OBSERVER 
-        usersDB.on('value', function (data) {
-            $scope.listOptions.options = Object.keys(data.val());
-            $scope.allServicies = data.val();
-            $scope.buses = data.val()["colectivos"];
-            /*$scope.allUtils = data.val();
-            debugger;*/
-            $scope.$apply();
-        });
-
-        $scope.$watch('listOptions.selected', function (val) {
-            $scope.buses = $scope.allServicies[val];
-        }, true);
-
     };
 })();

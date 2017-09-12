@@ -26,11 +26,18 @@
             }
         };
 
+        var colectivos = {
+            horario: '',
+            empresa: '',
+            detalle: ''
+        }
+
         return {
             instituciones: mainBlock,
             remises: remises,
             rotiserias: mainBlock,
-            utiles: mainBlock
+            utiles: mainBlock,
+            colectivos: colectivos
         }
 };
 })();
