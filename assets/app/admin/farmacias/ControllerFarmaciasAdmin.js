@@ -12,9 +12,9 @@
         $scope.serviceType = '';
         var    persistService = {},
             localChanged = false;
-        $scope.dropPlaceholder = 'Seleccione tipo de servicio';
+        $scope.dropPlaceholder = 'Seleccione farmacia';
 
-        $scope.listOptions = {
+        $scope.listOptionsPharmacy = {
             options: [],
             selected: $scope.dropPlaceholder,
             open: false
@@ -83,7 +83,7 @@
         var usersDB = firebase.database().ref('data/farmacias');
 
         usersDB.on('value', function (data) {
-            $scope.listOptions.options = Object.keys(data.val());
+            $scope.listOptionsPharmacy.options = Object.keys(data.val().farmacias);
             $scope.allServicies = data.val();
             $scope.service.data = data.val()[$scope.serviceType];
             $scope.isLoaded = true;
