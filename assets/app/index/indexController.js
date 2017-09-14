@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .controller('IndexController', IndexController);
 
     function IndexController($scope, factoryIndex, $rootScope, utilsComponents, $state) {

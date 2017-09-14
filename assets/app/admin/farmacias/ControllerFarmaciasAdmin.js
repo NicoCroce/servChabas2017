@@ -2,9 +2,9 @@
     'use strict'
     angular
         .module('backend')
-        .controller('ControllerServiciosAdmin', ControllerServiciosAdmin);
+        .controller('ControllerFarmaciasAdmin', ControllerFarmaciasAdmin);
 
-    function ControllerServiciosAdmin($scope, firebaseUtil) {
+    function ControllerFarmaciasAdmin($scope, firebaseUtil) {
         $scope.isLoaded = false;
         $scope.isLoading = true;
         $scope.displayAddBlock = false;
@@ -12,9 +12,9 @@
         $scope.serviceType = '';
         var    persistService = {},
             localChanged = false;
-        $scope.dropPlaceholder = 'Seleccione tipo de servicio';
+        $scope.dropPlaceholder = 'Seleccione farmacia';
 
-        $scope.listOptions = {
+        $scope.listOptionsPharmacy = {
             options: [],
             selected: $scope.dropPlaceholder,
             open: false
@@ -80,11 +80,12 @@
 
         $scope.persistService;
 
-        var usersDB = firebase.database().ref('data/servicios');
+        var usersDB = firebase.database().ref('data/farmacias');
 
         usersDB.on('value', function (data) {
-            $scope.listOptions.options = Object.keys(data.val());
+            $scope.listOptionsPharmacy.options = Object.keys(data.val().farmacias);
             $scope.allServicies = data.val();
+            $scope.service.data = data.val()[$scope.serviceType];
             $scope.isLoaded = true;
             persistService = data.val();
             $scope.isLoading = false;
@@ -107,12 +108,7 @@
 
         $scope.$watch('listOptions.selected', function (val) {
             if (val == $scope.dropPlaceholder) { return; }
-            if(typeof $scope.allServicies[val] == 'object') {
-                $scope.service.data = firebaseUtil.jsonToArray($scope.allServicies[val]);
-            } else {
-                $scope.service.data = $scope.allServicies[val];
-            }
-            
+            $scope.service.data = $scope.allServicies[val];
             $scope.serviceType = val;
         }, true);
 

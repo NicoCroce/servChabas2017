@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .factory('factoryFarmacy', factoryFarmacy);
 
     function factoryFarmacy($resource, $q) {

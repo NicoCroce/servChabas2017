@@ -1,7 +1,7 @@
 <p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
 <div ng-if="!isLoading">
-    <div class="select-option-add" ng-class="{'is-selected': listOptions.selected != dropPlaceholder}" ng-if="!displayAddBlock">
-        <div combo list-options="listOptions"></div>
+    <div class="select-option-add" ng-class="{'is-selected': listOptionsPharmacy.selected != dropPlaceholder}" ng-if="!displayAddBlock">
+        <div combo list-options="listOptionsPharmacy"></div>
     </div>
     <div add-block new-element="newElement" ng-if="displayAddBlock" service-type="{{serviceType}}" acept-element="aceptElement"
         cancel-element="cancelElement" class="add-element-block"></div>

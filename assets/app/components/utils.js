@@ -1,7 +1,7 @@
 (function () {
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .factory('utilsComponents', utilsComponents);
 
     function utilsComponents($rootScope, $state, $stateParams) {

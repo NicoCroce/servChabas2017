@@ -16,6 +16,11 @@
 		}
 }
 
+.select-option-add {
+	margin: 15px 0; margin-bottom: 30px; width: 100%; display: table;
+	.select-option { margin: 0; display: table-cell; vertical-align: middle; width: 100%; }
+}
+
 /*&.bg-white {
 	>ul { width: 90%; vertical-align: top; float: left; }
 	>div { 

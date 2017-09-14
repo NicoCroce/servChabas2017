@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .controller('modalServicesController', modalServicesController);
 
     function modalServicesController($scope, factoryServices, $rootScope, modal) {

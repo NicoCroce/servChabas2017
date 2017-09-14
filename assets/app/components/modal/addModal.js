@@ -1,7 +1,7 @@
 (function () {
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .directive('addModal', addModal);
 
     function addModal($rootScope, modal) {

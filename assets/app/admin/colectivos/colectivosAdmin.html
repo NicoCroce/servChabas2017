@@ -1,10 +1,17 @@
-<div combo list-options="listOptions"></div>
+<p class="loading-serv" ng-if="isLoading">Cargando servicios...</p>
 
-<table>
-    <tr>
-        <th></th>
-    </tr>
-    <tr ng-repeat="data in service track by $index">
-        <td ng-repeat="dataElement in data track by $index" ng-bind="data"></td>
-    </tr>
-</table>
+<div ng-if="!isLoading">
+    <div class="select-option-add" ng-class="{'is-selected': listOptions.selected != dropPlaceholder}" ng-if="!displayAddBlock">
+        <div combo list-options="listOptions"></div>
+    </div>
+    <div add-block new-element="newElement" ng-if="displayAddBlock" service-type="colectivos" acept-element="aceptElement"
+        cancel-element="cancelElement" class="add-element-block"></div>
+    <div block-info current-info="bus.data" root-json="bus.data"></div>
+    <button class="button add-element" ng-click="addElement()" ng-class="{'add-element-visible': showAddElement()}">
+        <span class="icon-add"></span>
+    </button>
+</div>
+<div class="control-file confirm-block" ng-class="{'confirm-block-display': showBlockConfirm}">
+    <button class="button" ng-click="cancelAction()">cancelar</button>
+    <button class="button" ng-click="aceptAction()">aceptar</button>
+</div>

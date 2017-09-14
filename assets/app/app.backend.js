@@ -32,6 +32,12 @@
                     controller: 'ControllerServiciosAdmin'
                 })
 
+                .state('backend.farmacias', {
+                    url: '/farmacias/:back',
+                    templateUrl: 'templates/admin/farmacias/farmaciasAdmin.html',
+                    controller: 'ControllerFarmaciasAdmin'
+                })
+
         }]);
 })();
 /*

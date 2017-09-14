@@ -1,7 +1,7 @@
 (function(){
     'use strict'
     angular
-        .module('servicios-chabas')
+        .module('chabasHoy')
         .directive('rowElement', rowElement);
 
     function rowElement($compile){
