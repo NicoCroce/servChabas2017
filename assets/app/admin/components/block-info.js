@@ -22,7 +22,7 @@
                     if (newValue && (!scope.addElement || (scope.addElement && !content))) {
                         init();
                     }
-                }, true);
+                });
 
                 function init() {
                     if (content) { content.remove(); }
@@ -84,7 +84,7 @@
                 };
 
                 function addItem(label, currentPath) {
-                    template += '<div><label>' + label + '</label><input ng-model=' + currentPath + '></div>';
+                    template += '<div><label>' + label + '</label><input ng-model=' + currentPath + ' ng-change="setValue()"></div>';
                     /*  */
                 }
 
