@@ -86,7 +86,6 @@
         usersDB.on('value', function (data) {
             $scope.listOptions.options = Object.keys(data.val());
             $scope.allBuses = data.val();
-            $scope.bus.data = data.val()[typeBus];
             $scope.isLoaded = true;
             persistBus = data.val();
             $scope.isLoading = false;
@@ -108,6 +107,11 @@
 
         $scope.$watch('listOptions.selected', function (val, oldVal) {
             if (val == $scope.dropPlaceholder) { return; }
+            if(typeof $scope.allBuses[val] == 'object') {
+                $scope.bus.data = firebaseUtil.jsonToArray($scope.allBuses[val]);
+            } else {
+                $scope.bus.data = $scope.allBuses[val];
+            }
             $scope.bus.data = $scope.allBuses[val];
             typeBus = val;
         }, true);

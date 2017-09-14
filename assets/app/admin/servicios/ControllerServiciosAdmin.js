@@ -85,7 +85,6 @@
         usersDB.on('value', function (data) {
             $scope.listOptions.options = Object.keys(data.val());
             $scope.allServicies = data.val();
-            $scope.service.data = data.val()[$scope.serviceType];
             $scope.isLoaded = true;
             persistService = data.val();
             $scope.isLoading = false;
@@ -108,7 +107,12 @@
 
         $scope.$watch('listOptions.selected', function (val) {
             if (val == $scope.dropPlaceholder) { return; }
-            $scope.service.data = $scope.allServicies[val];
+            if(typeof $scope.allServicies[val] == 'object') {
+                $scope.service.data = firebaseUtil.jsonToArray($scope.allServicies[val]);
+            } else {
+                $scope.service.data = $scope.allServicies[val];
+            }
+            
             $scope.serviceType = val;
         }, true);
 

@@ -23,8 +23,8 @@
         function jsonToArray(jsonData){
             var newArray = [];
             for (var i in jsonData)
-                newArray.push([i, jsonData[i]]);
-            return;
+                newArray.push(jsonData[i]);
+            return newArray;
         }
 
         function upLevel(elementsArrays, index) {
